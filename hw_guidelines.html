@@ -13,7 +13,7 @@
 
 <title>Assignment Guidelines</title>
 
-<script src="site_libs/header-attrs-2.22/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.28/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
@@ -316,7 +316,7 @@ div.tocify {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">CRD 150: Winter 2024</a>
+      <a class="navbar-brand" href="index.html">CRD 150: Spring 2025</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
@@ -358,7 +358,10 @@ div.tocify {
       <a href="lab7.html">Lab 7</a>
     </li>
     <li>
-      <a href="lab8.html">Lab 8</a>
+      <a href="lab8a.html">Lab 8a</a>
+    </li>
+    <li>
+      <a href="lab8b.html">Lab 8b</a>
     </li>
     <li>
       <a href="lab9.html">Lab 9</a>
@@ -404,7 +407,7 @@ div.tocify {
 <h1 class="title toc-ignore">Assignment Guidelines</h1>
 <h3 class="subtitle"><font size="4">CRD 150 - Quantitative Methods in
 Community Research</font></h3>
-<h4 class="date">Winter 2024</h4>
+<h4 class="date">Spring 2025</h4>
 
 </div>
 
@@ -433,7 +436,7 @@ h2.title {
 </style>
 <p><br />
 </p>
-<p>Assignments will be released Wednesday morning and are due 10:00 am
+<p>Assignments will be released Wednesday morning and are due 12:00 pm
 on Canvas the following Wednesday. Assignment questions are provided at
 the end of each lab’s guide. Assignments have two components:</p>
 <ol style="list-style-type: decimal">
@@ -595,8 +598,9 @@ output:
 </p>
 <p>When answering an assignment question, you’ll have the following
 sequence of components in your R Markdown document: Question, R code
-answering the question, and your text to explain the results. Let’s say
-you have the following question in one of your assignments.</p>
+answering the question, comments explaining your code, and your text to
+explain the results. Let’s say you have the following question in one of
+your assignments.</p>
 <pre><code>Question 1
 
 1+1
@@ -605,10 +609,11 @@ you have the following question in one of your assignments.</p>
 <p><br />
 </p>
 <p>Assignments will ask you to write R code to accomplish a data
-analysis task. You present and execute your R code inside R code chunks.
-R chunks start with <code>```{r}</code> and end with <code>```</code>,
-and you insert your R code in between. To designate <code>1+1</code> as
-R code, it will look like the following in your R Markdown document.</p>
+analysis task such as the one asked above. You present and execute your
+R code inside R code chunks. R chunks start with <code>```{r}</code> and
+end with <code>```</code>, and you insert your R code in between. To
+designate <code>1+1</code> as R code, it will look like the following in
+your R Markdown document.</p>
 <pre><code>```{r}
 1+1
 ```</code></pre>
@@ -639,7 +644,7 @@ states that everything inside the chunk will be in R code. Next to the
 <p><br></p>
 <p>Here, I named the chunk <code>q1chunk1</code> which indicates this is
 question 1, chunk 1. You can name the chunk whatever you like (sally,
-mariah, proflondon). The chunk name is not required; however, it is good
+jenny, proflondon). The chunk name is not required; however, it is good
 practice to give each chunk a unique name (we’ll see its value later
 when we talk about knitting).</p>
 <p>In every R Markdown assignment template, you will notice the
@@ -692,7 +697,7 @@ explain results. Going back to our example question from above</p>
 1+1
 ```
 
-This yields two</code></pre>
+The operation yields two</code></pre>
 <p><br></p>
 <p>The question and text explaining the result reside outside of the R
 chunk. There is nothing special about the text in terms of its format or
@@ -773,7 +778,7 @@ type in the following to answer this question.</p>
 1+1
 ```
 
-This yields two</code></pre>
+The operation yields two</code></pre>
 <p><br></p>
 <p>Run that code chunk to make sure it works (you should get 2!).
 <em>Then</em> proceed to the next question. Let me emphasize: <strong>Do
@@ -786,6 +791,10 @@ click your mouse in the R code chunk you want to run and click on <img
 src="hwguide3.png" />
 located at the top of the R Markdown window and select <em>Run Current
 Chunk</em>.</p>
+<center>
+<p><img
+src="runchunk.png" /></p>
+</center>
 <p>Second, you can place your mouse cursor in the R code chunk and click
 on <img
 src="hwguide4.png" />
@@ -856,12 +865,12 @@ alt="R Markdown options." />
 </p>
 <p>In addition to the R Markdown Rmd file, you will need to submit its
 knitted result. Knitting puts an assignment’s main components - code,
-output, and text - in a nicely formatted document. You can create three
-types of knitted documents: html, Microsoft Word, and a pdf. In this
-class, we will be knitting always to an html file because it is the
-easiest of the three options. Go back to the YAML example I showed
-above. <em>output:</em> <em>html_document</em> tells R to produce an
-html document.</p>
+comments, output, and text - in a nicely formatted document. You can
+create three types of knitted documents: html, Microsoft Word, and a
+pdf. In this class, we will be knitting always to an html file because
+it is the easiest of the three options. Go back to the YAML example I
+showed above. <em>output:</em> <em>html_document</em> tells R to produce
+an html document.</p>
 <p><br></p>
 <p>To Knit your document click <img
 src="hwguide6.png" />,
@@ -872,10 +881,10 @@ src="hwguide6.png" />
 and selecting your document choice (default is html). When you start
 knitting, you will notice that a new window on the bottom left named
 “Render” will appear in place of the console. The window will show the
-progress in your knitting. R is going through each R code chunk one at a
-time. The percentages you will see will be based on the proportion of
-your R Markdown file that R has successfully knitted. See Figure
-below.</p>
+progress in your knitting. R Studio is going through each R code chunk
+one at a time. The percentages you will see will be based on the
+proportion of your R Markdown file that R has successfully knitted. See
+Figure below.</p>
 <p><br></p>
 <center>
 <div class="float">
@@ -889,17 +898,18 @@ alt="R Markdown knitting progress window" />
 <p>If you have successfully knitted the RMarkdown file, the resulting
 html file will appear in the same folder as where your RMarkdown file
 resides.</p>
-<p>If it has a problem knitting, R will stop at the chunk that contains
-the problem. You can determine the offending error and where it is
-located in your RMarkwdown in the Render pane. You will see the R
-Markdown progress window, the error in red, and where R Markdown
-stopped. Carefully read the description of the error, which will contain
-the R code chunk name and the lines containing the problem in your R
-Markdown file. This is where it is useful for naming your chunks. You
-can directly go to your offending chunk and lines of code and see what
-may be the problem. For example, the figure below shows knitting was
-stopped because the column <em>tpopr</em> does not exist. You can go to
-the chunk named <em>q3chunk2</em>, lines 55-56 to remedy the issue.</p>
+<p>If it has a problem knitting, R Studio will stop at the chunk that
+contains the problem. You can determine the offending error and where it
+is located in your RMarkwdown in the Render pane in the bottom left
+window. You will see the R Markdown progress window, the error in red,
+and where R Markdown stopped. Carefully read the description of the
+error, which will contain the R code chunk name and the lines containing
+the problem in your R Markdown file. This is where it is useful for
+naming your chunks. You can directly go to your offending chunk and
+lines of code and see what may be the problem. For example, the figure
+below shows knitting was stopped because the column <em>tpopr</em> does
+not exist. You can go to the chunk named <em>q3chunk2</em>, lines 55-56
+to remedy the issue.</p>
 <p><br></p>
 <center>
 <div class="float">
@@ -989,8 +999,8 @@ data files for an assignment across different folders. Keep them in one
 folder - the folder where your R Markdown document resides. To find your
 current working directory, type in <code>getwd()</code> in your console
 and press enter. To set your working directory, type in
-<code>setwd("folder")</code> in your console, replace <em>folder</em>
-with the <strong>entire</strong> path you want R to point to, and press
+<code>setwd("folder")</code>, replace <em>folder</em> with the
+<strong>entire</strong> path you want R to point to, and press
 enter/return. You can also set your working directory by clicking on
 Session -&gt; Set Working Directory -&gt; Choose Directory from the top
 menu.</li>
@@ -1081,9 +1091,9 @@ question.</li>
 </ol>
 <ul>
 <li>Most of the questions will ask you to run code. Show that code with
-your own comments in R Markdown chunks. Bottom line: Any code you used
-to get a result should be in your assignment. Otherwise, you will get
-points off, and for some questions, get <em>all</em> points off.
+your own comments within R Markdown chunks. Bottom line: Any code you
+used to get a result should be in your assignment. Otherwise, you will
+get points off, and for some questions, get <em>all</em> points off.
 <ul>
 <li>Break up your code into different chunks where it makes sense. For
 some questions, you might include all code for a question in one single

@@ -9,12 +9,12 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="Winter 2024" />
+<meta name="author" content="Spring 2025" />
 
 
 <title>Big Data and Open Data Sources</title>
 
-<script src="site_libs/header-attrs-2.22/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.28/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
@@ -241,7 +241,7 @@ $(document).ready(function () {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">CRD 150: Winter 2024</a>
+      <a class="navbar-brand" href="index.html">CRD 150: Spring 2025</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
@@ -283,7 +283,10 @@ $(document).ready(function () {
       <a href="lab7.html">Lab 7</a>
     </li>
     <li>
-      <a href="lab8.html">Lab 8</a>
+      <a href="lab8a.html">Lab 8a</a>
+    </li>
+    <li>
+      <a href="lab8b.html">Lab 8b</a>
     </li>
     <li>
       <a href="lab9.html">Lab 9</a>
@@ -329,7 +332,7 @@ $(document).ready(function () {
 <h1 class="title toc-ignore">Big Data and Open Data Sources</h1>
 <h3 class="subtitle"><font size="4">CRD 150 - Quantitative Methods in
 Community Research</font></h3>
-<h4 class="author">Winter 2024</h4>
+<h4 class="author">Spring 2025</h4>
 
 </div>
 
@@ -372,7 +375,7 @@ information you can download.<br />
 </p>
 <ul>
 <li><p><a href="http://insideairbnb.com/get-the-data.html">Airbnb</a>:
-Provides csv files containing detailed information on data on airbnb
+Provides csv files containing detailed information on data on Airbnb
 hosts. The data are in longitude/latitude. They don’t provide historical
 data.</p></li>
 <li><p>Bikesharing: Web sites providing public use data on bikesharing.
@@ -386,8 +389,12 @@ City</a></li>
 <li><a href="https://www.divvybikes.com/system-data">Chicago</a></li>
 <li><a href="https://www.capitalbikeshare.com/system-data">Washington
 D.C.</a></li>
+<li><a href="https://bikeshare.metro.net/about/data/">Los
+Angeles</a></li>
+<li><a
+href="https://www.rideindego.com/about/data/">Philadelphia</a></li>
 </ul></li>
-<li><p><a href="https://ropensci.github.io/osmdata/">OpenStreetMaps</a>.
+<li><p><a href="https://ropensci.github.io/osmdata/">OpenStreetMap</a>.
 <strong>osmdata</strong> is an R package for downloading OpenStreetMaps
 data. The site provides a couple of vignettes on using the
 package.</p></li>
@@ -411,16 +418,6 @@ but there are some restrictions, specifically getting an access ID and
 creating your own app. Here is another <a
 href="https://github.com/richierocks/yelp">tutorial</a> for a specific R
 package that uses the Yelp API.</p></li>
-<li><p><a
-href="https://developer.twitter.com/en/docs/tweets/search/api-reference/get-search-tweets">Twitter</a>.
-Twitter provides access to a sample of their tweets. You’ll need to
-register for an API. Here are some guides to collect and manage tweets
-in R: <a
-href="https://www.earthdatascience.org/courses/earth-analytics/get-data-using-apis/use-twitter-api-r/">here</a>,
-<a
-href="https://info5940.infosci.cornell.edu/notes/webdata/twitter-api-practice/">here</a>,
-and <a
-href="https://cran.r-hub.io/web/packages/rtweet/vignettes/intro.html">here</a>.</p></li>
 </ul>
 <p><strong>Open data portals</strong></p>
 <p>Many city, county and even state governments maintain open data
@@ -437,7 +434,7 @@ Inception</a></p></li>
 Foundation</a></p></li>
 </ul>
 <p>Here are links to various open data portals in US cities (updated
-01/08/24)</p>
+3/11/25)</p>
 <p><em>California</em></p>
 <ul>
 <li><p><a href="http://gisdata-scag.opendata.arcgis.com/">Southern
@@ -463,9 +460,13 @@ County</a></p></li>
 Vista City</a></p></li>
 <li><p><a href="http://data-anaheim.opendata.arcgis.com/">Anaheim
 City</a></p></li>
+<li><p><a
+href="https://bakersfielddatalibrary-cob.opendata.arcgis.com/">Bakersfield
+City</a></p></li>
 <li><p><a href="https://data.countyofriverside.us/">Riverside
 County</a></p></li>
-<li><p><a href="https://gis-cityoffresno.hub.arcgis.com/">Fresno
+<li><p><a
+href="https://city-of-fresno-gis-hub-cityoffresno.hub.arcgis.com/">Fresno
 City</a></p></li>
 <li><p><a href="https://data.lacity.org/">Los Angeles City</a></p></li>
 <li><p><a href="http://geohub.lacity.org/">Los Angeles City</a></p></li>
@@ -480,6 +481,9 @@ City/County</a></p></li>
 <li><p><a href="https://data.sccgov.org/">Santa Clara
 County</a></p></li>
 <li><p><a href="https://data.sandiego.gov/">San Diego City</a></p></li>
+<li><p><a
+href="https://www.sandiegocounty.gov/content/sdc/data.html">San Diego
+County</a></p></li>
 <li><p><a href="https://data.ca.gov/">California State</a></p></li>
 </ul>
 <p><em>Major Cities</em></p>
@@ -520,6 +524,9 @@ href="https://github.com/awesomedata/awesome-public-datasets">Awesome
 Public Datasets</a></p></li>
 <li><p><a href="https://registry.opendata.aws/">Amazon AWS Public Data
 Sets</a></p></li>
+<li><p><a
+href="https://www.icpsr.umich.edu/web/pages/index.html">Inter-university
+Consortium for Political and Social Research</a></p></li>
 </ul>
 <hr />
 <p><a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br />This

@@ -1,7 +1,7 @@
 ---
 title: "Neighborhood Data Sources"
 subtitle: <font size="4">CRD 150 - Quantitative Methods in Community Research</font>
-author: Winter 2024
+author: Spring 2025
 output: 
   html_document:
     theme: cosmo
@@ -107,11 +107,6 @@ The following datasets provide health related indicators at small scale geograph
     + Developed by California's Office of Environmental Health Hazard Assessment, CalEnviroScreen is is a screening tool that evaluates the burden of pollution from multiple sources in California communities while accounting for potential vulnerability to the adverse effects of pollution.  You can also download a shapefile of census tracts with these indicators [here](https://oehha.ca.gov/calenviroscreen/maps-data/download-data).
   
 
-* [EJScreen](https://www.epa.gov/ejscreen/download-ejscreen-data) 
-  + Developed by the Environmental Protection Agency, EJScreen is a new nationwide environmental justice (EJ) mapping and screening tool It is based on nationally consistent data and an approach that combines environmental and demographic indicators 
-
-
-
 **Department of Housing and Urban Development (HUD)**
 
 HUD offers a plethora of lower geographic scale datasets on a variety of housing, built environment, and socioeconomic indicators for the country or select Metropolitan Areas.  The main data splash page for the HUD is located [here](https://www.huduser.gov/portal/pdrdatas_landing.html).  Many of the datasets provide indicators of HUD funding, such as tracts that qualify for [Low-Income Housing Tax Credit](https://www.huduser.gov/portal/datasets/qct.html).  They also provide [Fair Area Market Rents](https://www.huduser.gov/portal/datasets/fmr/smallarea/index.html) at the zip code level, and georeferenced data located on their [eGIS open data portal](https://hudgis-hud.opendata.arcgis.com/), which includes point level information.
@@ -151,7 +146,9 @@ A data warehouse created by the [University of Southern California](https://soci
 
 This [project](https://knowledge.luskin.ucla.edu/ca-renter-vulnerability/#top) focuses on identifying the broad vulnerabilities to COVID-19 and their disparities across neighborhoods in California.
 
+**Harvard Dataverse**
 
+[Harvard Dataverse](https://dataverse.harvard.edu/) is a free, self-service data repository open to all researchers provided by any discipline, both inside and outside of the Harvard community, where researchers can share, archive, cite, access, and explore research data. Each individual Dataverse is a customizable collections of datasets (or a virtual repository) for organizing, managing, and showcasing datasets.
 
 **Looking for data?**
 

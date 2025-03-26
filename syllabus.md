@@ -1,7 +1,7 @@
 ---
 title: "Syllabus"
 subtitle: <font size="4">CRD 150 - Quantitative Methods in Community Research</font>
-author: Winter 2024
+author: Spring 2025
 output: 
   html_document:
     toc: true
@@ -44,14 +44,14 @@ The following is an abridged version of the course syllabus.  A full course syll
 ## **Lecture and Lab Times**
 
 * Lecture: 
-    + Monday and Wednesday, 10:00-11:50 am
-    + 204 Art
+    + Monday and Wednesday, 12:10-2:00 pm
+    + 250 Olson
     + Live, in-person
     + Combination of lecture, discussion, activities and lab. See course agenda for schedule
 * Labs: 
-    + A01: Friday, 10:00-10:50 am
-    + A02: Friday, 11:00-11:50 am 
-    + 2216 Teaching and Learning Complex
+    + A01: Thursday, 4:10-5:00 pm
+    + A02: Thursday, 5:10-6:00 pm 
+    + 2020 Esau Hall
     + Live, in-person
 
 <div style="margin-bottom:25px;">
@@ -61,16 +61,16 @@ The following is an abridged version of the course syllabus.  A full course syll
 * Dr. Noli Brazil  
 * *Contact*: nbrazil.at.ucdavis.edu  
 * *Office*: 2325 Hart Hall
-* *Office hours*: Monday and Wednesday from 4:00-5:00 pm or by appointment, Zoom or in-person.  Please sign up for a slot [here](https://www.wejoinin.com/sheets/vwzry). Out of courtesy to other students, please do not sign up for more than two 10-minute blocks.  If you do, I will keep only the first two blocks. The last 20 minutes are open drop in. Zoom link is located [here](https://ucdavis.zoom.us/j/92687238324?pwd=WTRyZDZMenhZeUMyYXMxbis0ZXR4UT09) and on Canvas home page.
+* *Office hours*: Wednesday from 3:00-5:00 pm or by appointment, Zoom or in-person.  Please sign up for a slot [here](https://calendly.com/nbrazil-ucdavis/professor-brazil-s-winter-2025-office-hours?month=2025-04). Out of courtesy to other students, please do not sign up for more than two 10-minute blocks.  If you do, I will keep only the first two blocks. The last 40 minutes are open drop in. Zoom link is located [here](https://ucdavis.zoom.us/j/93812826461?pwd=f2EqwGwa79XPGiOxceBOxYw9DxHAuj.1) and on Canvas home page.
 
 <div style="margin-bottom:25px;">
 </div>
 ## **Teaching Assistant**
 
-* Jennifer Cribbs
-* *Contact*: jecribbs.at.ucdavis.edu  
-* *Office*: Plant and Environmental Sciences 2004. Zoom link located [here](https://ucdavis.zoom.us/j/97310674912?).
-* *Office hours*: Tuesday, 2:00-4:00 pm
+* Yan Yan
+* *Contact*: yayan.at.ucdavis.edu  
+* *Office*: 2420 Hart
+* *Office hours*: TBD
 
 <div style="margin-bottom:25px;">
 </div>
@@ -102,7 +102,7 @@ The course is organized into two phases.
 ### **Lecture Format**
 
 
-* Most Monday lectures will be a combination of lecture and ungraded in-class exercises/questions covering the week’s substantive topics.  The exercises during lecture are meant to be less about learning how to do a task in R, and more about deepening your understanding of the week’s substantive topics. Expect that many of these exercises and questions be reflective of those found in the quizzes. Monday lectures will not be recorded.
+* Most Monday lectures will be a combination of lecture and graded/ungraded in-class exercises/questions covering the week’s substantive topics.  The ungraded exercises during lecture are meant to be less about learning how to do a task in R, and more about deepening your understanding of the week’s substantive topics. Expect that many of these exercises and questions be reflective of those found in the quizzes. See the agenda for when the required in-class activities will take place. Monday lectures will not be recorded.
 
 * Most Wednesday lectures will be a combination of some lecture covering the week’s topic but mostly computer sessions covering the week’s lab guide, which will be released on the course website every Wednesday before class.  I will ask you to bring your laptops to Wednesday lectures in order to follow along.  Not all lectures are expected to go the full class period. Wednesday lectures will be recorded and posted on Canvas.
 
@@ -134,13 +134,13 @@ The first textbook covers the first part of the course (nonspatial data)
 
 * (RDS) Wickham, Hadley & Garret Grolemund. (2017). R for Data Science. Sebastopol, CA: O’Reilly Media.
 
-The textbook is free online at: http://r4ds.had.co.nz/introduction.html  
+The textbook is free online at: https://r4ds.had.co.nz/
 
 The second textbook covers the second part of the course (spatial data)
 
-* (GWR) Lovelace, Robin, Jakub Nowosad & Jannes Muenchow. (Forthcoming) Geocomputation with R. CRC Press.
+* (GWR) Lovelace, Robin, Jakub Nowosad & Jannes Muenchow. (2019) Geocomputation with R. CRC Press.
 
-The textbook is free online at: https://geocompr.robinlovelace.net/
+The textbook is free online at: https://r.geocompx.org/
 
 <div style="margin-bottom:25px;">
 </div>
@@ -174,7 +174,11 @@ Late submissions will be deducted 10% per 24 hours until 72 hours after the subm
 
 There will be two quizzes that will test conceptual material covered in lecture and readings.  The quizzes are open book and will be taken in class on your laptop during their designated dates and will cover only the material covered since the last quiz. They will consist of short computational, multiple choice and short answer questions.  You will not be expected to write or interpret R code. Make-up quizzes will be given ONLY in the case of extreme emergencies (severe illness, death in the immediate family) and when accompanied by appropriate documentation (e.g. doctor’s note). In the case of unexcused absences (travel plans, overslept, etc.), there are no make-up quizzes.  If you have been tested or have been exposed to COVID, and cannot take the test in class but can take it at home, we will provide accommodations to take the quiz during the same time as the rest of the class.
 
-3. Final course project (30%)
+3. In-class activities (5%)
+
+There will be two in-class activities that will focus on the use of Artificial Intelligence (AI) in learning how to code. We strictly prohibit the use of AI in quizzes and written portions of your assignments and final project is not permitted. You are allowed to use AI in the coding portions of your homework assignments, but only to help aid in your learning of the material. The two in-class activities will demonstrate how to view AI not as a tool to replace your learning, but to enhance it.  Attendance is required unless you provide a viable excuse ahead of the designated class. In-class activities cannot be made up.
+
+4. Final course project (25%)
 
 The purpose of the final course project is to provide students the opportunity to apply the concepts and methods learned in class on a real-world problem of their choice.  The project is an individual project.  It will be completed in phases, which are designed to ensure progress throughout the quarter.  The project will involve choosing at least one specific community (city or county) and answering a question about that community.  You will (i) identify a community of interest (city or county with a population size in the top 100); (ii) identify a question you want to answer for that community; (iii) find some data that pertain to the community and topic of interest; (iv) organize those data so that you can analyze them; (iv) perform some analysis on the data; (v) present your results through a StoryMap; (vi) give feedback to your peers’ StoryMaps.  More detailed information of project parameters are provided on Canvas in the document final_project_description.pdf in the Final Project folder on Canvas.
 
@@ -190,7 +194,7 @@ Please see the full syllabus on the Canvas website for information regarding stu
 ## **Course Agenda**
 \
 
-The schedule is subject to revision throughout the quarter.  Please see the full syllabus for a more detailed version of the agenda.
+The schedule is subject to revision throughout the quarter.  Please see the full syllabus on Canvas for a more detailed version of the agenda.
 
 <table class="table table-striped table-hover table-responsive" style="margin-left: auto; margin-right: auto;">
  <thead>
@@ -201,294 +205,327 @@ The schedule is subject to revision throughout the quarter.  Please see the full
    <th style="text-align:left;"> Readings </th>
    <th style="text-align:left;"> Assignment </th>
    <th style="text-align:left;"> Quiz </th>
+   <th style="text-align:left;"> Activity </th>
    <th style="text-align:left;"> Project </th>
   </tr>
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;width: 5em; "> 8-Jan </td>
+   <td style="text-align:left;width: 5em; "> 31-Mar </td>
    <td style="text-align:left;"> Lecture </td>
-   <td style="text-align:left;"> Intro to class. Intro to R </td>
+   <td style="text-align:left;"> Intro to class. Data analysis framework. </td>
    <td style="text-align:left;width: 13em; "> Handout 1; Duarte &amp; deSouza </td>
    <td style="text-align:left;">  </td>
    <td style="text-align:left;">  </td>
    <td style="text-align:left;">  </td>
+   <td style="text-align:left;">  </td>
   </tr>
   <tr>
-   <td style="text-align:left;width: 5em; "> 10-Jan </td>
+   <td style="text-align:left;width: 5em; "> 2-Apr </td>
    <td style="text-align:left;"> Lecture </td>
-   <td style="text-align:left;"> Data analysis framework. Intro to R </td>
+   <td style="text-align:left;"> Intro to R </td>
    <td style="text-align:left;width: 13em; ">  </td>
    <td style="text-align:left;">  </td>
    <td style="text-align:left;">  </td>
    <td style="text-align:left;">  </td>
+   <td style="text-align:left;">  </td>
   </tr>
   <tr>
-   <td style="text-align:left;width: 5em; "> 12-Jan </td>
+   <td style="text-align:left;width: 5em; "> 3-Apr </td>
    <td style="text-align:left;"> Lab </td>
    <td style="text-align:left;"> Intro to R </td>
    <td style="text-align:left;width: 13em; ">  </td>
    <td style="text-align:left;">  </td>
    <td style="text-align:left;">  </td>
    <td style="text-align:left;">  </td>
+   <td style="text-align:left;">  </td>
   </tr>
   <tr>
-   <td style="text-align:left;width: 5em; "> 15-Jan </td>
+   <td style="text-align:left;width: 5em; "> 7-Apr </td>
    <td style="text-align:left;"> Lecture </td>
-   <td style="text-align:left;"> MLK Holiday </td>
-   <td style="text-align:left;width: 13em; ">  </td>
+   <td style="text-align:left;"> Data wrangling </td>
+   <td style="text-align:left;width: 13em; "> Handout 2 </td>
+   <td style="text-align:left;">  </td>
    <td style="text-align:left;">  </td>
    <td style="text-align:left;">  </td>
    <td style="text-align:left;">  </td>
   </tr>
   <tr>
-   <td style="text-align:left;width: 5em; "> 17-Jan </td>
+   <td style="text-align:left;width: 5em; "> 9-Apr </td>
    <td style="text-align:left;"> Lecture </td>
    <td style="text-align:left;"> Data wrangling in R </td>
-   <td style="text-align:left;width: 13em; "> Handout 2 </td>
+   <td style="text-align:left;width: 13em; ">  </td>
    <td style="text-align:left;"> HW 1 </td>
    <td style="text-align:left;">  </td>
    <td style="text-align:left;">  </td>
+   <td style="text-align:left;">  </td>
   </tr>
   <tr>
-   <td style="text-align:left;width: 5em; "> 19-Jan </td>
+   <td style="text-align:left;width: 5em; "> 10-Apr </td>
    <td style="text-align:left;"> Lab </td>
    <td style="text-align:left;"> Data wrangling in R </td>
    <td style="text-align:left;width: 13em; ">  </td>
    <td style="text-align:left;">  </td>
    <td style="text-align:left;">  </td>
    <td style="text-align:left;">  </td>
+   <td style="text-align:left;">  </td>
   </tr>
   <tr>
-   <td style="text-align:left;width: 5em; "> 22-Jan </td>
+   <td style="text-align:left;width: 5em; "> 14-Apr </td>
    <td style="text-align:left;"> Lecture </td>
    <td style="text-align:left;"> Intro to the U.S. Census </td>
    <td style="text-align:left;width: 13em; "> Handout 3 </td>
    <td style="text-align:left;">  </td>
    <td style="text-align:left;">  </td>
+   <td style="text-align:left;"> A 1 </td>
    <td style="text-align:left;">  </td>
   </tr>
   <tr>
-   <td style="text-align:left;width: 5em; "> 24-Jan </td>
+   <td style="text-align:left;width: 5em; "> 16-Apr </td>
    <td style="text-align:left;"> Lecture </td>
    <td style="text-align:left;"> Working with U.S. Census data in R </td>
    <td style="text-align:left;width: 13em; ">  </td>
    <td style="text-align:left;"> HW 2 </td>
    <td style="text-align:left;">  </td>
    <td style="text-align:left;">  </td>
+   <td style="text-align:left;">  </td>
   </tr>
   <tr>
-   <td style="text-align:left;width: 5em; "> 26-Jan </td>
+   <td style="text-align:left;width: 5em; "> 17-Apr </td>
    <td style="text-align:left;"> Lab </td>
    <td style="text-align:left;"> Working with U.S. Census data in R </td>
    <td style="text-align:left;width: 13em; ">  </td>
    <td style="text-align:left;">  </td>
    <td style="text-align:left;">  </td>
    <td style="text-align:left;">  </td>
+   <td style="text-align:left;">  </td>
   </tr>
   <tr>
-   <td style="text-align:left;width: 5em; "> 29-Jan </td>
+   <td style="text-align:left;width: 5em; "> 21-Apr </td>
    <td style="text-align:left;"> Lecture </td>
    <td style="text-align:left;"> Exploratory data analysis </td>
    <td style="text-align:left;width: 13em; "> Handout 4 </td>
    <td style="text-align:left;">  </td>
    <td style="text-align:left;">  </td>
    <td style="text-align:left;">  </td>
+   <td style="text-align:left;">  </td>
   </tr>
   <tr>
-   <td style="text-align:left;width: 5em; "> 31-Jan </td>
+   <td style="text-align:left;width: 5em; "> 23-Apr </td>
    <td style="text-align:left;"> Lecture </td>
    <td style="text-align:left;"> Exploratory data analysis in R </td>
    <td style="text-align:left;width: 13em; ">  </td>
    <td style="text-align:left;"> HW 3 </td>
    <td style="text-align:left;">  </td>
    <td style="text-align:left;">  </td>
+   <td style="text-align:left;">  </td>
   </tr>
   <tr>
-   <td style="text-align:left;width: 5em; "> 2-Feb </td>
+   <td style="text-align:left;width: 5em; "> 24-Apr </td>
    <td style="text-align:left;"> Lab </td>
    <td style="text-align:left;"> Exploratory data analysis in R </td>
    <td style="text-align:left;width: 13em; ">  </td>
    <td style="text-align:left;">  </td>
    <td style="text-align:left;">  </td>
    <td style="text-align:left;">  </td>
+   <td style="text-align:left;">  </td>
   </tr>
   <tr>
-   <td style="text-align:left;width: 5em; "> 5-Feb </td>
+   <td style="text-align:left;width: 5em; "> 28-Apr </td>
    <td style="text-align:left;"> Lecture </td>
    <td style="text-align:left;"> Intro to spatial data </td>
    <td style="text-align:left;width: 13em; "> Handout 5 </td>
    <td style="text-align:left;">  </td>
+   <td style="text-align:left;"> Q 1 </td>
    <td style="text-align:left;">  </td>
    <td style="text-align:left;">  </td>
   </tr>
   <tr>
-   <td style="text-align:left;width: 5em; "> 7-Feb </td>
+   <td style="text-align:left;width: 5em; "> 30-Apr </td>
    <td style="text-align:left;"> Lecture </td>
    <td style="text-align:left;"> Spatial data in R </td>
    <td style="text-align:left;width: 13em; ">  </td>
    <td style="text-align:left;"> HW 4 </td>
    <td style="text-align:left;">  </td>
    <td style="text-align:left;">  </td>
+   <td style="text-align:left;">  </td>
   </tr>
   <tr>
-   <td style="text-align:left;width: 5em; "> 9-Feb </td>
+   <td style="text-align:left;width: 5em; "> 1-May </td>
    <td style="text-align:left;"> Lab </td>
    <td style="text-align:left;"> Spatial data in R </td>
    <td style="text-align:left;width: 13em; ">  </td>
    <td style="text-align:left;">  </td>
    <td style="text-align:left;">  </td>
    <td style="text-align:left;">  </td>
+   <td style="text-align:left;">  </td>
   </tr>
   <tr>
-   <td style="text-align:left;width: 5em; "> 12-Feb </td>
+   <td style="text-align:left;width: 5em; "> 5-May </td>
    <td style="text-align:left;"> Lecture </td>
    <td style="text-align:left;"> Exploratory spatial data analysis </td>
    <td style="text-align:left;width: 13em; "> Handout 6 </td>
    <td style="text-align:left;">  </td>
-   <td style="text-align:left;"> Q 1 </td>
+   <td style="text-align:left;">  </td>
+   <td style="text-align:left;"> A 2 </td>
    <td style="text-align:left;">  </td>
   </tr>
   <tr>
-   <td style="text-align:left;width: 5em; "> 14-Feb </td>
+   <td style="text-align:left;width: 5em; "> 7-May </td>
    <td style="text-align:left;"> Lecture </td>
    <td style="text-align:left;"> Exploratory spatial data analysis in R </td>
    <td style="text-align:left;width: 13em; ">  </td>
    <td style="text-align:left;"> HW 5 </td>
    <td style="text-align:left;">  </td>
    <td style="text-align:left;">  </td>
+   <td style="text-align:left;">  </td>
   </tr>
   <tr>
-   <td style="text-align:left;width: 5em; "> 16-Feb </td>
+   <td style="text-align:left;width: 5em; "> 8-May </td>
    <td style="text-align:left;"> Lab </td>
    <td style="text-align:left;"> Exploratory spatial data analysis in R </td>
    <td style="text-align:left;width: 13em; ">  </td>
    <td style="text-align:left;">  </td>
    <td style="text-align:left;">  </td>
    <td style="text-align:left;">  </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;width: 5em; "> 19-Feb </td>
-   <td style="text-align:left;"> Lecture </td>
-   <td style="text-align:left;"> Presidents Day Holiday </td>
-   <td style="text-align:left;width: 13em; ">  </td>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:left;">  </td>
    <td style="text-align:left;">  </td>
   </tr>
   <tr>
-   <td style="text-align:left;width: 5em; "> 21-Feb </td>
+   <td style="text-align:left;width: 5em; "> 12-May </td>
    <td style="text-align:left;"> Lecture </td>
-   <td style="text-align:left;"> Measuring segregation </td>
+   <td style="text-align:left;"> Big data and open data </td>
    <td style="text-align:left;width: 13em; "> Handout 7 </td>
+   <td style="text-align:left;">  </td>
+   <td style="text-align:left;">  </td>
+   <td style="text-align:left;">  </td>
+   <td style="text-align:left;">  </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;width: 5em; "> 14-May </td>
+   <td style="text-align:left;"> Lecture </td>
+   <td style="text-align:left;"> Working with open data in R </td>
+   <td style="text-align:left;width: 13em; ">  </td>
    <td style="text-align:left;"> HW 6 </td>
    <td style="text-align:left;">  </td>
    <td style="text-align:left;">  </td>
+   <td style="text-align:left;">  </td>
   </tr>
   <tr>
-   <td style="text-align:left;width: 5em; "> 23-Feb </td>
+   <td style="text-align:left;width: 5em; "> 15-May </td>
    <td style="text-align:left;"> Lab </td>
-   <td style="text-align:left;"> Measuring segregation in R </td>
+   <td style="text-align:left;"> Working with open data in R </td>
    <td style="text-align:left;width: 13em; ">  </td>
    <td style="text-align:left;">  </td>
    <td style="text-align:left;">  </td>
    <td style="text-align:left;">  </td>
+   <td style="text-align:left;">  </td>
   </tr>
   <tr>
-   <td style="text-align:left;width: 5em; "> 26-Feb </td>
+   <td style="text-align:left;width: 5em; "> 19-May </td>
    <td style="text-align:left;"> Lecture </td>
-   <td style="text-align:left;"> Big data and open data </td>
+   <td style="text-align:left;"> Measuring segregation </td>
    <td style="text-align:left;width: 13em; "> Handout 8 </td>
+   <td style="text-align:left;">  </td>
+   <td style="text-align:left;">  </td>
+   <td style="text-align:left;">  </td>
+   <td style="text-align:left;">  </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;width: 5em; "> 21-May </td>
+   <td style="text-align:left;"> Lecture </td>
+   <td style="text-align:left;"> Measuring gentrification </td>
+   <td style="text-align:left;width: 13em; "> Handout 9 </td>
+   <td style="text-align:left;"> HW 7 </td>
+   <td style="text-align:left;">  </td>
+   <td style="text-align:left;">  </td>
+   <td style="text-align:left;">  </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;width: 5em; "> 22-May </td>
+   <td style="text-align:left;"> Lab </td>
+   <td style="text-align:left;"> Segregation and gentrification in R </td>
+   <td style="text-align:left;width: 13em; ">  </td>
+   <td style="text-align:left;">  </td>
    <td style="text-align:left;">  </td>
    <td style="text-align:left;">  </td>
    <td style="text-align:left;"> Proposal </td>
   </tr>
   <tr>
-   <td style="text-align:left;width: 5em; "> 28-Feb </td>
+   <td style="text-align:left;width: 5em; "> 26-May </td>
    <td style="text-align:left;"> Lecture </td>
-   <td style="text-align:left;"> Mapping open data in R </td>
+   <td style="text-align:left;"> Memorial Day holiday </td>
    <td style="text-align:left;width: 13em; ">  </td>
-   <td style="text-align:left;"> HW 7 </td>
    <td style="text-align:left;">  </td>
-   <td style="text-align:left;">  </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;width: 5em; "> 1-Mar </td>
-   <td style="text-align:left;"> Lab </td>
-   <td style="text-align:left;"> Mapping open data in R </td>
-   <td style="text-align:left;width: 13em; ">  </td>
    <td style="text-align:left;">  </td>
    <td style="text-align:left;">  </td>
    <td style="text-align:left;">  </td>
   </tr>
   <tr>
-   <td style="text-align:left;width: 5em; "> 4-Mar </td>
-   <td style="text-align:left;"> Lecture </td>
-   <td style="text-align:left;"> Guest Lecture </td>
-   <td style="text-align:left;width: 13em; ">  </td>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:left;">  </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;width: 5em; "> 6-Mar </td>
+   <td style="text-align:left;width: 5em; "> 28-May </td>
    <td style="text-align:left;"> Lecture </td>
    <td style="text-align:left;"> Story Maps using ArcGIS online </td>
-   <td style="text-align:left;width: 13em; "> Lung-Amam &amp; Dawkins (2019)  </td>
+   <td style="text-align:left;width: 13em; "> Lung-Amam &amp; Dawkins; Davis et al.  </td>
    <td style="text-align:left;"> HW 8 </td>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:left;">  </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;width: 5em; "> 8-Mar </td>
-   <td style="text-align:left;"> Lab </td>
-   <td style="text-align:left;"> Story Maps using ArcGIS online </td>
-   <td style="text-align:left;width: 13em; ">  </td>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:left;">  </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;width: 5em; "> 11-Mar </td>
-   <td style="text-align:left;"> Lecture </td>
-   <td style="text-align:left;"> Guest Lecture </td>
-   <td style="text-align:left;width: 13em; ">  </td>
-   <td style="text-align:left;">  </td>
    <td style="text-align:left;"> Q 2 </td>
    <td style="text-align:left;">  </td>
+   <td style="text-align:left;">  </td>
   </tr>
   <tr>
-   <td style="text-align:left;width: 5em; "> 13-Mar </td>
-   <td style="text-align:left;"> Lecture </td>
-   <td style="text-align:left;"> Final project in-class workshop </td>
+   <td style="text-align:left;width: 5em; "> 29-May </td>
+   <td style="text-align:left;"> Lab </td>
+   <td style="text-align:left;"> Story Maps using ArcGIS online </td>
    <td style="text-align:left;width: 13em; ">  </td>
    <td style="text-align:left;">  </td>
    <td style="text-align:left;">  </td>
    <td style="text-align:left;">  </td>
+   <td style="text-align:left;">  </td>
   </tr>
   <tr>
-   <td style="text-align:left;width: 5em; "> 15-Mar </td>
+   <td style="text-align:left;width: 5em; "> 2-Jun </td>
+   <td style="text-align:left;"> Lecture </td>
+   <td style="text-align:left;"> Guest Lecture </td>
+   <td style="text-align:left;width: 13em; ">  </td>
+   <td style="text-align:left;">  </td>
+   <td style="text-align:left;">  </td>
+   <td style="text-align:left;">  </td>
+   <td style="text-align:left;">  </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;width: 5em; "> 4-Jun </td>
+   <td style="text-align:left;"> Lecture </td>
+   <td style="text-align:left;"> Guest Lecture </td>
+   <td style="text-align:left;width: 13em; ">  </td>
+   <td style="text-align:left;">  </td>
+   <td style="text-align:left;">  </td>
+   <td style="text-align:left;">  </td>
+   <td style="text-align:left;">  </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;width: 5em; "> 5-Jun </td>
    <td style="text-align:left;"> Lab </td>
    <td style="text-align:left;"> TBD </td>
    <td style="text-align:left;width: 13em; ">  </td>
    <td style="text-align:left;">  </td>
    <td style="text-align:left;">  </td>
    <td style="text-align:left;">  </td>
+   <td style="text-align:left;">  </td>
   </tr>
   <tr>
-   <td style="text-align:left;width: 5em; "> 20-Mar </td>
+   <td style="text-align:left;width: 5em; "> 11-Jun </td>
    <td style="text-align:left;">  </td>
    <td style="text-align:left;"> StoryMap due 5:00 pm </td>
    <td style="text-align:left;width: 13em; ">  </td>
    <td style="text-align:left;">  </td>
    <td style="text-align:left;">  </td>
+   <td style="text-align:left;">  </td>
    <td style="text-align:left;"> StoryMap </td>
   </tr>
   <tr>
-   <td style="text-align:left;width: 5em; "> 21-Mar </td>
+   <td style="text-align:left;width: 5em; "> 12-Jun </td>
    <td style="text-align:left;">  </td>
    <td style="text-align:left;"> StoryMap eval due 5:00 pm </td>
    <td style="text-align:left;width: 13em; ">  </td>
+   <td style="text-align:left;">  </td>
    <td style="text-align:left;">  </td>
    <td style="text-align:left;">  </td>
    <td style="text-align:left;"> StoryMap peer evals </td>

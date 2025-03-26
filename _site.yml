@@ -1,7 +1,7 @@
 name: "CRD 150: Quantitative Methods in Community Research"
 output_dir: "."
 navbar:
-  title: "CRD 150: Winter 2024"
+  title: "CRD 150: Spring 2025"
   left:
     - text: "Home"
       href: index.html
@@ -25,8 +25,10 @@ navbar:
           href:  lab6.html 
         - text: "Lab 7"
           href:  lab7.html      
-        - text: "Lab 8"
-          href:  lab8.html           
+        - text: "Lab 8a"
+          href:  lab8a.html  
+        - text: "Lab 8b"
+          href:  lab8b.html    
         - text: "Lab 9"
           href:  lab9.html           
     - text: "Other"

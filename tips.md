@@ -97,7 +97,7 @@ The [assignment guidelines](https://crd150.github.io/hw_guidelines.html) goes th
 
 *  Error messages. Although error messages may appear cryptic, they can sometimes at least tell you where the error is. Look for the Quitting from lines part of the error message and see if you can narrow down which line the error is on.
 
-* Filename of .Rmd File. Ensure that the filename of your .Rmd file does not have any special characters at the end.  Example: no files named analysis_(1).Rmd, but rather analysis.Rmd. 
+* File name of .Rmd File. Ensure that the file name of your .Rmd file does not have any special characters at the end.  Example: no files named analysis_(1).Rmd, but rather analysis.Rmd. 
 
 * Make sure that any data you read in is also in the same folder as the RMarkdown.
 
@@ -125,12 +125,12 @@ The [assignment guidelines](https://crd150.github.io/hw_guidelines.html) goes th
 
 * Google is your friend. Copy the error message, maybe strip out anything highly specific, such as the name of your R objects, surround with quotes and Google it!
 
-* Finding answers on Google are not always quick. Add as much context as possible to your search query. For example, let's say that I want to know how to rename a column in my dataset. I could Google: “How to rename a column in R with dplyr/tidyverse” and read the answers posted in Stacked Overflow (www.stackoverflow.com). Notice how I covered the following in my google search: (1) The specific action (how to rename a column); (2) The programming language (R statistics); (3) The specific style/technique for coding (dplyr or tidyverse package).
+* Finding answers on Google are not always quick. Add as much context as possible to your search query. For example, let's say that I want to know how to rename a column in my dataset. I could Google: “How to rename a column in R with dplyr/tidyverse” and read the answers posted in Stacked Overflow (www.stackoverflow.com). Notice how I covered the following in my Google search: (1) The specific action (how to rename a column); (2) The programming language (R statistics); (3) The specific style/technique for coding (dplyr or tidyverse package).
 
 * The following online resources are great for getting help.
 
   - [RStudio Cheatsheets](https://rstudio.com/resources/cheatsheets/)
-  - [Common Errors](https://epirhandbook.com/en/common-errors.html)
+  - [Common Errors](https://epirhandbook.com/en/new_pages/errors.html)
   - [Getting Help with R](https://www.r-project.org/help.html)
   - [What they forget to teach you about R](https://rstats.wtf/)
   - [Data wrangling cheatsheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-transformation.pdf)
