@@ -176,7 +176,7 @@ There will be two quizzes that will test conceptual material covered in lecture 
 
 3. In-class activities (5%)
 
-There will be two in-class activities that will focus on the use of Artificial Intelligence (AI) in learning how to code. We strictly prohibit the use of AI in quizzes and written portions of your assignments and final project is not permitted. You are allowed to use AI in the coding portions of your homework assignments, but only to help aid in your learning of the material. The two in-class activities will demonstrate how to view AI not as a tool to replace your learning, but to enhance it.  Attendance is required unless you provide a viable excuse ahead of the designated class. In-class activities cannot be made up.
+There will be two in-class activities that will focus on the use of Artificial Intelligence (AI) in learning how to code. We strictly prohibit the use of AI in quizzes and written portions of your assignments and final project is not permitted. You are allowed to use AI in the coding portions of your homework assignments, but only to help aid in your learning of the material. The two in-class activities will demonstrate how to view AI not as a tool to replace your learning, but to enhance it.  Attendance is required unless you provide a viable excuse ahead of the designated class. In-class activities cannot be made up. You will be required to use your laptops for the in-class activities. If you do not own one, let us know at the beginning of the quarter.
 
 4. Final course project (25%)
 
