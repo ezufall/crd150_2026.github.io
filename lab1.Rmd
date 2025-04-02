@@ -197,7 +197,7 @@ While not required, I strongly suggest that you change preferences in RStudio to
 * Restore .RData into workspace at startup
 
 4. Set Save Workspace to .RData on exit to *Never*
-5. Click OK at the bottom to save the changes and close the preferences window. You may need to restart RStudio.
+5. Click OK at the bottom to save the changes and close the preferences window. You may need to restart RStudio. 
 
 <br>
 
