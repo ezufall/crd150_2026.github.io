@@ -284,7 +284,7 @@ In this lab, we won't have time to go through all of the methods and functions i
 ### **Selecting variables**
 \
 
-In practice, most of the data files you will download will contain variables you won't need. It is easier to work with a smaller dataset as it reduces clutter and clears up memory space, which is important if you are executing complex tasks on a large number of observations.  Use the command `select()` to keep variables by name.  Visually, we are doing this (taken from the RStudio [cheatsheet](http://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf))  
+In practice, most of the data files you will download will contain variables you won't need. It is easier to work with a smaller dataset as it reduces clutter and clears up memory space, which is important if you are executing complex tasks on a large number of observations.  Use the command `select()` to keep variables by name.  Visually, we are doing this (taken from the RStudio [cheatsheet](https://rstudio.github.io/cheatsheets/data-transformation.pdf))  
 
 <center>
 ![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/subsetcols.png)
