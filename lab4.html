@@ -1,0 +1,1427 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Professor Noli Brazil" />
+
+<meta name="date" content="2025-04-23" />
+
+<title>Lab 4: Exploratory Data Analysis</title>
+
+<script src="site_libs/header-attrs-2.28/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/tabwid-1.1.3/tabwid.css" rel="stylesheet" />
+<script src="site_libs/tabwid-1.1.3/tabwid.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+      .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="styles.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">CRD 150: Spring 2025</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="syllabus.html">Syllabus</a>
+</li>
+<li>
+  <a href="hw_guidelines.html">Assignment Guidelines</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Labs/Assignments
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="lab1.html">Lab 1</a>
+    </li>
+    <li>
+      <a href="lab2.html">Lab 2</a>
+    </li>
+    <li>
+      <a href="lab3.html">Lab 3</a>
+    </li>
+    <li>
+      <a href="lab4.html">Lab 4</a>
+    </li>
+    <li>
+      <a href="lab5.html">Lab 5</a>
+    </li>
+    <li>
+      <a href="lab6.html">Lab 6</a>
+    </li>
+    <li>
+      <a href="lab7.html">Lab 7</a>
+    </li>
+    <li>
+      <a href="lab8a.html">Lab 8a</a>
+    </li>
+    <li>
+      <a href="lab8b.html">Lab 8b</a>
+    </li>
+    <li>
+      <a href="lab9.html">Lab 9</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Other
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="eligible.html">Eligible Communities</a>
+    </li>
+    <li>
+      <a href="tips.html">R tips</a>
+    </li>
+    <li>
+      <a href="ndata.html">Neighborhood Data Sources</a>
+    </li>
+    <li>
+      <a href="bigopendata.html">Big and Open Data Sources</a>
+    </li>
+    <li>
+      <a href="policymap.html">PolicyMap </a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+<div class="btn-group pull-right float-right">
+<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu dropdown-menu-right" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
+
+
+<h1 class="title toc-ignore">Lab 4: Exploratory Data Analysis</h1>
+<h3 class="subtitle"><font size="4">CRD 150 - Quantitative Methods in
+Community Research</font></h3>
+<h4 class="author">Professor Noli Brazil</h4>
+<h4 class="date">April 23, 2025</h4>
+
+</div>
+
+
+<style>
+p.comment {
+background-color: #DBDBDB;
+padding: 10px;
+border: 1px solid black;
+margin-left: 25px;
+border-radius: 5px;
+font-style: normal;
+}
+
+.figure {
+   margin-top: 20px;
+   margin-bottom: 20px;
+}
+
+h1.title {
+  font-weight: bold;
+  font-family: Arial;  
+}
+
+h2.title {
+  font-family: Arial;  
+}
+
+</style>
+<style type="text/css">
+#TOC {
+  font-size: 13px;
+  font-family: Arial;
+}
+</style>
+<p><br />
+</p>
+<p>The goal of this lab is to acquire skills in running descriptive
+statistics and creating graphs using R. Make sure you’ve read and fully
+understood Handout 4 as this guide tracks closely with the material
+presented there. In this lab, we will be working with census tract data
+from the U.S. <a
+href="https://www.census.gov/programs-surveys/acs">American Community
+Survey</a> and the U.S. <a href="https://www.ers.usda.gov/">Department
+of Agriculture</a>. As described in Handout 3, census tracts are the
+traditional measure of neighborhoods in the United States. The
+objectives of the guide are as follows</p>
+<ol style="list-style-type: decimal">
+<li>Learn how to use various R functions to summarize neighborhood
+characteristics</li>
+<li>Learn how to make presentation-ready tables of descriptive
+statistics</li>
+<li>Introduction to R graphics</li>
+</ol>
+<p>This lab guide follows closely and supplements the material presented
+in Chapters 1,3, 7 and 28 in the textbook <a
+href="http://r4ds.had.co.nz/index.html">R for Data Science</a> (RDS) and
+the class Handout 4.</p>
+<p class="comment">
+<strong>Assignment 4 is due by 12:00 pm, April 30th on Canvas.</strong>
+See <a href="https://crd150.github.io/hw_guidelines.html">here</a> for
+assignment guidelines. You must submit an <code>.Rmd</code> file and its
+associated <code>.html</code> file. Name the files:
+yourLastName_firstInitial_asgn04. For example: brazil_n_asgn04.
+</p>
+<div style="margin-bottom:25px;">
+
+</div>
+<div id="open-up-a-r-markdown-file" class="section level2">
+<h2><strong>Open up a R Markdown file</strong></h2>
+<p><br />
+</p>
+<p>Download the <a
+href="https://raw.githubusercontent.com/crd150/data/master/labtemplate.Rmd">Lab
+template</a> into an appropriate folder on your hard drive (preferably,
+a folder named ‘Lab 4’), open it in R Studio, and type and run your code
+there. The template is also located on Canvas under Files. Change the
+title (“Lab 4”) and insert your name and date. Don’t change anything
+else inside the YAML (the stuff at the top in between the
+<code>---</code>). Also keep the grey chunk after the YAML. For a
+rundown on the use of R Markdown, see the <a
+href="https://crd150.github.io/hw_guidelines.html">assignment
+guidelines</a></p>
+<div style="margin-bottom:25px;">
+
+</div>
+</div>
+<div id="installing-and-loading-packages" class="section level2">
+<h2><strong>Installing and loading packages</strong></h2>
+<p><br />
+</p>
+<p>We will be installing two new packages in this lab. Install the
+following packages. These packages will be needed to create presentation
+ready tables. Remember, you only do this once, and never within your R
+Markdown.</p>
+<pre class="r"><code>install.packages(&quot;flextable&quot;)
+install.packages(&quot;webshot&quot;)</code></pre>
+<p>Load the following packages using <code>library()</code>. Remember,
+you need to do this every time you run an R session, so the following
+code should appear at the top of your R Markdown file.</p>
+<pre class="r"><code>library(tidyverse)
+library(flextable)
+library(webshot)</code></pre>
+<div style="margin-bottom:25px;">
+
+</div>
+</div>
+<div id="reading-in-census-tract-data" class="section level2">
+<h2><strong>Reading in census tract data</strong></h2>
+<p><br />
+</p>
+<p>You will be working with census tract data for the counties of
+Sacramento, San Diego, Santa Clara, and Fresno, four of the largest
+counties in California. To save us time, I downloaded Census data,
+wrangled the data, and uploaded it on GitHub. The data file and its
+metadata are also located on Canvas in the Week 4 Lab folder under
+Files. Let’s bring the csv file into R using
+<code>read_csv()</code>.</p>
+<pre class="r"><code>cal.tracts &lt;- read_csv(&quot;https://raw.githubusercontent.com/crd150/data/refs/heads/master/lab4_data.csv&quot;)</code></pre>
+<p>Make sure you take a look at any dataset you bring into R.</p>
+<pre class="r"><code>glimpse(cal.tracts)</code></pre>
+<pre><code>## Rows: 1,514
+## Columns: 7
+## $ GEOID     &lt;dbl&gt; 6085507904, 6085508504, 6085508505, 6085508704, 6085509403, …
+## $ county    &lt;chr&gt; &quot;Santa Clara County&quot;, &quot;Santa Clara County&quot;, &quot;Santa Clara Cou…
+## $ medincome &lt;dbl&gt; 206607, 114300, 152969, 145500, 112278, 210529, 250001, 1360…
+## $ phisp     &lt;dbl&gt; 0.03286385, 0.15841469, 0.08540341, 0.19652036, 0.34261983, …
+## $ pblk      &lt;dbl&gt; 0.0000000000, 0.0103440260, 0.0000000000, 0.0399367339, 0.02…
+## $ mhisp     &lt;chr&gt; &quot;Not Majority&quot;, &quot;Not Majority&quot;, &quot;Not Majority&quot;, &quot;Not Majorit…
+## $ status    &lt;chr&gt; &quot;Urban&quot;, &quot;Urban&quot;, &quot;Urban&quot;, &quot;Urban&quot;, &quot;Urban&quot;, &quot;Urban&quot;, &quot;Urban…</code></pre>
+<p>The dataset contains tract-level median household income, percent
+Hispanic, percent Black, whether the tract is urban, suburban or rural
+according to <a
+href="https://www.ers.usda.gov/data-products/rural-urban-commuting-area-codes">Rural-Urban
+Commuting Area Codes (RUCA)</a> and whether the tract is “Majority”
+Hispanic (<em>phisp</em> &gt; 50%) or “Not Majority” Hispanic.</p>
+<div style="margin-bottom:25px;">
+
+</div>
+</div>
+<div id="summarizing-a-single-variable" class="section level2">
+<h2><strong>Summarizing a single variable</strong></h2>
+<p><br />
+</p>
+<p>Recall from Handout 4 our two important data types: categorical and
+numeric. Let’s first summarize a single numeric variable - neighborhood
+median household income - using some basic descriptive statistics.</p>
+<div style="margin-bottom:25px;">
+
+</div>
+<div id="numeric-variables" class="section level3">
+<h3><strong>Numeric variables</strong></h3>
+<p><br />
+</p>
+<p>We can use the function <code>summarize()</code> to calculate mean
+neighborhood income. The first argument inside <code>summarize()</code>
+is the data object <em>cal.tracts</em> and the second argument is the
+function calculating the specific summary statistic, in this case
+<code>mean()</code>, which unsurprisingly calculates the mean of the
+variable you indicate in between the parentheses.</p>
+<pre class="r"><code>cal.tracts %&gt;%
+      summarize(mean(medincome))</code></pre>
+<pre><code>## # A tibble: 1 × 1
+##   `mean(medincome)`
+##               &lt;dbl&gt;
+## 1                NA</code></pre>
+<p>We get the value <em>NA</em>, which as we learned in <a
+href="https://crd150.github.io/lab3.html#Missing_data">Lab 3</a>
+represents a missing value. If a variable has missing values, functions
+like <code>mean()</code> will return an <code>NA</code>. If we use the
+function <code>summary()</code>, we find that <em>medincome</em> has 6
+tracts with missing median income values</p>
+<pre class="r"><code>summary(cal.tracts)</code></pre>
+<pre><code>##      GEOID              county            medincome          phisp       
+##  Min.   :6.019e+09   Length:1514        Min.   : 12417   Min.   :0.0000  
+##  1st Qu.:6.067e+09   Class :character   1st Qu.: 56479   1st Qu.:0.1512  
+##  Median :6.073e+09   Mode  :character   Median : 82443   Median :0.2475  
+##  Mean   :6.068e+09                      Mean   : 88873   Mean   :0.3181  
+##  3rd Qu.:6.073e+09                      3rd Qu.:112372   3rd Qu.:0.4360  
+##  Max.   :6.086e+09                      Max.   :250001   Max.   :0.9864  
+##                                         NA&#39;s   :6                        
+##       pblk            mhisp              status         
+##  Min.   :0.00000   Length:1514        Length:1514       
+##  1st Qu.:0.01092   Class :character   Class :character  
+##  Median :0.02974   Mode  :character   Mode  :character  
+##  Mean   :0.04994                                        
+##  3rd Qu.:0.06997                                        
+##  Max.   :0.40050                                        
+## </code></pre>
+<p>In order to calculate the mean (or any numeric descriptive statistic)
+for a variable with missing values, use the argument
+<code>na.rm = TRUE</code>, which will calculate the mean of the variable
+without the missing values.</p>
+<pre class="r"><code>summarize(cal.tracts, mean(medincome, na.rm = TRUE))</code></pre>
+<pre><code>## # A tibble: 1 × 1
+##   `mean(medincome, na.rm = TRUE)`
+##                             &lt;dbl&gt;
+## 1                          88873.</code></pre>
+<p>Does the average neighborhood income differ by county? We need to
+pair <code>summarize()</code> with the function <code>group_by()</code>
+to answer this question. The function <code>group_by()</code> tells R to
+run subsequent functions on the data object <em>by</em> a group
+characteristic (such as gender, educational attainment, or in this case,
+county). Let’s use our new best friend <code>%&gt;%</code>, who we met
+in <a href="https://crd150.github.io/lab2.html#Pipes">Lab 2</a>, to
+accomplish this task.</p>
+<pre class="r"><code>cal.tracts %&gt;%
+  group_by(county) %&gt;%
+  summarize(mean(medincome, na.rm = TRUE))</code></pre>
+<pre><code>## # A tibble: 4 × 2
+##   county             `mean(medincome, na.rm = TRUE)`
+##   &lt;chr&gt;                                        &lt;dbl&gt;
+## 1 Fresno County                               57128.
+## 2 Sacramento County                           71183.
+## 3 San Diego County                            83753.
+## 4 Santa Clara County                         129391.</code></pre>
+<p>The first pipe sends <em>cal.tracts</em> into the function
+<em>group_by()</em>, which tells R to group <em>cal.tracts</em> by the
+variable <em>county</em>.</p>
+<pre class="r"><code>cal.tracts %&gt;%
+  group_by(county)</code></pre>
+<p>How do you know the tibble is grouped? Because it tells you</p>
+<p><br></p>
+<center>
+<p><img
+src="groupby.png" /></p>
+</center>
+<p><br></p>
+<p>The second pipe takes this grouped dataset and sends it into the
+<code>summarize()</code> command, which calculates the mean neighborhood
+income (by county, because the dataset is grouped by county).</p>
+<p>We can calculate more than one summary statistic within
+<code>summarize()</code>. For example, to get the mean, median, standard
+deviation and interquartile range (IQR) of median income, and give
+column labels for the variables in the resulting summary table, we type
+in</p>
+<pre class="r"><code>cal.tracts %&gt;%
+  group_by(county) %&gt;%
+  summarize(Mean = mean(medincome,  na.rm = TRUE),
+            Median = median(medincome, na.rm = TRUE),
+            SD = sd(medincome,  na.rm = TRUE),
+            IQR = IQR(medincome,  na.rm = TRUE))</code></pre>
+<pre><code>## # A tibble: 4 × 5
+##   county                Mean Median     SD    IQR
+##   &lt;chr&gt;                &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+## 1 Fresno County       57128.  50318 28347. 36875.
+## 2 Sacramento County   71183.  65114 29249. 37807 
+## 3 San Diego County    83753.  79953 33262. 42475 
+## 4 Santa Clara County 129391. 123469 46599. 60069.</code></pre>
+<p><br></p>
+<p>Remember from Handout 4 that the IQR is the difference between the
+75th and 25th percentiles. It is a measure of spread, and more
+generally, an indicator of inequality. Another measure of spread or
+inequality is the 90/10 ratio. To calculate this ratio, we’ll first need
+to calculate the 90th and 10th percentiles using the
+<code>quantile()</code> command, where we indicate the percentile using
+the argument <code>p =</code>. We can do all of this inside
+<code>summarize()</code>. Make sure you understand what each function in
+the code below is doing, and what the values reported are showing.</p>
+<pre class="r"><code>cal.tracts %&gt;%
+  group_by(county) %&gt;%
+  summarize(p90 = quantile(medincome, p = 0.90,  na.rm = TRUE),
+            p10 = quantile(medincome, p = 0.10,  na.rm = TRUE),
+            Ratio9010 = p90/p10) %&gt;%
+  select(-(c(p90,p10)))</code></pre>
+<pre><code>## # A tibble: 4 × 2
+##   county             Ratio9010
+##   &lt;chr&gt;                  &lt;dbl&gt;
+## 1 Fresno County           3.57
+## 2 Sacramento County       2.89
+## 3 San Diego County        2.80
+## 4 Santa Clara County      2.58</code></pre>
+<div style="margin-bottom:25px;">
+
+</div>
+</div>
+<div id="categorical-variables" class="section level3">
+<h3><strong>Categorical variables</strong></h3>
+<p><br />
+</p>
+<p>Let’s next summarize a single categorical variable. <em>status</em>
+indicates whether a tract is urban, suburban or rural.</p>
+<p>To get the proportion of tracts that are urban, suburban and rural,
+you’ll need to combine the functions <code>group_by()</code>,
+<code>summarize()</code> and <code>mutate()</code> using
+<code>%&gt;%</code>.</p>
+<pre class="r"><code>cal.tracts %&gt;%
+  group_by(status) %&gt;%
+  summarize(n = n()) %&gt;%
+  mutate(total = sum(n),
+        freq = n / total)</code></pre>
+<pre><code>## # A tibble: 3 × 4
+##   status       n total   freq
+##   &lt;chr&gt;    &lt;int&gt; &lt;int&gt;  &lt;dbl&gt;
+## 1 Rural       20  1514 0.0132
+## 2 Suburban    86  1514 0.0568
+## 3 Urban     1408  1514 0.930</code></pre>
+<p>Let’s break up this chunk of code to show exactly what was done here.
+First, <em>cal.tracts</em> was piped into the <code>group_by()</code>
+function. Next, <code>group_by(status)</code> separates the
+neighborhoods by geographic status. We then used
+<code>summarize()</code> to count the number of neighborhoods by
+geographic status. The function to get a count is <code>n()</code>, and
+we saved this count in a variable named <em>n</em>. This gave us the
+following table.</p>
+<pre class="r"><code>cal.tracts %&gt;%
+  group_by(status) %&gt;%
+  summarize (n = n())</code></pre>
+<pre><code>## # A tibble: 3 × 2
+##   status       n
+##   &lt;chr&gt;    &lt;int&gt;
+## 1 Rural       20
+## 2 Suburban    86
+## 3 Urban     1408</code></pre>
+<p>Remember, we are trying to get the proportion of neighborhoods that
+are urban, suburban and rural. This means we need a numerator - the
+number of neighborhoods that are urban, suburban and rural. This is what
+<code>n = n()</code> gives us. There are 1,408 neighborhoods that are
+designated as urban.</p>
+<p>Next, this table is piped into <code>mutate()</code>, which creates a
+variable <em>total</em> which gives you the denominator - the total
+number of neighborhoods. The code <code>sum(n)</code> adds the values of
+<em>n</em>: 1408+86+20 = 1514. We then create a variable <em>freq</em>,
+which divides the value of each <em>n</em> by this sum: 20/1514. =
+0.0132, 86/1514 = 0.0568 and 1408/1514. = 0.930. This yields the
+proportion of all neighborhoods by geographic status (how would you
+transform this to a percentage?).</p>
+<pre class="r"><code>cal.tracts %&gt;%
+  group_by(status) %&gt;%
+  summarize (n = n()) %&gt;%
+    mutate(total = sum(n),
+        freq = n / total)</code></pre>
+<pre><code>## # A tibble: 3 × 4
+##   status       n total   freq
+##   &lt;chr&gt;    &lt;int&gt; &lt;int&gt;  &lt;dbl&gt;
+## 1 Rural       20  1514 0.0132
+## 2 Suburban    86  1514 0.0568
+## 3 Urban     1408  1514 0.930</code></pre>
+<div style="margin-bottom:25px;">
+
+</div>
+</div>
+</div>
+<div id="summarizing-two-variables" class="section level2">
+<h2><strong>Summarizing two variables</strong></h2>
+<p><br />
+</p>
+<p>The functions we’ve gone through so far describe <strong>one</strong>
+variable. It is often the case that we are interested in understanding
+whether two variables are associated with one another.</p>
+<p>Let’s go through the ways we can describe the association between:
+(1) two categorical variables; (2) one categorical variable and one
+numeric variable; and (3) two numeric variables.</p>
+<div style="margin-bottom:25px;">
+
+</div>
+<div id="two-categorical-variables" class="section level3">
+<h3><strong>Two categorical variables</strong></h3>
+<p><br />
+</p>
+<p>To summarize the relationship between two categorical variables,
+you’ll need to find the proportion of observations for each combination,
+also known as a cross tabulation. Let’s create a cross tabulation of the
+categorical variables <em>status</em> and <em>mhisp</em>. We do this by
+using both variables in the <code>group_by()</code> command.</p>
+<pre class="r"><code>cal.tracts %&gt;%
+  group_by(status, mhisp) %&gt;%
+  summarize(n = n())  %&gt;%
+    mutate(total = sum(n),
+        freq = n / total)</code></pre>
+<pre><code>## # A tibble: 6 × 5
+## # Groups:   status [3]
+##   status   mhisp            n total  freq
+##   &lt;chr&gt;    &lt;chr&gt;        &lt;int&gt; &lt;int&gt; &lt;dbl&gt;
+## 1 Rural    Majority        14    20 0.7  
+## 2 Rural    Not Majority     6    20 0.3  
+## 3 Suburban Majority        35    86 0.407
+## 4 Suburban Not Majority    51    86 0.593
+## 5 Urban    Majority       264  1408 0.188
+## 6 Urban    Not Majority  1144  1408 0.812</code></pre>
+<p>A much higher proportion of rural neighborhoods are Majority Hispanic
+(0.7) compared to urban neighborhoods (0.188).</p>
+<div style="margin-bottom:25px;">
+
+</div>
+</div>
+<div id="one-categorical-one-numeric" class="section level3">
+<h3><strong>One categorical, one numeric</strong></h3>
+<p><br />
+</p>
+<p>A typical way of summarizing the relationship between a categorical
+variable and a numeric variable is to take the mean of the numeric
+variable for each level of the categorical variable. We can get the mean
+median household income for urban, suburban and rural neighborhoods
+using the following code.</p>
+<pre class="r"><code>cal.tracts %&gt;%
+  group_by(status) %&gt;%
+  summarize(&quot;Mean Income&quot; = mean(medincome, na.rm = TRUE))</code></pre>
+<pre><code>## # A tibble: 3 × 2
+##   status   `Mean Income`
+##   &lt;chr&gt;            &lt;dbl&gt;
+## 1 Rural           46034.
+## 2 Suburban        81730.
+## 3 Urban           89891.</code></pre>
+<p>Let’s separate by county by adding <em>county</em> to the
+<code>group_by()</code> function.</p>
+<pre class="r"><code>cal.tracts %&gt;%
+  group_by(county, status) %&gt;%
+  summarize(&quot;Mean Income&quot; = mean(medincome, na.rm = TRUE))</code></pre>
+<pre><code>## # A tibble: 12 × 3
+## # Groups:   county [4]
+##    county             status   `Mean Income`
+##    &lt;chr&gt;              &lt;chr&gt;            &lt;dbl&gt;
+##  1 Fresno County      Rural           41470.
+##  2 Fresno County      Suburban        56237 
+##  3 Fresno County      Urban           58808.
+##  4 Sacramento County  Rural           40395 
+##  5 Sacramento County  Suburban        87334.
+##  6 Sacramento County  Urban           70536.
+##  7 San Diego County   Rural           51555.
+##  8 San Diego County   Suburban        91427.
+##  9 San Diego County   Urban           83710.
+## 10 Santa Clara County Rural           99000 
+## 11 Santa Clara County Suburban       113092.
+## 12 Santa Clara County Urban          130456.</code></pre>
+<p>Which counties have the biggest differences income between rural and
+urban neighborhoods?</p>
+<div style="margin-bottom:25px;">
+
+</div>
+</div>
+<div id="two-numeric-variables" class="section level3">
+<h3><strong>Two numeric variables</strong></h3>
+<p><br />
+</p>
+<p>You can summarize the relationship between two numeric variables with
+the correlation coefficient. To calculate the correlation coefficient,
+use the function <code>cor()</code>. The first two arguments in
+<code>cor()</code> are the two numeric variables you want to calculate
+the correlation for. Let’s calculate the correlation between
+neighborhood income and percent black. Note that the argument
+<code>use = "complete.obs"</code> removes the missing values in
+<em>medincome</em>.</p>
+<pre class="r"><code>cal.tracts %&gt;%
+  summarize(blk_inc = cor(medincome,pblk, use = &quot;complete.obs&quot;))</code></pre>
+<pre><code>## # A tibble: 1 × 1
+##   blk_inc
+##     &lt;dbl&gt;
+## 1  -0.398</code></pre>
+<p>Group these correlations by county</p>
+<pre class="r"><code>cal.tracts %&gt;%
+  group_by(county) %&gt;%
+  summarize(blk_inc = cor(medincome,pblk, use = &quot;complete.obs&quot;))</code></pre>
+<pre><code>## # A tibble: 4 × 2
+##   county             blk_inc
+##   &lt;chr&gt;                &lt;dbl&gt;
+## 1 Fresno County       -0.337
+## 2 Sacramento County   -0.449
+## 3 San Diego County    -0.338
+## 4 Santa Clara County  -0.305</code></pre>
+<p>Make sure you understand what these values mean (see Handout 4).</p>
+<div style="margin-bottom:25px;">
+
+</div>
+</div>
+<div id="tables-for-presentation" class="section level3">
+<h3><strong>Tables for presentation</strong></h3>
+<p><br />
+</p>
+<p>The output from the descriptive statistics we’ve ran so far is not
+presentation ready. For example, taking a screenshot of the following
+results table produces unnecessary information that is confusing and
+messy.</p>
+<pre class="r"><code>cal.tracts %&gt;%
+  group_by(county) %&gt;%
+  summarize(Mean = mean(medincome,  na.rm = TRUE),
+            Median = median(medincome, na.rm = TRUE),
+            SD = sd(medincome,  na.rm = TRUE),
+            IQR = IQR(medincome,  na.rm = TRUE))</code></pre>
+<pre><code>## # A tibble: 4 × 5
+##   county                Mean Median     SD    IQR
+##   &lt;chr&gt;                &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+## 1 Fresno County       57128.  50318 28347. 36875.
+## 2 Sacramento County   71183.  65114 29249. 37807 
+## 3 San Diego County    83753.  79953 33262. 42475 
+## 4 Santa Clara County 129391. 123469 46599. 60069.</code></pre>
+<p>Furthermore, you would like to show a table, say, in your final
+project that does not require you to take a screenshot, but instead can
+be produced via code, that way it can be fixed if there is an issue, and
+is reproducible.</p>
+<p>One way of producing presentation tables in R is through the
+<strong>flextable</strong> package. First, before creating any table,
+run the following code to ensure that the tables you save will have a
+transparent or white background (the default is gray).</p>
+<pre class="r"><code>set_flextable_defaults(background.color = &quot;white&quot;)</code></pre>
+<p>Next, you will need to save the tibble or data frame of results into
+an object. For example, let’s save the above results into an object
+named <em>cal.summary</em></p>
+<pre class="r"><code>cal.summary &lt;- cal.tracts %&gt;%
+  group_by(county) %&gt;%
+  summarize(Mean = mean(medincome,  na.rm = TRUE),
+            Median = median(medincome, na.rm = TRUE),
+            SD = sd(medincome,  na.rm = TRUE),
+            IQR = IQR(medincome,  na.rm = TRUE))</code></pre>
+<p>You then input the object into the function <code>flextable()</code>.
+Save it into an object called <em>my_table</em></p>
+<pre class="r"><code>my_table &lt;- flextable(cal.summary)</code></pre>
+<p>If you type in <em>my_table</em> in the console, you should see a
+relatively clean table pop up in the Viewer window. We can progressively
+pipe the <em>my_table</em> object through <strong>flextable</strong>
+formatting functions. For example, you can change the column header
+names using the function <code>set_header_labels()</code> and center the
+header names using the function <code>align()</code></p>
+<pre class="r"><code>my_table &lt;- my_table %&gt;%
+          set_header_labels(
+            county = &quot;County&quot;,
+            Mean = &quot;Mean&quot;,
+            Median = &quot;Median&quot;,
+            SD = &quot;Standard Deviation&quot;,
+            IQR = &quot;IQR&quot;) %&gt;%
+  colformat_double(digits = 1) %&gt;%
+  align(align = &quot;center&quot;)
+
+my_table</code></pre>
+<div class="tabwid"><style>.cl-2f805a60{}.cl-2f7df428{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-2f7ef4b8{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-2f7ef4c2{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-2f7ef4c3{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-2f7f0066{width:0.75in;background-color:rgba(255, 255, 255, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-2f7f0067{width:0.75in;background-color:rgba(255, 255, 255, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-2f7f0068{width:0.75in;background-color:rgba(255, 255, 255, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-2f7f0070{width:0.75in;background-color:rgba(255, 255, 255, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing='true' class='cl-2f805a60'><thead><tr style="overflow-wrap:break-word;"><th class="cl-2f7f0066"><p class="cl-2f7ef4b8"><span class="cl-2f7df428">County</span></p></th><th class="cl-2f7f0067"><p class="cl-2f7ef4c2"><span class="cl-2f7df428">Mean</span></p></th><th class="cl-2f7f0067"><p class="cl-2f7ef4c2"><span class="cl-2f7df428">Median</span></p></th><th class="cl-2f7f0067"><p class="cl-2f7ef4c2"><span class="cl-2f7df428">Standard Deviation</span></p></th><th class="cl-2f7f0067"><p class="cl-2f7ef4c2"><span class="cl-2f7df428">IQR</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-2f7f0068"><p class="cl-2f7ef4c3"><span class="cl-2f7df428">Fresno County</span></p></td><td class="cl-2f7f0068"><p class="cl-2f7ef4c3"><span class="cl-2f7df428">57,127.6</span></p></td><td class="cl-2f7f0068"><p class="cl-2f7ef4c3"><span class="cl-2f7df428">50,318.0</span></p></td><td class="cl-2f7f0068"><p class="cl-2f7ef4c3"><span class="cl-2f7df428">28,346.9</span></p></td><td class="cl-2f7f0068"><p class="cl-2f7ef4c3"><span class="cl-2f7df428">36,874.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-2f7f0068"><p class="cl-2f7ef4c3"><span class="cl-2f7df428">Sacramento County</span></p></td><td class="cl-2f7f0068"><p class="cl-2f7ef4c3"><span class="cl-2f7df428">71,183.0</span></p></td><td class="cl-2f7f0068"><p class="cl-2f7ef4c3"><span class="cl-2f7df428">65,114.0</span></p></td><td class="cl-2f7f0068"><p class="cl-2f7ef4c3"><span class="cl-2f7df428">29,248.9</span></p></td><td class="cl-2f7f0068"><p class="cl-2f7ef4c3"><span class="cl-2f7df428">37,807.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-2f7f0068"><p class="cl-2f7ef4c3"><span class="cl-2f7df428">San Diego County</span></p></td><td class="cl-2f7f0068"><p class="cl-2f7ef4c3"><span class="cl-2f7df428">83,753.0</span></p></td><td class="cl-2f7f0068"><p class="cl-2f7ef4c3"><span class="cl-2f7df428">79,953.0</span></p></td><td class="cl-2f7f0068"><p class="cl-2f7ef4c3"><span class="cl-2f7df428">33,261.5</span></p></td><td class="cl-2f7f0068"><p class="cl-2f7ef4c3"><span class="cl-2f7df428">42,475.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-2f7f0070"><p class="cl-2f7ef4c3"><span class="cl-2f7df428">Santa Clara County</span></p></td><td class="cl-2f7f0070"><p class="cl-2f7ef4c3"><span class="cl-2f7df428">129,391.5</span></p></td><td class="cl-2f7f0070"><p class="cl-2f7ef4c3"><span class="cl-2f7df428">123,469.0</span></p></td><td class="cl-2f7f0070"><p class="cl-2f7ef4c3"><span class="cl-2f7df428">46,599.2</span></p></td><td class="cl-2f7f0070"><p class="cl-2f7ef4c3"><span class="cl-2f7df428">60,068.8</span></p></td></tr></tbody></table></div>
+<p><br />
+</p>
+<p>There are a slew of options for formatting your table, including
+adding footnotes, borders, shade and other features. Check out this <a
+href="https://epirhandbook.com/en/new_pages/tables_presentation.html">useful</a>
+tutorial for an explanation of some of these features.</p>
+<p>Once you’re done formatting your table, you can then export it to
+Word, PowerPoint or HTML or as an image (PNG) files. To do this, use one
+of the following functions: <code>save_as_docx()</code>,
+<code>save_as_pptx()</code>, <code>save_as_image()</code>, and
+<code>save_as_html()</code>. For the final project, you will likely be
+saving your tables as images. Before saving, make sure your working
+directory is set to the appropriate folder (use <code>getwd()</code> to
+get the current working directory). Then use the
+<code>save_as_image()</code> function</p>
+<pre class="r"><code>save_as_image(my_table, path = &quot;cal_income.png&quot;)</code></pre>
+<p>You first put in the table <em>my_table</em>, and set the file name
+with the png extension. Check your working directory on your hard drive.
+You should see the file <em>cal_income.png</em> in the folder.</p>
+<div style="margin-bottom:25px;">
+
+</div>
+</div>
+</div>
+<div id="summarizing-variables-using-graphs" class="section level2">
+<h2><strong>Summarizing variables using graphs</strong></h2>
+<p><br />
+</p>
+<p>Another way of summarizing variables and their relationships is
+through graphs and charts. The main package for R graphing is
+<strong>ggplot2</strong> which is a part of the
+<strong>tidyverse</strong> package. The graphing function is
+<code>ggplot()</code> and it takes on the basic template</p>
+<p><br></p>
+<pre><code>ggplot(data = &lt;DATA&gt;) +
+      &lt;GEOM_FUNCTION&gt;(aes(x, y)) +
+      &lt;OPTIONS&gt;()</code></pre>
+<p><br></p>
+<ol style="list-style-type: decimal">
+<li><p><code>ggplot()</code> is the base function where you specify your
+dataset using the <code>data = &lt;DATA&gt;</code> argument.</p></li>
+<li><p>You then need to build on this base by using the plus operator
+<code>+</code> and <code>&lt;GEOM_FUNCTION&gt;()</code> where
+<code>&lt;GEOM_FUNCTION&gt;()</code> is a unique <code>geom</code>
+function indicating the type of graph you want to plot. Each unique
+function has its unique set of arguments which you specify using the
+<code>aes()</code> argument. <code>aes()</code> stands for aesthetics -
+things we can see. Within <code>aes()</code> you specify the variables
+you need to plot in the given <code>geom()</code> or graph, typically
+based on what is plotted on the <code>x =</code> and <code>y =</code>
+axes. Charts and graphs have an x-axis, y-axis, or both. Check <a
+href="https://posit.co/wp-content/uploads/2022/10/data-visualization-1.pdf">this</a>
+ggplot cheat sheet for all possible geoms.</p></li>
+<li><p><code>&lt;OPTIONS&gt;()</code> are a set of functions you can
+specify to change the look of the graph, for example relabelling the
+axes or adding a title.</p></li>
+</ol>
+<p>The basic idea is that a ggplot graphic layers geometric objects
+(circles, lines, etc), themes, and scales on top of data.</p>
+<p>You first start out with the base layer. It represents the empty
+<strong>ggplot</strong> layer defined by the <code>ggplot()</code>
+function with the data object whose variable(s) you want to graph.</p>
+<pre class="r"><code>ggplot(cal.tracts)</code></pre>
+<p><img
+src="lab4_files/figure-html/unnamed-chunk-26-1.png" /><!-- --></p>
+<p>We get an empty plot. We haven’t told <code>ggplot()</code> what type
+of geometric object(s) we want to plot, nor how the variables should be
+mapped to the geometric objects, so we just have a blank plot. We need
+<code>geoms</code> to paint the blank canvas.</p>
+<p>From here, we add a <code>geom</code> layer to the
+<strong>ggplot</strong> object. Layers are added to
+<strong>ggplot</strong> objects using <code>+</code>, instead of
+<code>%&gt;%</code>, since you are not explicitly piping an object into
+each subsequent layer, but adding layers on top of one another. Each
+<code>geom</code> is associated with a specific type of graph. For
+example, below is code that creates a histogram</p>
+<pre class="r"><code>ggplot(cal.tracts) + 
+  geom_histogram(aes(x=medincome))</code></pre>
+<p><img
+src="lab4_files/figure-html/unnamed-chunk-27-1.png" /><!-- --></p>
+<p><em>cal.tracts</em> is <code>&lt;DATA&gt;</code>,
+<code>geom_histogram()</code> is the
+<code>&lt;GEOM_FUNCTION&gt;()</code>, and <code>x=medincome</code> is
+the variable in <em>cal.tracts</em> we are graphing. There is no
+<em>y</em> argument specified because a histogram only plots one
+variable (just on the x axis). Let’s go through how to create the graphs
+outlined in Handout 4.</p>
+<div style="margin-bottom:25px;">
+
+</div>
+<div id="bar-charts" class="section level3">
+<h3><strong>Bar charts</strong></h3>
+<p><br />
+</p>
+<p>Recall from Handout 4 that we use bar charts to summarize categorical
+variables. Bar charts, also known as bar plots, show either the number
+or frequency of each category. To create a bar chart, use
+<code>geom_bar()</code> for <code>&lt;GEOM_FUNCTION&gt;()</code>. Let’s
+show a bar chart of <em>status</em>. We can use a bar chart to show the
+number or count of observations for each category.</p>
+<pre class="r"><code>ggplot(cal.tracts) +
+    geom_bar(aes(x=status)) </code></pre>
+<p><img
+src="lab4_files/figure-html/unnamed-chunk-28-1.png" /><!-- --></p>
+<p>What if instead of counts, we want to show the proportions of each
+category? <code>ggplot()</code> can’t automatically do this for us, so
+we have to calculate those proportions (or percentages) on our own. We
+can borrow from the code we used earlier to create our <em>status</em>
+frequency table and pipe this table directly into
+<code>ggplot()</code>.</p>
+<pre class="r"><code>cal.tracts %&gt;% 
+  group_by(status) %&gt;%
+  summarize (n = n()) %&gt;%
+    mutate(total = sum(n),
+        freq = n / total)  %&gt;%
+  ggplot() +
+    geom_bar(aes(x=status, y=freq),
+             stat=&quot;identity&quot;) </code></pre>
+<p><img
+src="lab4_files/figure-html/unnamed-chunk-29-1.png" /><!-- --></p>
+<p>We didn’t need to specify <code>data = &lt;DATA&gt;</code> in
+<code>ggplot()</code> because it was piped in. Within
+<code>aes()</code>, we specified the categorical variable
+<em>status</em> on the x-axis and then the proportion of neighborhoods
+<em>freq</em> on the y-axis. The argument <code>stat = "identity"</code>
+tells <code>ggplot()</code> to plot the exact value listed for the
+variable <em>freq</em>. Why is this outside the <code>aes()</code>
+function? Variables (or columns of your data set) have to be defined
+inside <code>aes()</code>. Whereas to apply a modification on
+everything, we can set an aesthetic to a constant value outside of
+<code>aes()</code>. Type <code>? geom_bar()</code> to see what other
+arguments you can use outside of the <code>aes()</code> argument.</p>
+<p>The X and Y axes labels are not so great. Interpretable labels are
+important for getting your message across clearly. We can relabel the
+axes using the <code>xlab()</code> and <code>ylab()</code> functions,
+which are examples of <code>&lt;OPTIONS&gt;()</code> functions.</p>
+<pre class="r"><code>cal.tracts %&gt;% 
+  group_by(status) %&gt;%
+  summarize (n = n()) %&gt;%
+    mutate(total = sum(n),
+        freq = n / total) %&gt;%
+  ggplot() +
+    geom_bar(aes(x=status, y=freq),
+             stat=&quot;identity&quot;) +
+    xlab(&quot;Geographic Status&quot;) +
+    ylab(&quot;Proportion&quot;)</code></pre>
+<p><img
+src="lab4_files/figure-html/unnamed-chunk-30-1.png" /><!-- --></p>
+<div style="margin-bottom:25px;">
+
+</div>
+</div>
+<div id="histograms" class="section level3">
+<h3><strong>Histograms</strong></h3>
+<p><br />
+</p>
+<p>Histograms are used to summarize a single numeric variable. To create
+a histogram, use <code>geom_histogram()</code> for
+<code>&lt;GEOM_FUNCTION()&gt;</code>. Let’s create a histogram of median
+household income with an clearly defined axis label.</p>
+<pre class="r"><code>ggplot(cal.tracts) + 
+  geom_histogram(aes(x=medincome)) +
+  xlab(&quot;Median Household Income&quot;) </code></pre>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<pre><code>## Warning: Removed 6 rows containing non-finite outside the scale range
+## (`stat_bin()`).</code></pre>
+<p><img
+src="lab4_files/figure-html/unnamed-chunk-31-1.png" /><!-- --></p>
+<p>As described earlier, because a single variable is plotted on the
+x-axis, we specify <code>x =</code> in <code>aes()</code> but not a
+<code>y =</code>. The message before the plot tells us that we can use
+the <code>bins =</code> argument to change the number of bins used to
+produce the histogram. You can increase the number of bins to make the
+bins narrower and thus get a finer grain of detail. Or you can decrease
+the number of bins to get a broader visual summary of the shape of the
+variable’s distribution. Try changing the number of bins and see what
+you get.</p>
+<div style="margin-bottom:25px;">
+
+</div>
+</div>
+<div id="boxplots" class="section level3">
+<h3><strong>Boxplots</strong></h3>
+<p><br />
+</p>
+<p>We can use a boxplot to visually summarize the distribution of a
+single variable or the relationship between a categorical and numeric
+variable. Use <code>geom_boxplot()</code> for
+<code>&lt;GEOM_FUNCTION()&gt;</code> to create a boxplot. Let’s examine
+median household income.</p>
+<pre class="r"><code>ggplot(cal.tracts) +
+     geom_boxplot(aes(y = medincome))+
+    ylab(&quot;Median Household Income&quot;) </code></pre>
+<p><img
+src="lab4_files/figure-html/unnamed-chunk-32-1.png" /><!-- --></p>
+<p>Remember from Handout 4 that the points outside the whiskers
+represent outliers. Outliers are defined as having values that are
+either larger than the 75th percentile plus 1.5 times the IQR or smaller
+than the 25th percentile minus 1.5 times the IQR. The IQR is $55,893,
+the 75th percentile is $112,372 and the 25th percentile is $56,479.
+While we don’t see outliers at the bottom, we do see outliers at the top
+- these are neighborhoods with median income values greater than
+$112,372 + 1.5*$55,893 = $196,211.5.</p>
+<p>Let’s examine the distribution of median income by urban, suburban
+and rural. Because we are examining the association between two
+variables, we need to specify <em>x</em> <strong>and</strong> <em>y</em>
+variables within <code>aes()</code>.</p>
+<pre class="r"><code>ggplot(cal.tracts) +
+    geom_boxplot(aes(x = status, y = medincome)) +
+    xlab(&quot;Geographic Status&quot;) +
+    ylab(&quot;Median Household Income&quot;) </code></pre>
+<p><img
+src="lab4_files/figure-html/unnamed-chunk-33-1.png" /><!-- --></p>
+<p>The boxplot is for all neighborhoods combined. We can use the
+<code>facet_wrap()</code>function to separate by county.</p>
+<pre class="r"><code>ggplot(cal.tracts) +
+  geom_boxplot(aes(x = status, y = medincome)) +
+  xlab(&quot;Geographic Status&quot;) +
+  ylab(&quot;Median Household Income&quot;) +
+  facet_wrap(~county) </code></pre>
+<p><img
+src="lab4_files/figure-html/unnamed-chunk-34-1.png" /><!-- --></p>
+<p>Note the tilde operator <code>~</code> before county</p>
+<p>We can flip the axes and can create horizontal boxplots. To create
+horizontal boxplots, add the <code>coord_flip()</code> function at the
+end.</p>
+<pre class="r"><code>ggplot(cal.tracts) +
+    geom_boxplot(aes(x = status, y = medincome)) +
+    facet_wrap(~county) +
+    ylab(&quot;Median Household Income&quot;) +
+    xlab(&quot;Geographic Status&quot;) +
+    coord_flip()</code></pre>
+<p><img
+src="lab4_files/figure-html/unnamed-chunk-35-1.png" /><!-- --></p>
+<div style="margin-bottom:25px;">
+
+</div>
+</div>
+<div id="scatterplots" class="section level3">
+<h3><strong>Scatterplots</strong></h3>
+<p><br />
+</p>
+<p>The scatterplot is the traditional graph for visualizing the
+association between two numeric variables. For scatterplots, we use
+<code>geom_point()</code> for <code>&lt;GEOM_FUNCTION&gt;()</code>.
+Because we are plotting two variables, we specify an <em>x</em> and
+<em>y</em> variable. Does median household income change with greater
+percent Hispanic in the neighborhood?</p>
+<pre class="r"><code>ggplot(cal.tracts) +
+    geom_point(aes(x = phisp, y = medincome)) +
+    xlab(&quot;Percent Hispanic&quot;) +
+    ylab(&quot;Median Household Income&quot;)</code></pre>
+<p><img
+src="lab4_files/figure-html/unnamed-chunk-36-1.png" /><!-- --></p>
+<p>And for each county?</p>
+<pre class="r"><code>ggplot(cal.tracts) +
+    geom_point(aes(x = phisp, y = medincome)) +
+    xlab(&quot;Percent Hispanic&quot;) +
+    ylab(&quot;Median Household Income&quot;) +
+    facet_wrap(~county) </code></pre>
+<p><img
+src="lab4_files/figure-html/unnamed-chunk-37-1.png" /><!-- --></p>
+<p><br></p>
+<p>What do these scatter plots suggest about the relationship between
+income and percent Hispanic across these four counties?</p>
+<p><code>ggplot()</code> is a powerful function, and you can make a lot
+of visually captivating graphs. We have just scratched the surface of
+its functions and features. The list of all possible plots for
+<code>&lt;GEOM_FUNCTION&gt;()</code> can be found <a
+href="https://ggplot2.tidyverse.org/reference/">here</a>. You can also
+make your graphs really “pretty” and professional looking by altering
+graphing features using <code>&lt;OPTIONS()</code>, including colors,
+labels, titles and axes. For a list of options that alter various
+features of a graph, check out <a
+href="http://r4ds.had.co.nz/graphics-for-communication.html">Chapter 28
+in RDS</a>.</p>
+<p>Here’s your <strong>ggplot2</strong> badge. Wear it with pride!</p>
+<center>
+<p><img
+src="ggplot2.png"
+style="width:25.0%" /></p>
+</center>
+<div style="margin-bottom:25px;">
+
+</div>
+</div>
+<div id="saving-plots" class="section level3">
+<h3><strong>Saving plots</strong></h3>
+<p><br />
+</p>
+<p>You will, on occasion, need to save a plot to a specific file.
+Specifically, we expect you to create plots and graphs, save them, and
+upload them for your final project. Don’t use the built-in “Export”
+button! If you do, your figure is not reproducible – no one will know
+how your plot was exported. Instead, use <code>ggsave()</code> by
+explicitly creating the figure and exporting</p>
+<p>Let’s save the scatterplot of percent Hispanic and median household
+income as a .png file named “phisp_inc.png”. First, we save the plot
+produced by <code>ggplot()</code> into an R object named
+<em>phisp_inc</em></p>
+<pre class="r"><code>phisp_inc &lt;- ggplot(cal.tracts) +
+    geom_point(aes(x = phisp, y = medincome)) +
+    xlab(&quot;Percent Hispanic&quot;) +
+    ylab(&quot;Median Household Income&quot;)</code></pre>
+<p>Second, make sure you are pointing RStudio into the appropriate
+folder to save your graph into. Check the working directory using
+<code>getwd()</code>. We then save <em>phisp_inc</em> using
+<code>ggsave()</code>.</p>
+<pre class="r"><code>ggsave(&quot;phisp_inc.png&quot;, phisp_inc)</code></pre>
+<p>Navigate to your working directory folder and you should see
+<em>phisp_inc.png</em>.</p>
+<div style="margin-bottom:25px;">
+
+</div>
+</div>
+</div>
+<div id="assignment-4" class="section level2">
+<h2><strong>Assignment 4</strong></h2>
+<p><br />
+</p>
+<p>Download and open the <a
+href="https://raw.githubusercontent.com/crd150/data/master/yourLastName_firstInitial_asgn04.Rmd">Assignment
+4 R Markdown Script</a>. Any response requiring a data analysis task
+must be supported by code you generate to produce your result. Just
+examining your various objects in the “Environment” section of R Studio
+is insufficient—you must use scripted commands. Submit the
+<code>Rmd</code> and its knitted <code>html</code> files on Canvas.</p>
+<p><br></p>
+<ol style="list-style-type: decimal">
+<li>As a comprehensive source for neighborhood data, PolicyMap allows
+you to examine interesting associations across different dimensions of
+neighborhood health and well-being outside of those provided in the U.S.
+Census. Let’s examine the potential predictors of resident health in the
+City of Sacramento. Bring into R the dataset <a
+href="https://raw.githubusercontent.com/crd150/data/master/sac_health_policymap.csv">sac_health_policymap.csv</a>,
+which contains census-tract level data on Sacramento downloaded from
+PolicyMap. I’ve also uploaded the file on Canvas (Files - Week 4 -
+Assignment). Consider the dataset to be cleaned and ready for analysis.
+A record layout of the data can be found <a
+href="https://raw.githubusercontent.com/crd150/data/master/assgn4_question1_codebook.txt">here</a>.</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li><p>Create an appropriate plot that shows the shape of the
+distribution for the variable <em>health</em>, which measures the
+percent of residents reporting very good to excellent health. Describe
+the shape of the distribution. (2 points)</p></li>
+<li><p>Examine the association between <em>health</em> and the variable
+<em>phys</em>. Based on this examination, briefly describe the
+relationship between the variable <em>health</em> and <em>phys</em>. (2
+points)</p></li>
+<li><p>Create the appropriate plots showing the association between
+<em>health</em> and the following variables: <em>foodaccess</em>,
+<em>unemp</em>, and <em>medinc</em>. (3 points)</p></li>
+<li><p>Based on these plots, briefly describe the relationship between
+<em>health</em> and the three variables. Describe any nonlinearities in
+the relationships. (2 points)</p></li>
+</ol>
+<p><br></p>
+<ol start="2" style="list-style-type: decimal">
+<li>The following questions investigate housing structure in Yolo
+County. Bring into R the dataset <a
+href="https://raw.githubusercontent.com/crd150/data/master/ca_border_tracts.csv">ca_border_tracts.csv</a>,
+which contains 2019-2023 American Community Survey (ACS) data for census
+tracts in California and states sharing a boundary with California
+(Arizona, Nevada, and Oregon). I’ve also uploaded the file on Canvas
+(Files - Week 4 - Assignment). Consider the dataset to be cleaned and
+ready for analysis. A record layout of the data can be found <a
+href="https://raw.githubusercontent.com/crd150/data/master/assgn4_question2_codebook.txt">here</a>.</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li><p>Calculate 90/10 percentile ratios for median household income for
+each region (Bay Area, Southern California, Other California, Arizona,
+Nevada, and Oregon). Present these values in a presentation-ready table
+using <code>flextable()</code>. Which region exhibits the highest
+neighborhood income inequality? Lowest? (2 points)</p></li>
+<li><p>What is the mean, median, interquartile range, and standard
+deviation of the percentage of houses built after 2000 in Yolo County?
+Show these values in a presentation-ready table using
+<code>flextable()</code>. (2 points)</p></li>
+<li><p>What is the correlation between median household income and
+percentage of houses built after 2000 in Yolo County? (1 point)</p></li>
+<li><p>Show a plot investigating any potential outliers in the
+percentage of houses built after 2000 in Yolo County. (2
+points)</p></li>
+<li><p>Did you find any outliers? If so, how many? What is the mean,
+median and standard deviation of the percentage of houses built after
+2000 in Yolo County <em>without</em> these outliers? What about the
+correlation between median household income and percentage of houses
+built after 2000? Present these values in a presentation-ready table
+using <code>flextable()</code>. (3.5 points)</p></li>
+<li><p>Comment on what you learned in question 2e. (0.5 points)</p></li>
+</ol>
+<hr />
+<p><a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br />This
+work is licensed under a
+<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative
+Commons Attribution-NonCommercial 4.0 International License</a>.</p>
+<p>Website created and maintained by <a
+href="https://nbrazil.faculty.ucdavis.edu/">Noli Brazil</a></p>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("show" === "show");
+});
+</script>
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3,h4",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+
+</body>
+</html>
