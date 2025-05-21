@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Professor Noli Brazil" />
+
+<meta name="date" content="2025-05-21" />
+
+<title>Lab 8b: Gentrification</title>
+
+<script src="site_libs/header-attrs-2.28/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/tabwid-1.1.3/tabwid.css" rel="stylesheet" />
+<script src="site_libs/tabwid-1.1.3/tabwid.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+      .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="styles.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">CRD 150: Spring 2025</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="syllabus.html">Syllabus</a>
+</li>
+<li>
+  <a href="hw_guidelines.html">Assignment Guidelines</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Labs/Assignments
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="lab1.html">Lab 1</a>
+    </li>
+    <li>
+      <a href="lab2.html">Lab 2</a>
+    </li>
+    <li>
+      <a href="lab3.html">Lab 3</a>
+    </li>
+    <li>
+      <a href="lab4.html">Lab 4</a>
+    </li>
+    <li>
+      <a href="lab5.html">Lab 5</a>
+    </li>
+    <li>
+      <a href="lab6.html">Lab 6</a>
+    </li>
+    <li>
+      <a href="lab7.html">Lab 7</a>
+    </li>
+    <li>
+      <a href="lab8a.html">Lab 8a</a>
+    </li>
+    <li>
+      <a href="lab8b.html">Lab 8b</a>
+    </li>
+    <li>
+      <a href="lab9.html">Lab 9</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Other
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="eligible.html">Eligible Communities</a>
+    </li>
+    <li>
+      <a href="tips.html">R tips</a>
+    </li>
+    <li>
+      <a href="ndata.html">Neighborhood Data Sources</a>
+    </li>
+    <li>
+      <a href="bigopendata.html">Big and Open Data Sources</a>
+    </li>
+    <li>
+      <a href="policymap.html">PolicyMap </a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+<div class="btn-group pull-right float-right">
+<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu dropdown-menu-right" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
+
+
+<h1 class="title toc-ignore">Lab 8b: Gentrification</h1>
+<h3 class="subtitle"><font size="4">CRD 150 - Quantitative Methods in
+Community Research</font></h3>
+<h4 class="author">Professor Noli Brazil</h4>
+<h4 class="date">May 21, 2025</h4>
+
+</div>
+
+
+<style>
+p.comment {
+background-color: #DBDBDB;
+padding: 10px;
+border: 1px solid black;
+margin-left: 25px;
+border-radius: 5px;
+font-style: normal;
+}
+
+.figure {
+   margin-top: 20px;
+   margin-bottom: 20px;
+}
+
+h1.title {
+  font-weight: bold;
+  font-family: Arial;  
+}
+
+h2.title {
+  font-family: Arial;  
+}
+
+</style>
+<style type="text/css">
+#TOC {
+  font-size: 13px;
+  font-family: Arial;
+}
+</style>
+<p><br />
+</p>
+<p>We go from one form of place-based inequality in the <a
+href="https://crd150.github.io/lab8a.html">last lab</a> (segregation) to
+another form in this lab (gentrification). How do we determine whether a
+neighborhood is undergoing gentrification? Let’s find out using a
+quantitative approach. We’ll determine which neighborhoods are
+experiencing gentrification in the City of Fresno, an issue that has
+gotten a lot of <a
+href="https://www.fresnobee.com/news/local/article222458970.html">local
+attention</a>.</p>
+<p>In this guide you will learn how to calculate the measure of
+gentrification used by Ding et al., (2016). This lab guide follows
+closely and supplements the material presented in class Handout 9.</p>
+<p class="comment">
+<strong>Assignment 8 is due by 12:00 pm, May 28th on Canvas.</strong>
+See <a href="https://crd150.github.io/hw_guidelines.html">here</a> for
+assignment guidelines. You must submit an <code>.Rmd</code> file and its
+associated <code>.html</code> file. Name the files:
+yourLastName_firstInitial_asgn08. For example: brazil_n_asgn08.
+</p>
+<div style="margin-bottom:25px;">
+
+</div>
+<div id="open-up-a-r-markdown-file" class="section level2">
+<h2><strong>Open up a R Markdown file</strong></h2>
+<p><br />
+</p>
+<p>Download the <a
+href="https://raw.githubusercontent.com/crd150/data/master/labtemplate.Rmd">Lab
+template</a> into an appropriate folder on your hard drive (preferably,
+a folder named ‘Lab 8’), open it in R Studio, and type and run your code
+there. The template is also located on Canvas under Files. The template
+is also located on Canvas under Files. Change the title (“Lab 8b”) and
+insert your name and date. Don’t change anything else inside the YAML
+(the stuff at the top in between the <code>---</code>). Also keep the
+grey chunk after the YAML. For a rundown on the use of R Markdown, see
+the <a href="https://crd150.github.io/hw_guidelines.html">assignment
+guidelines</a>.</p>
+<div style="margin-bottom:25px;">
+
+</div>
+</div>
+<div id="installing-and-loading-packages" class="section level2">
+<h2><strong>Installing and loading packages</strong></h2>
+<p><br />
+</p>
+<p>We will not be using any new packages in this lab. You’ll need to
+load the following packages. Unlike installing, you will always need to
+load packages whenever you start a new R session. As such, you’ll always
+need to use <code>library()</code> in your R Markdown file.</p>
+<pre class="r"><code>library(sf)
+library(tidyverse)
+library(tidycensus)
+library(tigris)
+library(tmap)
+library(rmapshaper)
+library(flextable)</code></pre>
+<div style="margin-bottom:25px;">
+
+</div>
+</div>
+<div id="bringing-in-the-data" class="section level2">
+<h2><strong>Bringing in the data</strong></h2>
+<p><br />
+</p>
+<p>We will use the Ding et al. (2016) method outlined in Handout 9 for
+measuring gentrification. The measure defines gentrification as
+follows</p>
+<ul>
+<li>A neighborhood is eligible for gentrification if its median
+household income is less than the city’s median household income at the
+beginning of the observation period.</li>
+<li>An eligible neighborhood gentrifies if its change from the beginning
+to the end of the observation period in median gross rent <em>or</em>
+median housing value is greater than the change in the city <em>and</em>
+the change in its percent of residents that have a college degree is
+more than the change in the city.</li>
+</ul>
+<p>We will define the beginning of the period using 2006-2010 ACS data
+(this is the first ACS period using 2010 tract boundaries) and the end
+of the period using 2015-2019 ACS data. We need to bring in the
+appropriate variables from each of these years into R.</p>
+<p>To demonstrate this measure, we will examine gentrification in the <a
+href="https://www.fresno.gov/">City of Fresno</a> in California. We need
+to collect data at the tract and city levels.</p>
+<div style="margin-bottom:25px;">
+
+</div>
+<div id="tract-level-data" class="section level3">
+<h3><strong>Tract level data</strong></h3>
+<p><br />
+</p>
+<p>Gentrification is a neighborhood socioeconomic change process. So we
+need to grab socioeconomic data from the beginning and end of the period
+for census tracts (the most common measure of neighborhood in the social
+sciences).</p>
+<p>First, we will need to read in tract-level median gross rent, median
+housing value and percent with a college degree for Fresno city census
+tracts in the beginning of the period (2006-2010). We will use the
+<code>get_acs()</code> command to get these data. We won’t go through
+each line of code in detail because we’ve covered most of these
+operations and functions in prior labs. We’ve embedded comments within
+the code that briefly explains what each chunk is doing. Go back to
+prior guides (or RDS/GWR) if you need further help.</p>
+<p>The one new function we use below is <code>rename_with()</code> which
+allows you to rename all the variables with names of a certain pattern.
+In this case, we rename variables with an “E” at the end, replacing “E”
+with nothing ““. Notice that I attached a <em>10</em> to the end of each
+variable that I will use in the gentrification measure to signify that
+it is for 2006-2010.</p>
+<pre class="r"><code># Bring in 2006-2010 census tract data using the Census API 
+ca.tracts10 &lt;- get_acs(geography = &quot;tract&quot;, 
+              year = 2010,
+              variables = c(medinc10 = &quot;B19013_001&quot;, rent10  = &quot;B25064_001&quot;,
+                            houseval10 = &quot;B25077_001&quot;, bachm = &quot;B15002_015&quot;,
+                            mastersm = &quot;B15002_016&quot;, profm = &quot;B15002_017&quot;,
+                            phdm = &quot;B15002_018&quot;, bachf = &quot;B15002_032&quot;,
+                            mastersf = &quot;B15002_033&quot;, proff = &quot;B15002_034&quot;,
+                            phdf = &quot;B15002_035&quot;, totcol = &quot;B15002_001&quot;),
+              state = &quot;CA&quot;,
+              survey = &quot;acs5&quot;,
+              output = &quot;wide&quot;,
+              geometry = TRUE)
+
+# Rename, calculate and keep essential vars. 
+ca.tracts10 &lt;- ca.tracts10 %&gt;% 
+  rename_with(~ sub(&quot;E$&quot;, &quot;&quot;, .x), everything()) %&gt;%
+  mutate(pcol10 = 100*(bachm+mastersm+profm+phdm+bachf+mastersf+proff+phdf)/totcol) %&gt;%
+  select(c(GEOID,medinc10, rent10, houseval10, pcol10)) </code></pre>
+<p>We then need to keep just the City of Fresno tracts. Here we use
+familiar friends that were introduced in <a
+href="https://crd150.github.io/lab6.html#Spatial_data_wrangling">Lab
+6</a>.</p>
+<pre class="r"><code># Bring in city boundaries.  We&#39;ll use the boundaries for the final year, 2019
+pl &lt;- places(state = &quot;CA&quot;, year = 2019, cb = TRUE)
+
+# Keep Fresno city
+fresno &lt;- pl %&gt;%
+          filter(NAME == &quot;Fresno&quot;)
+
+#Keep tracts in Fresno 
+fresno.tracts &lt;- ms_clip(target = ca.tracts10, clip = fresno, remove_slivers = TRUE)</code></pre>
+<p>Second, we need to get the same variables but for the end of the
+period, which we define as 2015-2019. I’ve appended <em>19</em> to the
+end of each variable name to signify these are 2019 data. This is done
+to distinguish these variables from the 2010 ACS data, which we’ll be
+downloading later when we measure gentrification. Also note that we
+don’t need any spatial data since <em>ca.tracts10</em> is already an
+<strong>sf</strong> object, so we don’t include the argument
+<code>geometry = TRUE</code>.</p>
+<pre class="r"><code># Bring in 2015-2019 census tract data using the Census API 
+ca.tracts19 &lt;- get_acs(geography = &quot;tract&quot;, 
+              year = 2019,
+              variables = c(tpop = &quot;B03002_001&quot;, 
+                            white = &quot;B03002_003&quot;, black = &quot;B03002_004&quot;,
+                            asian = &quot;B03002_006&quot;, hisp = &quot;B03002_012&quot;,
+                            medinc19 = &quot;B19013_001&quot;, rent19  = &quot;B25064_001&quot;,
+                            houseval19 = &quot;B25077_001&quot;, bach = &quot;B15003_022&quot;,
+                            masters = &quot;B15003_023&quot;, prof = &quot;B15003_024&quot;,
+                            phd = &quot;B15003_025&quot;, totcol = &quot;B15003_001&quot;),
+              state = &quot;CA&quot;,
+              survey = &quot;acs5&quot;,
+              output = &quot;wide&quot;)
+
+# Rename, calculate and keep essential vars. 
+ca.tracts19 &lt;- ca.tracts19 %&gt;% 
+  rename_with(~ sub(&quot;E$&quot;, &quot;&quot;, .x), everything()) %&gt;%
+  mutate(pwhite19 = 100*(white/tpop), pasian19 = 100*(asian/tpop), 
+        pblack19 = 100*(black/tpop), phisp19 = 100*(hisp/tpop), 
+        pcol19 = 100*(bach+masters+prof+phd)/totcol) %&gt;%
+  select(c(GEOID,pwhite19, pasian19, pblack19, phisp19,
+           medinc19, rent19, houseval19, pcol19))  </code></pre>
+<p>Finally, let’s join the two tract level data objects. The
+<strong>sf</strong> object <em>fresno.tracts</em> contains 2006-2010 ACS
+tract-level data. We join the regular tibble <em>ca.tracts19</em>, which
+contains 2015-2019 ACS tract-level data, using <code>left_join()</code>.
+The GEOID is <em>GEOID</em> in both <em>fresno.tracts</em> and
+<em>ca.tracts19</em></p>
+<pre class="r"><code>fresno.tracts &lt;- fresno.tracts %&gt;%
+            left_join(ca.tracts19, by = &quot;GEOID&quot;)</code></pre>
+<p>Make sure we’ve successfully merged all the variables we need by
+viewing the object <em>fresno.tracts</em>.</p>
+<pre class="r"><code>glimpse(fresno.tracts)</code></pre>
+<pre><code>## Rows: 127
+## Columns: 14
+## $ GEOID      &lt;chr&gt; &quot;06019000501&quot;, &quot;06019000800&quot;, &quot;06019001202&quot;, &quot;06019001407&quot;,…
+## $ houseval10 &lt;dbl&gt; 89100, 276900, 131500, 161400, 237100, 32700, 124000, 11930…
+## $ medinc10   &lt;dbl&gt; 18154, 25658, 33649, 20425, 76429, 26436, 22675, 26316, 361…
+## $ rent10     &lt;dbl&gt; 673, 806, 819, 721, 1393, 761, 790, 734, 961, 791, 774, 856…
+## $ pcol10     &lt;dbl&gt; 3.483769, 1.055409, 3.276284, 8.578856, 17.285531, 8.157895…
+## $ pwhite19   &lt;dbl&gt; 8.175355, 15.866873, 1.447051, 9.691538, 24.370594, 13.6855…
+## $ pasian19   &lt;dbl&gt; 2.527646, 4.798762, 12.869985, 17.507295, 30.278617, 7.4952…
+## $ pblack19   &lt;dbl&gt; 6.990521, 8.668731, 5.108529, 11.588162, 1.074186, 10.28007…
+## $ phisp19    &lt;dbl&gt; 80.92417, 69.89164, 79.91668, 59.14965, 41.62471, 66.48631,…
+## $ medinc19   &lt;dbl&gt; 23717, 25083, 39223, 27258, 79750, 27031, 32295, 24322, 368…
+## $ rent19     &lt;dbl&gt; 798, 686, 1060, 834, 1605, 888, 940, 766, 1203, 973, 868, 9…
+## $ houseval19 &lt;dbl&gt; 179000, 358800, 149700, 68400, 255000, 80500, 93500, 115000…
+## $ pcol19     &lt;dbl&gt; 1.870504, 11.528822, 6.269592, 6.982068, 20.195972, 3.94554…
+## $ geometry   &lt;GEOMETRY [°]&gt; POLYGON ((-119.7763 36.7503..., MULTIPOLYGON (((-1…</code></pre>
+<div style="margin-bottom:25px;">
+
+</div>
+</div>
+<div id="city-level-data" class="section level3">
+<h3><strong>City level data</strong></h3>
+<p><br />
+</p>
+<p>As described in Handout 9, we need to compare neighborhoods to the
+entire City of Fresno to determine if a neighborhood is (1) eligible to
+gentrify and (2) if they are, whether they gentrified. This means we
+need to bring in city data for the beginning (2006-10) and end (2015-19)
+periods. First, let’s bring in 2006-2010 ACS data for all places in
+California using <code>get_acs()</code>. We use the argument
+<code>geography = "place"</code>. We specify these data as place level
+2006-2010 by attaching a <em>c10</em> to the end of each variable. We
+can’t use<code>geometry = TRUE</code> to bring in spatial data for
+2006-2010 city data because <strong>tidycensus</strong> does not provide
+spatial data for years before 2011.</p>
+<pre class="r"><code># Bring in census tract data using the Census API 
+ca.places10 &lt;- get_acs(geography = &quot;place&quot;, 
+              year = 2010,
+              variables = c(medincc10 = &quot;B19013_001&quot;, rentc10  = &quot;B25064_001&quot;,
+                            housevalc10 = &quot;B25077_001&quot;, bachm = &quot;B15002_015&quot;,
+                            mastersm = &quot;B15002_016&quot;, profm = &quot;B15002_017&quot;,
+                            phdm = &quot;B15002_018&quot;, bachf = &quot;B15002_032&quot;,
+                            mastersf = &quot;B15002_033&quot;, proff = &quot;B15002_034&quot;,
+                            phdf = &quot;B15002_035&quot;, totcol = &quot;B15002_001&quot;),
+              state = &quot;CA&quot;,
+              survey = &quot;acs5&quot;,
+              output = &quot;wide&quot;)
+
+# Keep Fresno. Calculate and keep essential vars. Also take out zero population tracts
+ca.places10 &lt;- ca.places10 %&gt;% 
+    filter(NAME == &quot;Fresno city, California&quot;) %&gt;%
+  rename_with(~ sub(&quot;E$&quot;, &quot;&quot;, .x), everything()) %&gt;%
+  mutate(pcolc10 = 100*(bachm+mastersm+profm+phdm+bachf+mastersf+proff+phdf)/totcol) %&gt;%
+  select(c(GEOID,medincc10, rentc10, housevalc10, pcolc10)) </code></pre>
+<p><br></p>
+<p>We next need to bring in the last year (2015-2019) of city level
+data. We specify the data as place level 2015-2019 by attaching a
+<em>c19</em> to the end of each variable. Here, we specify
+<code>geometry = TRUE</code> to get city spatial boundaries, and then
+filter to get just Fresno city.</p>
+<pre class="r"><code># Bring in census tract data using the Census API 
+ca.places19 &lt;- get_acs(geography = &quot;place&quot;, 
+              year = 2019,
+              variables = c(medincc19 = &quot;B19013_001&quot;, rentc19  = &quot;B25064_001&quot;,
+                            housevalc19 = &quot;B25077_001&quot;, bachc = &quot;B15003_022&quot;,
+                            mastersc = &quot;B15003_023&quot;, profc = &quot;B15003_024&quot;,
+                            phdc = &quot;B15003_025&quot;, totcolc = &quot;B15003_001&quot;),
+              state = &quot;CA&quot;,
+              survey = &quot;acs5&quot;,
+              output = &quot;wide&quot;,
+              geometry = TRUE)
+
+# Keep Fresno. Calculate and keep essential vars. Also keep just Fresno
+fresno.city &lt;- ca.places19 %&gt;% 
+  filter(NAME == &quot;Fresno city, California&quot;) %&gt;%
+  rename_with(~ sub(&quot;E$&quot;, &quot;&quot;, .x), everything()) %&gt;%
+  mutate(pcolc19 = 100*(bachc+mastersc+profc+phdc)/totcolc) %&gt;%
+  select(c(GEOID,medincc19, rentc19, housevalc19, pcolc19)) </code></pre>
+<p>Finally, let’s join the two city level data objects. The
+<strong>sf</strong> object <em>fresno.city</em> contains 2015-2019 ACS
+data just for Fresno city. We join the regular tibble
+<em>ca.places10</em>, which contains 2006-2010 ACS city-level data, to
+<em>fresno.city</em> using <code>left_join()</code>. The GEOID is
+<em>GEOID</em> in both files.</p>
+<pre class="r"><code>fresno.city &lt;- fresno.city %&gt;%
+            left_join(ca.places10, by = &quot;GEOID&quot;)</code></pre>
+<p>Make sure to look at the data.</p>
+<pre class="r"><code>glimpse(fresno.city)</code></pre>
+<pre><code>## Rows: 1
+## Columns: 10
+## $ GEOID       &lt;chr&gt; &quot;0627000&quot;
+## $ medincc19   &lt;dbl&gt; 50432
+## $ rentc19     &lt;dbl&gt; 1005
+## $ housevalc19 &lt;dbl&gt; 242000
+## $ pcolc19     &lt;dbl&gt; 21.93261
+## $ medincc10   &lt;dbl&gt; 43124
+## $ rentc10     &lt;dbl&gt; 832
+## $ housevalc10 &lt;dbl&gt; 244200
+## $ pcolc10     &lt;dbl&gt; 20.51262
+## $ geometry    &lt;MULTIPOLYGON [°]&gt; MULTIPOLYGON (((-119.6798 3...</code></pre>
+<div style="margin-bottom:25px;">
+
+</div>
+</div>
+<div id="joining-the-tract-and-city-data" class="section level3">
+<h3><strong>Joining the tract and city data</strong></h3>
+<p><br />
+</p>
+<p>We have tract and city level data at the beginning and end of the
+period in separate data objects (<em>fresno.tracts</em> and
+<em>fresno.city</em>). We now need to join all of them together into a
+single file.</p>
+<p>When you view <em>fresno.tracts</em>, you’ll notice that we don’t
+have any variable indicating the city identifier to merge in city-level
+data. Instead of <code>left_join()</code>, we instead use the
+<code>st_join()</code> function to join the city data to the tract data,
+which is a part of the <strong>sf</strong> package. Here, rather than
+using an ID like GEOID, the joining is based on geographic location. We
+already used <code>st_join()</code> to join two spatial data object in
+<a href="https://crd150.github.io/lab8a.html#Read_in_the_data">Lab
+8a</a>. Let’s use it again.</p>
+<pre class="r"><code>fresno.tracts &lt;- fresno.tracts %&gt;%
+                st_join(fresno.city, left=FALSE)</code></pre>
+<p>This function joins the variables from <em>fresno.city</em> to the
+data frame <em>fresno.tracts</em>.</p>
+<p>Look at the variable names to see if the join was successful.</p>
+<pre class="r"><code>names(fresno.tracts)</code></pre>
+<pre><code>##  [1] &quot;GEOID.x&quot;     &quot;houseval10&quot;  &quot;medinc10&quot;    &quot;rent10&quot;      &quot;pcol10&quot;     
+##  [6] &quot;pwhite19&quot;    &quot;pasian19&quot;    &quot;pblack19&quot;    &quot;phisp19&quot;     &quot;medinc19&quot;   
+## [11] &quot;rent19&quot;      &quot;houseval19&quot;  &quot;pcol19&quot;      &quot;GEOID.y&quot;     &quot;medincc19&quot;  
+## [16] &quot;rentc19&quot;     &quot;housevalc19&quot; &quot;pcolc19&quot;     &quot;medincc10&quot;   &quot;rentc10&quot;    
+## [21] &quot;housevalc10&quot; &quot;pcolc10&quot;     &quot;geometry&quot;</code></pre>
+<p>We can also look at the data.</p>
+<pre class="r"><code>glimpse(fresno.tracts)</code></pre>
+<pre><code>## Rows: 127
+## Columns: 23
+## $ GEOID.x     &lt;chr&gt; &quot;06019000501&quot;, &quot;06019000800&quot;, &quot;06019001202&quot;, &quot;06019001407&quot;…
+## $ houseval10  &lt;dbl&gt; 89100, 276900, 131500, 161400, 237100, 32700, 124000, 1193…
+## $ medinc10    &lt;dbl&gt; 18154, 25658, 33649, 20425, 76429, 26436, 22675, 26316, 36…
+## $ rent10      &lt;dbl&gt; 673, 806, 819, 721, 1393, 761, 790, 734, 961, 791, 774, 85…
+## $ pcol10      &lt;dbl&gt; 3.483769, 1.055409, 3.276284, 8.578856, 17.285531, 8.15789…
+## $ pwhite19    &lt;dbl&gt; 8.175355, 15.866873, 1.447051, 9.691538, 24.370594, 13.685…
+## $ pasian19    &lt;dbl&gt; 2.527646, 4.798762, 12.869985, 17.507295, 30.278617, 7.495…
+## $ pblack19    &lt;dbl&gt; 6.990521, 8.668731, 5.108529, 11.588162, 1.074186, 10.2800…
+## $ phisp19     &lt;dbl&gt; 80.92417, 69.89164, 79.91668, 59.14965, 41.62471, 66.48631…
+## $ medinc19    &lt;dbl&gt; 23717, 25083, 39223, 27258, 79750, 27031, 32295, 24322, 36…
+## $ rent19      &lt;dbl&gt; 798, 686, 1060, 834, 1605, 888, 940, 766, 1203, 973, 868, …
+## $ houseval19  &lt;dbl&gt; 179000, 358800, 149700, 68400, 255000, 80500, 93500, 11500…
+## $ pcol19      &lt;dbl&gt; 1.870504, 11.528822, 6.269592, 6.982068, 20.195972, 3.9455…
+## $ GEOID.y     &lt;chr&gt; &quot;0627000&quot;, &quot;0627000&quot;, &quot;0627000&quot;, &quot;0627000&quot;, &quot;0627000&quot;, &quot;06…
+## $ medincc19   &lt;dbl&gt; 50432, 50432, 50432, 50432, 50432, 50432, 50432, 50432, 50…
+## $ rentc19     &lt;dbl&gt; 1005, 1005, 1005, 1005, 1005, 1005, 1005, 1005, 1005, 1005…
+## $ housevalc19 &lt;dbl&gt; 242000, 242000, 242000, 242000, 242000, 242000, 242000, 24…
+## $ pcolc19     &lt;dbl&gt; 21.93261, 21.93261, 21.93261, 21.93261, 21.93261, 21.93261…
+## $ medincc10   &lt;dbl&gt; 43124, 43124, 43124, 43124, 43124, 43124, 43124, 43124, 43…
+## $ rentc10     &lt;dbl&gt; 832, 832, 832, 832, 832, 832, 832, 832, 832, 832, 832, 832…
+## $ housevalc10 &lt;dbl&gt; 244200, 244200, 244200, 244200, 244200, 244200, 244200, 24…
+## $ pcolc10     &lt;dbl&gt; 20.51262, 20.51262, 20.51262, 20.51262, 20.51262, 20.51262…
+## $ geometry    &lt;GEOMETRY [°]&gt; POLYGON ((-119.7763 36.7503..., MULTIPOLYGON (((-…</code></pre>
+<p>We’re done!</p>
+<div style="margin-bottom:25px;">
+
+</div>
+</div>
+</div>
+<div id="measuring-gentrification" class="section level2">
+<h2><strong>Measuring Gentrification</strong></h2>
+<p><br />
+</p>
+<p>We’ve got all the data we need in one data object
+(<em>fresno.tracts</em>). Now we can start constructing our
+gentrification measure.</p>
+<div style="margin-bottom:25px;">
+
+</div>
+<div id="gentrification-eligible-tracts" class="section level3">
+<h3><strong>Gentrification eligible tracts</strong></h3>
+<p><br />
+</p>
+<p>First, let’s determine whether a tract is eligible to gentrify in the
+first place. A neighborhood is eligible for gentrification if its median
+household income is less than the city’s median household income in
+2006-2010. We create a variable named <em>eligible</em> that specifies
+whether a neighborhood is eligible or not using the
+<code>ifelse()</code> function within <code>mutate()</code>.</p>
+<pre class="r"><code>fresno.tracts &lt;- fresno.tracts %&gt;%
+            mutate(eligible = ifelse(medinc10 &lt; medincc10, 
+                                     &quot;Eligible&quot;, 
+                                     &quot;Not Eligible&quot;))</code></pre>
+<p>Here, the <code>ifelse()</code> function tells R that if a tract’s
+median household income <em>medinc10</em> is less than the city level
+median household income <em>medincc10</em>, label that neighborhood
+“Eligible”. Otherwise, label the neighborhood as “Not Eligible”.</p>
+<p>What is the percentage of neighborhoods that are eligible to
+gentrify? Here, we are summarizing a categorical variable, which we
+covered in <a
+href="https://crd150.github.io/lab4.html#Categorical_variables">Lab
+4</a>. Let’s put the results in a nice looking table by dropping the
+geometry using the function <code>st_drop_geometry()</code> and creating
+a nicely formatted table using the function
+<code>flextable()</code>.</p>
+<pre class="r"><code>fresno.tracts %&gt;%
+  group_by(eligible) %&gt;%
+  summarize(n = n()) %&gt;%
+  mutate(Percent = 100*(n / sum(n))) %&gt;%
+  ungroup() %&gt;%
+  st_drop_geometry() %&gt;%
+  flextable() %&gt;%
+  colformat_double(digits = 2) </code></pre>
+<div class="tabwid"><style>.cl-d1a97cea{}.cl-d1a71e00{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-d1a8195e{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-d1a81968{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-d1a82688{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d1a82689{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d1a8268a{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d1a82692{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d1a82693{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d1a82694{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing='true' class='cl-d1a97cea'><thead><tr style="overflow-wrap:break-word;"><th class="cl-d1a82688"><p class="cl-d1a8195e"><span class="cl-d1a71e00">eligible</span></p></th><th class="cl-d1a82689"><p class="cl-d1a81968"><span class="cl-d1a71e00">n</span></p></th><th class="cl-d1a82689"><p class="cl-d1a81968"><span class="cl-d1a71e00">Percent</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-d1a8268a"><p class="cl-d1a8195e"><span class="cl-d1a71e00">Eligible</span></p></td><td class="cl-d1a82692"><p class="cl-d1a81968"><span class="cl-d1a71e00">71</span></p></td><td class="cl-d1a82692"><p class="cl-d1a81968"><span class="cl-d1a71e00">55.91</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-d1a8268a"><p class="cl-d1a8195e"><span class="cl-d1a71e00">Not Eligible</span></p></td><td class="cl-d1a82692"><p class="cl-d1a81968"><span class="cl-d1a71e00">55</span></p></td><td class="cl-d1a82692"><p class="cl-d1a81968"><span class="cl-d1a71e00">43.31</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-d1a82693"><p class="cl-d1a8195e"><span class="cl-d1a71e00"></span></p></td><td class="cl-d1a82694"><p class="cl-d1a81968"><span class="cl-d1a71e00">1</span></p></td><td class="cl-d1a82694"><p class="cl-d1a81968"><span class="cl-d1a71e00">0.79</span></p></td></tr></tbody></table></div>
+<p>There is one tract missing a designation because it is missing values
+on median household income and median housing value (use
+<code>summary(fresno.tracts)</code> to detect missingness).</p>
+<div style="margin-bottom:25px;">
+
+</div>
+</div>
+<div id="gentrifying-tracts" class="section level3">
+<h3><strong>Gentrifying tracts</strong></h3>
+<p><br />
+</p>
+<p>Next, we identify the eligible tracts that are gentrifying and the
+ones that are not gentrifying. An eligible neighborhood gentrifies if
+its change between 2006-2010 and 2015-2019 in median gross rent
+<em>or</em> median housing value is greater than the change in the city
+<em>and</em> the change in its percent of residents that have a college
+degree is more than the change in the city.</p>
+<p>Let’s first calculate the tract-level 2010 to 2019 differences in
+rent <em>rentch</em>, housing values <em>housech</em>, and percent with
+a college degree <em>pcolch</em>.</p>
+<pre class="r"><code>fresno.tracts &lt;- fresno.tracts %&gt;%
+            mutate(rentch = rent19-rent10, 
+                   housech = houseval19-houseval10,
+                   pcolch = pcol19-pcol10)</code></pre>
+<p>Next, we calculate the city-level differences in rent
+<em>rentchc</em>, housing values <em>housechc</em>, and percent with a
+college degree <em>pcolchc</em>.</p>
+<pre class="r"><code>fresno.tracts &lt;- fresno.tracts %&gt;%
+            mutate(rentchc = rentc19-rentc10, 
+                   housechc = housevalc19-housevalc10,
+                   pcolchc = pcolc19-pcolc10)</code></pre>
+<p>We now have all the pieces to construct a variable <em>gent</em> that
+labels tracts as “Not eligible”, “Gentrifying”, and “Not Gentrifying”.
+We do this using a set of <code>ifelse()</code> statements within
+<code>mutate()</code>.</p>
+<pre class="r"><code>fresno.tracts &lt;- fresno.tracts %&gt;%
+            mutate(gent = ifelse(eligible == &quot;Not Eligible&quot;, &quot;Not Eligible&quot;,
+                          ifelse(eligible == &quot;Eligible&quot; &amp; pcolch &gt; pcolchc &amp;
+                                (rentch &gt; rentchc | housech &gt; housechc), &quot;Gentrifying&quot;,
+                                &quot;Not Gentrifying&quot;)))</code></pre>
+<div style="margin-bottom:25px;">
+
+</div>
+</div>
+</div>
+<div id="examining-gentrification" class="section level2">
+<h2><strong>Examining Gentrification</strong></h2>
+<p><br />
+</p>
+<p>What is the percent of neighborhoods in Fresno that experienced
+gentrification? Let’s put it in a nice looking table by dropping the
+geometry using the function <code>st_drop_geometry()</code> and using
+the function <code>flextable()</code>.</p>
+<pre class="r"><code>fresno.tracts %&gt;%
+  group_by(gent) %&gt;%
+  summarize(n = n()) %&gt;%
+  mutate(Percent = 100*(n / sum(n))) %&gt;%
+  ungroup() %&gt;%
+  st_drop_geometry() %&gt;%
+  flextable() %&gt;%
+  colformat_double(digits = 2) </code></pre>
+<div class="tabwid"><style>.cl-d1ba8d14{}.cl-d1b86016{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-d1b94332{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-d1b9433c{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-d1b94da0{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d1b94daa{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d1b94dab{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d1b94dac{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d1b94db4{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d1b94db5{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing='true' class='cl-d1ba8d14'><thead><tr style="overflow-wrap:break-word;"><th class="cl-d1b94da0"><p class="cl-d1b94332"><span class="cl-d1b86016">gent</span></p></th><th class="cl-d1b94daa"><p class="cl-d1b9433c"><span class="cl-d1b86016">n</span></p></th><th class="cl-d1b94daa"><p class="cl-d1b9433c"><span class="cl-d1b86016">Percent</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-d1b94dab"><p class="cl-d1b94332"><span class="cl-d1b86016">Gentrifying</span></p></td><td class="cl-d1b94dac"><p class="cl-d1b9433c"><span class="cl-d1b86016">22</span></p></td><td class="cl-d1b94dac"><p class="cl-d1b9433c"><span class="cl-d1b86016">17.32</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-d1b94dab"><p class="cl-d1b94332"><span class="cl-d1b86016">Not Eligible</span></p></td><td class="cl-d1b94dac"><p class="cl-d1b9433c"><span class="cl-d1b86016">55</span></p></td><td class="cl-d1b94dac"><p class="cl-d1b9433c"><span class="cl-d1b86016">43.31</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-d1b94dab"><p class="cl-d1b94332"><span class="cl-d1b86016">Not Gentrifying</span></p></td><td class="cl-d1b94dac"><p class="cl-d1b9433c"><span class="cl-d1b86016">49</span></p></td><td class="cl-d1b94dac"><p class="cl-d1b9433c"><span class="cl-d1b86016">38.58</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-d1b94db4"><p class="cl-d1b94332"><span class="cl-d1b86016"></span></p></td><td class="cl-d1b94db5"><p class="cl-d1b9433c"><span class="cl-d1b86016">1</span></p></td><td class="cl-d1b94db5"><p class="cl-d1b9433c"><span class="cl-d1b86016">0.79</span></p></td></tr></tbody></table></div>
+<p>Approximately 17 percent of neighborhoods in Fresno experienced
+gentrification between 2010 and 2019. Where are these neighborhoods
+located? Let’s make a nice color patch map using our best buddy
+<code>tm_shape()</code>.</p>
+<pre class="r"><code>tm_shape(fresno.tracts, unit = &quot;mi&quot;) +
+  tm_polygons(fill = &quot;gent&quot;, 
+              fill.scale = tm_scale(style = &quot;cat&quot;,
+                                    values = &quot;paired&quot;),
+              fill.legend = tm_legend(title = &quot;&quot;, frame = FALSE),
+              col_alpha = 0) +
+  tm_scalebar(breaks = c(0, 1, 2), text.size  = 0.75, 
+              position = tm_pos_in(&quot;right&quot;, &quot;bottom&quot;))  +
+  tm_compass(type = &quot;4star&quot;, position = tm_pos_in(&quot;right&quot;, &quot;top&quot;)) +
+  tm_title(&quot;2010-2019 Gentrification Status in Fresno&quot;) +
+  tm_layout(frame = FALSE, scale = 0.7)</code></pre>
+<p><img
+src="lab8b_files/figure-html/unnamed-chunk-20-1.png" /><!-- --></p>
+<p>What are the mean percentages of residents that are Hispanic and
+non-Hispanic white, Black, and Asian in 2010 in each of the
+gentrification categories?</p>
+<pre class="r"><code>fresno.tracts %&gt;%
+  st_drop_geometry() %&gt;%
+  filter(is.na(gent) == FALSE) %&gt;%
+  group_by(gent) %&gt;%
+  summarize(&quot;% White&quot; = mean(pwhite19),
+            &quot;% Black&quot; = mean(pblack19),
+            &quot;% Hispanic&quot; = mean(phisp19),
+            &quot;% Asian&quot; = mean(pasian19)) %&gt;%
+  flextable() %&gt;%
+  colformat_double(digits = 2) </code></pre>
+<div class="tabwid"><style>.cl-d1def528{}.cl-d1dcdc84{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-d1ddb186{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-d1ddb190{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-d1ddbaaa{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d1ddbaab{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d1ddbaac{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d1ddbab4{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d1ddbab5{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d1ddbab6{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing='true' class='cl-d1def528'><thead><tr style="overflow-wrap:break-word;"><th class="cl-d1ddbaaa"><p class="cl-d1ddb186"><span class="cl-d1dcdc84">gent</span></p></th><th class="cl-d1ddbaab"><p class="cl-d1ddb190"><span class="cl-d1dcdc84">% White</span></p></th><th class="cl-d1ddbaab"><p class="cl-d1ddb190"><span class="cl-d1dcdc84">% Black</span></p></th><th class="cl-d1ddbaab"><p class="cl-d1ddb190"><span class="cl-d1dcdc84">% Hispanic</span></p></th><th class="cl-d1ddbaab"><p class="cl-d1ddb190"><span class="cl-d1dcdc84">% Asian</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-d1ddbaac"><p class="cl-d1ddb186"><span class="cl-d1dcdc84">Gentrifying</span></p></td><td class="cl-d1ddbab4"><p class="cl-d1ddb190"><span class="cl-d1dcdc84">15.86</span></p></td><td class="cl-d1ddbab4"><p class="cl-d1ddb190"><span class="cl-d1dcdc84">7.26</span></p></td><td class="cl-d1ddbab4"><p class="cl-d1ddb190"><span class="cl-d1dcdc84">63.41</span></p></td><td class="cl-d1ddbab4"><p class="cl-d1ddb190"><span class="cl-d1dcdc84">11.45</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-d1ddbaac"><p class="cl-d1ddb186"><span class="cl-d1dcdc84">Not Eligible</span></p></td><td class="cl-d1ddbab4"><p class="cl-d1ddb190"><span class="cl-d1dcdc84">42.92</span></p></td><td class="cl-d1ddbab4"><p class="cl-d1ddb190"><span class="cl-d1dcdc84">4.56</span></p></td><td class="cl-d1ddbab4"><p class="cl-d1ddb190"><span class="cl-d1dcdc84">36.21</span></p></td><td class="cl-d1ddbab4"><p class="cl-d1ddb190"><span class="cl-d1dcdc84">12.98</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-d1ddbab5"><p class="cl-d1ddb186"><span class="cl-d1dcdc84">Not Gentrifying</span></p></td><td class="cl-d1ddbab6"><p class="cl-d1ddb190"><span class="cl-d1dcdc84">17.33</span></p></td><td class="cl-d1ddbab6"><p class="cl-d1ddb190"><span class="cl-d1dcdc84">8.19</span></p></td><td class="cl-d1ddbab6"><p class="cl-d1ddb190"><span class="cl-d1dcdc84">60.81</span></p></td><td class="cl-d1ddbab6"><p class="cl-d1ddb190"><span class="cl-d1dcdc84">10.81</span></p></td></tr></tbody></table></div>
+<p>Exploring the association between gentrification and racial/ethnic
+composition, demographic and socioeconomic characteristics, and other
+conditions is a great idea for your final project.</p>
+<div style="margin-bottom:25px;">
+
+</div>
+</div>
+<div id="assignment-8" class="section level2">
+<h2><strong>Assignment 8</strong></h2>
+<p><br />
+</p>
+<p>Download and open the <a
+href="https://raw.githubusercontent.com/crd150/data/master/yourLastName_firstInitial_asgn08.Rmd">Assignment
+8 R Markdown Script</a>. The script can also be found on Canvas (Files -
+Week 8 - Assignment). Any response requiring a data analysis task must
+be supported by code you generate to produce your result. (Just
+examining your various objects in the “Environment” section of R Studio
+is insufficient—you must use scripted commands.).</p>
+<p><br></p>
+<ol style="list-style-type: decimal">
+<li>In <a
+href="https://crd150.github.io/lab6.html#Assignment_6">Assignment 6</a>,
+we descriptively examined the claim that Houston is the most racially
+integrated city in the United States. Let’s employ the segregation tools
+we learned this week to explore this claim even further. Let’s also
+compare Houston to Sacramento, a city that has also been proclaimed as
+<a href="https://www.sacbee.com/news/local/article226876944.html">among
+most racially diverse in the nation</a>. Read in the Houston and
+Sacramento shapefiles <em>houstondems.shp</em> and <em>sacdems.shp</em>,
+which can be found on Canvas in the zipped folder
+<em>assignment8q1.zip</em> (Files - Week 8 - Assignment). These files
+contain data for census tract in the Houston and Sacramento metropolitan
+areas. Consider the datasets to be cleaned and ready for analysis. A
+record layout of the data can be found <a
+href="https://raw.githubusercontent.com/crd150/data/master/sac_houston_metro_tracts_record_layout.txt">here</a>.</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>Calculate the Black/White, Hispanic/White and Asian/White
+Dissimilarity Indices for Houston and Sacramento. Present these values
+in a presentation-ready table(s). (3 points)</li>
+<li>Calculate the Black/White, Hispanic/White and Asian/White
+Interaction Indices for Houston and Sacramento. Present these values in
+a presentation-ready table(s). (3 points)</li>
+<li>Based on your answers to questions (a) and (b), which city is most
+segregated? Why? (2 points)</li>
+<li>Instead of examining segregation at the city level, let’s find where
+it exists at the neighborhood level. Calculate the Location Quotient for
+Racial Residential Segregation (LQRSS) for the Asian population for each
+city. (1 point)</li>
+<li>Show presentation-ready maps of the Asian LQRSS for each city. (2
+points)</li>
+<li>Let’s examine the socioeconomic variables that may be correlated
+with neighborhood Asian concentration in each city. Calculate the
+correlation between the Asian LQRSS and percent of residents under 18
+years old, percent of residents between 22 and 34, and percent foreign
+born in Houston. Do the same for Sacramento. Summarize the results in
+your own words, noting differences and similarities between the two
+cities. (2 points)</li>
+</ol>
+<p><br></p>
+<ol start="2" style="list-style-type: decimal">
+<li>We created a gentrification measure for the City of Fresno in Lab
+8b. This question asks you to use the same method from Lab (Ding et al.,
+2016) to create a gentrification measure for the City of Sacramento,
+which has received a lot of <a
+href="https://www.abc10.com/article/news/local/sacramento/sacramento-gentrification-neighborhood/103-76b28e16-4622-4733-a04c-e31f5cff7d0b">local
+media attention</a> for the rising presence of gentrification in certain
+neighborhoods. Download the file <em>assignment8q2.zip</em> from Canvas
+(Files - Week 8 - Assignment) into the appropriate folder on your hard
+drive. Unzip the file and read in the file <em>saccitygent.shp</em>,
+which is a shapefile of Sacramento census tract boundaries and
+demographic and socioeconomic variables. Consider the dataset to be
+cleaned and ready for analysis. A record layout of the data can be found
+<a
+href="https://raw.githubusercontent.com/crd150/data/master/sac_city_tracts_q2_record_layout.txt">here</a>.</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li><p>Create a variable that determines whether a neighborhood is not
+eligible for gentrification, is eligible and is not gentrifying, and is
+eligible and is gentrifying using the Ding et al., measure. (3
+points)</p></li>
+<li><p>Show a presentation-ready table of the percentages of tracts in
+Sacramento that were not eligible to gentrify, experienced
+gentrification and did not experience gentrification between 2010 and
+2019. (2 points)</p></li>
+<li><p>Produce a presentation-ready map of the gentrification variable
+you created in (a). From the map, summarize the spatial patterns of
+gentrification in the city. (2 points)</p></li>
+</ol>
+<hr />
+<p><a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br />This
+work is licensed under a
+<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative
+Commons Attribution-NonCommercial 4.0 International License</a>.</p>
+<p>Website created and maintained by <a
+href="https://nbrazil.faculty.ucdavis.edu/">Noli Brazil</a></p>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("show" === "show");
+});
+</script>
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3,h4",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+
+</body>
+</html>
