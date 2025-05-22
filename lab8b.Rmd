@@ -393,7 +393,7 @@ fresno.tracts %>%
   colformat_double(digits = 2) 
 ```
 
-Approximately 17 percent of neighborhoods in Fresno experienced gentrification between 2010 and 2019.  Where are these neighborhoods located? Let's make a nice color patch map using our best buddy `tm_shape()`.
+Approximately 17 percent of neighborhoods in Fresno experienced gentrification between 2019 and 2019.  Where are these neighborhoods located? Let's make a nice color patch map using our best buddy `tm_shape()`.
 
 
 
