@@ -895,14 +895,14 @@ available). The process may take a few minutes so be patient.</p>
 ## $ use_type     &lt;chr&gt; &quot;publish&quot;, &quot;publish&quot;, &quot;publish&quot;, &quot;publish&quot;, &quot;publish&quot;, &quot;p…
 ## $ date_updated &lt;chr&gt; &quot;2017/10/30 14:43:13+00&quot;, &quot;2017/10/06 16:28:29+00&quot;, &quot;2017…
 ## $ dis_status   &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…
-## $ lat          &lt;dbl&gt; NA, 34.03751, 33.86655, 34.14560, 34.10297, 34.10184, 34.…
-## $ long         &lt;dbl&gt; NA, -118.3175, -118.3993, -118.0012, -118.0975, -118.3216…</code></pre>
+## $ lat          &lt;dbl&gt; 34.04513, 34.03742, 33.86655, 34.14560, 34.10297, 34.1018…
+## $ long         &lt;dbl&gt; -118.2432, -118.3175, -118.3993, -118.0012, -118.0975, -1…</code></pre>
 <p>We see the latitudes and longitudes are attached to the variables
 <em>lat</em> and <em>long</em>, respectively. Notice that not all the
 addresses were successfully geocoded.</p>
 <pre class="r"><code>summary(shelters.geo$lat)</code></pre>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA&#39;s 
-##  -34.82   33.98   34.05   33.21   34.10   34.70      19</code></pre>
+##   33.74   33.98   34.05   34.06   34.10   34.70      17</code></pre>
 <p>Several shelters received an <code>NA</code>. This is likely because
 the addresses are not correct, has errors, or are not fully specified.
 You’ll have to manually fix these issues, which becomes time consuming
@@ -1028,111 +1028,6 @@ src="lab7_files/figure-html/unnamed-chunk-33-1.png" /><!-- --></p>
 <p>Create maps of racial/ethnic composition and see if there are visual
 associations between race/ethnicity and homeless encampments in Los
 Angeles neighborhoods.</p>
-<div style="margin-bottom:25px;">
-
-</div>
-</div>
-<div id="assignment-7" class="section level2">
-<h2><strong>Assignment 7</strong></h2>
-<p><br />
-</p>
-<p>Download and open the <a
-href="https://raw.githubusercontent.com/crd150/data/master/yourLastName_firstInitial_asgn07.Rmd">Assignment
-7 R Markdown Script</a>. The script can also be found on Canvas (Files -
-Week 7 - Assignment). Any response requiring a data analysis task must
-be supported by code you generate to produce your result. (Just
-examining your various objects in the “Environment” section of R Studio
-is insufficient—you must use scripted commands.).</p>
-<p><br></p>
-<ol style="list-style-type: decimal">
-<li>In this question, you will be exploring the spatial distribution of
-Airbnb listings in the City of Oakland. <a
-href="https://press.airbnb.com/about-us/">Airbnb</a> involves renting an
-entire home, a room or a shared room, typically from a private citizen.
-The data were downloaded from Airbnb’s public use <a
-href="http://insideairbnb.com/get-the-data.html">data site</a>. Download
-the zip file <em>assignment7files.zip</em> from Canvas (Files - Week 7 -
-Assignment). Save the files in an appropriate folder. Unzip it and place
-the files in the same folder as your Assignment 7 RMarkdown file. The
-folder contains the file <em>oak_tracts.shp</em>, which contains Oakland
-City tracts with their population sizes downloaded from the 2015-2019
-American Community Survey, the csv file
-<em>oakland_airbnb_dec2020.csv</em>, which contains Airbnb locations in
-December 2020, and the file <em>station_info.csv</em>, which contains
-the addresses of <a href="https://www.bart.gov/system-map">BART</a>
-station locations in Oakland. The record layout for
-<em>oakland_airbnb_dec2020.csv</em> can be found <a
-href="https://raw.githubusercontent.com/crd150/data/master/oakland_airbnb_record_layout.txt">here</a>.</li>
-</ol>
-<ol style="list-style-type: lower-alpha">
-<li>Read the file <em>oakland_airbnb_dec2020.csv</em> into R. Create a
-point dataset of Airbnb listings using their longitudes and latitudes.
-(2 points)</li>
-<li>Read the file <em>oak_tracts.shp</em> into R. Create a variable that
-represents the number of Airbnb listings in each neighborhood. (3
-points)</li>
-<li>Create a presentation-ready choropleth map of the number of Airbnb
-listings per 1,000 residents. (2 points)</li>
-<li>Are neighborhoods with a large presence of Airbnb listings near BART
-stations, which is the Bay Area’s main public rapid-transit system? Read
-the file <em>station_info.csv</em> into R. Geocode the BART stations
-using their street addresses. (1.5 points)</li>
-<li>Map the BART station point locations onto the choropleth map you
-created in (c). Label the points by the name of the BART Station. Based
-on a visual assessment of the map, are neighborhoods with a large
-presence of Airbnb listings near BART stations? (1.5 points)</li>
-</ol>
-<p><br></p>
-<ol start="2" style="list-style-type: decimal">
-<li>The purpose of this question is to increase your exposure to the
-world of open data. In this exercise, you will explore a city’s open
-data portal, answering questions about one of its data sets and
-examining the data set in R. Let’s do this for your final project
-community. If you haven’t already selected one, pick a potential
-candidate from the <a
-href="https://crd150.github.io/eligible.html">eligible list</a>.</li>
-</ol>
-<ol style="list-style-type: lower-alpha">
-<li>Find your final project’s open data portal. Provide the name of the
-community and the link to its portal. If your community does not have an
-open data portal, pick <strong>one</strong> of the following cities.
-Which city did you choose?</li>
-</ol>
-<ul>
-<li>New York, NY <a
-href="https://opendata.cityofnewyork.us/">(link)</a></li>
-<li>San Francisco, CA <a
-href="https://datasf.org/opendata/">(link)</a></li>
-<li>Los Angeles, CA <a href="https://data.lacity.org/">(link)</a></li>
-<li>Chicago, IL <a
-href="https://data.cityofchicago.org/">(link)</a></li>
-</ul>
-<ol start="2" style="list-style-type: lower-alpha">
-<li>Find a dataset that looks interesting to you and can be downloaded
-and brought into R. Answer the following questions about this
-dataset.</li>
-</ol>
-<ul>
-<li>Describe the dataset you selected. What are the variables, the
-year(s) captured by the data, and the units of observations? (2
-points)</li>
-<li>Are you able to manipulate the data online? This includes filtering
-rows and selecting columns. (1 point)</li>
-<li>Are you able to create visualizations online with the data using
-graphs and charts? If so, what kinds of graphs and charts? (1
-point)</li>
-<li>Are you able to map the data online? If so, what types of maps? (1
-point)</li>
-<li>Is the data set accompanied by a codebook with definitions of terms,
-variables and fields? (1 point)</li>
-<li>Bring the data set into R. Create either a single presentation-ready
-table, chart or graph that we covered in <a
-href="https://crd150.github.io/lab4.html">Lab 4</a> or a single
-presentation-ready map that we covered in <a
-href="https://crd150.github.io/lab5.html">Lab 5</a> or Lab 7. Explain
-what your graphic is showing us. You must show your code with comments
-to get full points for this question. (4 points)</li>
-</ul>
 <hr />
 <p><a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br />This
 work is licensed under a
