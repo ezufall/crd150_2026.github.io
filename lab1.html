@@ -475,9 +475,10 @@ href="http://r4ds.had.co.nz/index.html">R for Data Science</a>
 (RDS).</p>
 <p class="comment">
 <strong>Assignment 1 is due by 12:00 pm, April 9th on Canvas.</strong>
-See <a href="https://crd150.github.io/hw_guidelines.html">here</a> for
-assignment guidelines. You must submit an <code>.Rmd</code> file and its
-associated <code>.html</code> file. Name the files:
+See <a
+href="https://ezufall.github.io/crd150_2026.github.io/hw_guidelines.html">here</a>
+for assignment guidelines. You must submit an <code>.Rmd</code> file and
+its associated <code>.html</code> file. Name the files:
 yourLastName_firstInitial_asgn01. For example: brazil_n_asgn01
 </p>
 <div style="margin-bottom:25px;">
@@ -594,9 +595,7 @@ very basic user interface. For example, below is what I get on a Mac</p>
 <p><br></p>
 <center>
 <div class="float">
-<img
-src="/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/rint.png"
-alt="R’s Interface." />
+<img src="rint.png" alt="R’s Interface." />
 <div class="figcaption">R’s Interface.</div>
 </div>
 </center>
@@ -644,9 +643,7 @@ downloaded. You should see the interface shown in the figure below which
 has three windows.</p>
 <center>
 <div class="float">
-<img
-src="/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/rgui.png"
-alt="The RStudio Interface." />
+<img src="rgui.png" alt="The RStudio Interface." />
 <div class="figcaption">The RStudio Interface.</div>
 </div>
 </center>
@@ -666,9 +663,8 @@ results.</li>
 currently open in your workspace. This is the place, for example, where
 you will see any data you’ve loaded into R. When you exit RStudio, R
 will clear all objects in this window. You can also click on <img
-src="/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/broom.png" />
-to clear out all the objects loaded and created in your current
-session.</li>
+src="broom.png" /> to clear out all the objects loaded and created in
+your current session.</li>
 <li><strong>History</strong> - shows a list of executed commands in the
 current session.</li>
 <li><strong>Connections</strong> - you can connect to a variety of data
@@ -701,7 +697,7 @@ you’ve called up.<br />
 </ul>
 <p>There is actually fourth window. But, we’ll get to this window a
 little later (if you read the <a
-href="https://crd150.github.io/hw_guidelines.html">assignment
+href="https://ezufall.github.io/crd150_2026.github.io/hw_guidelines.html">assignment
 guidelines</a> you already know what this fourth window is).</p>
 <p>For more information on each tab, check this <a
 href="https://docs.posit.co/ide/user/ide/guide/ui/ui-panes.html">resource</a>.</p>
@@ -734,9 +730,7 @@ window. You may need to restart RStudio.</li>
 <p><br></p>
 <center>
 <div class="float">
-<img
-src="/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/rstudiopreferences2.png"
-alt="RStudio Preferences" />
+<img src="rstudiopreferences2.png" alt="RStudio Preferences" />
 <div class="figcaption">RStudio Preferences</div>
 </div>
 </center>
@@ -908,9 +902,7 @@ v1</code></pre>
 Environment tab on the top right window of your RStudio interface.</p>
 <center>
 <div class="float">
-<img
-src="/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/lab0fig.png"
-alt="The Environment window" />
+<img src="lab0fig.png" alt="The Environment window" />
 <div class="figcaption">The Environment window</div>
 </div>
 </center>
@@ -940,7 +932,7 @@ most likely reason is that you forgot to quote a character value. If
 not, it probably means that you have misspelled, or not yet created, the
 object that you are referring to. I’ve included the common pitfalls and
 R tips in this class <a
-href="https://crd150.github.io/tips.html">resource</a>.</p>
+href="https://ezufall.github.io/crd150_2026.github.io/tips.html">resource</a>.</p>
 <p>Every vector has two key properties: <em>type</em> and
 <em>length</em>. The type property indicates the data type that the
 vector is holding. Use the command <code>typeof()</code> to determine
@@ -1021,15 +1013,13 @@ storing the values 5, 12, and 25</p>
 <p>Store this data frame in an object called <em>df1</em></p>
 <pre class="r"><code>df1&lt;-data.frame(v1, v2)</code></pre>
 <p><em>df1</em> should pop up in your Environment window. You’ll notice
-a <img
-src="/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/lab0fig2.png" />
-next to <em>df1</em>. This tells you that <em>df1</em> possesses or
-holds more than one object. Click on <img
-src="/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/lab0fig2.png" />
-and you’ll see the two vectors we saved into <em>df1</em>. Another neat
-thing you can do is directly click on <em>df1</em> from the Environment
-window to bring up an Excel style worksheet on the top left window of
-your RStudio interface. You can also type in</p>
+a <img src="lab0fig2.png" /> next to <em>df1</em>. This tells you that
+<em>df1</em> possesses or holds more than one object. Click on <img
+src="lab0fig2.png" /> and you’ll see the two vectors we saved into
+<em>df1</em>. Another neat thing you can do is directly click on
+<em>df1</em> from the Environment window to bring up an Excel style
+worksheet on the top left window of your RStudio interface. You can also
+type in</p>
 <pre class="r"><code>View(df1)</code></pre>
 <p>to bring the worksheet up. You can’t edit this worksheet directly,
 but it allows you to see the values that a higher level R data object
@@ -1129,8 +1119,7 @@ arguments. Under the Arguments section you can find what each of these
 parameters means.</p>
 <p><br></p>
 <center>
-<img
-src="/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/seqhelp.png" />
+<img src="seqhelp.png" />
 </center>
 <p><br></p>
 <p>The description of the arguments <code>from</code> and
@@ -1160,9 +1149,9 @@ for this class, you will need to rely on the help documentation to
 better understand how functions work. There are also a number of useful
 online resources on R and RStudio that you can look into if you get
 stuck or want to learn more. We outline these resources <a
-href="https://crd150.github.io/tips.html#Getting_help">here</a>. If you
-ever get stuck, check this resource out first to troubleshoot before
-immediately asking a friend or the instructor/TA.</p>
+href="https://ezufall.github.io/crd150_2026.github.io/tips.html#Getting_help">here</a>.
+If you ever get stuck, check this resource out first to troubleshoot
+before immediately asking a friend or the instructor/TA.</p>
 <div style="margin-bottom:25px;">
 
 </div>
@@ -1198,13 +1187,12 @@ href="https://raw.githubusercontent.com/crd150/data/master/labtemplate.Rmd">Lab
 template</a> into an appropriate folder on your hard drive. It’s best to
 set up on your hard drive a clean and efficient file management
 structure for this class as described in the <a
-href="https://crd150.github.io/hw_guidelines.html">assignment
+href="https://ezufall.github.io/crd150_2026.github.io/hw_guidelines.html">assignment
 guidelines</a>. For example, below is where I would save Lab 1’s R
 Markdown file on my Mac laptop (I named the file “Lab 1”).</p>
 <center>
 <div class="float">
-<img
-src="/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/lab1fig1.png"
+<img src="lab1fig1.png"
 alt="This is what file organization looks like" />
 <div class="figcaption">This is what file organization looks like</div>
 </div>
@@ -1220,9 +1208,7 @@ in the top left showing you an R Markdown file.</p>
 <p><br></p>
 <center>
 <div class="float">
-<img
-src="/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/chunk1.png"
-alt="The full RStudio interface" />
+<img src="chunk1.png" alt="The full RStudio interface" />
 <div class="figcaption">The full RStudio interface</div>
 </div>
 </center>
@@ -1244,7 +1230,7 @@ knitr::opts_chunk$set(echo = TRUE, warning=FALSE, message = FALSE)
 ```</code></pre>
 <p>From the file, run the code. R responds. You get results.</p>
 <p>Now is a good time to read through the class <a
-href="https://crd150.github.io/hw_guidelines.html">assignment
+href="https://ezufall.github.io/crd150_2026.github.io/hw_guidelines.html">assignment
 guidelines</a> as they go through the basics of R Markdown files. Go
 through this guide carefully as you will need to submit all your
 homework assignments using R Markdown.</p>
@@ -1254,7 +1240,10 @@ work is licensed under a
 <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative
 Commons Attribution-NonCommercial 4.0 International License</a>.</p>
 <p>Website created and maintained by <a
-href="https://nbrazil.faculty.ucdavis.edu/">Noli Brazil</a></p>
+href="https://nbrazil.faculty.ucdavis.edu/">Noli Brazil</a> and adapted
+by <a
+href="https://environmentalpolicy.ucdavis.edu/people/elise-zufall">Elise
+Zufall</a></p>
 </div>
 
 

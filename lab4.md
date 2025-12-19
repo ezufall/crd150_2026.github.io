@@ -62,14 +62,14 @@ The goal of this lab is to acquire skills in running descriptive statistics and 
 
 This lab guide follows closely and supplements the material presented in Chapters 1,3, 7 and 28 in the textbook [R for Data Science](http://r4ds.had.co.nz/index.html) (RDS) and the class Handout 4.
 
-<p class="comment">**Assignment 4 is due by 12:00 pm, April 30th on Canvas.**  See [here](https://crd150.github.io/hw_guidelines.html) for assignment guidelines.  You must submit an `.Rmd` file and its associated `.html` file. Name the files: yourLastName_firstInitial_asgn04. For example: brazil_n_asgn04.</p>
+<p class="comment">**Assignment 4 is due by 12:00 pm, April 30th on Canvas.**  See [here](https://ezufall.github.io/crd150_2026.github.io/hw_guidelines.html) for assignment guidelines.  You must submit an `.Rmd` file and its associated `.html` file. Name the files: yourLastName_firstInitial_asgn04. For example: brazil_n_asgn04.</p>
 
 <div style="margin-bottom:25px;">
 </div>
 ## **Open up a R Markdown file**
 \
 
-Download the [Lab template](https://raw.githubusercontent.com/crd150/data/master/labtemplate.Rmd) into an appropriate folder on your hard drive (preferably, a folder named 'Lab 4'), open it in R Studio, and type and run your code there. The template is also located on Canvas under Files. Change the title ("Lab 4") and insert your name and date. Don't change anything else inside the YAML (the stuff at the top in between the `---`).  Also keep the grey chunk after the YAML. For a rundown on the use of R Markdown, see the [assignment guidelines](https://crd150.github.io/hw_guidelines.html)
+Download the [Lab template](https://raw.githubusercontent.com/crd150/data/master/labtemplate.Rmd) into an appropriate folder on your hard drive (preferably, a folder named 'Lab 4'), open it in R Studio, and type and run your code there. The template is also located on Canvas under Files. Change the title ("Lab 4") and insert your name and date. Don't change anything else inside the YAML (the stuff at the top in between the `---`).  Also keep the grey chunk after the YAML. For a rundown on the use of R Markdown, see the [assignment guidelines](https://ezufall.github.io/crd150_2026.github.io/hw_guidelines.html)
 
 <div style="margin-bottom:25px;">
 </div>
@@ -155,7 +155,7 @@ cal.tracts %>%
 ## 1                NA
 ```
 
-We get the value *NA*, which as we learned in [Lab 3](https://crd150.github.io/lab3.html#Missing_data) represents a missing value. If a variable has missing values, functions like `mean()` will return an `NA`.  If we use the function `summary()`, we find that *medincome* has 6 tracts with missing median income values
+We get the value *NA*, which as we learned in [Lab 3](https://ezufall.github.io/crd150_2026.github.io/lab3.html#Missing_data) represents a missing value. If a variable has missing values, functions like `mean()` will return an `NA`.  If we use the function `summary()`, we find that *medincome* has 6 tracts with missing median income values
 
 
 ``` r
@@ -196,7 +196,7 @@ summarize(cal.tracts, mean(medincome, na.rm = TRUE))
 ```
 
 
-Does the average neighborhood income differ by county?  We need to pair `summarize()` with the function `group_by()` to answer this question.  The function `group_by()` tells R to run subsequent functions on the data object *by* a group characteristic (such as gender, educational attainment, or in this case, county). Let's use our new best friend `%>%`, who we met in [Lab 2](https://crd150.github.io/lab2.html#Pipes), to accomplish this task.
+Does the average neighborhood income differ by county?  We need to pair `summarize()` with the function `group_by()` to answer this question.  The function `group_by()` tells R to run subsequent functions on the data object *by* a group characteristic (such as gender, educational attainment, or in this case, county). Let's use our new best friend `%>%`, who we met in [Lab 2](https://ezufall.github.io/crd150_2026.github.io/lab2.html#Pipes), to accomplish this task.
 
 
 ``` r
@@ -228,7 +228,7 @@ How do you know the tibble is grouped? Because it tells you
 <br>
 
 <center>
-![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/groupby.png)
+![](groupby.png)
 
 </center>
 
@@ -559,7 +559,7 @@ my_table
 ```
 
 ```{=html}
-<div class="tabwid"><style>.cl-0d5a25c6{}.cl-0ce83a7e{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-0cf06e56{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-0cf06e60{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-0cf06e61{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-0cf0a434{width:0.75in;background-color:rgba(255, 255, 255, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0cf0a43e{width:0.75in;background-color:rgba(255, 255, 255, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0cf0a448{width:0.75in;background-color:rgba(255, 255, 255, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0cf0a4c0{width:0.75in;background-color:rgba(255, 255, 255, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing='true' class='cl-0d5a25c6'><thead><tr style="overflow-wrap:break-word;"><th class="cl-0cf0a434"><p class="cl-0cf06e56"><span class="cl-0ce83a7e">County</span></p></th><th class="cl-0cf0a43e"><p class="cl-0cf06e60"><span class="cl-0ce83a7e">Mean</span></p></th><th class="cl-0cf0a43e"><p class="cl-0cf06e60"><span class="cl-0ce83a7e">Median</span></p></th><th class="cl-0cf0a43e"><p class="cl-0cf06e60"><span class="cl-0ce83a7e">Standard Deviation</span></p></th><th class="cl-0cf0a43e"><p class="cl-0cf06e60"><span class="cl-0ce83a7e">IQR</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-0cf0a448"><p class="cl-0cf06e61"><span class="cl-0ce83a7e">Fresno County</span></p></td><td class="cl-0cf0a448"><p class="cl-0cf06e61"><span class="cl-0ce83a7e">57,127.6</span></p></td><td class="cl-0cf0a448"><p class="cl-0cf06e61"><span class="cl-0ce83a7e">50,318.0</span></p></td><td class="cl-0cf0a448"><p class="cl-0cf06e61"><span class="cl-0ce83a7e">28,346.9</span></p></td><td class="cl-0cf0a448"><p class="cl-0cf06e61"><span class="cl-0ce83a7e">36,874.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-0cf0a448"><p class="cl-0cf06e61"><span class="cl-0ce83a7e">Sacramento County</span></p></td><td class="cl-0cf0a448"><p class="cl-0cf06e61"><span class="cl-0ce83a7e">71,183.0</span></p></td><td class="cl-0cf0a448"><p class="cl-0cf06e61"><span class="cl-0ce83a7e">65,114.0</span></p></td><td class="cl-0cf0a448"><p class="cl-0cf06e61"><span class="cl-0ce83a7e">29,248.9</span></p></td><td class="cl-0cf0a448"><p class="cl-0cf06e61"><span class="cl-0ce83a7e">37,807.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-0cf0a448"><p class="cl-0cf06e61"><span class="cl-0ce83a7e">San Diego County</span></p></td><td class="cl-0cf0a448"><p class="cl-0cf06e61"><span class="cl-0ce83a7e">83,753.0</span></p></td><td class="cl-0cf0a448"><p class="cl-0cf06e61"><span class="cl-0ce83a7e">79,953.0</span></p></td><td class="cl-0cf0a448"><p class="cl-0cf06e61"><span class="cl-0ce83a7e">33,261.5</span></p></td><td class="cl-0cf0a448"><p class="cl-0cf06e61"><span class="cl-0ce83a7e">42,475.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-0cf0a4c0"><p class="cl-0cf06e61"><span class="cl-0ce83a7e">Santa Clara County</span></p></td><td class="cl-0cf0a4c0"><p class="cl-0cf06e61"><span class="cl-0ce83a7e">129,391.5</span></p></td><td class="cl-0cf0a4c0"><p class="cl-0cf06e61"><span class="cl-0ce83a7e">123,469.0</span></p></td><td class="cl-0cf0a4c0"><p class="cl-0cf06e61"><span class="cl-0ce83a7e">46,599.2</span></p></td><td class="cl-0cf0a4c0"><p class="cl-0cf06e61"><span class="cl-0ce83a7e">60,068.8</span></p></td></tr></tbody></table></div>
+<div class="tabwid"><style>.cl-95654df2{}.cl-955cbf66{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-95608f7e{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-95608f88{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-95608f89{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-9560b288{width:0.75in;background-color:rgba(255, 255, 255, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9560b292{width:0.75in;background-color:rgba(255, 255, 255, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9560b293{width:0.75in;background-color:rgba(255, 255, 255, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9560b29c{width:0.75in;background-color:rgba(255, 255, 255, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing='true' class='cl-95654df2'><thead><tr style="overflow-wrap:break-word;"><th class="cl-9560b288"><p class="cl-95608f7e"><span class="cl-955cbf66">County</span></p></th><th class="cl-9560b292"><p class="cl-95608f88"><span class="cl-955cbf66">Mean</span></p></th><th class="cl-9560b292"><p class="cl-95608f88"><span class="cl-955cbf66">Median</span></p></th><th class="cl-9560b292"><p class="cl-95608f88"><span class="cl-955cbf66">Standard Deviation</span></p></th><th class="cl-9560b292"><p class="cl-95608f88"><span class="cl-955cbf66">IQR</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-9560b293"><p class="cl-95608f89"><span class="cl-955cbf66">Fresno County</span></p></td><td class="cl-9560b293"><p class="cl-95608f89"><span class="cl-955cbf66">57,127.6</span></p></td><td class="cl-9560b293"><p class="cl-95608f89"><span class="cl-955cbf66">50,318.0</span></p></td><td class="cl-9560b293"><p class="cl-95608f89"><span class="cl-955cbf66">28,346.9</span></p></td><td class="cl-9560b293"><p class="cl-95608f89"><span class="cl-955cbf66">36,874.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-9560b293"><p class="cl-95608f89"><span class="cl-955cbf66">Sacramento County</span></p></td><td class="cl-9560b293"><p class="cl-95608f89"><span class="cl-955cbf66">71,183.0</span></p></td><td class="cl-9560b293"><p class="cl-95608f89"><span class="cl-955cbf66">65,114.0</span></p></td><td class="cl-9560b293"><p class="cl-95608f89"><span class="cl-955cbf66">29,248.9</span></p></td><td class="cl-9560b293"><p class="cl-95608f89"><span class="cl-955cbf66">37,807.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-9560b293"><p class="cl-95608f89"><span class="cl-955cbf66">San Diego County</span></p></td><td class="cl-9560b293"><p class="cl-95608f89"><span class="cl-955cbf66">83,753.0</span></p></td><td class="cl-9560b293"><p class="cl-95608f89"><span class="cl-955cbf66">79,953.0</span></p></td><td class="cl-9560b293"><p class="cl-95608f89"><span class="cl-955cbf66">33,261.5</span></p></td><td class="cl-9560b293"><p class="cl-95608f89"><span class="cl-955cbf66">42,475.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-9560b29c"><p class="cl-95608f89"><span class="cl-955cbf66">Santa Clara County</span></p></td><td class="cl-9560b29c"><p class="cl-95608f89"><span class="cl-955cbf66">129,391.5</span></p></td><td class="cl-9560b29c"><p class="cl-95608f89"><span class="cl-955cbf66">123,469.0</span></p></td><td class="cl-9560b29c"><p class="cl-95608f89"><span class="cl-955cbf66">46,599.2</span></p></td><td class="cl-9560b29c"><p class="cl-95608f89"><span class="cl-955cbf66">60,068.8</span></p></td></tr></tbody></table></div>
 ```
 
 \
@@ -695,13 +695,12 @@ ggplot(cal.tracts) +
 ```
 
 ```
-## `stat_bin()` using `bins = 30`. Pick better value with
-## `binwidth`.
+## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 ```
 
 ```
-## Warning: Removed 6 rows containing non-finite outside the scale
-## range (`stat_bin()`).
+## Warning: Removed 6 rows containing non-finite outside the scale range
+## (`stat_bin()`).
 ```
 
 ![](lab4_files/figure-html/unnamed-chunk-31-1.png)<!-- -->
@@ -810,7 +809,7 @@ Here's your **ggplot2** badge. Wear it with pride!
 
 
 <center>
-![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/ggplot2.png){ width=25% }
+![](ggplot2.png){ width=25% }
 
 </center>
 
@@ -847,4 +846,4 @@ Navigate to your working directory folder and you should see *phisp_inc.png*.
 <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
 
 
-Website created and maintained by [Noli Brazil](https://nbrazil.faculty.ucdavis.edu/)
+Website created and maintained by [Noli Brazil](https://nbrazil.faculty.ucdavis.edu/) and adapted by [Elise Zufall](https://environmentalpolicy.ucdavis.edu/people/elise-zufall)

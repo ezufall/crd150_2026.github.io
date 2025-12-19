@@ -334,5 +334,5 @@ davis.map2
 
 ***
 
-Website created and maintained by [Noli Brazil](https://nbrazil.faculty.ucdavis.edu/)
+Website created and maintained by [Noli Brazil](https://nbrazil.faculty.ucdavis.edu/) and adapted by [Elise Zufall](https://environmentalpolicy.ucdavis.edu/people/elise-zufall)
 

@@ -33,7 +33,7 @@ h1.title {
 
 Pulling your hair out because you're getting an error in R that you can't figure out? Are you banging your head on the table because you can't knit? Are you throwing darts at my picture because I haven't given you enough direction on how to code a task in R properly? This page provides some tips and fixes for dealing with some common problems in R and R Markdown.
 
-Note that we've already provided a detailed list of common R Markdown issues in the [assignment guidelines](https://crd150.github.io/hw_guidelines.html).  We will repeat some of that here, but add a few more tips and fixes, including those for general R coding.
+Note that we've already provided a detailed list of common R Markdown issues in the [assignment guidelines](https://ezufall.github.io/crd150_2026.github.io/hw_guidelines.html).  We will repeat some of that here, but add a few more tips and fixes, including those for general R coding.
 
 <div style="margin-bottom:25px;">
 </div>
@@ -80,7 +80,7 @@ Read the error message. Don’t ignore what R is telling you.
 ## **R Markdown help**
 \
 
-The [assignment guidelines](https://crd150.github.io/hw_guidelines.html) goes through troubleshooting in R Markdown pretty thoroughly, but here are a few more tips to keep in mind.
+The [assignment guidelines](https://ezufall.github.io/crd150_2026.github.io/hw_guidelines.html) goes through troubleshooting in R Markdown pretty thoroughly, but here are a few more tips to keep in mind.
 
 * Only functioning R code should be in the grey R code blocks. 
 
@@ -147,4 +147,4 @@ Still having trouble? Maybe you need to take a break.  Go for a walk. Eat a cook
 <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
 
 
-Website created and maintained by [Noli Brazil](https://nbrazil.faculty.ucdavis.edu/)
+Website created and maintained by [Noli Brazil](https://nbrazil.faculty.ucdavis.edu/) and adapted by [Elise Zufall](https://environmentalpolicy.ucdavis.edu/people/elise-zufall)

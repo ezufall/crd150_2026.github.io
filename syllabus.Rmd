@@ -156,7 +156,7 @@ We will also introduce the  program [ArcGIS Online Story Maps](https://storymaps
 
 1. Assignments (50%)
 
-Assignments will be released on the lab website each week Wednesday morning and will be due the following Wednesday morning on Canvas.  Assignment questions are located at the end of each lab guide. They will contain a combination of programming tasks and theoretical questions that you will need to answer on your own.  For each assignment, you will need to submit an R Markdown Rmd and html file on Canvas.  Complete assignment guidelines can be found here: https://crd150.github.io/hw_guidelines.html.  
+Assignments will be released on the lab website each week Wednesday morning and will be due the following Wednesday morning on Canvas.  Assignment questions are located at the end of each lab guide. They will contain a combination of programming tasks and theoretical questions that you will need to answer on your own.  For each assignment, you will need to submit an R Markdown Rmd and html file on Canvas.  Complete assignment guidelines can be found here: https://ezufall.github.io/crd150_2026.github.io/hw_guidelines.html.  
 
 In order to get full credit for each assignment, you will need to
 
@@ -216,4 +216,4 @@ kable(dt) %>%
 <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
 
 
-Website created and maintained by [Noli Brazil](https://nbrazil.faculty.ucdavis.edu/)
+Website created and maintained by [Noli Brazil](https://nbrazil.faculty.ucdavis.edu/) and adapted by [Elise Zufall](https://environmentalpolicy.ucdavis.edu/people/elise-zufall)

@@ -64,14 +64,14 @@ The goal of this lab is to acquire skills in running descriptive statistics and 
 
 This lab guide follows closely and supplements the material presented in Chapters 1,3, 7 and 28 in the textbook [R for Data Science](http://r4ds.had.co.nz/index.html) (RDS) and the class Handout 4.
 
-<p class="comment">**Assignment 4 is due by 12:00 pm, April 30th on Canvas.**  See [here](https://crd150.github.io/hw_guidelines.html) for assignment guidelines.  You must submit an `.Rmd` file and its associated `.html` file. Name the files: yourLastName_firstInitial_asgn04. For example: brazil_n_asgn04.</p>
+<p class="comment">**Assignment 4 is due by 12:00 pm, April 30th on Canvas.**  See [here](https://ezufall.github.io/crd150_2026.github.io/hw_guidelines.html) for assignment guidelines.  You must submit an `.Rmd` file and its associated `.html` file. Name the files: yourLastName_firstInitial_asgn04. For example: brazil_n_asgn04.</p>
 
 <div style="margin-bottom:25px;">
 </div>
 ## **Open up a R Markdown file**
 \
 
-Download the [Lab template](https://raw.githubusercontent.com/crd150/data/master/labtemplate.Rmd) into an appropriate folder on your hard drive (preferably, a folder named 'Lab 4'), open it in R Studio, and type and run your code there. The template is also located on Canvas under Files. Change the title ("Lab 4") and insert your name and date. Don't change anything else inside the YAML (the stuff at the top in between the `---`).  Also keep the grey chunk after the YAML. For a rundown on the use of R Markdown, see the [assignment guidelines](https://crd150.github.io/hw_guidelines.html)
+Download the [Lab template](https://raw.githubusercontent.com/crd150/data/master/labtemplate.Rmd) into an appropriate folder on your hard drive (preferably, a folder named 'Lab 4'), open it in R Studio, and type and run your code there. The template is also located on Canvas under Files. Change the title ("Lab 4") and insert your name and date. Don't change anything else inside the YAML (the stuff at the top in between the `---`).  Also keep the grey chunk after the YAML. For a rundown on the use of R Markdown, see the [assignment guidelines](https://ezufall.github.io/crd150_2026.github.io/hw_guidelines.html)
 
 <div style="margin-bottom:25px;">
 </div>
@@ -133,7 +133,7 @@ cal.tracts %>%
       summarize(mean(medincome))
 ```
 
-We get the value *NA*, which as we learned in [Lab 3](https://crd150.github.io/lab3.html#Missing_data) represents a missing value. If a variable has missing values, functions like `mean()` will return an `NA`.  If we use the function `summary()`, we find that *medincome* has 6 tracts with missing median income values
+We get the value *NA*, which as we learned in [Lab 3](https://ezufall.github.io/crd150_2026.github.io/lab3.html#Missing_data) represents a missing value. If a variable has missing values, functions like `mean()` will return an `NA`.  If we use the function `summary()`, we find that *medincome* has 6 tracts with missing median income values
 
 ```{r}
 summary(cal.tracts)
@@ -146,7 +146,7 @@ summarize(cal.tracts, mean(medincome, na.rm = TRUE))
 ```
 
 
-Does the average neighborhood income differ by county?  We need to pair `summarize()` with the function `group_by()` to answer this question.  The function `group_by()` tells R to run subsequent functions on the data object *by* a group characteristic (such as gender, educational attainment, or in this case, county). Let's use our new best friend `%>%`, who we met in [Lab 2](https://crd150.github.io/lab2.html#Pipes), to accomplish this task.
+Does the average neighborhood income differ by county?  We need to pair `summarize()` with the function `group_by()` to answer this question.  The function `group_by()` tells R to run subsequent functions on the data object *by* a group characteristic (such as gender, educational attainment, or in this case, county). Let's use our new best friend `%>%`, who we met in [Lab 2](https://ezufall.github.io/crd150_2026.github.io/lab2.html#Pipes), to accomplish this task.
 
 ```{r, warning = FALSE, message = FALSE}
 cal.tracts %>%
@@ -166,7 +166,7 @@ How do you know the tibble is grouped? Because it tells you
 <br>
 
 <center>
-![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/groupby.png)
+![](groupby.png)
 
 </center>
 
@@ -567,7 +567,7 @@ Here's your **ggplot2** badge. Wear it with pride!
 
 
 <center>
-![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/ggplot2.png){ width=25% }
+![](ggplot2.png){ width=25% }
 
 </center>
 
@@ -602,4 +602,4 @@ Navigate to your working directory folder and you should see *phisp_inc.png*.
 <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
 
 
-Website created and maintained by [Noli Brazil](https://nbrazil.faculty.ucdavis.edu/)
+Website created and maintained by [Noli Brazil](https://nbrazil.faculty.ucdavis.edu/) and adapted by [Elise Zufall](https://environmentalpolicy.ucdavis.edu/people/elise-zufall)

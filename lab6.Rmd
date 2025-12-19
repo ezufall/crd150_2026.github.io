@@ -68,7 +68,7 @@ To achieve these objectives,  you will be working with tract-level data on the f
 
 <br>
 
-<p class="comment">**Assignment 6 is due by 12:00 pm, May 14th on Canvas.**  See [here](https://crd150.github.io/hw_guidelines.html) for assignment guidelines. You must submit an `.Rmd` file and its associated `.html` file. Name the files: yourLastName_firstInitial_asgn06. For example: brazil_n_asgn06.</p>
+<p class="comment">**Assignment 6 is due by 12:00 pm, May 14th on Canvas.**  See [here](https://ezufall.github.io/crd150_2026.github.io/hw_guidelines.html) for assignment guidelines. You must submit an `.Rmd` file and its associated `.html` file. Name the files: yourLastName_firstInitial_asgn06. For example: brazil_n_asgn06.</p>
 
 
 <div style="margin-bottom:25px;">
@@ -76,7 +76,7 @@ To achieve these objectives,  you will be working with tract-level data on the f
 ## **Open up an R Markdown file**
 \
 
-Download the [Lab template](https://raw.githubusercontent.com/crd150/data/master/labtemplate.Rmd) into an appropriate folder on your hard drive (preferably, a folder named 'Lab 6'), open it in R Studio, and type and run your code there.  The template is also located on Canvas under Files.  Change the title ("Lab 6") and insert your name and date. Don't change anything else inside the YAML (the stuff at the top in between the `---`).  Also keep the grey chunk after the YAML. For a rundown on the use of R Markdown, see the [assignment guidelines](https://crd150.github.io/hw_guidelines.html)
+Download the [Lab template](https://raw.githubusercontent.com/crd150/data/master/labtemplate.Rmd) into an appropriate folder on your hard drive (preferably, a folder named 'Lab 6'), open it in R Studio, and type and run your code there.  The template is also located on Canvas under Files.  Change the title ("Lab 6") and insert your name and date. Don't change anything else inside the YAML (the stuff at the top in between the `---`).  Also keep the grey chunk after the YAML. For a rundown on the use of R Markdown, see the [assignment guidelines](https://ezufall.github.io/crd150_2026.github.io/hw_guidelines.html)
 
 <div style="margin-bottom:25px;">
 </div>
@@ -108,7 +108,7 @@ library(spdep)
 ## **Bringing spatial data into R**
 \
 
-We will be working with census tract data on the foreign-born population in Sacramento city.  We first need to get foreign-born population data for California census tracts from the 2019-2023 American Community Survey. Let's use our best friends the Census API and the function `get_acs()`. Remember that "E" at the end of the variable indicates "Estimate" and "M" indicates margins of errors. We won't go through what the code is doing as all the functions have been covered in past labs. See [Lab 3](https://crd150.github.io/lab3.html#Using_the_Census_API) for grabbing ACS data from the Census API, and [Lab 2](https://crd150.github.io/lab2.html#Data_Wrangling) (and [Lab 3](https://crd150.github.io/lab3.html#Data_Wrangling)) for data wrangling functions. We learned about getting spatial data from `get_acs()` in [Lab 5](https://crd150.github.io/lab5.html#tidycensus).
+We will be working with census tract data on the foreign-born population in Sacramento city.  We first need to get foreign-born population data for California census tracts from the 2019-2023 American Community Survey. Let's use our best friends the Census API and the function `get_acs()`. Remember that "E" at the end of the variable indicates "Estimate" and "M" indicates margins of errors. We won't go through what the code is doing as all the functions have been covered in past labs. See [Lab 3](https://ezufall.github.io/crd150_2026.github.io/lab3.html#Using_the_Census_API) for grabbing ACS data from the Census API, and [Lab 2](https://ezufall.github.io/crd150_2026.github.io/lab2.html#Data_Wrangling) (and [Lab 3](https://ezufall.github.io/crd150_2026.github.io/lab3.html#Data_Wrangling)) for data wrangling functions. We learned about getting spatial data from `get_acs()` in [Lab 5](https://ezufall.github.io/crd150_2026.github.io/lab5.html#tidycensus).
 
 ```{r warning=FALSE, results="hide", message=FALSE}
 ca.tracts <- get_acs(geography = "tract", 
@@ -131,7 +131,7 @@ Take a look at the data.
 glimpse(ca.tracts)
 ```
 
-Next, let's bring in the Sacramento City boundary using `places()` from the **tigris** package, which we first learned about in [Lab 5](https://crd150.github.io/lab5.html#tigris_package). Remember, since we brought in 2019-2023 ACS data above, you need to specify `year = 2023` in the `places()` function.
+Next, let's bring in the Sacramento City boundary using `places()` from the **tigris** package, which we first learned about in [Lab 5](https://ezufall.github.io/crd150_2026.github.io/lab5.html#tigris_package). Remember, since we brought in 2019-2023 ACS data above, you need to specify `year = 2023` in the `places()` function.
 
 ```{r warning=FALSE, message=FALSE, results = FALSE}
 pl <- places(state = "CA", 
@@ -156,7 +156,7 @@ Recall from Handout 3 that census tracts neatly fall within a county's boundary 
 
 
 <center>
-![Tracts falling in (County) and out (City) of boundaries](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/example1.png)
+![Tracts falling in (County) and out (City) of boundaries](example1.png)
 
 </center>
 
@@ -185,7 +185,7 @@ Now, the city is filled in with tracts. The argument `target =` specifies the do
 Because spatial data are not always precise, when you clip you'll sometimes get unwanted [sliver polygons](https://en.wikipedia.org/wiki/Sliver_polygon). The argument `remove_slivers = TRUE` removes these slivers.
 
 <center>
-![Clipping tracts](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/clip.png)
+![Clipping tracts](clip.png)
 
 </center>
 
@@ -209,7 +209,7 @@ Our goal is to determine whether the foreign-born population in Sacramento City 
 ### **Exploratory mapping**
 \
 
-Before calculating spatial autocorrelation, you should map your variable to see if it *looks* like it clusters across space.  Using the function `tm_shape()`, which we learned about in [Lab 5](https://crd150.github.io/lab5.html#Mapping_in_R), and the mapping principles we learned in last week's lecture and in Handout 5, let's make a nice choropleth map showing the percent foreign-born in Sacramento city using quantile breaks.
+Before calculating spatial autocorrelation, you should map your variable to see if it *looks* like it clusters across space.  Using the function `tm_shape()`, which we learned about in [Lab 5](https://ezufall.github.io/crd150_2026.github.io/lab5.html#Mapping_in_R), and the mapping principles we learned in last week's lecture and in Handout 5, let's make a nice choropleth map showing the percent foreign-born in Sacramento city using quantile breaks.
 
 ```{r warning=FALSE, message=FALSE}
 tm_shape(sac.city.tracts, unit = "mi") +
@@ -246,7 +246,7 @@ A common way of defining neighbors is to see who shares a border.  The two most 
 
 
 <center>
-![Geographic contiguity](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/fig1.png)
+![Geographic contiguity](fig1.png)
 
 </center>
 
@@ -291,7 +291,7 @@ The `zero.policy = TRUE` argument tells R to ignore cases that have **no** neigh
 
 
 <center>
-![Los Angeles county tracts with islands](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/lacounty.png)
+![Los Angeles county tracts with islands](lacounty.png)
 
 </center>
 
@@ -312,7 +312,7 @@ moran.plot(sac.city.tracts$pfb, sacw,
 ```
 
 
-The first argument is the variable you want to calculate spatial autocorrelation for. The function `moran.plot()` is not tidy friendly, so we refer to the percent foreign born variable with a dollar sign `$`, which we learned about in [Lab 1](https://crd150.github.io/lab1.html#Data_Frames). *sac.city.tracts$pfb* will give you the percent foreign born as a vector.
+The first argument is the variable you want to calculate spatial autocorrelation for. The function `moran.plot()` is not tidy friendly, so we refer to the percent foreign born variable with a dollar sign `$`, which we learned about in [Lab 1](https://ezufall.github.io/crd150_2026.github.io/lab1.html#Data_Frames). *sac.city.tracts$pfb* will give you the percent foreign born as a vector.
 
 ```{r eval = FALSE}
 sac.city.tracts$pfb
@@ -355,4 +355,4 @@ we can conclude that the foreign-born population in Sacramento city exhibits pos
 <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
 
 
-Website created and maintained by [Noli Brazil](https://nbrazil.faculty.ucdavis.edu/)
+Website created and maintained by [Noli Brazil](https://nbrazil.faculty.ucdavis.edu/) and adapted by [Elise Zufall](https://environmentalpolicy.ucdavis.edu/people/elise-zufall)

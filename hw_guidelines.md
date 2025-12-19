@@ -51,7 +51,7 @@ In order to get full credit for each assignment, you will need to
 4. Provide correct written answers.  
 5. Submit an R Markdown Rmd file and its knitted html file on Canvas.
 
-You will use [R Markdown](https://rmarkdown.rstudio.com/) to write up all R related assignments. This guide will go through the steps for answering and submitting class assignment questions using R Markdown.  For a thorough rundown of R Markdown, see [Chapter 27](https://r4ds.had.co.nz/r-markdown.html) in RDS. For full explanation of how assignments will be graded, read the [Grading section](https://crd150.github.io/hw_guidelines.html#Grading) located later in this guide.
+You will use [R Markdown](https://rmarkdown.rstudio.com/) to write up all R related assignments. This guide will go through the steps for answering and submitting class assignment questions using R Markdown.  For a thorough rundown of R Markdown, see [Chapter 27](https://r4ds.had.co.nz/r-markdown.html) in RDS. For full explanation of how assignments will be graded, read the [Grading section](https://ezufall.github.io/crd150_2026.github.io/hw_guidelines.html#Grading) located later in this guide.
 
 <div style="margin-bottom:25px;">
 </div>
@@ -88,7 +88,7 @@ An `.Rmd` template will be provided for each assignment.  Download the week's as
 * Set up a clear and understandable hierarchical file system for this class on your hard drive.  For example, create a class folder (CRD 150).  Within this class folder, create the folder Assignments.  Within the Assignments folder, create separate folders for each Assignment (e.g. Assignment 1, Assignment 2, ...).  Save that week's assignment template here. When you knit your Rmd (we'll get to what knitting means below), this is where your html file will go. Don't work from your Desktop. Or from the Downloads folder. Or some randomly named folder that you will have a hard time finding a month, week or day from now. You should have a sequence of folders that looks like the following (on a Mac)
 
 <center>
-![This is what file organization looks like](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/fileorg.png)
+![This is what file organization looks like](fileorg.png)
 </center>
 
 <br>
@@ -96,7 +96,7 @@ An `.Rmd` template will be provided for each assignment.  Download the week's as
 To open an `.Rmd` file in RStudio, select File -> Open File and navigate to the folder you saved the assignment template in and select the file. You should see the R Markdown file pop up on the top left portion of your RStudio interface like below.
 
 <center>
-![The full RStudio interface](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/chunk1.png)
+![The full RStudio interface](chunk1.png)
 
 </center>
 
@@ -334,26 +334,26 @@ Run that code chunk to make sure it works (you should get 2!).  *Then* proceed t
 <br>
 
 
-There are a number of ways to run code in R Markdown.  First, you can click your mouse in the R code chunk you want to run and  click on ![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/hwguide3.png) located at the top of the R Markdown window and select *Run Current Chunk*.  
+There are a number of ways to run code in R Markdown.  First, you can click your mouse in the R code chunk you want to run and  click on ![](hwguide3.png) located at the top of the R Markdown window and select *Run Current Chunk*.  
 
 <center>
-![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/runchunk.png)
+![](runchunk.png)
 
 </center>
 
-Second, you can place your mouse cursor in the R code chunk and click on ![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/hwguide4.png) located on the right corner of the chunk.  See Figure below.
+Second, you can place your mouse cursor in the R code chunk and click on ![](hwguide4.png) located on the right corner of the chunk.  See Figure below.
 
 <center>
-![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/chunk2.png)
+![](chunk2.png)
 
 </center>
 
 <br>
 
-In each R chunk, pressing the button ![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/rchunkbutton.png) will run all previous R chunks.  See Figure below.
+In each R chunk, pressing the button ![](rchunkbutton.png) will run all previous R chunks.  See Figure below.
 
 <center>
-![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/chunk4.png)
+![](chunk4.png)
 
 </center>
 
@@ -362,7 +362,7 @@ In each R chunk, pressing the button ![](/Users/noli/Documents/UCD/teaching/CRD1
 Third, you can highlight partly or entirely a line of code and select *Code* from the R Studio menu and select (among many options) *Run Selected Lines(s)*.  See Figure below (from a Mac OS).  
 
 <center>
-![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/chunk3.png)
+![](chunk3.png)
 
 </center>
 
@@ -375,7 +375,7 @@ Fourth, you can highlight partly or entirely a line of code and use a keyboard s
 Note that when you run an R code chunk for the very first time ever, its output will be embedded within your R Markdown document as shown below
 
 <center>
-![Output within R Markdown document.](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/hwguide1.JPG)
+![Output within R Markdown document.](hwguide1.JPG)
 
 </center>
 
@@ -384,7 +384,7 @@ Note that when you run an R code chunk for the very first time ever, its output 
 This will also be true when you plot graphs and maps. When you are testing your code, you might want to have the code results shown in your RStudio Console (the bottom left window) and plots/maps shown in the Plots window (bottom right window). To get RStudio to do this, select the "Tools" menu and select "Global Options".  Select "R Markdown" from the left-hand side and deselect the check box "Show output inline for all R Markdown documents". The output from your code should now be shown in the console or Plots window. 
 
 <center>
-![R Markdown options.](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/hwguide2.JPG)
+![R Markdown options.](hwguide2.JPG)
 
 </center>
 
@@ -399,12 +399,12 @@ In addition to the R Markdown Rmd file, you will need to submit its knitted resu
 
 <br>
 
-To Knit your document click ![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/hwguide6.png), which will be located at the top of the upper center of the R Markdown window.  Note that you can select your document type when knitting by clicking the pull down menu next to ![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/hwguide6.png) and selecting your document choice (default is html).  When you start knitting, you will notice that a new window on the bottom left named "Render" will appear in place of the console.  The window will show the progress in your knitting.  R Studio is going through each R code chunk one at a time. The percentages you will see will be based on the proportion of your R Markdown file that R has successfully knitted. See Figure below.
+To Knit your document click ![](hwguide6.png), which will be located at the top of the upper center of the R Markdown window.  Note that you can select your document type when knitting by clicking the pull down menu next to ![](hwguide6.png) and selecting your document choice (default is html).  When you start knitting, you will notice that a new window on the bottom left named "Render" will appear in place of the console.  The window will show the progress in your knitting.  R Studio is going through each R code chunk one at a time. The percentages you will see will be based on the proportion of your R Markdown file that R has successfully knitted. See Figure below.
 
 <br>
 
 <center>
-![R Markdown knitting progress window ](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/knitprog.png)
+![R Markdown knitting progress window ](knitprog.png)
 
 </center>
 
@@ -417,7 +417,7 @@ If it has a problem knitting, R Studio will stop at the chunk that contains the 
 <br>
 
 <center>
-![R Markdown knitting stopped by an error ](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/kniterror.png)
+![R Markdown knitting stopped by an error ](kniterror.png)
 
 </center>
 
@@ -431,7 +431,7 @@ Note that when you are knitting, progress and any errors will be shown not in th
 <br><br>
 
 <center>
-![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/consoletab.png)
+![](consoletab.png)
 
 </center>
 
@@ -470,7 +470,7 @@ myobject*10
 
 <br>
 
-You then click on ![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/hwguide6.png) to knit. You will get an error because R will not be able to knit because *myobject* was not **created within the R Markdown**.  Both lines of code should be in the R Markdown file as follows:  
+You then click on ![](hwguide6.png) to knit. You will get an error because R will not be able to knit because *myobject* was not **created within the R Markdown**.  Both lines of code should be in the R Markdown file as follows:  
 
 ````
 ```{r}
@@ -600,7 +600,7 @@ Also note: all code used to produce your results must be shown in your HTML file
 ## **Getting R Markdown Help**
 \
 
-Whenever you are editing R Markdown documents in RStudio, you can display an R Markdown cheat sheet by going to Help -> Cheatsheets -> R Markdown Cheat Sheet. A basic introduction to R Markdown can also be found in Chapter 27 in [R for Data Science](https://r4ds.had.co.nz/r-markdown.html). R Studio has a quick [introduction](https://rmarkdown.rstudio.com/authoring_quick_tour.html) to R Markdown. We've put together some additional R tips [here](https://crd150.github.io/tips.html) in the likely case that you get stuck. And, of course, there is the Google machine. Use it to get help.
+Whenever you are editing R Markdown documents in RStudio, you can display an R Markdown cheat sheet by going to Help -> Cheatsheets -> R Markdown Cheat Sheet. A basic introduction to R Markdown can also be found in Chapter 27 in [R for Data Science](https://r4ds.had.co.nz/r-markdown.html). R Studio has a quick [introduction](https://rmarkdown.rstudio.com/authoring_quick_tour.html) to R Markdown. We've put together some additional R tips [here](https://ezufall.github.io/crd150_2026.github.io/tips.html) in the likely case that you get stuck. And, of course, there is the Google machine. Use it to get help.
 
 
 

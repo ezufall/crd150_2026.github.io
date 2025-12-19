@@ -69,7 +69,7 @@ This lab guide follows closely and supplements the material presented in Chapter
 
 <br>
 
-<p class="comment">**Assignment 5 is due by 12:00 pm, May 7th on Canvas.**  See [here](https://crd150.github.io/hw_guidelines.html) for assignment guidelines.  You must submit an `.Rmd` file and its associated `.html` file. Name the files: yourLastName_firstInitial_asgn05. For example: brazil_n_asgn05.</p>
+<p class="comment">**Assignment 5 is due by 12:00 pm, May 7th on Canvas.**  See [here](https://ezufall.github.io/crd150_2026.github.io/hw_guidelines.html) for assignment guidelines.  You must submit an `.Rmd` file and its associated `.html` file. Name the files: yourLastName_firstInitial_asgn05. For example: zufall_e_asgn05.</p>
 
 
 <div style="margin-bottom:25px;">
@@ -77,7 +77,7 @@ This lab guide follows closely and supplements the material presented in Chapter
 ## **Open up a R Markdown file**
 \
 
-Download the [Lab template](https://raw.githubusercontent.com/crd150/data/master/labtemplate.Rmd) into an appropriate folder on your hard drive (preferably, a folder named 'Lab 5'), open it in R Studio, and type and run your code there. The template is also located on Canvas under Files.  Change the title ("Lab 5") and insert your name and date. Don't change anything else inside the YAML (the stuff at the top in between the `---`).  Also keep the grey chunk after the YAML. For a rundown on the use of R Markdown, see the [assignment guidelines](https://crd150.github.io/hw_guidelines.html)
+Download the [Lab template](https://raw.githubusercontent.com/crd150/data/master/labtemplate.Rmd) into an appropriate folder on your hard drive (preferably, a folder named 'Lab 5'), open it in R Studio, and type and run your code there. The template is also located on Canvas under Files.  Change the title ("Lab 5") and insert your name and date. Don't change anything else inside the YAML (the stuff at the top in between the `---`).  Also keep the grey chunk after the YAML. For a rundown on the use of R Markdown, see the [assignment guidelines](https://ezufall.github.io/crd150_2026.github.io/hw_guidelines.html)
 
 <div style="margin-bottom:25px;">
 </div>
@@ -110,14 +110,14 @@ library(RColorBrewer)
 ## **Spatial data in R**
 \
 
-The main package we will use for handling spatial data in R is the tidy friendly **sf** package.  **sf** stands for simple features.  What is a feature? A feature is thought of as a thing, or an object in the real world, such as a building or a tree.  A county can be a feature. As can a city and a neighborhood.  Features have a geometry describing where on Earth the features are located, and they have attributes, which describe other properties. Think back to [Lab 3](https://crd150.github.io/lab3.html) - we were working with counties.  The difference between what we were doing then and what we will be doing in this lab is that counties in Lab 3 had attributes (e.g. percent Hispanic, total population), but they did not have geometries. As such, we could not put them on a map because we didn't have their specific geographic coordinates. This is what separates nonspatial and spatial data in R.  
+The main package we will use for handling spatial data in R is the tidy friendly **sf** package.  **sf** stands for simple features.  What is a feature? A feature is thought of as a thing, or an object in the real world, such as a building or a tree.  A county can be a feature. As can a city and a neighborhood.  Features have a geometry describing where on Earth the features are located, and they have attributes, which describe other properties. Think back to [Lab 3](https://ezufall.github.io/crd150_2026.github.io/lab3.html) - we were working with counties.  The difference between what we were doing then and what we will be doing in this lab is that counties in Lab 3 had attributes (e.g. percent Hispanic, total population), but they did not have geometries. As such, we could not put them on a map because we didn't have their specific geographic coordinates. This is what separates nonspatial and spatial data in R.  
 
 <div style="margin-bottom:25px;">
 </div>
 ## **Bringing in spatial data**
 \
 
-**sf** is the specific type of data object that deals with spatial information in R. Think back to [Lab 1](https://crd150.github.io/lab1.html#R_Data_Structures) when we discussed the various ways R stores data - **sf** is just another way.  But please note that spatial data themselves outside of R take on many different formats. We'll be primarily working with shapefiles in this class.  [Shapefiles](https://en.wikipedia.org/wiki/Shapefile) are not the only type of spatial data, but they are the most commonly used. Let's be clear here: **sf** objects are R specific and shapefiles are a general format of spatial data.  This is like tibbles are R specific and csv files are a general format of non spatial data. 
+**sf** is the specific type of data object that deals with spatial information in R. Think back to [Lab 1](https://ezufall.github.io/crd150_2026.github.io/lab1.html#R_Data_Structures) when we discussed the various ways R stores data - **sf** is just another way.  But please note that spatial data themselves outside of R take on many different formats. We'll be primarily working with shapefiles in this class.  [Shapefiles](https://en.wikipedia.org/wiki/Shapefile) are not the only type of spatial data, but they are the most commonly used. Let's be clear here: **sf** objects are R specific and shapefiles are a general format of spatial data.  This is like tibbles are R specific and csv files are a general format of non spatial data. 
 
 We will be primarily working with census geographic data in this lab and pretty much all future labs. If you need a reminder of the Census geographies, go back to Handout 3. There are two major packages for bringing in Census shapefiles into R: **tidycensus** and **tigris**.  
 
@@ -126,7 +126,7 @@ We will be primarily working with census geographic data in this lab and pretty 
 ### **tidycensus**
 \
 
-In [Lab 3](https://crd150.github.io/lab3.html#Using_the_Census_API), we worked with the **tidycensus** package and the Census API to bring in Census data into R.  Fortunately, we can use the same commands to bring in Census geographic data.  First, load in your Census API key.  If you have not already installed your Census API key, use the function `census_api_key()` and specify `install = TRUE` so that you won't have to run `census_api_key()` again.
+In [Lab 3](https://ezufall.github.io/crd150_2026.github.io/lab3.html#Using_the_Census_API), we worked with the **tidycensus** package and the Census API to bring in Census data into R.  Fortunately, we can use the same commands to bring in Census geographic data.  First, load in your Census API key.  If you have not already installed your Census API key, use the function `census_api_key()` and specify `install = TRUE` so that you won't have to run `census_api_key()` again.
 
 ```{r eval=FALSE, warning=FALSE, results="hide"}
 census_api_key("YOUR API KEY GOES HERE", install = TRUE)
@@ -244,7 +244,7 @@ Guess what? You earned another badge! Yipee!!
 
 
 <center>
-![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/tigris_sticker.png){ width=25% }
+![](tigris_sticker.png){ width=25% }
 
 </center>
 
@@ -332,7 +332,7 @@ Take a look at the dataset
 glimpse(ca.race)
 ```
 
-Remember, were dealing with data frames here, so we can use `left_join()`, which we covered in [Lab 3](https://crd150.github.io/lab3.html#Joining_tables), to join the non spatial data frame *ca.race* to the spatial data frame *sac.county.tracts*.
+Remember, were dealing with data frames here, so we can use `left_join()`, which we covered in [Lab 3](https://ezufall.github.io/crd150_2026.github.io/lab3.html#Joining_tables), to join the non spatial data frame *ca.race* to the spatial data frame *sac.county.tracts*.
 
 ```{r warning=FALSE, message=FALSE}
 sac.county.tracts <- sac.county.tracts %>%
@@ -354,7 +354,7 @@ sac.county.tracts <- sac.county.tracts %>%
 
 The error message tells you that you can use the function `st_join()` to join two spatial data objects. We'll learn more about `st_join()` in the next lab.
 
-You can also use the exploratory data analysis functions we learned about in [Lab 4](https://crd150.github.io/lab4.html). For example, what is the correlation between median housing value and percent black?
+You can also use the exploratory data analysis functions we learned about in [Lab 4](https://ezufall.github.io/crd150_2026.github.io/lab4.html). For example, what is the correlation between median housing value and percent black?
 
 ```{r}
 sac.county.tracts %>%
@@ -376,7 +376,7 @@ The main takeaway: **sf** objects are data frames, so you can use many of the fu
 
 
 <center>
-![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/sf.gif){ width=25% }
+![](sf.gif){ width=25% }
 
 </center>
 
@@ -790,7 +790,7 @@ Now that the interactive mode has been ‘turned on’, all maps produced with `
 sacmhval.map
 ```
 
-Click on ![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/zoom.png) above the map and a larger window should open up. 
+Click on ![](zoom.png) above the map and a larger window should open up. 
 
 Besides interactivity, another important benefit of `tmap_mode()` is that it provides a basemap, which was discussed in Handout 5.  The function of a basemap is to provide background detail necessary to orient the location of the map.  In the static maps we produced earlier, Sacramento county was sort of floating in white space.  As you can see in the interactive map above we've added geographic context to the surrounding area. 
 
@@ -812,7 +812,7 @@ tmap_mode("plot")
 You've completed your introduction to **tmap**. Whew! Badge? Yes, please, you earned it!  Time to [celebrate](https://www.youtube.com/watch?v=3GwjfUFyY6M)!
 
 <center>
-![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/tmap.png){ width=25% }
+![](tmap.png){ width=25% }
 
 </center>
 
@@ -823,4 +823,4 @@ You've completed your introduction to **tmap**. Whew! Badge? Yes, please, you ea
 <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
 
 
-Website created and maintained by [Noli Brazil](https://nbrazil.faculty.ucdavis.edu/)
+Website created and maintained by [Noli Brazil](https://nbrazil.faculty.ucdavis.edu/) and adapted by [Elise Zufall](https://environmentalpolicy.ucdavis.edu/people/elise-zufall)

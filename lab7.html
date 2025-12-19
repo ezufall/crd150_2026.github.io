@@ -482,10 +482,11 @@ href="https://geocompr.robinlovelace.net/">Geocomputation with R</a>
 (GWR).</p>
 <p class="comment">
 <strong>Assignment 7 is due by 12:00 pm, May 21st on Canvas.</strong>
-See <a href="https://crd150.github.io/hw_guidelines.html">here</a> for
-assignment guidelines. You must submit an <code>.Rmd</code> file and its
-associated <code>.html</code> file. Name the files:
-yourLastName_firstInitial_asgn07. For example: brazil_n_asgn07.
+See <a
+href="https://ezufall.github.io/crd150_2026.github.io/hw_guidelines.html">here</a>
+for assignment guidelines. You must submit an <code>.Rmd</code> file and
+its associated <code>.html</code> file. Name the files:
+yourLastName_firstInitial_asgn07. For example: zufall_e_asgn07.
 </p>
 <div style="margin-bottom:25px;">
 
@@ -502,7 +503,7 @@ there. The template is also located on Canvas under Files. Change the
 title (“Lab 7”) and insert your name and date. Don’t change anything
 else inside the YAML (the stuff at the top in between the
 <code>---</code>). For a rundown on the use of R Markdown, see the <a
-href="https://crd150.github.io/hw_guidelines.html">assignment
+href="https://ezufall.github.io/crd150_2026.github.io/hw_guidelines.html">assignment
 guidelines</a>.</p>
 <div style="margin-bottom:25px;">
 
@@ -784,10 +785,10 @@ Also note that the longitude will always go before the latitude in
 <code>coords =</code>.</p>
 <p>Now we can map encampments over Los Angeles City tracts using our new
 best friend <code>tm_shape()</code>, whom we met in <a
-href="https://crd150.github.io/lab5.html#Mapping_in_R">Lab 5</a>.
-Because encampments are points, we need to use <code>tm_dots()</code> to
-map them. We color these points in red using the <code>fill =</code>
-argument.</p>
+href="https://ezufall.github.io/crd150_2026.github.io/lab5.html#Mapping_in_R">Lab
+5</a>. Because encampments are points, we need to use
+<code>tm_dots()</code> to map them. We color these points in red using
+the <code>fill =</code> argument.</p>
 <pre class="r"><code>tm_shape(la.city.tracts) +  
   tm_polygons() +
 tm_shape(homeless311.sf) +  
@@ -844,7 +845,7 @@ longitude <em>long</em> attached as columns.</p>
                          coords = c(&quot;long&quot;, &quot;lat&quot;),
                          crs = &quot;+proj=longlat +datum=NAD83 +ellps=WGS84&quot;)</code></pre>
 <p>Type in <code>tmap_mode("view")</code> and then <a
-href="https://crd150.github.io/lab5.html#Interactive_maps">map</a>
+href="https://ezufall.github.io/crd150_2026.github.io/lab5.html#Interactive_maps">map</a>
 <em>myaddress.sf</em>. Zoom into the point. Did it get your home address
 correct?</p>
 <p><br></p>
@@ -902,7 +903,7 @@ available). The process may take a few minutes so be patient.</p>
 addresses were successfully geocoded.</p>
 <pre class="r"><code>summary(shelters.geo$lat)</code></pre>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA&#39;s 
-##   33.74   33.98   34.05   34.06   34.10   34.70      17</code></pre>
+##   33.74   33.98   34.05   34.06   34.10   34.70      19</code></pre>
 <p>Several shelters received an <code>NA</code>. This is likely because
 the addresses are not correct, has errors, or are not fully specified.
 You’ll have to manually fix these issues, which becomes time consuming
@@ -1002,9 +1003,9 @@ homeless encampments per 1,000 residents.</p>
 encampments per 1,000 residents. Note that there are tracts with 0
 population sizes, so a division of 0 when you created the variable
 <em>hcamppop</em> will yield an Inf value, which we covered in <a
-href="https://crd150.github.io/lab1.html#Numeric">Lab 1</a>. Let’s
-convert <em>hcamppop</em> to NA for tracts with Inf values using the
-<code>na_if()</code> function.</p>
+href="https://ezufall.github.io/crd150_2026.github.io/lab1.html#Numeric">Lab
+1</a>. Let’s convert <em>hcamppop</em> to NA for tracts with Inf values
+using the <code>na_if()</code> function.</p>
 <pre class="r"><code>la.city.tracts &lt;- la.city.tracts %&gt;%
             mutate(hcamppop = na_if(hcamppop, Inf))</code></pre>
 <p>Now we can create a presentable choropleth map of homeless
@@ -1034,7 +1035,10 @@ work is licensed under a
 <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative
 Commons Attribution-NonCommercial 4.0 International License</a>.</p>
 <p>Website created and maintained by <a
-href="https://nbrazil.faculty.ucdavis.edu/">Noli Brazil</a></p>
+href="https://nbrazil.faculty.ucdavis.edu/">Noli Brazil</a> and adapted
+by <a
+href="https://environmentalpolicy.ucdavis.edu/people/elise-zufall">Elise
+Zufall</a></p>
 </div>
 
 

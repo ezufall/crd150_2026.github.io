@@ -67,7 +67,7 @@ To achieve these objectives, we will examine the spatial distribution of homeles
 
 This lab guide follows closely and supplements the material presented in Chapters 2.4, 2.5, 4.2 and 7 in the textbook [Geocomputation with R](https://geocompr.robinlovelace.net/) (GWR).
 
-<p class="comment">**Assignment 7 is due by 12:00 pm, May 21st on Canvas.**  See [here](https://crd150.github.io/hw_guidelines.html) for assignment guidelines.  You must submit an `.Rmd` file and its associated `.html` file. Name the files: yourLastName_firstInitial_asgn07. For example: brazil_n_asgn07.</p>
+<p class="comment">**Assignment 7 is due by 12:00 pm, May 21st on Canvas.**  See [here](https://ezufall.github.io/crd150_2026.github.io/hw_guidelines.html) for assignment guidelines.  You must submit an `.Rmd` file and its associated `.html` file. Name the files: yourLastName_firstInitial_asgn07. For example: zufall_e_asgn07.</p>
 
 
 <div style="margin-bottom:25px;">
@@ -75,7 +75,7 @@ This lab guide follows closely and supplements the material presented in Chapter
 ## **Open up an R Markdown file**
 \
 
-Download the [Lab template](https://raw.githubusercontent.com/crd150/data/master/labtemplate.Rmd) into an appropriate folder on your hard drive (preferably, a folder named 'Lab 7'), open it in R Studio, and type and run your code there.  The template is also located on Canvas under Files.  Change the title ("Lab 7") and insert your name and date. Don't change anything else inside the YAML (the stuff at the top in between the `---`).  For a rundown on the use of R Markdown, see the [assignment guidelines](https://crd150.github.io/hw_guidelines.html).
+Download the [Lab template](https://raw.githubusercontent.com/crd150/data/master/labtemplate.Rmd) into an appropriate folder on your hard drive (preferably, a folder named 'Lab 7'), open it in R Studio, and type and run your code there.  The template is also located on Canvas under Files.  Change the title ("Lab 7") and insert your name and date. Don't change anything else inside the YAML (the stuff at the top in between the `---`).  For a rundown on the use of R Markdown, see the [assignment guidelines](https://ezufall.github.io/crd150_2026.github.io/hw_guidelines.html).
 
 <div style="margin-bottom:25px;">
 </div>
@@ -232,7 +232,7 @@ For `crs =`, we establish the projection `+proj=`, datum `+datum=` and ellipse `
 
 Note that the CRS should have only have one space in between `+proj=longlat`, `+datum=WGS84` and `+ellps=WGS84`.  And you should have no spaces anywhere else.  Be careful about this because if you introduce spaces elsewhere you will get an incorrect CRS (and R will not give you an error to let you know). Also note that the longitude will always go before the latitude in `coords =`.
 
-Now we can map encampments over Los Angeles City tracts using our new best friend `tm_shape()`, whom we met in [Lab 5](https://crd150.github.io/lab5.html#Mapping_in_R). Because encampments are points, we need to use `tm_dots()` to map them. We color these points in red using the `fill =` argument.
+Now we can map encampments over Los Angeles City tracts using our new best friend `tm_shape()`, whom we met in [Lab 5](https://ezufall.github.io/crd150_2026.github.io/lab5.html#Mapping_in_R). Because encampments are points, we need to use `tm_dots()` to map them. We color these points in red using the `fill =` argument.
 
 ```{r eval = FALSE}
 tm_shape(la.city.tracts) +  
@@ -284,7 +284,7 @@ myaddress.sf <- st_as_sf(myaddress.df,
                          crs = "+proj=longlat +datum=NAD83 +ellps=WGS84")
 ```
 
-Type in `tmap_mode("view")` and then [map](https://crd150.github.io/lab5.html#Interactive_maps) *myaddress.sf*.  Zoom into the point.  Did it get your home address correct?
+Type in `tmap_mode("view")` and then [map](https://ezufall.github.io/crd150_2026.github.io/lab5.html#Interactive_maps) *myaddress.sf*.  Zoom into the point.  Did it get your home address correct?
 
 <br>
 
@@ -403,7 +403,7 @@ la.city.tracts <- la.city.tracts %>%
             mutate(hcamppop = (hcamps/tpop)*1000)
 ```
 
-The above code creates the variable *hcamppop* in *la.city.tracts*, which represents the number of homeless encampments per 1,000 residents.  Note that there are tracts with 0 population sizes, so a division of 0 when you created the variable *hcamppop* will yield an Inf value, which we covered in [Lab 1](https://crd150.github.io/lab1.html#Numeric).  Let's convert *hcamppop* to NA for tracts with Inf values using the `na_if()` function.
+The above code creates the variable *hcamppop* in *la.city.tracts*, which represents the number of homeless encampments per 1,000 residents.  Note that there are tracts with 0 population sizes, so a division of 0 when you created the variable *hcamppop* will yield an Inf value, which we covered in [Lab 1](https://ezufall.github.io/crd150_2026.github.io/lab1.html#Numeric).  Let's convert *hcamppop* to NA for tracts with Inf values using the `na_if()` function.
 
 ```{r warning=FALSE, message=FALSE}
 la.city.tracts <- la.city.tracts %>%
@@ -436,4 +436,4 @@ Create maps of racial/ethnic composition and see if there are visual association
 <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
 
 
-Website created and maintained by [Noli Brazil](https://nbrazil.faculty.ucdavis.edu/)
+Website created and maintained by [Noli Brazil](https://nbrazil.faculty.ucdavis.edu/) and adapted by [Elise Zufall](https://environmentalpolicy.ucdavis.edu/people/elise-zufall)

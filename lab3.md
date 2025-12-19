@@ -62,14 +62,14 @@ In this guide you will learn how to download, clean and manage United States Cen
 
 This lab guide follows closely and supplements the material presented in Chapters 4, 8-13 in the textbook [R for Data Science](http://r4ds.had.co.nz/index.html) (RDS) and the class Handouts 2 and 3.
 
-<p class="comment">**Assignment 3 is due by 12:00 pm, April 23rd on Canvas.**  See [here](https://crd150.github.io/hw_guidelines.html) for assignment guidelines.  You must submit an `.Rmd` file and its associated `.html` file. Name the files: yourLastName_firstInitial_asgn03. For example: brazil_n_asgn03.</p>
+<p class="comment">**Assignment 3 is due by 12:00 pm, April 23rd on Canvas.**  See [here](https://ezufall.github.io/crd150_2026.github.io/hw_guidelines.html) for assignment guidelines.  You must submit an `.Rmd` file and its associated `.html` file. Name the files: yourLastName_firstInitial_asgn03. For example: brazil_n_asgn03.</p>
 
 <div style="margin-bottom:25px;">
 </div>
 ## **Open up a R Markdown file**
 \
 
-Download the [Lab template](https://raw.githubusercontent.com/crd150/data/master/labtemplate.Rmd) into an appropriate folder on your hard drive (preferably, a folder named 'Lab 3'), open it in R Studio, and type and run your code there.  The template is also located on Canvas under Files. Change the title ("Lab 3") and insert your name and date. Don't change anything else inside the YAML (the stuff at the top in between the `---`).  Also keep the grey chunk after the YAML. For a rundown on the use of R Markdown, see the [assignment guidelines](https://crd150.github.io/hw_guidelines.html)
+Download the [Lab template](https://raw.githubusercontent.com/crd150/data/master/labtemplate.Rmd) into an appropriate folder on your hard drive (preferably, a folder named 'Lab 3'), open it in R Studio, and type and run your code there.  The template is also located on Canvas under Files. Change the title ("Lab 3") and insert your name and date. Don't change anything else inside the YAML (the stuff at the top in between the `---`).  Also keep the grey chunk after the YAML. For a rundown on the use of R Markdown, see the [assignment guidelines](https://ezufall.github.io/crd150_2026.github.io/hw_guidelines.html)
 
 
 <div style="margin-bottom:25px;">
@@ -77,7 +77,7 @@ Download the [Lab template](https://raw.githubusercontent.com/crd150/data/master
 ## **Installing Packages**
 \
 
-As described in [Lab 2](https://crd150.github.io/lab2.html#R_Packages), many functions are part of packages that are not preinstalled into R.  In Lab 2, we had to install the package **tidyverse**.  In this lab, you'll need to install the package [**tidycensus**](https://walker-data.com/tidycensus/), which contains all the functions needed to download Census data using the Census API.  We'll also need to install the package **VIM**, which provides functions for summarizing missingness in our dataset (a concept covered in Handout 2). Run the following code to install these packages.  
+As described in [Lab 2](https://ezufall.github.io/crd150_2026.github.io/lab2.html#R_Packages), many functions are part of packages that are not preinstalled into R.  In Lab 2, we had to install the package **tidyverse**.  In this lab, you'll need to install the package [**tidycensus**](https://walker-data.com/tidycensus/), which contains all the functions needed to download Census data using the Census API.  We'll also need to install the package **VIM**, which provides functions for summarizing missingness in our dataset (a concept covered in Handout 2). Run the following code to install these packages.  
 
 
 ``` r
@@ -124,7 +124,7 @@ UC Davis provides full access to all PolicyMap tools for staff, students, and fa
 1. Navigate to the UC Davis [PolicyMap portal](https://ucdavis.policymap.com/maps).  You will need to log in using your UC Davis username and password. You should see a webpage that looks like the figure below.  Note the UC Davis logo on the top right.  Go Aggies!
 
 <center>
-![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/pmpage.png)
+![](pmpage.png)
 
 </center>
 
@@ -132,7 +132,7 @@ UC Davis provides full access to all PolicyMap tools for staff, students, and fa
 2. You should see a *Location* search bar somewhere near the top of the page.  Type in "California" in the search bar and *California (State)* should pop up as the first selection. Click it.
 
 <center>
-![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/typecalifornia.png)
+![](typecalifornia.png)
 
 </center>
 
@@ -141,53 +141,53 @@ UC Davis provides full access to all PolicyMap tools for staff, students, and fa
 You should get a map that highlights California's boundaries. Zoom into the state.
 
 <center>
-![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/camap1.png)
+![](camap1.png)
 
 </center>
 
 3. The map does not show any data.  Let's add the percent of residents with a bachelor's degree in California counties.  Click on the *Education* tab, followed by *Educational Attainment* and then *At least a Bachelor's Degree*.
 
 <center>
-![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/pbach.png)
+![](pbach.png)
 
 </center>
 
 Now your map should look like the following
 
 <center>
-![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/pbachmap.png)
+![](pbachmap.png)
 
 </center>
 
 4. Notice in the legend window you can change various aspects of the variable, including the year
 
 <center>
-![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/pmyear2.png)
+![](pmyear2.png)
 
 </center>
 
 the data type
 
 <center>
-![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/pmdata2.png)
+![](pmdata2.png)
 
 </center>
 
 and the geographic level.  
 
 <center>
-![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/pmgeo2.png)
+![](pmgeo2.png)
 
 </center>
 
 Leave the defaults (Year: 2019-2023, Variable: Percent, and Shaded by: County, 2022).  *County, 2022* indicates that you want to show the data by county using 2022 county boundaries.
 
-5. Let's download these data.  At the top right of the site, click on the download icon ![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/download.png).  
+5. Let's download these data.  At the top right of the site, click on the download icon ![](download.png).  
 
 6. A window should pop up. The first screen on the left shows you what data will be downloaded - it should be "Estimated percent of people with at least a Bachelor's degree, between 2019-2023" under Layer, with "2019-2023" under Year and "Percent" under Variable already selected.
 
 <center>
-![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/pmfirst2.png)
+![](pmfirst2.png)
 
 </center>
 
@@ -196,7 +196,7 @@ Leave the defaults (Year: 2019-2023, Variable: Percent, and Shaded by: County, 2
 
 
 <center>
-![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/pmsecond2.png)
+![](pmsecond2.png)
 
 </center>
 
@@ -204,25 +204,25 @@ Leave the defaults (Year: 2019-2023, Variable: Percent, and Shaded by: County, 2
 8. The last section asks you to confirm the download. Select *Machine-readable data file (csv) + data specs file* under "Data Format". Select *Download via browser* under "Delivery Method". Then click on the Download button.
 
 <center>
-![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/pmthird2.png)
+![](pmthird2.png)
 
 </center>
 
 9. After a minute or two, a screen like below (on a Mac laptop) should pop up at the top right corner of your screen (the file name will differ from yours).  You can download this file again until the date given.
 
 <center>
-![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/downloadcsv2.png)
+![](downloadcsv2.png)
 
 </center>
 
 Save the file into an appropriate folder, specifically the folder that contains your Lab 3 RMarkdown, such as below (Mac laptop)
 
 <center>
-![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/pmfolder.png)
+![](pmfolder.png)
 
 </center>
 
-10. The file you downloaded is a zip file. You will need to unzip the file to access its content. To unzip a file on Windows, see [here](https://support.microsoft.com/en-us/windows/zip-and-unzip-files-8d28fa72-f2f9-712f-67df-f80cf89fd4e5). On a Mac, see [here](https://support.apple.com/guide/mac-help/zip-and-unzip-files-and-folders-on-mac-mchlp2528/mac). When you unzip it there will be two files: the csv file containing the data and the meta data (or record layout) for the dataset (should have the word "Metadata" in the file name). Let's bring the csv dataset file into R. We covered how to read in data into R in [Lab 2](https://crd150.github.io/lab2.html#Reading_data). Make sure your [working directory is pointed to the folder containing the file](https://crd150.github.io/lab2.html#Reading_data). Then read in the file using the function `read_csv()`.
+10. The file you downloaded is a zip file. You will need to unzip the file to access its content. To unzip a file on Windows, see [here](https://support.microsoft.com/en-us/windows/zip-and-unzip-files-8d28fa72-f2f9-712f-67df-f80cf89fd4e5). On a Mac, see [here](https://support.apple.com/guide/mac-help/zip-and-unzip-files-and-folders-on-mac-mchlp2528/mac). When you unzip it there will be two files: the csv file containing the data and the meta data (or record layout) for the dataset (should have the word "Metadata" in the file name). Let's bring the csv dataset file into R. We covered how to read in data into R in [Lab 2](https://ezufall.github.io/crd150_2026.github.io/lab2.html#Reading_data). Make sure your [working directory is pointed to the folder containing the file](https://ezufall.github.io/crd150_2026.github.io/lab2.html#Reading_data). Then read in the file using the function `read_csv()`.
 
 
 
@@ -238,7 +238,7 @@ If you're having trouble downloading the file from PolicyMap, I uploaded it onto
 ca.pm <- read_csv("https://raw.githubusercontent.com/crd150/data/refs/heads/master/PolicyMap%20Data%202025-03-04%20012153%20UTC.csv")
 ```
 
-When you bring in a dataset, the first thing you should always do is view it just to make sure you got what you expected.  You can do this directly in the console by using the function `glimpse()`, which we covered in [Lab 2](https://crd150.github.io/lab2.html#Reading_data).
+When you bring in a dataset, the first thing you should always do is view it just to make sure you got what you expected.  You can do this directly in the console by using the function `glimpse()`, which we covered in [Lab 2](https://ezufall.github.io/crd150_2026.github.io/lab2.html#Reading_data).
 
 
 ``` r
@@ -353,7 +353,7 @@ The tibble contains counties with their estimates for race/ethnicity.  These var
 Congrats! You've just learned how to grab Census data from the Census API using **tidycensus**. Here's a badge!
 
 <center>
-![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/tidycensus.png){ width=25% }
+![](tidycensus.png){ width=25% }
 
 </center>
 
@@ -365,7 +365,7 @@ Congrats! You've just learned how to grab Census data from the Census API using 
 ## **Data Wrangling**
 \
 
-The ultimate goal is to merge the files *ca* and *ca.pm* together.  To get there, we have to do a bit of data wrangling.  We covered many data wrangling functions in [Lab 2](https://crd150.github.io/lab2.html).  We will revisit some of those functions and introduce a few more.
+The ultimate goal is to merge the files *ca* and *ca.pm* together.  To get there, we have to do a bit of data wrangling.  We covered many data wrangling functions in [Lab 2](https://ezufall.github.io/crd150_2026.github.io/lab2.html).  We will revisit some of those functions and introduce a few more.
 
 
 <div style="margin-bottom:25px;">
@@ -417,7 +417,7 @@ Note the use of quotes around the variable name you are renaming.
 Our next goal is to merge together the datasets *ca.pm* and *ca*. Handout 2 (pg. 8 and Figure 6) describes the process of merging datasets. Remember from Handout 3 that the unique Census ID for a county combines the county ID with the state ID. We have this ID as the single variable *GEOID* in *ca* and *GeoID* in *ca.pm*
 
 <center>
-![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/mergefips.png)
+![](mergefips.png)
 
 </center>
 
@@ -477,7 +477,7 @@ There are other types of joins, which you can read more about in Chapter 13 of R
 ### **Creating new variables**
 \
 
-As we covered in [Lab 2](https://crd150.github.io/lab2.html#Creating_new_variables), we use the function `mutate()` to create new variables in a data frame.  Here, we need to calculate the percentage of residents by race/ethnicity.  The race/ethnicity counts end with the letter "E". Remember, we want variable names that are short and clear.
+As we covered in [Lab 2](https://ezufall.github.io/crd150_2026.github.io/lab2.html#Creating_new_variables), we use the function `mutate()` to create new variables in a data frame.  Here, we need to calculate the percentage of residents by race/ethnicity.  The race/ethnicity counts end with the letter "E". Remember, we want variable names that are short and clear.
 
 
 ``` r
@@ -496,7 +496,7 @@ We multiply each race/ethnic proportion by 100 to convert the values into percen
 ### **Selecting variables**
 \
 
-As we covered in [Lab 2](https://crd150.github.io/lab2.html#Selecting_variables), we use the function `select()` to keep or discard variables from a data frame.  Let's keep the ID variable *GEOID*, the name of the county *county*, total population *tpoprE*, percent college graduates *pbachp*, and all the percent race/ethnicity variables.  Save the changes back into *caccounty*.
+As we covered in [Lab 2](https://ezufall.github.io/crd150_2026.github.io/lab2.html#Selecting_variables), we use the function `select()` to keep or discard variables from a data frame.  Let's keep the ID variable *GEOID*, the name of the county *county*, total population *tpoprE*, percent college graduates *pbachp*, and all the percent race/ethnicity variables.  Save the changes back into *caccounty*.
 
 
 ``` r
@@ -611,7 +611,7 @@ summary(cacounty)
 
 The summary provides the minimum, 25th percentile, median, mean, 75th percentile and maximum for each numeric variable (we'll get to what these statistics represent next lab).  It will also indicate the number of observations missing values for each variable, which is none in our case. 
 
-We were fortunate to have no missing data.  However, in many situations, missing data will be present.  Check the PolicyMap guide located [here](https://crd150.github.io/policymap.html) to see how to deal with missingness in PolicyMap data. We'll also cover more about what to do with missing data when conducting exploratory data analysis in Lab 4.
+We were fortunate to have no missing data.  However, in many situations, missing data will be present.  Check the PolicyMap guide located [here](https://ezufall.github.io/crd150_2026.github.io/policymap.html) to see how to deal with missingness in PolicyMap data. We'll also cover more about what to do with missing data when conducting exploratory data analysis in Lab 4.
 
 
 <div style="margin-bottom:25px;">
@@ -665,4 +665,4 @@ For more information on the **tidycensus** package, check out Kyle Walker's exce
 <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
 
 
-Website created and maintained by [Noli Brazil](https://nbrazil.faculty.ucdavis.edu/)
+Website created and maintained by [Noli Brazil](https://nbrazil.faculty.ucdavis.edu/) and adapted by [Elise Zufall](https://environmentalpolicy.ucdavis.edu/people/elise-zufall)

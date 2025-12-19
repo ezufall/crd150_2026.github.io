@@ -62,7 +62,7 @@ In this guide you will learn how to download, clean and manage data - a process 
 
 This lab guide follows and supplements the material presented in Chapters 4 and 8-13 in the textbook [R for Data Science](http://r4ds.had.co.nz/index.html) (RDS) and the class Handout 2.
 
-<p class="comment">**Assignment 2 is due by 12:00 pm, April 16 on Canvas.**   See [here](https://crd150.github.io/hw_guidelines.html) for assignment guidelines. You must submit an `.Rmd` file and its associated `.html` file. Name the files: yourLastName_firstInitial_asgn02. For example: brazil_n_asgn02.</p>    
+<p class="comment">**Assignment 2 is due by 12:00 pm, April 16 on Canvas.**   See [here](https://ezufall.github.io/crd150_2026.github.io/hw_guidelines.html) for assignment guidelines. You must submit an `.Rmd` file and its associated `.html` file. Name the files: yourLastName_firstInitial_asgn02. For example: brazil_n_asgn02.</p>    
 
 
 <div style="margin-bottom:25px;">
@@ -70,7 +70,7 @@ This lab guide follows and supplements the material presented in Chapters 4 and 
 ## **Open up a R Markdown file**
 \
 
-Rather than working directly from the R console, I recommended typing in lab code into an R Markdown and working from there.  This will give you more practice and experience working in the R Markdown environment, which you will need to do for all of your assignments.  Plus you can add your own comments to the code to ensure that you're understanding what is being done. Download the [lab template](https://raw.githubusercontent.com/crd150/data/master/labtemplate.Rmd) into an appropriate folder on your hard drive (preferably, a folder named 'Lab 2'), open it in R Studio, and type and run your lab code there.  The template is also located on Canvas under Files. Change the title ("Lab 2") and insert your name and date. Don't change anything else inside the YAML (the stuff at the top in between the `---`).  Also keep the grey chunk after the YAML. For a rundown on the use of R Markdown, see the [assignment guidelines](https://crd150.github.io/hw_guidelines.html).
+Rather than working directly from the R console, I recommended typing in lab code into an R Markdown and working from there.  This will give you more practice and experience working in the R Markdown environment, which you will need to do for all of your assignments.  Plus you can add your own comments to the code to ensure that you're understanding what is being done. Download the [lab template](https://raw.githubusercontent.com/crd150/data/master/labtemplate.Rmd) into an appropriate folder on your hard drive (preferably, a folder named 'Lab 2'), open it in R Studio, and type and run your lab code there.  The template is also located on Canvas under Files. Change the title ("Lab 2") and insert your name and date. Don't change anything else inside the YAML (the stuff at the top in between the `---`).  Also keep the grey chunk after the YAML. For a rundown on the use of R Markdown, see the [assignment guidelines](https://ezufall.github.io/crd150_2026.github.io/hw_guidelines.html).
 
 
 <div style="margin-bottom:25px;">
@@ -78,7 +78,7 @@ Rather than working directly from the R console, I recommended typing in lab cod
 ## **R Packages**
 \
 
-At the end of [Lab 1](https://crd150.github.io/lab1.html#Functions) we learned about R functions. Functions do not exist in a vacuum, but exist within [R packages](https://r-pkgs.org/introduction.html).  Packages are the fundamental units of reproducible R code. They include R functions, the documentation that describes how to use them, and sample data. At the top left of a function's help documentation, you'll find in curly brackets the R package that the function is housed in.  For example, type in your console `? seq`. At the top left of the help documentation, you'll find that `seq()` is in the package **base**.  All the functions we have used so far are part of packages that have been pre-installed and pre-loaded into R. For all new packages, you need to install and load them.
+At the end of [Lab 1](https://ezufall.github.io/crd150_2026.github.io/lab1.html#Functions) we learned about R functions. Functions do not exist in a vacuum, but exist within [R packages](https://r-pkgs.org/introduction.html).  Packages are the fundamental units of reproducible R code. They include R functions, the documentation that describes how to use them, and sample data. At the top left of a function's help documentation, you'll find in curly brackets the R package that the function is housed in.  For example, type in your console `? seq`. At the top left of the help documentation, you'll find that `seq()` is in the package **base**.  All the functions we have used so far are part of packages that have been pre-installed and pre-loaded into R. For all new packages, you need to install and load them.
 
 In this lab and all labs from here on out, we will be using commands from the package **tidyverse**. [Tidyverse](https://www.tidyverse.org/) is a collection of high-powered, consistent, and easy-to-use packages developed by a number of thoughtful and talented R developers.  In order to use functions in a new package, you first need to install the package using the `install.packages()` command. 
 
@@ -87,7 +87,7 @@ In this lab and all labs from here on out, we will be using commands from the pa
 install.packages("tidyverse")
 ```
 
-You should see a bunch of gobbledygook roll through your console screen.  Don't worry, that's just R downloading all of the other packages and applications that **tidyverse** relies on.  These are known as [dependencies](https://r-pkgs.org/dependencies-in-practice.html).  Unless you get a message in red that indicates there is an error (like we saw in [Lab 1](https://crd150.github.io/lab1.html#R_Data_Types) when we typed in hello world without quotes), you should be fine.
+You should see a bunch of gobbledygook roll through your console screen.  Don't worry, that's just R downloading all of the other packages and applications that **tidyverse** relies on.  These are known as [dependencies](https://r-pkgs.org/dependencies-in-practice.html).  Unless you get a message in red that indicates there is an error (like we saw in [Lab 1](https://ezufall.github.io/crd150_2026.github.io/lab1.html#R_Data_Types) when we typed in hello world without quotes), you should be fine.
 
 When you are installing a package, you may get the message that asks "Do you want to install from sources the packages which need compilation?" This often means that the package has updated recently on CRAN isn't yet available for your operating system (which can take a day or two). In many cases, you can deal with this by updating R to its most recent version. If you already have the most recent version, the easiest thing to do is type in "no." If you say no, you won't get the most recent version of the package. But this might be just fine, unless you were specifically installing because of an update. If you say yes, the package will be built from source locally. If it has compiled code and you've never set up build tools for R, then this won't actually succeed.
 
@@ -105,7 +105,7 @@ For example, here is a section of my Packages window.
 <br>
 
 <center>
-![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/window1.png)
+![](window1.png)
 
 </center>
 \
@@ -117,7 +117,7 @@ The only packages loaded into my current session is **methods**, a package that 
 <br>
 
 <center>
-![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/window2.png)
+![](window2.png)
 
 </center>
 \
@@ -128,7 +128,7 @@ When you load it in using `library()`, a check mark appears next to **matrixStat
 <br>
 
 <center>
-![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/window3.png)
+![](window3.png)
 
 </center>
 \
@@ -140,7 +140,7 @@ When you load it in using `library()`, a check mark appears next to **matrixStat
 Are you ready to enter the **tidyverse**? Yes, of course, so here is a badge!  Wear it proudly my young friends! And away we go!
 
 <center>
-![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/tidyverse.png){ width=25% }
+![](tidyverse.png){ width=25% }
 
 </center>
 
@@ -168,7 +168,7 @@ and `setwd("directory name")` to set the directory to the folder containing the 
 In my Mac OS computer, the file is located in the folder shown in the figure below.  To get the Info window, right click on the file, and select "Get Info".
 
 <center>
-![Directory path where your data reside](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/setwd.png)
+![Directory path where your data reside](setwd.png)
 
 </center>
 
@@ -237,7 +237,7 @@ If you like viewing your data through an Excel style worksheet, type in `View(co
 By learning how to read in data, you've earned another **tidyverse** badge! Hooray!
 
 <center>
-![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/readr.png){ width=25% }
+![](readr.png){ width=25% }
 
 </center>
 
@@ -299,7 +299,7 @@ Note that when you search on Google for how to do something in R, you will likel
 Anyway, you earned another badge. Yes!
 
 <center>
-![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/tibble.png){ width=25% }
+![](tibble.png){ width=25% }
 
 </center>
 
@@ -322,7 +322,7 @@ In this lab, we won't have time to go through all of the methods and functions i
 In practice, most of the data files you will download will contain variables you won't need. It is easier to work with a smaller dataset as it reduces clutter and clears up memory space, which is important if you are executing complex tasks on a large number of observations.  Use the command `select()` to keep variables by name.  Visually, we are doing this (taken from the RStudio [cheatsheet](https://rstudio.github.io/cheatsheets/data-transformation.pdf))  
 
 <center>
-![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/subsetcols.png)
+![](subsetcols.png)
 
 </center>
 
@@ -413,7 +413,7 @@ counties1 <- select(counties, -state)
 The `mutate()` function allows you to create new variables within your dataset.  This is important when you need to transform variables in some way - for example, calculating a ratio or adding two variables together.  Visually, you are doing this
 
 <center>
-![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/mutate.png)
+![](mutate.png)
 
 </center>
 
@@ -450,7 +450,7 @@ glimpse(counties1)
 Filtering means selecting rows/observations based on their values.  To filter in R, use the command `filter()`.  Visually, filtering rows looks like this.
 
 <center>
-![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/subsetrows.png)
+![](subsetrows.png)
 
 </center>
 
@@ -461,7 +461,7 @@ The first argument in the parentheses of this command is the name of the data fr
 filter(counties1, GEOID == "06067")
 ```
 
-The double equal operator `==` means equal to.  The command is telling R to keep the rows in *counties1* whose *GEOID* equals "06067".  There are quotes around 06067 because *GEOID* is a [character](https://crd150.github.io/lab1.html#Characters) variable.  
+The double equal operator `==` means equal to.  The command is telling R to keep the rows in *counties1* whose *GEOID* equals "06067".  There are quotes around 06067 because *GEOID* is a [character](https://ezufall.github.io/crd150_2026.github.io/lab1.html#Characters) variable.  
 
 We can also explicitly exclude cases and keep everything else by using the not equal operator `!=`.  The following code *excludes* Sacramento county.
 
@@ -589,7 +589,7 @@ Let's break down what the pipe is doing here.  First, you start out with your da
 Piping makes code clearer, and simultaneously gets rid of the need to define any intermediate objects that you would have needed to keep track of while reading the code. PIPE, Pipe, and pipe whenever you can. Badge it!
 
 <center>
-![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/pipe.png){ width=25% }
+![](pipe.png){ width=25% }
 
 </center>
 
@@ -615,4 +615,4 @@ The first argument is the name of the R object you want to save. The second argu
 <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
 
 
-Website created and maintained by [Noli Brazil](https://nbrazil.faculty.ucdavis.edu/)
+Website created and maintained by [Noli Brazil](https://nbrazil.faculty.ucdavis.edu/) and adapted by [Elise Zufall](https://environmentalpolicy.ucdavis.edu/people/elise-zufall)

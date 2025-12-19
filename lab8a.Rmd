@@ -67,7 +67,7 @@ This lab guide follows closely and supplements the material presented in Chapter
 
 <br>
 
-<p class="comment">**Assignment 8 is due by 12:00 pm, May 28th on Canvas.**  See [here](https://crd150.github.io/hw_guidelines.html) for assignment guidelines.  You must submit an `.Rmd` file and its associated `.html` file. Name the files: yourLastName_firstInitial_asgn08. For example: brazil_n_asgn08.</p>
+<p class="comment">**Assignment 8 is due by 12:00 pm, May 28th on Canvas.**  See [here](https://ezufall.github.io/crd150_2026.github.io/hw_guidelines.html) for assignment guidelines.  You must submit an `.Rmd` file and its associated `.html` file. Name the files: yourLastName_firstInitial_asgn08a. For example: zufall_e_asgn08a.</p>
 
 
 
@@ -76,7 +76,7 @@ This lab guide follows closely and supplements the material presented in Chapter
 ## **Open up a R Markdown file**
 \
 
-Download the [Lab template](https://raw.githubusercontent.com/crd150/data/master/labtemplate.Rmd) into an appropriate folder on your hard drive (preferably, a folder named 'Lab 8'), open it in R Studio, and type and run your code there.  The template is also located on Canvas under Files.  The template is also located on Canvas under Files.  Change the title ("Lab 8a") and insert your name and date. Don't change anything else inside the YAML (the stuff at the top in between the `---`).  Also keep the grey chunk after the YAML. For a rundown on the use of R Markdown, see the [assignment guidelines](https://crd150.github.io/hw_guidelines.html).
+Download the [Lab template](https://raw.githubusercontent.com/crd150/data/master/labtemplate.Rmd) into an appropriate folder on your hard drive (preferably, a folder named 'Lab 8'), open it in R Studio, and type and run your code there.  The template is also located on Canvas under Files.  The template is also located on Canvas under Files.  Change the title ("Lab 8a") and insert your name and date. Don't change anything else inside the YAML (the stuff at the top in between the `---`).  Also keep the grey chunk after the YAML. For a rundown on the use of R Markdown, see the [assignment guidelines](https://ezufall.github.io/crd150_2026.github.io/hw_guidelines.html).
 
 <div style="margin-bottom:25px;">
 </div>
@@ -269,7 +269,7 @@ large.tracts <- large.tracts %>%
              tpopc = sum(tpop)) 
 ```  
   
-We already covered `group_by()` in [Lab 4](https://crd150.github.io/lab4.html#Numeric_variables), but as a reminder, the `group_by()` function tells R that all future functions on *large.tracts* will be grouped according to the variable *NAME*, which is the city name. We use the `sum()` function within the `mutate()` function to sum up, for example, the non-Hispanic white population *white* for each city. We name this variable *whitec*.  If you type in `View(large.tracts)`, you should find that the variable *whitec* provides the same value for all tracts within the same city. We do this for all the other race/ethnic groups.
+We already covered `group_by()` in [Lab 4](https://ezufall.github.io/crd150_2026.github.io/lab4.html#Numeric_variables), but as a reminder, the `group_by()` function tells R that all future functions on *large.tracts* will be grouped according to the variable *NAME*, which is the city name. We use the `sum()` function within the `mutate()` function to sum up, for example, the non-Hispanic white population *white* for each city. We name this variable *whitec*.  If you type in `View(large.tracts)`, you should find that the variable *whitec* provides the same value for all tracts within the same city. We do this for all the other race/ethnic groups.
 
 We next calculate the tract level contributions to the index, i.e. the value $\left|\frac{t_{rm}}{T_m} - \frac{t_{rk}}{T_k}\right|$ in Equation 1 in Handout 8 for each neighborhood $i$.
 
@@ -391,11 +391,11 @@ The map indicates that there are some neighborhoods in the city that have a perc
 ## **Assignment 8**
 \
 
-Assignment 8 will be located at the end of [Lab 8b](https://crd150.github.io/lab8b.html).
+Assignment 8 will be located at the end of [Lab 8b](https://ezufall.github.io/crd150_2026.github.io/lab8b.html).
 
 ***
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
 
 
-Website created and maintained by [Noli Brazil](https://nbrazil.faculty.ucdavis.edu/)
+Website created and maintained by [Noli Brazil](https://nbrazil.faculty.ucdavis.edu/) and adapted by [Elise Zufall](https://environmentalpolicy.ucdavis.edu/people/elise-zufall)

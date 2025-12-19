@@ -486,9 +486,10 @@ href="https://geocompr.robinlovelace.net/">Geocomputation with R</a>
 <p><br></p>
 <p class="comment">
 <strong>Assignment 6 is due by 12:00 pm, May 14th on Canvas.</strong>
-See <a href="https://crd150.github.io/hw_guidelines.html">here</a> for
-assignment guidelines. You must submit an <code>.Rmd</code> file and its
-associated <code>.html</code> file. Name the files:
+See <a
+href="https://ezufall.github.io/crd150_2026.github.io/hw_guidelines.html">here</a>
+for assignment guidelines. You must submit an <code>.Rmd</code> file and
+its associated <code>.html</code> file. Name the files:
 yourLastName_firstInitial_asgn06. For example: brazil_n_asgn06.
 </p>
 <div style="margin-bottom:25px;">
@@ -507,7 +508,7 @@ title (“Lab 6”) and insert your name and date. Don’t change anything
 else inside the YAML (the stuff at the top in between the
 <code>---</code>). Also keep the grey chunk after the YAML. For a
 rundown on the use of R Markdown, see the <a
-href="https://crd150.github.io/hw_guidelines.html">assignment
+href="https://ezufall.github.io/crd150_2026.github.io/hw_guidelines.html">assignment
 guidelines</a></p>
 <div style="margin-bottom:25px;">
 
@@ -552,13 +553,15 @@ function <code>get_acs()</code>. Remember that “E” at the end of the
 variable indicates “Estimate” and “M” indicates margins of errors. We
 won’t go through what the code is doing as all the functions have been
 covered in past labs. See <a
-href="https://crd150.github.io/lab3.html#Using_the_Census_API">Lab 3</a>
-for grabbing ACS data from the Census API, and <a
-href="https://crd150.github.io/lab2.html#Data_Wrangling">Lab 2</a> (and
-<a href="https://crd150.github.io/lab3.html#Data_Wrangling">Lab 3</a>)
-for data wrangling functions. We learned about getting spatial data from
-<code>get_acs()</code> in <a
-href="https://crd150.github.io/lab5.html#tidycensus">Lab 5</a>.</p>
+href="https://ezufall.github.io/crd150_2026.github.io/lab3.html#Using_the_Census_API">Lab
+3</a> for grabbing ACS data from the Census API, and <a
+href="https://ezufall.github.io/crd150_2026.github.io/lab2.html#Data_Wrangling">Lab
+2</a> (and <a
+href="https://ezufall.github.io/crd150_2026.github.io/lab3.html#Data_Wrangling">Lab
+3</a>) for data wrangling functions. We learned about getting spatial
+data from <code>get_acs()</code> in <a
+href="https://ezufall.github.io/crd150_2026.github.io/lab5.html#tidycensus">Lab
+5</a>.</p>
 <pre class="r"><code>ca.tracts &lt;- get_acs(geography = &quot;tract&quot;, 
               year = 2023,
               variables = c(fb = &quot;B05012_003&quot;, totp = &quot;B05012_001&quot;), 
@@ -576,9 +579,9 @@ ca.tracts &lt;- ca.tracts %&gt;%
 <p>Next, let’s bring in the Sacramento City boundary using
 <code>places()</code> from the <strong>tigris</strong> package, which we
 first learned about in <a
-href="https://crd150.github.io/lab5.html#tigris_package">Lab 5</a>.
-Remember, since we brought in 2019-2023 ACS data above, you need to
-specify <code>year = 2023</code> in the <code>places()</code>
+href="https://ezufall.github.io/crd150_2026.github.io/lab5.html#tigris_package">Lab
+5</a>. Remember, since we brought in 2019-2023 ACS data above, you need
+to specify <code>year = 2023</code> in the <code>places()</code>
 function.</p>
 <pre class="r"><code>pl &lt;- places(state = &quot;CA&quot;, 
              cb = TRUE, 
@@ -627,8 +630,7 @@ city on top of four tracts - one tract falls neatly inside (top left),
 but the other three spill out.</p>
 <center>
 <div class="float">
-<img
-src="/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/example1.png"
+<img src="example1.png"
 alt="Tracts falling in (County) and out (City) of boundaries" />
 <div class="figcaption">Tracts falling in (County) and out (City) of
 boundaries</div>
@@ -668,9 +670,7 @@ The argument <code>remove_slivers = TRUE</code> removes these
 slivers.</p>
 <center>
 <div class="float">
-<img
-src="/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/clip.png"
-alt="Clipping tracts" />
+<img src="clip.png" alt="Clipping tracts" />
 <div class="figcaption">Clipping tracts</div>
 </div>
 </center>
@@ -700,10 +700,10 @@ which is covered in Handout 6.</p>
 <p>Before calculating spatial autocorrelation, you should map your
 variable to see if it <em>looks</em> like it clusters across space.
 Using the function <code>tm_shape()</code>, which we learned about in <a
-href="https://crd150.github.io/lab5.html#Mapping_in_R">Lab 5</a>, and
-the mapping principles we learned in last week’s lecture and in Handout
-5, let’s make a nice choropleth map showing the percent foreign-born in
-Sacramento city using quantile breaks.</p>
+href="https://ezufall.github.io/crd150_2026.github.io/lab5.html#Mapping_in_R">Lab
+5</a>, and the mapping principles we learned in last week’s lecture and
+in Handout 5, let’s make a nice choropleth map showing the percent
+foreign-born in Sacramento city using quantile breaks.</p>
 <pre class="r"><code>tm_shape(sac.city.tracts, unit = &quot;mi&quot;) +
   tm_polygons(fill = &quot;pfb&quot;, 
               fill.scale = tm_scale(style = &quot;quantile&quot;, values = &quot;red&quot;), 
@@ -755,9 +755,7 @@ segment. Queen adjacency refers to neighbors that share a line segment
 (or border) or a point (or vertex).</p>
 <center>
 <div class="float">
-<img
-src="/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/fig1.png"
-alt="Geographic contiguity" />
+<img src="fig1.png" alt="Geographic contiguity" />
 <div class="figcaption">Geographic contiguity</div>
 </div>
 </center>
@@ -817,9 +815,7 @@ no neighbors. To avoid that, specify <code>zero.policy = TRUE</code>,
 which will ignore all cases without neighbors.</p>
 <center>
 <div class="float">
-<img
-src="/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/lacounty.png"
-alt="Los Angeles county tracts with islands" />
+<img src="lacounty.png" alt="Los Angeles county tracts with islands" />
 <div class="figcaption">Los Angeles county tracts with islands</div>
 </div>
 </center>
@@ -853,9 +849,9 @@ src="lab6_files/figure-html/unnamed-chunk-13-1.png" /><!-- --></p>
 autocorrelation for. The function <code>moran.plot()</code> is not tidy
 friendly, so we refer to the percent foreign born variable with a dollar
 sign <code>$</code>, which we learned about in <a
-href="https://crd150.github.io/lab1.html#Data_Frames">Lab 1</a>.
-<em>sac.city.tracts$pfb</em> will give you the percent foreign born as a
-vector.</p>
+href="https://ezufall.github.io/crd150_2026.github.io/lab1.html#Data_Frames">Lab
+1</a>. <em>sac.city.tracts$pfb</em> will give you the percent foreign
+born as a vector.</p>
 <pre class="r"><code>sac.city.tracts$pfb</code></pre>
 <p>The second argument is the spatial weights matrix that defines
 neighbor and interaction. The <code>xlab</code> and <code>ylab</code>
@@ -928,7 +924,10 @@ work is licensed under a
 <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative
 Commons Attribution-NonCommercial 4.0 International License</a>.</p>
 <p>Website created and maintained by <a
-href="https://nbrazil.faculty.ucdavis.edu/">Noli Brazil</a></p>
+href="https://nbrazil.faculty.ucdavis.edu/">Noli Brazil</a> and adapted
+by <a
+href="https://environmentalpolicy.ucdavis.edu/people/elise-zufall">Elise
+Zufall</a></p>
 </div>
 </div>
 

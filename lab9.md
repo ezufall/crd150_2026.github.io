@@ -99,7 +99,7 @@ Signing into your ArcGIS online account is super easy.  Just follow these steps
 3. Click on the blue button "Kerberos Login". Instead of the blue button, you might get a screen like the one shown below.  If this is the case, use the Enterprise Login section to enter the UC Davis organization URL, "ucdavis.maps.ucdavis.edu".
 
 <center>
-![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/lab9fig1.png)
+![](lab9fig1.png)
 
 </center>
 \
@@ -127,7 +127,7 @@ Photos can also include presentation-ready static maps, charts and tables that y
 * Wrangle data in R
 * Run an analysis on that data in R
 * Produce a presentation-ready table, chart or map presenting the results of that analysis in R
-* Save the [table](https://crd150.github.io/lab4.html#Tables_for_presentation){target="_blank"}, [chart](https://crd150.github.io/lab4.html#Saving_plots){target="_blank"} or [map](https://crd150.github.io/lab5.html#Saving_maps){target="_blank"} as a photo image onto your hard drive
+* Save the [table](https://ezufall.github.io/crd150_2026.github.io/lab4.html#Tables_for_presentation){target="_blank"}, [chart](https://ezufall.github.io/crd150_2026.github.io/lab4.html#Saving_plots){target="_blank"} or [map](https://ezufall.github.io/crd150_2026.github.io/lab5.html#Saving_maps){target="_blank"} as a photo image onto your hard drive
 * Bring the table, chart or map into ArcGIS Online to present in your StoryMap
 
 A benefit of presenting your work through a StoryMap in comparison to a written report or a PowerPoint presentation is that it allows for interactivity, particularly with your spatial data. In order to include an interactive map into your StoryMap, you will need to upload the shapefile you want to map onto your ArcGIS Online account. This could simply be a shapefile you download online and bring directly into ArcGIS Online. Or it can be a shapefile you've wrangled in R following one or all of the steps outlined below:
@@ -137,7 +137,7 @@ A benefit of presenting your work through a StoryMap in comparison to a written 
   + This includes clipping tracts to city boundaries and summing up points within each polygon
 * Run non-spatial data wrangling tasks
   + This includes calculating new variables you would like to present in your StoryMap
-* [Save the shapefile](https://crd150.github.io/lab5.html#Saving_shapefiles){target="_blank"} onto your hard drive
+* [Save the shapefile](https://ezufall.github.io/crd150_2026.github.io/lab5.html#Saving_shapefiles){target="_blank"} onto your hard drive
 * Bring the shapefile into ArcGIS online following the steps outlined below.
 
 <div style="margin-bottom:25px;">
@@ -176,16 +176,16 @@ You've uploaded the shapefile, but you need to create a map from the shapefile. 
 1. Click on "Map" located at the top menu.  You should get a pop up window telling you that "Map Viewer Classic is a deprecated product and will be removed in Q1 of 2026. Consider opening this content in Map Viewer to ensure the best experience."  Click on Open in Map Viewer. A window like the one shown below should open up in a new tab.
 
 <center>
-![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/lab9fig2.png)
+![](lab9fig2.png)
 </center>
 \
 \vspace{0.5 in}
 
-2. Click on ![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/lab9fig3.png) located on the left.  The two shapefiles you uploaded should show up under "My content".  Click on the file you named for la_tract_groc_dist ("Los Angeles Tract Grocery Distance (INSERT YOUR NAME HERE)"). Click on ![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/lab9fig4.png) to add the layer to the map. Los Angeles tracts should pop up in your map and the panel Properties should have popped up to the right.
+2. Click on ![](lab9fig3.png) located on the left.  The two shapefiles you uploaded should show up under "My content".  Click on the file you named for la_tract_groc_dist ("Los Angeles Tract Grocery Distance (INSERT YOUR NAME HERE)"). Click on ![](lab9fig4.png) to add the layer to the map. Los Angeles tracts should pop up in your map and the panel Properties should have popped up to the right.
 
 3. On the Properties panel, click on "Edit layer style". This will bring up a panel that will allow you to alter features of your map.
 
-4. Now, we want to shade each of the tracts by their distance to the nearest grocery store. Basically, we are creating a choropleth map. Click on ![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/lab9fig6.png) under Choose attributes. Select the variable *grocdist* from the pop down menu. This is the variable containing distance of the tract's centroid to the nearest grocery store.  We're going to shade the tracts based on this variable. Click on Add.
+4. Now, we want to shade each of the tracts by their distance to the nearest grocery store. Basically, we are creating a choropleth map. Click on ![](lab9fig6.png) under Choose attributes. Select the variable *grocdist* from the pop down menu. This is the variable containing distance of the tract's centroid to the nearest grocery store.  We're going to shade the tracts based on this variable. Click on Add.
 
 5. The "Pick a style" panel opens up, which provides options for how you want to shade your tracts.  Because *grocdist* is a numeric variable, the default option is "Counts and Amounts (color)", but you can create other map types based on the spatial data type (polygon, point, line) and variable type (numeric and categorical). 
 
@@ -194,30 +194,30 @@ You've uploaded the shapefile, but you need to create a map from the shapefile. 
 7. Click on "Done" at the bottom.  You should get a map that looks like below.
 
 <center>
-![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/lab9fig7.png)
+![](lab9fig7.png)
 </center>
 \
 \vspace{0.5 in}
 
-To bring up the Styles panel again, click on ![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/lab9fig8.png) on the right vertical panel. You'll notice other options in the right panel. These options will allow you to further adjust your map, including editing the pop-up window that shows up when you click on a tract and adding labels.
+To bring up the Styles panel again, click on ![](lab9fig8.png) on the right vertical panel. You'll notice other options in the right panel. These options will allow you to further adjust your map, including editing the pop-up window that shows up when you click on a tract and adding labels.
 
-7. To save the map, click on ![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/lab9save.png) located on the left panel, and click on Save as. Provide an illustrative title ("Los Angeles Tract Distance to Nearest Grocery Store").  Add a tag ("Los Angeles"). Add a summary (optional). Leave the rest. Click on Save. You'll notice other options in the left panel. These are other options to adjust and edit your map, including adding a different basemap and adding a chart to your map. 
+7. To save the map, click on ![](lab9save.png) located on the left panel, and click on Save as. Provide an illustrative title ("Los Angeles Tract Distance to Nearest Grocery Store").  Add a tag ("Los Angeles"). Add a summary (optional). Leave the rest. Click on Save. You'll notice other options in the left panel. These are other options to adjust and edit your map, including adding a different basemap and adding a chart to your map. 
 
-8. If you click on ![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/lab9save2.png) at the top left and then Content, you should should see the map you just created listed at the top with the  label "Web Map".
+8. If you click on ![](lab9save2.png) at the top left and then Content, you should should see the map you just created listed at the top with the  label "Web Map".
 
 9. Let's create another Web Map with the following two layers: la_tract_groc_dist and Los_Angeles_Metro_Stations.  Click on Map and then click on Open in Map Viewer.  Map la_tract_groc_dist again by going through steps 2-6.  
 
 10. Add Los_Angeles_Metro_Stations on top of this map by going through steps 2-6 using Los_Angeles_Metro_Stations.  You should see Los Angeles metro stations as points pop up in your map. Under the "Pick a style" panel, you'll find ways to alter the color, shape and symbol of the points.  For example, you'll notice that for "Pick a style", you can create a heat map, which is a kernel density map. Don't choose any attributes to map, and leave "Location (single symbol)" selected.  Click on Done. You should get a map that layers Los Angeles Metro stations on top of Los Angeles city tracts shaded by distance to nearest grocery store (see below).   
 
 <center>
-![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/lab9fig9.png)
+![](lab9fig9.png)
 </center>
 \
 \vspace{0.5 in}
 
 11. Follow step 7 to save this map (I named it "Los Angeles Tracts and Metro Stations")
 
-Click on ![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/lab9save2.png) at the top left and then Content. You should now see the two "Web Maps' you created at the top. To alter a Web Map, click on ![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/lab9openmap.png) to the right most of the Web Map, select Open in Map Viewer, and that will take you to the editing screen.
+Click on ![](lab9save2.png) at the top left and then Content. You should now see the two "Web Maps' you created at the top. To alter a Web Map, click on ![](lab9openmap.png) to the right most of the Web Map, select Open in Map Viewer, and that will take you to the editing screen.
 
 <div style="margin-bottom:25px;">
 </div>
@@ -230,48 +230,48 @@ Go to Esri's [StoryMap splash page](https://storymaps.arcgis.com/stories){target
 
 1.  The first page is your title page.  You can construct the title page any way you deem fit. You can add an image or map to the background. It can be all text.  First, write in a title ("Spatial Access to Grocery Stores in Los Angeles").  You can also add a subtitle and a byline (e.g., your name and CRD 150).  Let's add an illustrative picture.  Click on "Add cover image or video" on the top right of the screen.  Browse to the folder you saved the Canvas files into.  Select the file los_angeles_photo.jpg and click on Add.  You should see a nice photo of the City of Angeles filling the background (can you guess where there is?).
 
-2. You can alter how the intro page looks by clicking on Design at the top of the StoryMap. Under Cover, you can change how the cover photo is placed. For example, clicking on ![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/lab9cover.png) will put the photo in the background. Play around with the other options to alter and enhance how your cover page looks.
+2. You can alter how the intro page looks by clicking on Design at the top of the StoryMap. Under Cover, you can change how the cover photo is placed. For example, clicking on ![](lab9cover.png) will put the photo in the background. Play around with the other options to alter and enhance how your cover page looks.
 
-3. If you scroll down, you'll notice a ![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/lab9button.png) and next to that the words "Tell your story".  Clicking on this is like adding a slide on your PowerPoint presentation.  Click on ![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/lab9button.png) and you'll see all the features you can add to your StoryMap.  We won't go through all of them due to time constraints, so I suggest playing around with the options on your own, but let's highlight the most popular features.  
+3. If you scroll down, you'll notice a ![](lab9button.png) and next to that the words "Tell your story".  Clicking on this is like adding a slide on your PowerPoint presentation.  Click on ![](lab9button.png) and you'll see all the features you can add to your StoryMap.  We won't go through all of them due to time constraints, so I suggest playing around with the options on your own, but let's highlight the most popular features.  
 
 <div style="margin-bottom:25px;">
 </div>
 ### **Sidecar**
 \
 
-After clicking on ![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/lab9button.png), click on Sidecar, then select "Docked" (we'll cover "Slideshow" next, but you can test what "Floating" looks like on your own) and finally Save. A window may pop up telling you what a sidecar is. A sidecar has a large media panel on one side and a narrative panel on the other. As readers scroll through the narrative for each slide in the sidecar, the media changes to match the narrative. Here is an [ArcGIS tutorial](https://learn.arcgis.com/en/projects/build-a-sidecar-in-your-story/){target="_blank"} on sidecars. And here are two [best](https://storymaps.arcgis.com/stories/82509aafc8ba435f8c1264122d299763){target="_blank"} [practices](https://www.esri.com/arcgis-blog/products/arcgis-storymaps/mapping/6-ways-to-use-sidecar-in-the-new-arcgis-storymaps/){target="_blank"} guides for using sidecars in StoryMaps. Sidecars generally look something like this
+After clicking on ![](lab9button.png), click on Sidecar, then select "Docked" (we'll cover "Slideshow" next, but you can test what "Floating" looks like on your own) and finally Save. A window may pop up telling you what a sidecar is. A sidecar has a large media panel on one side and a narrative panel on the other. As readers scroll through the narrative for each slide in the sidecar, the media changes to match the narrative. Here is an [ArcGIS tutorial](https://learn.arcgis.com/en/projects/build-a-sidecar-in-your-story/){target="_blank"} on sidecars. And here are two [best](https://storymaps.arcgis.com/stories/82509aafc8ba435f8c1264122d299763){target="_blank"} [practices](https://www.esri.com/arcgis-blog/products/arcgis-storymaps/mapping/6-ways-to-use-sidecar-in-the-new-arcgis-storymaps/){target="_blank"} guides for using sidecars in StoryMaps. Sidecars generally look something like this
 
 <center>
-![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/sidecar.gif) 
+![](sidecar.gif) 
 </center>
 \
 \vspace{0.5 in}
 
-1. Sidecars are great for showing photos. Add an image by clicking on "+ Add" and then "Image or video".  Click on "Browse your files" and add the photo vons.jpg (Southern Californians know what [Vons](https://www.vons.com/){target="_blank"} is all about!). The photo should fill up the right hand side of the screen. Click on ![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/lab9fig10.png) to edit features of the placement of the photo.
+1. Sidecars are great for showing photos. Add an image by clicking on "+ Add" and then "Image or video".  Click on "Browse your files" and add the photo vons.jpg (Southern Californians know what [Vons](https://www.vons.com/){target="_blank"} is all about!). The photo should fill up the right hand side of the screen. Click on ![](lab9fig10.png) to edit features of the placement of the photo.
 
-2. On the left side panel, click on  ![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/lab9button.png) and click on "Text". Then click on “Heading 1” from the pull down menu that appears. This will give you a heading or title for this particular slide (I just wrote “Supermarkets”).  Underneath the title, click on ![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/lab9button.png), and select "Text" and then select "Bulleted list” from the pull down menu. Here, you can add bulleted text describing the image on the right and other major points. You can also add a numbered list or just text. You might get something that looks like below. 
+2. On the left side panel, click on  ![](lab9button.png) and click on "Text". Then click on “Heading 1” from the pull down menu that appears. This will give you a heading or title for this particular slide (I just wrote “Supermarkets”).  Underneath the title, click on ![](lab9button.png), and select "Text" and then select "Bulleted list” from the pull down menu. Here, you can add bulleted text describing the image on the right and other major points. You can also add a numbered list or just text. You might get something that looks like below. 
 
 <center>
-![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/lab9fig11.png) 
+![](lab9fig11.png) 
 </center>
 \
 \vspace{0.5 in}
 
-3. Click on ![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/lab9button.png)  on the bottom right corner of the screen.  This will add another slide to your sidecar.  This time add the photo stater_bros.jpg (another Southern California based [supermarket chain](https://www.staterbros.com/){target="_blank"}) and add some text on the left panel like you did in the Vons slide.
+3. Click on ![](lab9button.png)  on the bottom right corner of the screen.  This will add another slide to your sidecar.  This time add the photo stater_bros.jpg (another Southern California based [supermarket chain](https://www.staterbros.com/){target="_blank"}) and add some text on the left panel like you did in the Vons slide.
 
-4. You can also add interactive maps to your sidecar.  Click ![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/lab9button.png)  on the bottom right corner.  Click on "+ Add" and then  "Map". You should see the two maps you created earlier in your ArcGIS online account. Click on "Los Angeles Tract Distance to Nearest Grocery Store".  You should see a screen that looks like below.
+4. You can also add interactive maps to your sidecar.  Click ![](lab9button.png)  on the bottom right corner.  Click on "+ Add" and then  "Map". You should see the two maps you created earlier in your ArcGIS online account. Click on "Los Angeles Tract Distance to Nearest Grocery Store".  You should see a screen that looks like below.
 
 <center>
-![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/lab9fig12.png) 
+![](lab9fig12.png) 
 </center>
 \
 \vspace{0.5 in}
 
-5. You can format how the map will look like on your slide.  You can zoom into Los Angeles by clicking on ![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/lab9fig13.png)  on the bottom right. You can rename the layer.  You can add a legend by clicking on ![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/lab9fig15.png) and sliding the button next to Legend to the right. This ![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/lab9fig16.png) should pop up on the bottom left corner of the screen indicating a legend is added. The user can click on it to open up the legend. If you want to always keep it open for the user, slide the button next to Keep legend open. You can also go back to ArcGIS Online to edit this map by clicking on "Edit in ArcGIS".  Play around with the other options to alter and enhance how your map will look like. Once you are done editing, click on "Save" located at the bottom right of the screen.
+5. You can format how the map will look like on your slide.  You can zoom into Los Angeles by clicking on ![](lab9fig13.png)  on the bottom right. You can rename the layer.  You can add a legend by clicking on ![](lab9fig15.png) and sliding the button next to Legend to the right. This ![](lab9fig16.png) should pop up on the bottom left corner of the screen indicating a legend is added. The user can click on it to open up the legend. If you want to always keep it open for the user, slide the button next to Keep legend open. You can also go back to ArcGIS Online to edit this map by clicking on "Edit in ArcGIS".  Play around with the other options to alter and enhance how your map will look like. Once you are done editing, click on "Save" located at the bottom right of the screen.
 
 6. On the left panel, add a heading and text describing the map.
 
-7. Let's add another slide with a map. Click on ![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/lab9button.png) and then click on "Add" and then "Map". Follow steps 4-6 above, but instead add the map "Los Angeles Tracts and Metro Stations" and add a header and some descriptive text.  You'll notice at the bottom of your sidecar all the slides you've added.  You can toggle back to the others if you want to edit them.
+7. Let's add another slide with a map. Click on ![](lab9button.png) and then click on "Add" and then "Map". Follow steps 4-6 above, but instead add the map "Los Angeles Tracts and Metro Stations" and add a header and some descriptive text.  You'll notice at the bottom of your sidecar all the slides you've added.  You can toggle back to the others if you want to edit them.
 
 8.  Let's see what our sidecar looks like in action. Scroll back to the first slide.  Then scroll down using the bar on the right of your browser.  You'll notice the text scrolling down with the image on the right staying in place. When you reach the next slide, the new image and text will pop up. You'll also see the first map pop up and then the second map with the stations pop up.  Note that although ArcGIS Online allows some interactive map formatting and editing, it does not always yield visually captivating maps.  If you feel a static map that you've created in R is better, upload that onto your StoryMap.  The benefit of an interactive map is that it allows you while presenting and users while viewing your StoryMap to explore the map.
 
@@ -286,26 +286,26 @@ To delete a sidecar, click on Options located on the bottom left of the screen a
 
 A sidecar is a particular StoryMap tool that allows the user to present their maps/images/text in an organized, visually appealing fashion.  Alternatively, you can just simply add plain text and photos without them being in a feature.  
 
-1. Scroll out of the sidecar (just scroll down until you are below it). Click on ![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/lab9button.png) next to "Continue your story..." and select ![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/lab9fig17.png).  This will add a visual separator from the sidecar to signify the next stage of your StoryMap.
+1. Scroll out of the sidecar (just scroll down until you are below it). Click on ![](lab9button.png) next to "Continue your story..." and select ![](lab9fig17.png).  This will add a visual separator from the sidecar to signify the next stage of your StoryMap.
 
-2. Beneath the separator, click on ![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/lab9button.png) and select ![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/lab9fig18.png). Add the image phisp_histogram.jpg. This is a histogram of percent Hispanic for census tracts in Los Angeles I created in R.  Click Add. You can add a caption to the photo, such as the source of the data (e.g., American Community Survey).
+2. Beneath the separator, click on ![](lab9button.png) and select ![](lab9fig18.png). Add the image phisp_histogram.jpg. This is a histogram of percent Hispanic for census tracts in Los Angeles I created in R.  Click Add. You can add a caption to the photo, such as the source of the data (e.g., American Community Survey).
 
-3. Beneath the image, click on ![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/lab9button.png) and select ![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/lab9fig20.png).  Then click "Heading 1" from the pull down menu that pops up. Type in the title "Percent Hispanic".  
+3. Beneath the image, click on ![](lab9button.png) and select ![](lab9fig20.png).  Then click "Heading 1" from the pull down menu that pops up. Type in the title "Percent Hispanic".  
 
-4. Beneath the title, click on ![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/lab9button.png) and select ![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/lab9fig20.png).   Keep "Paragraph" selected from the pull down menu. Add the text "This is a histogram of percent Hispanic".
+4. Beneath the title, click on ![](lab9button.png) and select ![](lab9fig20.png).   Keep "Paragraph" selected from the pull down menu. Add the text "This is a histogram of percent Hispanic".
 
-5. Hover your mouse over the histogram. Click on ![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/lab9fig21.png).  You should see that the image shifted to the left and the text is now to the right of the image.
+5. Hover your mouse over the histogram. Click on ![](lab9fig21.png).  You should see that the image shifted to the left and the text is now to the right of the image.
 
 <center>
-![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/lab9fig22.png) 
+![](lab9fig22.png) 
 </center>
 \
 \vspace{0.5 in}
 
-6.  Click on ![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/lab9button.png) beneath your text "This is a histogram of percent Hispanic".  Follow steps 2-5 and add the photo pblk_histogram.jpg and text.  You should get something that will look like
+6.  Click on ![](lab9button.png) beneath your text "This is a histogram of percent Hispanic".  Follow steps 2-5 and add the photo pblk_histogram.jpg and text.  You should get something that will look like
 
 <center>
-![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/lab9fig23.png) 
+![](lab9fig23.png) 
 </center>
 
 <div style="margin-bottom:25px;">
@@ -317,31 +317,31 @@ A sidecar is a particular StoryMap tool that allows the user to present their ma
 Another neat built-in StoryMap feature is the slideshow.  A slideshow offers a full-screen media and a floating narrative panel. The navigation for a slideshow is  horizontal.  A few ArcGIS guides on slideshows can be found [here](https://www.esri.com/arcgis-blog/products/arcgis-storymaps/constituent-engagement/slideshow-beta-a-new-immersive-block-in-arcgis-storymaps/){target="_blank"} and [here](https://teaching-research-storymaps-gisanddata.hub.arcgis.com/pages/building-a-slideshow){target="_blank"}. The flow of a sideshow will look something like
 
 <center>
-![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/slideshow.gif) 
+![](slideshow.gif) 
 </center>
 \
 \vspace{0.5 in}
 
 Let's add a slideshow.
 
-1. Underneath the text for your percent black panel "This is a histogram of percent black", click on ![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/lab9button.png) and select ![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/lab9fig17.png) to add a separator.
+1. Underneath the text for your percent black panel "This is a histogram of percent black", click on ![](lab9button.png) and select ![](lab9fig17.png) to add a separator.
 
-2. Underneath the separator,  click on ![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/lab9button.png) and select Sidecar.  Then select Slideshow and Save.
+2. Underneath the separator,  click on ![](lab9button.png) and select Sidecar.  Then select Slideshow and Save.
 
 3. In a slideshow, you can have an image, video or map in the background and floating text in the forefront.  Click on "+ Add" and select "Image or video". Click "Browse your files" and select the photo lametro.jpg. Click Add.
 
 3. A photo of the beautiful Los Angeles transit system should fill the background of your slide.  Add some text (a heading and an explanation) directly into the white box located in the middle of the slide.
 
-4. Click on ![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/lab9button.png) at the bottom right corner to add another slide.  Click on "+ Add" and then click on "Map".  Select the map "Los Angeles Tracts and Metro Stations".  You will find yourself in the same editing screen as the one earlier for the Sidecar.  Click on "Save" on the bottom right of the screen once you're done editing.  Los Angeles tracts and Metro stations should fill the background of your slide. This map is interactive - you  can zoom in and out and scroll around. Add  some text to the white box and you should get something like below.
+4. Click on ![](lab9button.png) at the bottom right corner to add another slide.  Click on "+ Add" and then click on "Map".  Select the map "Los Angeles Tracts and Metro Stations".  You will find yourself in the same editing screen as the one earlier for the Sidecar.  Click on "Save" on the bottom right of the screen once you're done editing.  Los Angeles tracts and Metro stations should fill the background of your slide. This map is interactive - you  can zoom in and out and scroll around. Add  some text to the white box and you should get something like below.
 
 <center>
-![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/lab9fig25.png) 
+![](lab9fig25.png) 
 </center>
 \
 \vspace{0.5 in}
 
  
-6. When you are presenting your slideshow, click on the arrows ![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/lab9arrows.png) on the right and left of the screen to move from slide to slide. To delete the slideshow, select Options and Delete sidecar.
+6. When you are presenting your slideshow, click on the arrows ![](lab9arrows.png) on the right and left of the screen to move from slide to slide. To delete the slideshow, select Options and Delete sidecar.
 
 <div style="margin-bottom:25px;">
 </div>
@@ -354,7 +354,7 @@ To add a navigation bar
 
 1. Click on Design at the top of your StoryMap
 2. Under Optional story sections, turn on Navigation. The story navigation bar appears at the top of the story below your intro page. Click on the X at the top right to exit the Design panel.
-3. Hover over the Navigation bar, and click on ![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/lab9navbar.png). The Story navigation properties panel appears.
+3. Hover over the Navigation bar, and click on ![](lab9navbar.png). The Story navigation properties panel appears.
 4. The navigation titles are based on any "Heading 1" you included in your StoryMap. You don't need to include all the Headers in your bar.  To take them out, deselect them from the panel. For example, we probably don't need navigation to both Hispanic Neighborhoods and Black Neighborhoods since we intended them to be on the same page.  So, we can deselect Black Neighborhoods. 
 5. You can also change the navigation title in the panel.  This won't change the heading title in the StoryMap, just the title from the navigation bar. For example,  Hispanic Neighborhoods isn't a great navigation title.  Change it to something appropriate.  When you make the change, you will notice that Hispanic Neighborhoods remains the Heading in the StoryMap.
 6. To include additional navigation bookmarks, you will need to include them as "Heading 1" in your StoryMap.  Story navigation can link to headings from the main body of the story, sidecar blocks, and the credits section. You can include up to 30 heading links in story navigation. Each heading link has a 30-character limit. To convert text into a heading, highlight the text you want to edit and select Heading from the text editing toolbar
@@ -371,10 +371,10 @@ You can continue adding more features to your StoryMap as you see fit. One featu
 Note that ArcGIS Online automatically saves your StoryMap as you are creating it. If you back to your ArcGIS Online Content page, you should see your StoryMap.  For example, I have
 
 <center>
-![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/lab9fig26.png) 
+![](lab9fig26.png) 
 </center>
 
-To Preview what your StoryMap will look like once you share it to the rest of the world, click on "Preview"" at the top of your StoryMap.  If you get a pop-up stating "Preview will reset undo history" click on "Yes, continue". Scroll through the presentation using the bar on the right and note any changes you want to make. Remember, a slideshow scrolls left to right whereas a sidecar strolls top to bottom.  Once you are done previewing, click on the X from ![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/lab9edit.png) and you'll get sent back to the editing screen.  
+To Preview what your StoryMap will look like once you share it to the rest of the world, click on "Preview"" at the top of your StoryMap.  If you get a pop-up stating "Preview will reset undo history" click on "Yes, continue". Scroll through the presentation using the bar on the right and note any changes you want to make. Remember, a slideshow scrolls left to right whereas a sidecar strolls top to bottom.  Once you are done previewing, click on the X from ![](lab9edit.png) and you'll get sent back to the editing screen.  
 
 
 <div style="margin-bottom:25px;">
@@ -390,9 +390,9 @@ Once you are completely happy with your StoryMap, share it!
 
 3. You should get a message that states that your StoryMap is published. The website link is the link to your StoryMap (click on the "Copy link" button).  **This is the link that you will submit on Canvas for your final project**.   You can also take a  screenshot of the scan code to access the StoryMap on a phone.  As long as the individual is in your organization (i.e. UC Davis affiliate), they can access the map using the link or code.  To view your peers StoryMaps, you have to be logged onto your ArcGIS Online account.  
 
-5. To edit your published StoryMap, click on ![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/lab9fig27.png) located at the top right of the screen and click Edit story. This will take you back to the editing screen.
+5. To edit your published StoryMap, click on ![](lab9fig27.png) located at the top right of the screen and click Edit story. This will take you back to the editing screen.
 
-6. To unpublish your StoryMap, click on ![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/lab9fig27.png) from the published StoryMap and click Edit story. From the editing screen, click on ![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/lab9fig27.png) and select "Unpublish story" to unshare it. If you are sure you want to unpublish, click on "Yes, unpublish" in the next screen. You can also change the settings such that you are sharing to Everyone. If you share your StoryMap to the everyone, you'll find this ![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/lab9fig28.png) at the top of your StoryMap.  You can share your StoryMap on social media. You can also copy the link to your StoryMap, which you can share to anyone, even if they don't have an ArcGIS Online account.
+6. To unpublish your StoryMap, click on ![](lab9fig27.png) from the published StoryMap and click Edit story. From the editing screen, click on ![](lab9fig27.png) and select "Unpublish story" to unshare it. If you are sure you want to unpublish, click on "Yes, unpublish" in the next screen. You can also change the settings such that you are sharing to Everyone. If you share your StoryMap to the everyone, you'll find this ![](lab9fig28.png) at the top of your StoryMap.  You can share your StoryMap on social media. You can also copy the link to your StoryMap, which you can share to anyone, even if they don't have an ArcGIS Online account.
 
 If you are looking for other resources to learn more about StoryMaps, check out Esri's [step-by-step guide](https://storymaps.arcgis.com/stories/cea22a609a1d4cccb8d54c650b595bc4){target="_blank"}.  There are also a number of examples and best practices found on Esri's [official StoryMaps splash page.](https://www.esri.com/en-us/arcgis/products/arcgis-storymaps/overview){target="_blank"}
 
@@ -439,4 +439,4 @@ And this ends your final lab of the quarter. Hip Hip [Hooray](https://www.youtub
 <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
 
 
-Website created and maintained by [Noli Brazil](https://nbrazil.faculty.ucdavis.edu/)
+Website created and maintained by [Noli Brazil](https://nbrazil.faculty.ucdavis.edu/) and adapted by [Elise Zufall](https://environmentalpolicy.ucdavis.edu/people/elise-zufall)

@@ -69,7 +69,7 @@ library(tidyverse)
 library(tmap)
 ```
 
-If you are reading this guide before the class has not gone through the [introduction to spatial data](https://crd150.github.io/lab4.html) and [spatial clustering](https://crd150.github.io/lab5.html) labs, don't pay too much attention to the why and how certain spatial functions work, and instead focus on the methods and functions that are pertinent to dealing with missing data in R.  These functions can be used on both spatial and nonspatial data.
+If you are reading this guide before the class has not gone through the [introduction to spatial data](https://ezufall.github.io/crd150_2026.github.io/lab4.html) and [spatial clustering](https://ezufall.github.io/crd150_2026.github.io/lab5.html) labs, don't pay too much attention to the why and how certain spatial functions work, and instead focus on the methods and functions that are pertinent to dealing with missing data in R.  These functions can be used on both spatial and nonspatial data.
 
 We'll be using the shapefile *saccity.shp*. The file contains Sacramento City census tracts with the percent of the tract population living in subsidized housing, which was taken from the U.S. Department of Housing and Urban Development [data portal](https://www.huduser.gov/portal/datasets/pdrdatas.html). 
 
@@ -208,7 +208,7 @@ Usually, it is better to keep observations than discard or ignore them, so strat
 tm_shape(sac.city.tracts.sf.rm) + tm_polygons(col="blue")
 ```
 
-We've got permanent holes in Sacramento because we've physically removed census tracts with missing values.  Of course, we can shade the missing tracts a certain color and label this in the legend.  We'll do that in [Lab 4](https://crd150.github.io/lab4.html).  But, let's see how imputing the mean works.
+We've got permanent holes in Sacramento because we've physically removed census tracts with missing values.  Of course, we can shade the missing tracts a certain color and label this in the legend.  We'll do that in [Lab 4](https://ezufall.github.io/crd150_2026.github.io/lab4.html).  But, let's see how imputing the mean works.
 
 To impute the mean, we need to use the tidy friendly `impute_mean()` function in the **naniar** package. Install this package if you haven't already done so. 
 
@@ -268,4 +268,4 @@ tm_shape(sac.city.tracts.sf.mn) +
 <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
 
 
-Website created and maintained by [Noli Brazil](https://nbrazil.faculty.ucdavis.edu/)
+Website created and maintained by [Noli Brazil](https://nbrazil.faculty.ucdavis.edu/) and adapted by [Elise Zufall](https://environmentalpolicy.ucdavis.edu/people/elise-zufall)

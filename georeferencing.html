@@ -469,7 +469,8 @@ of projection and reprojection, and underlying all of these concepts is
 a Coordinate Reference System. In this guide, we will go through the
 process of using geographic coordinates to place points on a map using
 the San Francisco car break in data used in <a
-href="https://crd150.github.io/lab6.html">Lab 6</a>.</p>
+href="https://ezufall.github.io/crd150_2026.github.io/lab6.html">Lab
+6</a>.</p>
 <div style="margin-bottom:25px;">
 
 </div>
@@ -645,10 +646,11 @@ in the code above and you should be fine.</p>
 <p>Second, all spatial data in your current R session should have the
 same CRS. If they don’t, you won’t be able to overlay the objects on a
 map or conduct any of the multiple layer spatial operations we went
-through in <a href="https://crd150.github.io/lab5.html">Lab 5</a>. We
-can check the CRS by using the function <code>st_crs()</code>. Let’s
-check to see if <em>sf.tracts</em> and <em>break.sf</em> have the same
-CRS</p>
+through in <a
+href="https://ezufall.github.io/crd150_2026.github.io/lab5.html">Lab
+5</a>. We can check the CRS by using the function <code>st_crs()</code>.
+Let’s check to see if <em>sf.tracts</em> and <em>break.sf</em> have the
+same CRS</p>
 <pre class="r"><code>st_crs(sf.tracts)</code></pre>
 <pre><code>## Coordinate Reference System:
 ##   User input: NAD83 
@@ -722,9 +724,7 @@ separate zones and Northern California is in zone 10, as shown in the
 figure below.</p>
 <center>
 <div class="float">
-<img
-src="/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/utm.png"
-alt="Figure 1: UTM Zones" />
+<img src="utm.png" alt="Figure 1: UTM Zones" />
 <div class="figcaption">Figure 1: UTM Zones</div>
 </div>
 </center>
@@ -776,7 +776,10 @@ work is licensed under a
 <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative
 Commons Attribution-NonCommercial 4.0 International License</a>.</p>
 <p>Website created and maintained by <a
-href="https://nbrazil.faculty.ucdavis.edu/">Noli Brazil</a></p>
+href="https://nbrazil.faculty.ucdavis.edu/">Noli Brazil</a> and adapted
+by <a
+href="https://environmentalpolicy.ucdavis.edu/people/elise-zufall">Elise
+Zufall</a></p>
 </div>
 </div>
 

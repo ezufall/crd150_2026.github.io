@@ -52,7 +52,7 @@ h2.title {
 
 
 
-In this guide we will cover the spatial data wrangling task of converting point data from a nonspatial to a spatial format.  This process involves using geographic coordinates (longitude and latitude) to place points on a map.   This task is intimately related to the concept of projection and reprojection, and underlying all of these concepts is a Coordinate Reference System.  In this guide, we will go through the process of using geographic coordinates to place points on a map using the San Francisco car break in data used in [Lab 6](https://crd150.github.io/lab6.html).  
+In this guide we will cover the spatial data wrangling task of converting point data from a nonspatial to a spatial format.  This process involves using geographic coordinates (longitude and latitude) to place points on a map.   This task is intimately related to the concept of projection and reprojection, and underlying all of these concepts is a Coordinate Reference System.  In this guide, we will go through the process of using geographic coordinates to place points on a map using the San Francisco car break in data used in [Lab 6](https://ezufall.github.io/crd150_2026.github.io/lab6.html).  
 
 
 <div style="margin-bottom:25px;">
@@ -207,7 +207,7 @@ How did I know what datum and ellipse to specify? Magic. Actually, there are a s
 
 There are three important things you should come away with from this discussion about CRS.  First, as described above, the CRS has two components, the GCS and the PCS, which **you need to always specify**.  This means that if you are bringing in spatial data, you should know what the GCS and PCS are. For example, the website you downloaded the data tells you.  Or the person giving you the data tells you. Maybe a magical fairy whispered it in your ear. Whatever, you just need to know. If you specify the wrong CRS, you will encounter some problems.  Any data that are in (X,Y) form has a longitude/latitude projected coordinate system. In this case, just specify the CRS we used in the code above and you should be fine.
 
-Second, all spatial data in your current R session should have the same CRS. If they don't, you won't be able to overlay the objects on a map or conduct any of the multiple layer spatial operations we went through in [Lab 5](https://crd150.github.io/lab5.html).  We can check the CRS by using the function `st_crs()`.  Let's check to see if *sf.tracts* and *break.sf* have the same CRS 
+Second, all spatial data in your current R session should have the same CRS. If they don't, you won't be able to overlay the objects on a map or conduct any of the multiple layer spatial operations we went through in [Lab 5](https://ezufall.github.io/crd150_2026.github.io/lab5.html).  We can check the CRS by using the function `st_crs()`.  Let's check to see if *sf.tracts* and *break.sf* have the same CRS 
 
 
 ``` r
@@ -306,7 +306,7 @@ Not good.
 Let's reproject the CRS to something that takes on meters.  A popular meter-based Projected Coordinate System is [Universal Tranverse Mercator](http://desktop.arcgis.com/en/arcmap/latest/map/projections/universal-transverse-mercator.htm) (UTM).  UTM separates the United States in separate zones and Northern California is in zone 10, as shown in the figure below.  
 
 <center>
-![Figure 1: UTM Zones](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/utm.png)
+![Figure 1: UTM Zones](utm.png)
 
 </center>
 
@@ -380,7 +380,8 @@ If you stick with these principles, you should be able to get through most issue
 <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
 
 
-Website created and maintained by [Noli Brazil](https://nbrazil.faculty.ucdavis.edu/)
+Website created and maintained by [Noli Brazil](https://nbrazil.faculty.ucdavis.edu/) and adapted by [Elise Zufall](https://environmentalpolicy.ucdavis.edu/people/elise-zufall)
+
 
 
   

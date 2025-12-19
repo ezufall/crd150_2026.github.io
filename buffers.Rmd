@@ -33,7 +33,7 @@ h1.title {
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-In this guide we will cover how to create and use point proximity buffers in R.  Buffer analysis is used for identifying areas surrounding geographic features. The process involves generating a circle with a radius *r* around existing geographic features.  Buffer analysis is a form of distance analysis.  In this case, you connect other features based on whether they fall inside or outside the boundary of the buffer.  In this guide we will extend the San Francisco Break-ins data from [Lab 6](https://crd150.github.io/lab6.html).  We'll detect whether car breaks-ins tend to be clustered near certain buildings.
+In this guide we will cover how to create and use point proximity buffers in R.  Buffer analysis is used for identifying areas surrounding geographic features. The process involves generating a circle with a radius *r* around existing geographic features.  Buffer analysis is a form of distance analysis.  In this case, you connect other features based on whether they fall inside or outside the boundary of the buffer.  In this guide we will extend the San Francisco Break-ins data from [Lab 6](https://ezufall.github.io/crd150_2026.github.io/lab6.html).  We'll detect whether car breaks-ins tend to be clustered near certain buildings.
 
 <div style="margin-bottom:25px;">
 </div>
@@ -152,7 +152,7 @@ The school we are mapping is located in the bottom right of the city.  If you zo
 
 
 <center>
-![Figure 1: 150 meter buffer](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/buffer.png)
+![Figure 1: 150 meter buffer](buffer.png)
 
 </center>
 
@@ -206,7 +206,7 @@ bus.buff <-st_buffer(bus.sf.utm, 150)
 ```
 
 
-We will count the number of break-ins located *within* each buffer.  We'll do this for all businesses in our data set.  Remember that *bus.buff* is a polygon. Counting the number of break-ins inside a buffer is a points-in-polygons operation, which we already did in [Lab 6](https://crd150.github.io/lab6.html) using the `aggregate()` function.  We'll have to join the object we get from `aggregate()` back to the buffer.  
+We will count the number of break-ins located *within* each buffer.  We'll do this for all businesses in our data set.  Remember that *bus.buff* is a polygon. Counting the number of break-ins inside a buffer is a points-in-polygons operation, which we already did in [Lab 6](https://ezufall.github.io/crd150_2026.github.io/lab6.html) using the `aggregate()` function.  We'll have to join the object we get from `aggregate()` back to the buffer.  
 
 ```{r warning = FALSE, message = FALSE}
 temp<-aggregate(break.sf.utm["IncidntNum"], bus.buff, length) %>%
@@ -232,5 +232,4 @@ It looks like food services (e.g. restaurants, bars) and retail trade (e.g. beau
 
 ***
 
-Website created and maintained by [Noli Brazil](https://nbrazil.faculty.ucdavis.edu/)
-
+Website created and maintained by [Noli Brazil](https://nbrazil.faculty.ucdavis.edu/) and adapted by [Elise Zufall](https://environmentalpolicy.ucdavis.edu/people/elise-zufall)

@@ -471,7 +471,8 @@ City of Oakland. We will download median housing value. UC Davis
 provides full access to all PolicyMap tools for staff, students, and
 faculty. We will download data from the UCD PolicyMap portal and clean
 up the files in R. Much of this we already covered in <a
-href="https://crd150.github.io/lab3.html">Lab 3</a>.</p>
+href="https://ezufall.github.io/crd150_2026.github.io/lab3.html">Lab
+3</a>.</p>
 <div style="margin-bottom:25px;">
 
 </div>
@@ -633,11 +634,12 @@ R</strong></p>
 </p>
 <p>Let’s bring in some census data from the Census API. We covered how
 to use <code>get_acs()</code> from the <strong>tidycensus</strong>
-package in <a href="https://crd150.github.io/lab3.html">Lab 3</a>. Make
-sure the ACS years match up between PolicyMap and Census API data.
-Census tract boundaries changed in 2020, which means that 2016-2020
-tract data will not completely merge with ACS data between 2010 and
-2019.</p>
+package in <a
+href="https://ezufall.github.io/crd150_2026.github.io/lab3.html">Lab
+3</a>. Make sure the ACS years match up between PolicyMap and Census API
+data. Census tract boundaries changed in 2020, which means that
+2016-2020 tract data will not completely merge with ACS data between
+2010 and 2019.</p>
 <pre class="r"><code>ca &lt;- get_acs(geography = &quot;tract&quot;, 
               year = 2023,
               variables = c(tpopr = &quot;B03002_001&quot;, 
@@ -748,7 +750,10 @@ work is licensed under a
 <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative
 Commons Attribution-NonCommercial 4.0 International License</a>.</p>
 <p>Website created and maintained by <a
-href="https://nbrazil.faculty.ucdavis.edu/">Noli Brazil</a></p>
+href="https://nbrazil.faculty.ucdavis.edu/">Noli Brazil</a> and adapted
+by <a
+href="https://environmentalpolicy.ucdavis.edu/people/elise-zufall">Elise
+Zufall</a></p>
 </div>
 </div>
 

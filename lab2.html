@@ -474,9 +474,10 @@ href="http://r4ds.had.co.nz/index.html">R for Data Science</a> (RDS) and
 the class Handout 2.</p>
 <p class="comment">
 <strong>Assignment 2 is due by 12:00 pm, April 16 on Canvas.</strong>
-See <a href="https://crd150.github.io/hw_guidelines.html">here</a> for
-assignment guidelines. You must submit an <code>.Rmd</code> file and its
-associated <code>.html</code> file. Name the files:
+See <a
+href="https://ezufall.github.io/crd150_2026.github.io/hw_guidelines.html">here</a>
+for assignment guidelines. You must submit an <code>.Rmd</code> file and
+its associated <code>.html</code> file. Name the files:
 yourLastName_firstInitial_asgn02. For example: brazil_n_asgn02.
 </p>
 <div style="margin-bottom:25px;">
@@ -500,7 +501,7 @@ the title (“Lab 2”) and insert your name and date. Don’t change anything
 else inside the YAML (the stuff at the top in between the
 <code>---</code>). Also keep the grey chunk after the YAML. For a
 rundown on the use of R Markdown, see the <a
-href="https://crd150.github.io/hw_guidelines.html">assignment
+href="https://ezufall.github.io/crd150_2026.github.io/hw_guidelines.html">assignment
 guidelines</a>.</p>
 <div style="margin-bottom:25px;">
 
@@ -511,18 +512,19 @@ guidelines</a>.</p>
 <p><br />
 </p>
 <p>At the end of <a
-href="https://crd150.github.io/lab1.html#Functions">Lab 1</a> we learned
-about R functions. Functions do not exist in a vacuum, but exist within
-<a href="https://r-pkgs.org/introduction.html">R packages</a>. Packages
-are the fundamental units of reproducible R code. They include R
-functions, the documentation that describes how to use them, and sample
-data. At the top left of a function’s help documentation, you’ll find in
-curly brackets the R package that the function is housed in. For
-example, type in your console <code>? seq</code>. At the top left of the
-help documentation, you’ll find that <code>seq()</code> is in the
-package <strong>base</strong>. All the functions we have used so far are
-part of packages that have been pre-installed and pre-loaded into R. For
-all new packages, you need to install and load them.</p>
+href="https://ezufall.github.io/crd150_2026.github.io/lab1.html#Functions">Lab
+1</a> we learned about R functions. Functions do not exist in a vacuum,
+but exist within <a href="https://r-pkgs.org/introduction.html">R
+packages</a>. Packages are the fundamental units of reproducible R code.
+They include R functions, the documentation that describes how to use
+them, and sample data. At the top left of a function’s help
+documentation, you’ll find in curly brackets the R package that the
+function is housed in. For example, type in your console
+<code>? seq</code>. At the top left of the help documentation, you’ll
+find that <code>seq()</code> is in the package <strong>base</strong>.
+All the functions we have used so far are part of packages that have
+been pre-installed and pre-loaded into R. For all new packages, you need
+to install and load them.</p>
 <p>In this lab and all labs from here on out, we will be using commands
 from the package <strong>tidyverse</strong>. <a
 href="https://www.tidyverse.org/">Tidyverse</a> is a collection of
@@ -537,7 +539,8 @@ and applications that <strong>tidyverse</strong> relies on. These are
 known as <a
 href="https://r-pkgs.org/dependencies-in-practice.html">dependencies</a>.
 Unless you get a message in red that indicates there is an error (like
-we saw in <a href="https://crd150.github.io/lab1.html#R_Data_Types">Lab
+we saw in <a
+href="https://ezufall.github.io/crd150_2026.github.io/lab1.html#R_Data_Types">Lab
 1</a> when we typed in hello world without quotes), you should be
 fine.</p>
 <p>When you are installing a package, you may get the message that asks
@@ -565,8 +568,7 @@ is checked, that means it is loaded into your current R session</p>
 <p>For example, here is a section of my Packages window.</p>
 <p><br></p>
 <center>
-<p><img
-src="/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/window1.png" /></p>
+<p><img src="window1.png" /></p>
 </center>
 <p><br />
 </p>
@@ -578,8 +580,7 @@ install the package <strong>matrixStats</strong>. The window now looks
 like:</p>
 <p><br></p>
 <center>
-<p><img
-src="/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/window2.png" /></p>
+<p><img src="window2.png" /></p>
 </center>
 <p><br />
 </p>
@@ -587,8 +588,7 @@ src="/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/window2.png"
 appears next to <strong>matrixStats</strong>.</p>
 <p><br></p>
 <center>
-<p><img
-src="/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/window3.png" /></p>
+<p><img src="window3.png" /></p>
 </center>
 <p><br />
 </p>
@@ -603,9 +603,7 @@ always have the function <code>library()</code>.</p>
 course, so here is a badge! Wear it proudly my young friends! And away
 we go!</p>
 <center>
-<p><img
-src="/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/tidyverse.png"
-style="width:25.0%" /></p>
+<p><img src="tidyverse.png" style="width:25.0%" /></p>
 </center>
 <p><br />
 </p>
@@ -643,9 +641,7 @@ figure below. To get the Info window, right click on the file, and
 select “Get Info”.</p>
 <center>
 <div class="float">
-<img
-src="/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/setwd.png"
-alt="Directory path where your data reside" />
+<img src="setwd.png" alt="Directory path where your data reside" />
 <div class="figcaption">Directory path where your data reside</div>
 </div>
 </center>
@@ -717,9 +713,7 @@ dedicated <a href="https://readr.tidyverse.org/index.html">site</a>.</p>
 <p>By learning how to read in data, you’ve earned another
 <strong>tidyverse</strong> badge! Hooray!</p>
 <center>
-<p><img
-src="/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/readr.png"
-style="width:25.0%" /></p>
+<p><img src="readr.png" style="width:25.0%" /></p>
 </center>
 <div style="margin-bottom:25px;">
 
@@ -777,9 +771,7 @@ tidyverse functions to do things in R. This is why our textbook RDS is a
 valuable resource.</p>
 <p>Anyway, you earned another badge. Yes!</p>
 <center>
-<p><img
-src="/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/tibble.png"
-style="width:25.0%" /></p>
+<p><img src="tibble.png" style="width:25.0%" /></p>
 </center>
 <div style="margin-bottom:25px;">
 
@@ -817,8 +809,7 @@ command <code>select()</code> to keep variables by name. Visually, we
 are doing this (taken from the RStudio <a
 href="https://rstudio.github.io/cheatsheets/data-transformation.pdf">cheatsheet</a>)</p>
 <center>
-<p><img
-src="/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/subsetcols.png" /></p>
+<p><img src="subsetcols.png" /></p>
 </center>
 <p>To see the names of variables in the dataset <em>counties</em>, use
 the <code>names()</code> command.</p>
@@ -889,8 +880,7 @@ within your dataset. This is important when you need to transform
 variables in some way - for example, calculating a ratio or adding two
 variables together. Visually, you are doing this</p>
 <center>
-<p><img
-src="/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/mutate.png" /></p>
+<p><img src="mutate.png" /></p>
 </center>
 <p>You can use the <code>mutate()</code> command to generate as many new
 variables as you would like. For example, let’s construct five new
@@ -924,8 +914,7 @@ these variables.</p>
 filter in R, use the command <code>filter()</code>. Visually, filtering
 rows looks like this.</p>
 <center>
-<p><img
-src="/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/subsetrows.png" /></p>
+<p><img src="subsetrows.png" /></p>
 </center>
 <p>The first argument in the parentheses of this command is the name of
 the data frame. The second and any subsequent arguments (separated by
@@ -939,7 +928,8 @@ this change since we are not using the assignment operator
 <p>The double equal operator <code>==</code> means equal to. The command
 is telling R to keep the rows in <em>counties1</em> whose <em>GEOID</em>
 equals “06067”. There are quotes around 06067 because <em>GEOID</em> is
-a <a href="https://crd150.github.io/lab1.html#Characters">character</a>
+a <a
+href="https://ezufall.github.io/crd150_2026.github.io/lab1.html#Characters">character</a>
 variable.</p>
 <p>We can also explicitly exclude cases and keep everything else by
 using the not equal operator <code>!=</code>. The following code
@@ -1057,9 +1047,7 @@ define any intermediate objects that you would have needed to keep track
 of while reading the code. PIPE, Pipe, and pipe whenever you can. Badge
 it!</p>
 <center>
-<p><img
-src="/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/pipe.png"
-style="width:25.0%" /></p>
+<p><img src="pipe.png" style="width:25.0%" /></p>
 </center>
 <p><br />
 </p>
@@ -1090,7 +1078,10 @@ work is licensed under a
 <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative
 Commons Attribution-NonCommercial 4.0 International License</a>.</p>
 <p>Website created and maintained by <a
-href="https://nbrazil.faculty.ucdavis.edu/">Noli Brazil</a></p>
+href="https://nbrazil.faculty.ucdavis.edu/">Noli Brazil</a> and adapted
+by <a
+href="https://environmentalpolicy.ucdavis.edu/people/elise-zufall">Elise
+Zufall</a></p>
 </div>
 
 

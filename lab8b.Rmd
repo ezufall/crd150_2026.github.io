@@ -55,13 +55,13 @@ knitr::opts_chunk$set(echo = TRUE, warning=FALSE, message = FALSE)
 ```
 
 
-We go from one form of place-based inequality in the [last lab](https://crd150.github.io/lab8a.html) (segregation) to another form in this lab (gentrification). How do we determine whether a neighborhood is undergoing gentrification? Let's find out using a quantitative approach.  We'll determine which neighborhoods are experiencing gentrification in the City of Fresno, an issue that has gotten a lot of [local attention](https://www.fresnobee.com/news/local/article222458970.html).  
+We go from one form of place-based inequality in the [last lab](https://ezufall.github.io/crd150_2026.github.io/lab8a.html) (segregation) to another form in this lab (gentrification). How do we determine whether a neighborhood is undergoing gentrification? Let's find out using a quantitative approach.  We'll determine which neighborhoods are experiencing gentrification in the City of Fresno, an issue that has gotten a lot of [local attention](https://www.fresnobee.com/news/local/article222458970.html).  
 
 
 In this guide you will learn how to calculate the measure of gentrification used by Ding et al., (2016). This lab guide follows closely and supplements the material presented in class Handout 9.
 
 
-<p class="comment">**Assignment 8 is due by 12:00 pm, May 28th on Canvas.**  See [here](https://crd150.github.io/hw_guidelines.html) for assignment guidelines.  You must submit an `.Rmd` file and its associated `.html` file. Name the files: yourLastName_firstInitial_asgn08. For example: brazil_n_asgn08.</p>
+<p class="comment">**Assignment 8 is due by 12:00 pm, May 28th on Canvas.**  See [here](https://ezufall.github.io/crd150_2026.github.io/hw_guidelines.html) for assignment guidelines.  You must submit an `.Rmd` file and its associated `.html` file. Name the files: yourLastName_firstInitial_asgn08b. For example: zufall_e_asgn08b.</p>
 
 
 <div style="margin-bottom:25px;">
@@ -69,7 +69,7 @@ In this guide you will learn how to calculate the measure of gentrification used
 ## **Open up a R Markdown file**
 \
 
-Download the [Lab template](https://raw.githubusercontent.com/crd150/data/master/labtemplate.Rmd) into an appropriate folder on your hard drive (preferably, a folder named 'Lab 8'), open it in R Studio, and type and run your code there.  The template is also located on Canvas under Files.  The template is also located on Canvas under Files.  Change the title ("Lab 8b") and insert your name and date. Don't change anything else inside the YAML (the stuff at the top in between the `---`).  Also keep the grey chunk after the YAML. For a rundown on the use of R Markdown, see the [assignment guidelines](https://crd150.github.io/hw_guidelines.html).
+Download the [Lab template](https://raw.githubusercontent.com/crd150/data/master/labtemplate.Rmd) into an appropriate folder on your hard drive (preferably, a folder named 'Lab 8'), open it in R Studio, and type and run your code there.  The template is also located on Canvas under Files.  The template is also located on Canvas under Files.  Change the title ("Lab 8b") and insert your name and date. Don't change anything else inside the YAML (the stuff at the top in between the `---`).  Also keep the grey chunk after the YAML. For a rundown on the use of R Markdown, see the [assignment guidelines](https://ezufall.github.io/crd150_2026.github.io/hw_guidelines.html).
 
 <div style="margin-bottom:25px;">
 </div>
@@ -139,7 +139,7 @@ ca.tracts10 <- ca.tracts10 %>%
 ```
 
 
-We then need to keep just the City of Fresno tracts.  Here we use familiar friends that were introduced in [Lab 6](https://crd150.github.io/lab6.html#Spatial_data_wrangling).
+We then need to keep just the City of Fresno tracts.  Here we use familiar friends that were introduced in [Lab 6](https://ezufall.github.io/crd150_2026.github.io/lab6.html#Spatial_data_wrangling).
 
 ```{r warning=FALSE, results="hide", message=FALSE}
 # Bring in city boundaries.  We'll use the boundaries for the final year, 2019
@@ -274,7 +274,7 @@ glimpse(fresno.city)
 
 We have tract and city level data at the beginning and end of the period in separate data objects (*fresno.tracts* and *fresno.city*). We now need to join all of them together into a single file.
 
-When you view *fresno.tracts*, you'll notice that we don't have any variable indicating the city identifier to merge in city-level data.  Instead of `left_join()`, we instead use the `st_join()` function to join the city data to the tract data, which is a part of the **sf** package.   Here, rather than using an ID like GEOID, the joining is based on geographic location. We already used `st_join()` to join two spatial data object in [Lab 8a](https://crd150.github.io/lab8a.html#Read_in_the_data). Let's use it again.
+When you view *fresno.tracts*, you'll notice that we don't have any variable indicating the city identifier to merge in city-level data.  Instead of `left_join()`, we instead use the `st_join()` function to join the city data to the tract data, which is a part of the **sf** package.   Here, rather than using an ID like GEOID, the joining is based on geographic location. We already used `st_join()` to join two spatial data object in [Lab 8a](https://ezufall.github.io/crd150_2026.github.io/lab8a.html#Read_in_the_data). Let's use it again.
 
 ```{r}
 fresno.tracts <- fresno.tracts %>%
@@ -321,7 +321,7 @@ fresno.tracts <- fresno.tracts %>%
 
 Here, the `ifelse()` function tells R that if a tract's median household income *medinc10* is less than the city level median household income *medincc10*, label that neighborhood "Eligible".  Otherwise, label the neighborhood as  "Not Eligible". 
 
-What is the percentage of neighborhoods that are eligible to gentrify? Here, we are summarizing a categorical variable, which we covered in [Lab 4](https://crd150.github.io/lab4.html#Categorical_variables). Let's put the results in a nice looking table by dropping the geometry using the function `st_drop_geometry()` and creating a nicely formatted table using the function `flextable()`.
+What is the percentage of neighborhoods that are eligible to gentrify? Here, we are summarizing a categorical variable, which we covered in [Lab 4](https://ezufall.github.io/crd150_2026.github.io/lab4.html#Categorical_variables). Let's put the results in a nice looking table by dropping the geometry using the function `st_drop_geometry()` and creating a nicely formatted table using the function `flextable()`.
 
 ```{r}
 fresno.tracts %>%
@@ -434,4 +434,4 @@ Exploring the association between gentrification and racial/ethnic composition, 
 <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
 
 
-Website created and maintained by [Noli Brazil](https://nbrazil.faculty.ucdavis.edu/)
+Website created and maintained by [Noli Brazil](https://nbrazil.faculty.ucdavis.edu/) and adapted by [Elise Zufall](https://environmentalpolicy.ucdavis.edu/people/elise-zufall)
