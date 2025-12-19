@@ -126,27 +126,19 @@ And then load it in
 library(ipumsr)
 ```
 
-14. Save the name of the NHGIS zip file you downloaded.  For example, my file is name *nhgis0161_csv.zip* (yours will likely be different).
+14. Save the name of the NHGIS zip file you downloaded.  For example, my file is name *nhgis0001_csv.zip* (yours will likely be different).
 
 ```{r}
-nhgis_csv_file <- "nhgis0161_csv.zip"
+nhgis_csv_file <- "nhgis0001_csv.zip"
 ```
 
 15. All NHGIS downloads also contains metadata (i.e. codebook).  This is a valuable file as it lets you know what each variable in your file represents, among many other importance pieces of information.  Read that in using the function `read_ipums_codebook()`
 
 ```{r}
-nhgis_ddi <- read_ipums_codebook(nhgis_csv_file)
+nhgis <- read_ipums_agg(nhgis_csv_file)
 ```
 
-16. Finally, read in the data using the function `read_nhgis()`
-
-```{r}
-nhgis <- read_nhgis(
-  data_file = nhgis_csv_file,
-)
-```
-
-View the tibble and you'll find not only the variable names, but their descriptions!
+16. View the tibble and you'll find not only the variable names, but their descriptions!
 
 ```{r eval = FALSE}
 View(nhgis)
