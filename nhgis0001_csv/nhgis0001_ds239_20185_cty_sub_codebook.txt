@@ -1,0 +1,251 @@
+--------------------------------------------------------------------------------
+Codebook for NHGIS data file 'nhgis0001_ds239_20185_cty_sub'
+--------------------------------------------------------------------------------
+ 
+Contents
+    - Data Summary
+    - Data Dictionary
+    - Citation and Use
+ 
+Additional documentation on NHGIS data sources is available at: 
+    https://www.nhgis.org/documentation/tabular-data 
+ 
+--------------------------------------------------------------------------------
+Data Summary
+--------------------------------------------------------------------------------
+ 
+Year:             2014-2018
+Geographic level: County Subdivision (by State--County)
+Extent:           All areas
+Dataset:          2018 American Community Survey: 5-Year Data [2014-2018, Block Groups & Larger Areas]
+   NHGIS code:    2014_2018_ACS5a
+   NHGIS ID:      ds239
+Breakdown(s):     Geographic Component:
+                     Total area (00)
+Data type(s):     (E) Estimates
+                  (M) Margins of error
+ 
+Tables:
+ 
+1. Sex by Marital Status for the Population 15 Years and Over
+   Universe:    Population 15 years and over
+   Source code: B12001
+   NHGIS code:  AJYB
+ 
+2. Educational Attainment for the Population 25 Years and Over
+   Universe:    Population 25 years and over
+   Source code: B15003
+   NHGIS code:  AJYP
+ 
+--------------------------------------------------------------------------------
+Data Dictionary
+--------------------------------------------------------------------------------
+ 
+Context Fields 
+        GISJOIN:     GIS Join Match Code
+        YEAR:        Data File Year
+        STUSAB:      State Postal Abbreviation
+        REGIONA:     Region Code
+        DIVISIONA:   Division Code
+        STATE:       State Name
+        STATEA:      State Code
+        COUNTY:      County Name
+        COUNTYA:     County Code
+        COUSUB:      County Subdivision Name
+        COUSUBA:     County Subdivision Code
+        PLACEA:      Place Code
+        TRACTA:      Census Tract Code
+        BLKGRPA:     Block Group Code
+        CONCITA:     Consolidated City Code
+        AIANHHA:     American Indian Area/Alaska Native Area/Hawaiian Home Land Code
+        RES_ONLYA:   American Indian Area/Alaska Native Area (Reservation or Statistical Entity Only) Code
+        TRUSTA:      American Indian Area (Off-Reservation Trust Land Only)/Hawaiian Home Land Code
+        AIHHTLI:     American Indian Trust Land/ Hawaiian Home Land Indicator
+        AITSCEA:     Tribal Subdivision/Remainder Code
+        ANRCA:       Alaska Native Regional Corporation Code
+        CBSAA:       Metropolitan Statistical Area/Micropolitan Statistical Area Code
+        CSAA:        Combined Statistical Area Code
+        METDIVA:     Metropolitan Division Code
+        NECTAA:      New England City and Town Area Code
+        CNECTAA:     Combined New England City and Town Area Code
+        NECTADIVA:   New England City and Town Area Division Code
+        UAA:         Urban Area Code
+        CDCURRA:     Congressional District (2019-2021, 116th Congress) Code
+        SLDUA:       State Legislative District (Upper Chamber) Code
+        SLDLA:       State Legislative District (Lower Chamber) Code
+        ZCTA5A:      5-Digit ZIP Code Tabulation Area Code
+        SUBMCDA:     Subminor Civil Division Code
+        SDELMA:      School District (Elementary)/Remainder Code
+        SDSECA:      School District (Secondary)/Remainder Code
+        SDUNIA:      School District (Unified)/Remainder Code
+        PCI:         Principal City Indicator
+        PUMAA:       Public Use Microdata Area Code
+        GEOID:       Census Geographic Identifier
+        BTTRA:       Tribal Census Tract Code
+        BTBGA:       Tribal Block Group Code
+ 
+Data Type (E):
+    Estimates
+ 
+        NAME_E:      Area Name
+ 
+    Table 1:     Sex by Marital Status for the Population 15 Years and Over
+    Universe:    Population 15 years and over
+    Source code: B12001
+    NHGIS code:  AJYB
+        AJYBE001:    Total
+        AJYBE002:    Male
+        AJYBE003:    Male: Never married
+        AJYBE004:    Male: Now married
+        AJYBE005:    Male: Now married: Married, spouse present
+        AJYBE006:    Male: Now married: Married, spouse absent
+        AJYBE007:    Male: Now married: Married, spouse absent: Separated
+        AJYBE008:    Male: Now married: Married, spouse absent: Other
+        AJYBE009:    Male: Widowed
+        AJYBE010:    Male: Divorced
+        AJYBE011:    Female
+        AJYBE012:    Female: Never married
+        AJYBE013:    Female: Now married
+        AJYBE014:    Female: Now married: Married, spouse present
+        AJYBE015:    Female: Now married: Married, spouse absent
+        AJYBE016:    Female: Now married: Married, spouse absent: Separated
+        AJYBE017:    Female: Now married: Married, spouse absent: Other
+        AJYBE018:    Female: Widowed
+        AJYBE019:    Female: Divorced
+ 
+    Table 2:     Educational Attainment for the Population 25 Years and Over
+    Universe:    Population 25 years and over
+    Source code: B15003
+    NHGIS code:  AJYP
+        AJYPE001:    Total
+        AJYPE002:    No schooling completed
+        AJYPE003:    Nursery school
+        AJYPE004:    Kindergarten
+        AJYPE005:    1st grade
+        AJYPE006:    2nd grade
+        AJYPE007:    3rd grade
+        AJYPE008:    4th grade
+        AJYPE009:    5th grade
+        AJYPE010:    6th grade
+        AJYPE011:    7th grade
+        AJYPE012:    8th grade
+        AJYPE013:    9th grade
+        AJYPE014:    10th grade
+        AJYPE015:    11th grade
+        AJYPE016:    12th grade, no diploma
+        AJYPE017:    Regular high school diploma
+        AJYPE018:    GED or alternative credential
+        AJYPE019:    Some college, less than 1 year
+        AJYPE020:    Some college, 1 or more years, no degree
+        AJYPE021:    Associate's degree
+        AJYPE022:    Bachelor's degree
+        AJYPE023:    Master's degree
+        AJYPE024:    Professional school degree
+        AJYPE025:    Doctorate degree
+ 
+Data Type (M):
+    Margins of error
+ 
+        NAME_M:      Area Name
+ 
+    Table 1:     Sex by Marital Status for the Population 15 Years and Over
+    Universe:    Population 15 years and over
+    Source code: B12001
+    NHGIS code:  AJYB
+        AJYBM001:    Total
+        AJYBM002:    Male
+        AJYBM003:    Male: Never married
+        AJYBM004:    Male: Now married
+        AJYBM005:    Male: Now married: Married, spouse present
+        AJYBM006:    Male: Now married: Married, spouse absent
+        AJYBM007:    Male: Now married: Married, spouse absent: Separated
+        AJYBM008:    Male: Now married: Married, spouse absent: Other
+        AJYBM009:    Male: Widowed
+        AJYBM010:    Male: Divorced
+        AJYBM011:    Female
+        AJYBM012:    Female: Never married
+        AJYBM013:    Female: Now married
+        AJYBM014:    Female: Now married: Married, spouse present
+        AJYBM015:    Female: Now married: Married, spouse absent
+        AJYBM016:    Female: Now married: Married, spouse absent: Separated
+        AJYBM017:    Female: Now married: Married, spouse absent: Other
+        AJYBM018:    Female: Widowed
+        AJYBM019:    Female: Divorced
+ 
+    Table 2:     Educational Attainment for the Population 25 Years and Over
+    Universe:    Population 25 years and over
+    Source code: B15003
+    NHGIS code:  AJYP
+        AJYPM001:    Total
+        AJYPM002:    No schooling completed
+        AJYPM003:    Nursery school
+        AJYPM004:    Kindergarten
+        AJYPM005:    1st grade
+        AJYPM006:    2nd grade
+        AJYPM007:    3rd grade
+        AJYPM008:    4th grade
+        AJYPM009:    5th grade
+        AJYPM010:    6th grade
+        AJYPM011:    7th grade
+        AJYPM012:    8th grade
+        AJYPM013:    9th grade
+        AJYPM014:    10th grade
+        AJYPM015:    11th grade
+        AJYPM016:    12th grade, no diploma
+        AJYPM017:    Regular high school diploma
+        AJYPM018:    GED or alternative credential
+        AJYPM019:    Some college, less than 1 year
+        AJYPM020:    Some college, 1 or more years, no degree
+        AJYPM021:    Associate's degree
+        AJYPM022:    Bachelor's degree
+        AJYPM023:    Master's degree
+        AJYPM024:    Professional school degree
+        AJYPM025:    Doctorate degree
+ 
+--------------------------------------------------------------------------------
+Citation and Use of NHGIS Data
+--------------------------------------------------------------------------------
+ 
+All persons are granted a limited license to use this documentation and the
+accompanying data, subject to the following conditions:
+
+* REDISTRIBUTION: You will not redistribute the data without permission.
+
+  You may publish a subset of the data to meet journal requirements for accessing 
+  data related to a particular publication. Contact us for permission for any other 
+  redistribution; we will consider requests for free and commercial redistribution.
+
+* CITATION: You will cite NHGIS appropriately.
+
+    * Publications and research reports employing NHGIS data (either tabular or GIS) 
+      should include the following citation:
+
+        Jonathan Schroeder, David Van Riper, Steven Manson, Katherine Knowles, Tracy Kugler, Finn Roberts, and Steven Ruggles. 
+        IPUMS National Historical Geographic Information System: Version 20.0 
+        [dataset]. Minneapolis, MN: IPUMS. 2025. 
+        http://doi.org/10.18128/D050.V20.0
+
+    * For policy briefs, online resources, or articles in the popular press, we 
+      recommend that you cite the use of NHGIS data as follows:
+
+        IPUMS NHGIS, University of Minnesota, www.nhgis.org.
+
+These terms of use are a legally binding agreement. You can use the data only in 
+accordance with these terms, and any other use is a violation of the agreement. 
+Violations may result in revocation of the agreement and prohibition from using other 
+IPUMS data. If IPUMS or our partners are harmed from your violation, you are 
+responsible for all damages, including reasonable attorney's fees and expenses.
+        
+In addition, we request that users send us a copy of any publications, research
+reports, or educational material making use of the data or documentation.
+
+Send electronic material to: nhgis@umn.edu
+
+Printed matter should be sent to:
+
+    IPUMS NHGIS
+    Institute for Social Research and Data Innovation
+    University of Minnesota
+    50 Willey Hall
+    225 19th Ave S
+    Minneapolis, MN 55455
