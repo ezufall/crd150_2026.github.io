@@ -9,17 +9,28 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
+<meta name="author" content=" Professor Noli Brazil " />
 
 
 <title>Coordinate Reference Systems</title>
 
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
-<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
@@ -27,12 +38,17 @@
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 
-<style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
-  pre:not([class]) {
-    background-color: white;
-  }
-</style>
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+      .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+
+<style type="text/css">code{white-space: pre;}</style>
 <script type="text/javascript">
 if (window.hljs) {
   hljs.configure({languages: []});
@@ -45,32 +61,8 @@ if (window.hljs) {
 
 
 
-<style type="text/css">
-h1 {
-  font-size: 34px;
-}
-h1.title {
-  font-size: 38px;
-}
-h2 {
-  font-size: 30px;
-}
-h3 {
-  font-size: 24px;
-}
-h4 {
-  font-size: 18px;
-}
-h5 {
-  font-size: 16px;
-}
-h6 {
-  font-size: 12px;
-}
-.table th:not([align]) {
-  text-align: left;
-}
-</style>
+
+
 
 <link rel="stylesheet" href="styles.css" type="text/css" />
 
@@ -81,10 +73,6 @@ h6 {
   max-width: 940px;
   margin-left: auto;
   margin-right: auto;
-}
-code {
-  color: inherit;
-  background-color: rgba(0, 0, 0, 0.04);
 }
 img {
   max-width:100%;
@@ -101,40 +89,16 @@ button.code-folding-btn:focus {
 summary {
   display: list-item;
 }
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
 </style>
 
 
 <style type="text/css">
-/* padding for bootstrap navbar */
-body {
-  padding-top: 51px;
-  padding-bottom: 40px;
-}
-/* offset scroll position for anchor links (for fixed navbar)  */
-.section h1 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h2 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h3 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h4 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h5 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h6 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
 .dropdown-submenu {
   position: relative;
 }
@@ -162,7 +126,7 @@ body {
   margin-right: -10px;
 }
 .dropdown-submenu:hover>a:after {
-  border-left-color: #ffffff;
+  border-left-color: #adb5bd;
 }
 .dropdown-submenu.pull-left {
   float: none;
@@ -174,7 +138,7 @@ body {
 }
 </style>
 
-<script>
+<script type="text/javascript">
 // manage active state of menu based on current page
 $(document).ready(function () {
   // active menu anchor
@@ -184,11 +148,28 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.parent().addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
 });
 </script>
 
@@ -200,13 +181,12 @@ $(document).ready(function () {
   max-height: 500px;
   min-height: 44px;
   overflow-y: auto;
-  background: white;
   border: 1px solid #ddd;
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -214,16 +194,9 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -329,7 +302,7 @@ div.tocify {
 
 
 <!-- setup 3col/9col grid for toc_float and main content  -->
-<div class="row-fluid">
+<div class="row">
 <div class="col-xs-12 col-sm-4 col-md-3">
 <div id="TOC" class="tocify">
 </div>
@@ -343,12 +316,12 @@ div.tocify {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">CRD 150: Winter 2020</a>
+      <a class="navbar-brand" href="index.html">CRD 150: Spring 2025</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
@@ -362,7 +335,7 @@ div.tocify {
   <a href="hw_guidelines.html">Assignment Guidelines</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Labs/Assignments
      
     <span class="caret"></span>
@@ -390,18 +363,18 @@ div.tocify {
       <a href="lab7.html">Lab 7</a>
     </li>
     <li>
-      <a href="lab8.html">Lab 8</a>
+      <a href="lab8a.html">Lab 8a</a>
+    </li>
+    <li>
+      <a href="lab8b.html">Lab 8b</a>
     </li>
     <li>
       <a href="lab9.html">Lab 9</a>
     </li>
-    <li>
-      <a href="qgis.html">Extra Lab - QGIS</a>
-    </li>
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Other
      
     <span class="caret"></span>
@@ -411,22 +384,16 @@ div.tocify {
       <a href="eligible.html">Eligible Communities</a>
     </li>
     <li>
+      <a href="tips.html">R tips</a>
+    </li>
+    <li>
       <a href="ndata.html">Neighborhood Data Sources</a>
     </li>
     <li>
       <a href="bigopendata.html">Big and Open Data Sources</a>
     </li>
     <li>
-      <a href="nhgis.html">Using NHGIS</a>
-    </li>
-    <li>
-      <a href="policymap.html">Using PolicyMap</a>
-    </li>
-    <li>
-      <a href="missingdata.html">Missing Data</a>
-    </li>
-    <li>
-      <a href="georeferencing.html">Mapping Coordinates</a>
+      <a href="policymap.html">PolicyMap </a>
     </li>
   </ul>
 </li>
@@ -438,11 +405,11 @@ div.tocify {
   </div><!--/.container -->
 </div><!--/.navbar -->
 
-<div class="fluid-row" id="header">
+<div id="header">
 
-<div class="btn-group pull-right">
-<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
-<ul class="dropdown-menu" style="min-width: 50px;">
+<div class="btn-group pull-right float-right">
+<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu dropdown-menu-right" style="min-width: 50px;">
 <li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
 <li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
 </ul>
@@ -451,11 +418,11 @@ div.tocify {
 
 
 <h1 class="title toc-ignore">Coordinate Reference Systems</h1>
-<h3 class="subtitle"><h4 style="font-style:normal">
-CRD 150 - Quantitative Methods in Community Research
+<h3 class="subtitle"><h4 style="font-style:normal"><br />
+CRD 150 - Quantitative Methods in Community Research<br />
 </h4></h3>
-<h4 class="author"><h4 style="font-style:normal">
-Professor Noli Brazil
+<h4 class="author"><h4 style="font-style:normal"><br />
+Professor Noli Brazil<br />
 </h4></h4>
 
 </div>
@@ -494,13 +461,23 @@ h2.title {
 </style>
 <p><br />
 </p>
-<p>In this guide we will cover the spatial data wrangling task of converting point data from a nonspatial to a spatial format. This process involves using geographic coordinates (longitude and latitude) to place points on a map. This task is intimately related to the concept of projection and reprojection, and underlying all of these concepts is a Coordinate Reference System. In this guide, we will go through the process of using geographic coordinates to place points on a map using the San Francisco car break in data used in <a href="https://crd150.github.io/lab6.html">Lab 6</a>.</p>
+<p>In this guide we will cover the spatial data wrangling task of
+converting point data from a nonspatial to a spatial format. This
+process involves using geographic coordinates (longitude and latitude)
+to place points on a map. This task is intimately related to the concept
+of projection and reprojection, and underlying all of these concepts is
+a Coordinate Reference System. In this guide, we will go through the
+process of using geographic coordinates to place points on a map using
+the San Francisco car break in data used in <a
+href="https://crd150.github.io/lab6.html">Lab 6</a>.</p>
 <div style="margin-bottom:25px;">
 
 </div>
 <div id="installing-and-loading-packages" class="section level2">
 <h2><strong>Installing and loading packages</strong></h2>
-<p>We’ll need to load several packages. If you have not already installed these packages, you will need to run the <code>install.packages()</code> function.</p>
+<p>We’ll need to load several packages. If you have not already
+installed these packages, you will need to run the
+<code>install.packages()</code> function.</p>
 <pre class="r"><code>library(sf)
 library(sp)
 library(tidyverse)
@@ -516,10 +493,23 @@ library(tmaptools)</code></pre>
 </div>
 <div id="longitude-and-latitude" class="section level2">
 <h2><strong>Longitude and Latitude</strong></h2>
-<p>We used 2017 car break-in data in San Francisco to analyze point patterns in Lab 6. In that lab, we immediately started working on shapefile data. This guide goes back to the original csv file <em>Car_Break-ins.csv</em>, which contains the longitude and latitude information for each break in. We will show the steps to get from <em>Car_Break-ins.csv</em> to the point shapefile we used in Lab 6.</p>
-<p>I’ve uploaded the file onto GitHub for your convenience. Use <code>read_csv()</code> to read it in.</p>
+<p>We used 2017 car break-in data in San Francisco to analyze point
+patterns in Lab 6. In that lab, we immediately started working on
+shapefile data. This guide goes back to the original csv file
+<em>Car_Break-ins.csv</em>, which contains the longitude and latitude
+information for each break in. We will show the steps to get from
+<em>Car_Break-ins.csv</em> to the point shapefile we used in Lab 6.</p>
+<p>I’ve uploaded the file onto GitHub for your convenience. Use
+<code>read_csv()</code> to read it in.</p>
 <pre class="r"><code>break.df &lt;- read_csv(&quot;https://raw.githubusercontent.com/crd150/data/master/Car_break_ins.csv&quot;)</code></pre>
-<p>We will also need to bring in census tract polygon features and racial composition data using the Census API and keep tracts within San Francisco city boundaries. The code for accomplishing these tasks is below. We won’t go through each line of code in detail because we’ve covered all of these operations and functions in lab. We’ve embedded comments within the code that briefly explaining what each chunk is doing, but go back to prior guides (or RDS/GWR) if you need further help.</p>
+<p>We will also need to bring in census tract polygon features and
+racial composition data using the Census API and keep tracts within San
+Francisco city boundaries. The code for accomplishing these tasks is
+below. We won’t go through each line of code in detail because we’ve
+covered all of these operations and functions in lab. We’ve embedded
+comments within the code that briefly explaining what each chunk is
+doing, but go back to prior guides (or RDS/GWR) if you need further
+help.</p>
 <pre class="r"><code>census_api_key(&quot;YOUR API KEY GOES HERE&quot;)</code></pre>
 <pre class="r"><code># Bring in census tract data. 
 ca.tracts &lt;- get_acs(geography = &quot;tract&quot;, 
@@ -549,8 +539,8 @@ sf.city &lt;- filter(pl, NAME == &quot;San Francisco&quot;)
 
 sf.tracts &lt;- ms_clip(ca.tracts, sf.city, remove_slivers = TRUE) %&gt;%
   filter(GEOID != &quot;06075980401&quot; &amp; GEOID != &quot;06075017902&quot;)</code></pre>
-<br />
-
+<p><br />
+</p>
 <div style="margin-bottom:25px;">
 
 </div>
@@ -558,38 +548,146 @@ sf.tracts &lt;- ms_clip(ca.tracts, sf.city, remove_slivers = TRUE) %&gt;%
 <div id="converting-point-coordinates" class="section level2">
 <h2><strong>Converting point coordinates</strong></h2>
 <p><br />
-The object <em>break.df</em> is just a basic tibble (data frame), not a spatial <strong>sf</strong> points object. To convert these data into spatial points, we’ll need to “locate” them onto a map. Luckily, our data have longitude (x-coordinate) and latitude (y-coordinate) information, where longitude is your X coordinate and spans East/West and latitude is your Y coordinate and spans North/South, so we already know where the points are located on Earth, and it’s just a matter of placing them there.</p>
-<p>We will use the function <code>st_as_sf()</code> to create a point <strong>sf</strong> object out of <em>break.df</em>.</p>
+</p>
+<p>The object <em>break.df</em> is just a basic tibble (data frame), not
+a spatial <strong>sf</strong> points object. To convert these data into
+spatial points, we’ll need to “locate” them onto a map. Luckily, our
+data have longitude (x-coordinate) and latitude (y-coordinate)
+information, where longitude is your X coordinate and spans East/West
+and latitude is your Y coordinate and spans North/South, so we already
+know where the points are located on Earth, and it’s just a matter of
+placing them there.</p>
+<p>We will use the function <code>st_as_sf()</code> to create a point
+<strong>sf</strong> object out of <em>break.df</em>.</p>
 <pre class="r"><code>break.sf &lt;- st_as_sf(break.df, coords = c(&quot;X&quot;, &quot;Y&quot;), crs =&quot;+proj=longlat +datum=NAD83 +ellps=GRS80&quot;)</code></pre>
 <p><br></p>
-<p>The argument <code>coords =</code> specifies the (X,Y) coordinates - or longitude, latitude - of each point. In the dataframe <em>break.df</em>, these variables are conveniently named <em>X</em> and <em>Y</em> and are specified in <code>st_as_sf()</code> using the <code>coords</code> argument as <code>coords = c(&quot;X&quot;, &quot;Y&quot;)</code>.</p>
-<p>The argument <code>crs =</code> specifies the Coordinate Reference System (CRS). The CRS refers to the way in which spatial data that represent the earth’s surface (which is round and 3 dimensional) are flattened so that you can “Draw” them on a 2-dimensional surface. This concept is so important, it needs to have its own section.</p>
+<p>The argument <code>coords =</code> specifies the (X,Y) coordinates -
+or longitude, latitude - of each point. In the dataframe
+<em>break.df</em>, these variables are conveniently named <em>X</em> and
+<em>Y</em> and are specified in <code>st_as_sf()</code> using the
+<code>coords</code> argument as <code>coords = c("X", "Y")</code>.</p>
+<p>The argument <code>crs =</code> specifies the Coordinate Reference
+System (CRS). The CRS refers to the way in which spatial data that
+represent the earth’s surface (which is round and 3 dimensional) are
+flattened so that you can “Draw” them on a 2-dimensional surface. This
+concept is so important, it needs to have its own section.</p>
 <div style="margin-bottom:25px;">
 
 </div>
 <div id="coordinate-reference-system" class="section level3">
 <h3><strong>Coordinate Reference System</strong></h3>
 <p><br />
-We won’t go through the <em>real</em> nuts and bolts of CRS, which you can read in <a href="https://bookdown.org/robinlovelace/geocompr/">Geocomputation with R</a> (GWR) Chapter 2.4 and 6, but we’ll go through enough of it so that you can get through most CRS related spatial data wrangling tasks.</p>
-<p>The CRS contains two major components: the Geographic Coordinate System (GCS) and the Projected Coordinate System (PCS). The GCS can be further separated into two parts: the ellipse and the datum. The ellipse is a model of the Earth’s shape. The datum defines the coordinate system of this model - the origin point and the axes. You need these two basic components to place points on Earth’s three-dimensional surface. Think of it as trying to create a globe (ellipse) and figuring out where to place points on that globe (datum).</p>
-<p>The PCS then translates these points from a globe onto a two-dimensional space. We need to do this because were creating flat paper or on-the-screen maps, not globes (it’s kind of hard carrying a globe around when you’re finding your way around a city).</p>
-<p>You can call up the CRS of a spatial data set by using the function <code>st_crs()</code>. For example, the CRS of the census tract data is</p>
+</p>
+<p>We won’t go through the <em>real</em> nuts and bolts of CRS, which
+you can read in <a
+href="https://bookdown.org/robinlovelace/geocompr/">Geocomputation with
+R</a> (GWR) Chapter 2.4 and 6, but we’ll go through enough of it so that
+you can get through most CRS related spatial data wrangling tasks.</p>
+<p>The CRS contains two major components: the Geographic Coordinate
+System (GCS) and the Projected Coordinate System (PCS). The GCS can be
+further separated into two parts: the ellipse and the datum. The ellipse
+is a model of the Earth’s shape. The datum defines the coordinate system
+of this model - the origin point and the axes. You need these two basic
+components to place points on Earth’s three-dimensional surface. Think
+of it as trying to create a globe (ellipse) and figuring out where to
+place points on that globe (datum).</p>
+<p>The PCS then translates these points from a globe onto a
+two-dimensional space. We need to do this because were creating flat
+paper or on-the-screen maps, not globes (it’s kind of hard carrying a
+globe around when you’re finding your way around a city).</p>
+<p>You can call up the CRS of a spatial data set by using the function
+<code>st_crs()</code>. For example, the CRS of the census tract data
+is</p>
 <pre class="r"><code>st_crs(break.sf)</code></pre>
 <pre><code>## Coordinate Reference System:
-##   EPSG: 4269 
-##   proj4string: &quot;+proj=longlat +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +no_defs&quot;</code></pre>
-<p>You see two ways to describe the CRS: an <code>epsg</code> code and a <code>proj4string</code>. The <code>epsg</code> is a shortcut way for defining all the components of a CRS in one number. You can look up all the possible <code>epsg</code> <a href="http://spatialreference.org/ref/epsg/">here</a>.</p>
-<p>In contrast, <code>proj4string</code> spells everything out. The Projected Coordinate System or PCS is defined by <code>+proj=</code>, in this case <code>longlat</code> because we have X,Y or Longitude/Latitude coordinates. How did I know what datum and ellipse to specify? Magic. Actually, there are a set of commonly used CRS datums/ellipse, which NAD83/GRS80 is one of. Check the handout in the Week 6 folder on Canvas for other common combinations.</p>
-<p>There are three important things you should come away with from this discussion about CRS. First, as described above, the CRS has two components, the GCS and the PCS, which <strong>you need to always specify</strong>. This means that if you are bringing in spatial data, you should know what the GCS and PCS are. For example, the website you downloaded the data tells you. Or the person giving you the data tells you. Maybe a magical fairy whispered it in your ear. Whatever, you just need to know. If you specify the wrong CRS, you will encounter some problems. Any data that are in (X,Y) form has a longitude/latitude projected coordinate system. In this case, just specify the CRS we used in the code above and you should be fine.</p>
-<p>Second, all spatial data in your current R session should have the same CRS. If they don’t, you won’t be able to overlay the objects on a map or conduct any of the multiple layer spatial operations we went through in <a href="https://crd150.github.io/lab5.html">Lab 5</a>. We can check the CRS by using the function <code>st_crs()</code>. Let’s check to see if <em>sf.tracts</em> and <em>break.sf</em> have the same CRS</p>
+##   User input: +proj=longlat +datum=NAD83 +ellps=GRS80 
+##   wkt:
+## GEOGCRS[&quot;unknown&quot;,
+##     DATUM[&quot;North American Datum 1983&quot;,
+##         ELLIPSOID[&quot;GRS 1980&quot;,6378137,298.257222101,
+##             LENGTHUNIT[&quot;metre&quot;,1]],
+##         ID[&quot;EPSG&quot;,6269]],
+##     PRIMEM[&quot;Greenwich&quot;,0,
+##         ANGLEUNIT[&quot;degree&quot;,0.0174532925199433],
+##         ID[&quot;EPSG&quot;,8901]],
+##     CS[ellipsoidal,2],
+##         AXIS[&quot;longitude&quot;,east,
+##             ORDER[1],
+##             ANGLEUNIT[&quot;degree&quot;,0.0174532925199433,
+##                 ID[&quot;EPSG&quot;,9122]]],
+##         AXIS[&quot;latitude&quot;,north,
+##             ORDER[2],
+##             ANGLEUNIT[&quot;degree&quot;,0.0174532925199433,
+##                 ID[&quot;EPSG&quot;,9122]]]]</code></pre>
+<p>You see two ways to describe the CRS: an <code>epsg</code> code and a
+<code>proj4string</code>. The <code>epsg</code> is a shortcut way for
+defining all the components of a CRS in one number. You can look up all
+the possible <code>epsg</code> <a
+href="http://spatialreference.org/ref/epsg/">here</a>.</p>
+<p>In contrast, <code>proj4string</code> spells everything out. The
+Projected Coordinate System or PCS is defined by <code>+proj=</code>, in
+this case <code>longlat</code> because we have X,Y or Longitude/Latitude
+coordinates. How did I know what datum and ellipse to specify? Magic.
+Actually, there are a set of commonly used CRS datums/ellipse, which
+NAD83/GRS80 is one of. Check the handout in the Week 6 folder on Canvas
+for other common combinations.</p>
+<p>There are three important things you should come away with from this
+discussion about CRS. First, as described above, the CRS has two
+components, the GCS and the PCS, which <strong>you need to always
+specify</strong>. This means that if you are bringing in spatial data,
+you should know what the GCS and PCS are. For example, the website you
+downloaded the data tells you. Or the person giving you the data tells
+you. Maybe a magical fairy whispered it in your ear. Whatever, you just
+need to know. If you specify the wrong CRS, you will encounter some
+problems. Any data that are in (X,Y) form has a longitude/latitude
+projected coordinate system. In this case, just specify the CRS we used
+in the code above and you should be fine.</p>
+<p>Second, all spatial data in your current R session should have the
+same CRS. If they don’t, you won’t be able to overlay the objects on a
+map or conduct any of the multiple layer spatial operations we went
+through in <a href="https://crd150.github.io/lab5.html">Lab 5</a>. We
+can check the CRS by using the function <code>st_crs()</code>. Let’s
+check to see if <em>sf.tracts</em> and <em>break.sf</em> have the same
+CRS</p>
 <pre class="r"><code>st_crs(sf.tracts)</code></pre>
 <pre><code>## Coordinate Reference System:
-##   EPSG: 4269 
-##   proj4string: &quot;+proj=longlat +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +no_defs&quot;</code></pre>
+##   User input: NAD83 
+##   wkt:
+## GEOGCRS[&quot;NAD83&quot;,
+##     DATUM[&quot;North American Datum 1983&quot;,
+##         ELLIPSOID[&quot;GRS 1980&quot;,6378137,298.257222101,
+##             LENGTHUNIT[&quot;metre&quot;,1]]],
+##     PRIMEM[&quot;Greenwich&quot;,0,
+##         ANGLEUNIT[&quot;degree&quot;,0.0174532925199433]],
+##     CS[ellipsoidal,2],
+##         AXIS[&quot;latitude&quot;,north,
+##             ORDER[1],
+##             ANGLEUNIT[&quot;degree&quot;,0.0174532925199433]],
+##         AXIS[&quot;longitude&quot;,east,
+##             ORDER[2],
+##             ANGLEUNIT[&quot;degree&quot;,0.0174532925199433]],
+##     ID[&quot;EPSG&quot;,4269]]</code></pre>
 <pre class="r"><code>st_crs(break.sf)</code></pre>
 <pre><code>## Coordinate Reference System:
-##   EPSG: 4269 
-##   proj4string: &quot;+proj=longlat +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +no_defs&quot;</code></pre>
+##   User input: +proj=longlat +datum=NAD83 +ellps=GRS80 
+##   wkt:
+## GEOGCRS[&quot;unknown&quot;,
+##     DATUM[&quot;North American Datum 1983&quot;,
+##         ELLIPSOID[&quot;GRS 1980&quot;,6378137,298.257222101,
+##             LENGTHUNIT[&quot;metre&quot;,1]],
+##         ID[&quot;EPSG&quot;,6269]],
+##     PRIMEM[&quot;Greenwich&quot;,0,
+##         ANGLEUNIT[&quot;degree&quot;,0.0174532925199433],
+##         ID[&quot;EPSG&quot;,8901]],
+##     CS[ellipsoidal,2],
+##         AXIS[&quot;longitude&quot;,east,
+##             ORDER[1],
+##             ANGLEUNIT[&quot;degree&quot;,0.0174532925199433,
+##                 ID[&quot;EPSG&quot;,9122]]],
+##         AXIS[&quot;latitude&quot;,north,
+##             ORDER[2],
+##             ANGLEUNIT[&quot;degree&quot;,0.0174532925199433,
+##                 ID[&quot;EPSG&quot;,9122]]]]</code></pre>
 <p>They look the same, but…</p>
 <pre class="r"><code>st_crs(break.sf) == st_crs(sf.tracts)</code></pre>
 <pre><code>## [1] TRUE</code></pre>
@@ -601,21 +699,42 @@ We won’t go through the <em>real</em> nuts and bolts of CRS, which you can rea
 <div id="reprojecting-points" class="section level3">
 <h3><strong>Reprojecting points</strong></h3>
 <p><br />
-The third important thing is your CRS should be compatible with the functions you plan to use on your data. An important compatibility issue is that your spatial data should have the appropriate distance metric like meters or miles. Distance in longitude/latitude is in <a href="https://en.wikipedia.org/wiki/Decimal_degrees">decimal degrees</a> which (1) most people don’t understand and (2) is not compatible with several spatial functions.</p>
-<p>We can find out the units of a spatial data set by using the <code>st_crs()</code> function and calling up units as follows</p>
+</p>
+<p>The third important thing is your CRS should be compatible with the
+functions you plan to use on your data. An important compatibility issue
+is that your spatial data should have the appropriate distance metric
+like meters or miles. Distance in longitude/latitude is in <a
+href="https://en.wikipedia.org/wiki/Decimal_degrees">decimal degrees</a>
+which (1) most people don’t understand and (2) is not compatible with
+several spatial functions.</p>
+<p>We can find out the units of a spatial data set by using the
+<code>st_crs()</code> function and calling up units as follows</p>
 <pre class="r"><code>st_crs(break.sf)$units</code></pre>
 <pre><code>## NULL</code></pre>
 <pre class="r"><code>st_crs(sf.tracts)$units</code></pre>
 <pre><code>## NULL</code></pre>
 <p>Not good.</p>
-<p>Let’s reproject the CRS to something that takes on meters. A popular meter-based Projected Coordinate System is <a href="http://desktop.arcgis.com/en/arcmap/latest/map/projections/universal-transverse-mercator.htm">Universal Tranverse Mercator</a> (UTM). UTM separates the United States in separate zones and Northern California is in zone 10, as shown in the figure below.</p>
+<p>Let’s reproject the CRS to something that takes on meters. A popular
+meter-based Projected Coordinate System is <a
+href="http://desktop.arcgis.com/en/arcmap/latest/map/projections/universal-transverse-mercator.htm">Universal
+Tranverse Mercator</a> (UTM). UTM separates the United States in
+separate zones and Northern California is in zone 10, as shown in the
+figure below.</p>
 <center>
-<div class="figure">
-<img src="utm.png" alt="Figure 1: UTM Zones" />
-<p class="caption">Figure 1: UTM Zones</p>
+<div class="float">
+<img
+src="/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/utm.png"
+alt="Figure 1: UTM Zones" />
+<div class="figcaption">Figure 1: UTM Zones</div>
 </div>
 </center>
-<p>Let’s reproject both <em>sf.tracts</em> and <em>breaks.sf</em> to a UTM Zone 10 projected coordinate system. Use <code>+proj=utm</code> as the PCS, NAD83 as the datum and GRS80 as the ellipse (popular choices for the projection/datum/ellipse of the U.S.). Whenever you use UTM, you also need to specify the zone, which we do by using <code>+zone=10</code>. To reproject use the function <code>st_transform()</code> as follows</p>
+<p>Let’s reproject both <em>sf.tracts</em> and <em>breaks.sf</em> to a
+UTM Zone 10 projected coordinate system. Use <code>+proj=utm</code> as
+the PCS, NAD83 as the datum and GRS80 as the ellipse (popular choices
+for the projection/datum/ellipse of the U.S.). Whenever you use UTM, you
+also need to specify the zone, which we do by using
+<code>+zone=10</code>. To reproject use the function
+<code>st_transform()</code> as follows</p>
 <pre class="r"><code>sf.tracts.utm &lt;- st_transform(sf.tracts, crs = &quot;+proj=utm +zone=10 +datum=NAD83 +ellps=GRS80&quot;)
 break.sf.utm &lt;- st_transform(break.sf, crs = &quot;+proj=utm +zone=10 +datum=NAD83 +ellps=GRS80&quot;)</code></pre>
 <p>Equal?</p>
@@ -631,19 +750,33 @@ break.sf.utm &lt;- st_transform(break.sf, crs = &quot;+proj=utm +zone=10 +datum=
   tm_polygons() +
 tm_shape(break.sf.utm) +  
   tm_dots(col=&quot;red&quot;)</code></pre>
-<p><img src="georeferencing_files/figure-html/unnamed-chunk-14-1.png" /><!-- --></p>
+<p><img
+src="georeferencing_files/figure-html/unnamed-chunk-14-1.png" /><!-- --></p>
 <p>Neat.</p>
-<p>Another important problem that you may encounter is that a shapefile or any spatial data set you downloaded from a source contains no CRS (unprojected or unknown). In this case, use the function <code>st_set_crs()</code> to set the CRS. See GWR 6.1 for more details.</p>
+<p>Another important problem that you may encounter is that a shapefile
+or any spatial data set you downloaded from a source contains no CRS
+(unprojected or unknown). In this case, use the function
+<code>st_set_crs()</code> to set the CRS. See GWR 6.1 for more
+details.</p>
 <p>Main takeaway points:</p>
 <ol style="list-style-type: decimal">
-<li>The CRS for any spatial data set you bring into R should always be established.</li>
-<li>If you are planning to work with multiple spatial data sets on the same project, make sure they have the same CRS.</li>
-<li>Make sure the CRS is appropriate for the types of spatial analyses you are planning to conduct.</li>
+<li>The CRS for any spatial data set you bring into R should always be
+established.</li>
+<li>If you are planning to work with multiple spatial data sets on the
+same project, make sure they have the same CRS.</li>
+<li>Make sure the CRS is appropriate for the types of spatial analyses
+you are planning to conduct.</li>
 </ol>
-<p>If you stick with these principles, you should be able to get through most issues regarding CRSs. If you get stuck, read GWR Ch. 2.4 and 6.</p>
+<p>If you stick with these principles, you should be able to get through
+most issues regarding CRSs. If you get stuck, read GWR Ch. 2.4 and
+6.</p>
 <hr />
-<p><a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.</p>
-<p>Website created and maintained by <a href="https://nbrazil.faculty.ucdavis.edu/">Noli Brazil</a></p>
+<p><a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br />This
+work is licensed under a
+<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative
+Commons Attribution-NonCommercial 4.0 International License</a>.</p>
+<p>Website created and maintained by <a
+href="https://nbrazil.faculty.ucdavis.edu/">Noli Brazil</a></p>
 </div>
 </div>
 
@@ -658,7 +791,7 @@ tm_shape(break.sf.utm) +
 
 // add bootstrap table styles to pandoc tables
 function bootstrapStylePandocTables() {
-  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
 }
 $(document).ready(function () {
   bootstrapStylePandocTables();
@@ -676,7 +809,7 @@ $(document).ready(function () {
 
 $(document).ready(function () {
   $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
+    $(this).parent().toggleClass('nav-tabs-open');
   });
 });
 </script>
@@ -691,6 +824,9 @@ $(document).ready(function () {
 <script>
 $(document).ready(function ()  {
 
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
     // move toc-ignore selectors from section div to header
     $('div.section.toc-ignore')
         .removeClass('toc-ignore')
@@ -702,7 +838,7 @@ $(document).ready(function ()  {
       theme: "bootstrap3",
       context: '.toc-content',
       hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
       },
       ignoreSelector: ".toc-ignore",
       scrollTo: 0

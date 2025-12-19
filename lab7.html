@@ -15,7 +15,7 @@
 
 <title>Lab 7: Mapping Open Data</title>
 
-<script src="site_libs/header-attrs-2.28/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
@@ -895,8 +895,8 @@ available). The process may take a few minutes so be patient.</p>
 ## $ use_type     &lt;chr&gt; &quot;publish&quot;, &quot;publish&quot;, &quot;publish&quot;, &quot;publish&quot;, &quot;publish&quot;, &quot;p…
 ## $ date_updated &lt;chr&gt; &quot;2017/10/30 14:43:13+00&quot;, &quot;2017/10/06 16:28:29+00&quot;, &quot;2017…
 ## $ dis_status   &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…
-## $ lat          &lt;dbl&gt; 34.04513, 34.03742, 33.86655, 34.14560, 34.10297, 34.1018…
-## $ long         &lt;dbl&gt; -118.2432, -118.3175, -118.3993, -118.0012, -118.0975, -1…</code></pre>
+## $ lat          &lt;dbl&gt; 34.04513, 34.03742, 33.85418, 34.14560, 34.10297, 34.1018…
+## $ long         &lt;dbl&gt; -118.2432, -118.3175, -118.3959, -118.0012, -118.0975, -1…</code></pre>
 <p>We see the latitudes and longitudes are attached to the variables
 <em>lat</em> and <em>long</em>, respectively. Notice that not all the
 addresses were successfully geocoded.</p>
@@ -970,13 +970,13 @@ etc.).</li>
 <p>The variable <em>SRNumber</em> gives us the number of points in each
 of Los Angeles’ tracts. Notice that there are missing values.</p>
 <pre class="r"><code>summary(hcamps_agg)</code></pre>
-<pre><code>##     SRNumber              geometry   
-##  Min.   :  1.0   MULTIPOLYGON :   1  
-##  1st Qu.: 10.0   POLYGON      :1000  
-##  Median : 29.0   epsg:4269    :   0  
-##  Mean   : 56.8   +proj=long...:   0  
-##  3rd Qu.: 69.0                       
-##  Max.   :822.0                       
+<pre><code>##     SRNumber               geometry   
+##  Min.   :  1.00   MULTIPOLYGON :   1  
+##  1st Qu.: 10.00   POLYGON      :1000  
+##  Median : 29.00   epsg:4269    :   0  
+##  Mean   : 56.81   +proj=long...:   0  
+##  3rd Qu.: 69.00                       
+##  Max.   :822.00                       
 ##  NA&#39;s   :28</code></pre>
 <p>This is because there are tracts that have no homeless encampments.
 Convert these NA values to 0 using the <code>replace_na()</code>

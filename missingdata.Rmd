@@ -210,26 +210,24 @@ tm_shape(sac.city.tracts.sf.rm) + tm_polygons(col="blue")
 
 We've got permanent holes in Sacramento because we've physically removed census tracts with missing values.  Of course, we can shade the missing tracts a certain color and label this in the legend.  We'll do that in [Lab 4](https://crd150.github.io/lab4.html).  But, let's see how imputing the mean works.
 
-To impute the mean, we need to use the tidy friendly `impute_mean()` function in the **tidyimpute** package. Install this package if you haven't already done so.
+To impute the mean, we need to use the tidy friendly `impute_mean()` function in the **naniar** package. Install this package if you haven't already done so. 
 
 ```{r, eval = FALSE}
-install.packages("tidyimpute")
+install.packages("naniar")
 ```
 
 and load it into R.
 
 ```{r message = FALSE, warning = FALSE}
-library(tidyimpute)
+library(naniar)
 ```
 
 Then use the function `impute_mean()`. To use this function, pipe in the data set and then type in the variables you want to impute.
 
 ```{r message = FALSE, warning = FALSE}
 sac.city.tracts.sf.mn <- sac.city.tracts.sf %>%
-    impute_mean(psubhous)
+    mutate(psubhous = impute_mean(psubhous))
 ```
-
-Note that you can impute more than one variable within `impute_mean()` using the comma separator. 
 
 We should now have no missing values
 
@@ -262,26 +260,6 @@ tm_shape(sac.city.tracts.sf.mn) +
   tm_polygons(col = "psubhous", style = "quantile")
 ```
 
-
-<div style="margin-bottom:25px;">
-</div>
-## **Other Imputation Methods**
-\
-
-The **tidyimpute** package has a set of functions for imputing missing values in your data.  The functions are categorized as univariate and multivariate, where the former imputes a single value  for all missing observations (like the mean) whereas the latter imputes a value based on a set of non-missing characteristics.  Univariate methods include
-
-* `impute_max` - maximum
-* `impute_minimum` - minimum
-* `impute_median` - median value
-* `impute_quantile` - quantile value
-* `impute_sample` - randomly sampled value via bootstrap
-
-Multivariate methods include
-
-* `impute_fit`,`impute_predict` - use a regression model to predict the value
-* `impute_by_group` - use by-group imputation
-
-Some of the multivariate functions may not be fully developed at the moment, but their test versions may be available for download.  These methods go beyond the scope of this class, but you can check a number of user created vignettes, include the official R [vignette](https://cran.r-project.org/web/packages/naniar/vignettes/exploring-imputed-values.html).
 
 
 ***

@@ -82,7 +82,7 @@ cnty <- counties(state ="CA", cb = TRUE)
 ca.tracts <- tracts(state ="CA", cb = TRUE)
 yolo.blocks <-blocks(state="CA", county = "Yolo")
 yolo.block.groups <-block_groups(state="CA", county = "Yolo", cb = TRUE)
-zips <- zctas(cb=TRUE, state = "CA")
+zips <- zctas(cb=TRUE, state = "CA", year = 2000)
 ca.tracts.2000 <- tracts(state ="CA", cb = TRUE, year = 2000)
 ca.tracts.2000<-st_transform(ca.tracts.2000, crs=st_crs(ca.tracts))
 
@@ -212,7 +212,7 @@ pl <- places(state = "CA", cb = TRUE)
 ca.tracts <- tracts(state ="CA", cb = TRUE)
 yolo.block.groups <-block_groups(state="CA", county = "Yolo", cb = TRUE)
 yolo.blocks <-blocks(state="CA", county = "Yolo")
-zips <- zctas(cb=TRUE, state = "CA")
+zips <- zctas(cb=TRUE, state = "CA", year = 2000)
 
 #Davis city
 davis.city <- filter(pl, NAME == "Davis")

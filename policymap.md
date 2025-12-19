@@ -89,7 +89,7 @@ library(VIM)
 1. Navigate to the UC Davis [PolicyMap portal](https://ucdavis.policymap.com/maps).  You should see a webpage that looks like the figure below.  Note the UC Davis logo on the top right.  Go Aggies!
 
 <center>
-![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/pmpage.png)
+![](pmpage.png)
 
 </center>
 
@@ -97,49 +97,49 @@ library(VIM)
 2. You should see a *Location* search bar somewhere near the top of the page.  Type in "Oakland, CA" in the search bar and *Oakland, CA (City)* should pop up below - select it.
 
 <center>
-![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/typeoakland.png)
+![](typeoakland.png)
 
 </center>
 
 You should get a map that highlights Oakland's boundaries.
 
 <center>
-![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/oaklandmap1.png)
+![](oaklandmap1.png)
 
 </center>
 
 3. The map does not show any data.  Let's add Median Housing Value. Click on the *Housing* tab, followed by *Median Value* under *Home Values*.
 
 <center>
-![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/medval.png)
+![](medval.png)
 
 </center>
 
 Now your map should look like the following
 
 <center>
-![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/medvalmap.png)
+![](medvalmap.png)
 
 </center>
 
 4. Notice in the legend window you can change various aspects of the variable, including the year
 
 <center>
-![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/pmyear.png)
+![](pmyear.png)
 
 </center>
 
 the data type
 
 <center>
-![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/pmdata.png)
+![](pmdata.png)
 
 </center>
 
 and the geographic level.  
 
 <center>
-![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/pmgeo.png)
+![](pmgeo.png)
 
 </center>
 
@@ -148,13 +148,13 @@ and the geographic level.
 
 Leave the defaults (Year: 2019-2023, Variable: Median dollars, and Shaded by: Census Tract, 2022).  
 
-5. Let's download these data.  At the top right of the site, click on the download icon ![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/download.png).  
+5. Let's download these data.  At the top right of the site, click on the download icon ![](download.png).  
 
 
 6. A window should pop up. The first screen on the left (Select Data) tells you what data to download - it should be "Estimated median value of owner-occupied home, between 2019-2023" under Layer, with "2019-2023" under Year and "Median dollars" under Variable already selected.
 
 <center>
-![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/pmfirst.png)
+![](pmfirst.png)
 
 </center>
 
@@ -163,7 +163,7 @@ Leave the defaults (Year: 2019-2023, Variable: Median dollars, and Shaded by: Ce
 
 
 <center>
-![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/pmsecond.png)
+![](pmsecond.png)
 
 </center>
 
@@ -171,14 +171,14 @@ Leave the defaults (Year: 2019-2023, Variable: Median dollars, and Shaded by: Ce
 8. The last section asks you to confirm the download. Select *Machine-readable data file (csv) + data specs file (csv)* under "Data Format". Select *Download via browser* under "Delivery Method". Then click on the Download button.
 
 <center>
-![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/pmthird.png)
+![](pmthird.png)
 
 </center>
 
 9. After a minute or two, a screen like below (on a Mac laptop) should pop up at the top right corner of your screen (the file name will differ from yours).  You can download this file again until the date given.
 
 <center>
-![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/downloadcsv.png)
+![](downloadcsv.png)
 
 </center>
 
@@ -293,7 +293,7 @@ Missing values are a part of a social scientist's life.  You can't avoid them.
 You will notice that PolicyMap designates missing values as *N/A*.  
 
 <center>
-![](/Users/noli/Documents/UCD/teaching/CRD150/Lab/crd150.github.io/na.png)
+![](na.png)
 
 </center>
 

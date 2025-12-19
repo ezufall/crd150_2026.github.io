@@ -63,7 +63,7 @@ In this guide we will cover the spatial data wrangling task of converting point 
 We'll need to load several packages.  If you have not already installed these packages, you will need to run the `install.packages()` function.
 
 
-```r
+``` r
 library(sf)
 library(sp)
 library(tidyverse)
@@ -86,7 +86,7 @@ We used 2017 car break-in data in San Francisco to analyze point patterns in Lab
 I’ve uploaded the file onto GitHub for your convenience. Use `read_csv()` to read it in.
 
 
-```r
+``` r
 break.df <- read_csv("https://raw.githubusercontent.com/crd150/data/master/Car_break_ins.csv")
 ```
 
@@ -96,12 +96,12 @@ We will also need to bring in census tract polygon features and racial compositi
 
 
 
-```r
+``` r
 census_api_key("YOUR API KEY GOES HERE")
 ```
 
 
-```r
+``` r
 # Bring in census tract data. 
 ca.tracts <- get_acs(geography = "tract", 
               year = 2016,
@@ -147,7 +147,7 @@ We will use the function `st_as_sf()` to create a point **sf** object out of *br
 
 
 
-```r
+``` r
 break.sf <- st_as_sf(break.df, coords = c("X", "Y"), crs ="+proj=longlat +datum=NAD83 +ellps=GRS80")
 ```
 
@@ -172,14 +172,31 @@ The PCS then translates these points from a globe onto a two-dimensional space. 
 You can call up the CRS of a spatial data set by using the function `st_crs()`.  For example, the CRS of the census tract data is
 
 
-```r
+``` r
 st_crs(break.sf)
 ```
 
 ```
 ## Coordinate Reference System:
-##   EPSG: 4269 
-##   proj4string: "+proj=longlat +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +no_defs"
+##   User input: +proj=longlat +datum=NAD83 +ellps=GRS80 
+##   wkt:
+## GEOGCRS["unknown",
+##     DATUM["North American Datum 1983",
+##         ELLIPSOID["GRS 1980",6378137,298.257222101,
+##             LENGTHUNIT["metre",1]],
+##         ID["EPSG",6269]],
+##     PRIMEM["Greenwich",0,
+##         ANGLEUNIT["degree",0.0174532925199433],
+##         ID["EPSG",8901]],
+##     CS[ellipsoidal,2],
+##         AXIS["longitude",east,
+##             ORDER[1],
+##             ANGLEUNIT["degree",0.0174532925199433,
+##                 ID["EPSG",9122]]],
+##         AXIS["latitude",north,
+##             ORDER[2],
+##             ANGLEUNIT["degree",0.0174532925199433,
+##                 ID["EPSG",9122]]]]
 ```
 
 You see two ways to describe the CRS: an `epsg` code and a `proj4string`.  The `epsg` is a shortcut way for defining all the components of a CRS in one number. You can look up all the possible `epsg` [here](http://spatialreference.org/ref/epsg/).  
@@ -193,30 +210,61 @@ There are three important things you should come away with from this discussion 
 Second, all spatial data in your current R session should have the same CRS. If they don't, you won't be able to overlay the objects on a map or conduct any of the multiple layer spatial operations we went through in [Lab 5](https://crd150.github.io/lab5.html).  We can check the CRS by using the function `st_crs()`.  Let's check to see if *sf.tracts* and *break.sf* have the same CRS 
 
 
-```r
+``` r
 st_crs(sf.tracts)
 ```
 
 ```
 ## Coordinate Reference System:
-##   EPSG: 4269 
-##   proj4string: "+proj=longlat +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +no_defs"
+##   User input: NAD83 
+##   wkt:
+## GEOGCRS["NAD83",
+##     DATUM["North American Datum 1983",
+##         ELLIPSOID["GRS 1980",6378137,298.257222101,
+##             LENGTHUNIT["metre",1]]],
+##     PRIMEM["Greenwich",0,
+##         ANGLEUNIT["degree",0.0174532925199433]],
+##     CS[ellipsoidal,2],
+##         AXIS["latitude",north,
+##             ORDER[1],
+##             ANGLEUNIT["degree",0.0174532925199433]],
+##         AXIS["longitude",east,
+##             ORDER[2],
+##             ANGLEUNIT["degree",0.0174532925199433]],
+##     ID["EPSG",4269]]
 ```
 
-```r
+``` r
 st_crs(break.sf)
 ```
 
 ```
 ## Coordinate Reference System:
-##   EPSG: 4269 
-##   proj4string: "+proj=longlat +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +no_defs"
+##   User input: +proj=longlat +datum=NAD83 +ellps=GRS80 
+##   wkt:
+## GEOGCRS["unknown",
+##     DATUM["North American Datum 1983",
+##         ELLIPSOID["GRS 1980",6378137,298.257222101,
+##             LENGTHUNIT["metre",1]],
+##         ID["EPSG",6269]],
+##     PRIMEM["Greenwich",0,
+##         ANGLEUNIT["degree",0.0174532925199433],
+##         ID["EPSG",8901]],
+##     CS[ellipsoidal,2],
+##         AXIS["longitude",east,
+##             ORDER[1],
+##             ANGLEUNIT["degree",0.0174532925199433,
+##                 ID["EPSG",9122]]],
+##         AXIS["latitude",north,
+##             ORDER[2],
+##             ANGLEUNIT["degree",0.0174532925199433,
+##                 ID["EPSG",9122]]]]
 ```
 
 They look the same, but...
 
 
-```r
+``` r
 st_crs(break.sf) == st_crs(sf.tracts)
 ```
 
@@ -237,7 +285,7 @@ The third important thing is your CRS should be compatible with the functions yo
 We can find out the units of a spatial data set by using the `st_crs()` function and calling up units as follows
 
 
-```r
+``` r
 st_crs(break.sf)$units
 ```
 
@@ -245,7 +293,7 @@ st_crs(break.sf)$units
 ## NULL
 ```
 
-```r
+``` r
 st_crs(sf.tracts)$units
 ```
 
@@ -265,7 +313,7 @@ Let's reproject the CRS to something that takes on meters.  A popular meter-base
 Let's reproject both *sf.tracts* and *breaks.sf* to a UTM Zone 10 projected coordinate system.  Use `+proj=utm ` as the PCS, NAD83 as the datum and GRS80 as the ellipse (popular choices for the projection/datum/ellipse of the U.S.).  Whenever you use UTM, you also need to specify the zone, which we do by using `+zone=10`. To reproject use the function `st_transform()` as follows
 
 
-```r
+``` r
 sf.tracts.utm <- st_transform(sf.tracts, crs = "+proj=utm +zone=10 +datum=NAD83 +ellps=GRS80")
 break.sf.utm <- st_transform(break.sf, crs = "+proj=utm +zone=10 +datum=NAD83 +ellps=GRS80")
 ```
@@ -273,7 +321,7 @@ break.sf.utm <- st_transform(break.sf, crs = "+proj=utm +zone=10 +datum=NAD83 +e
 Equal?
 
 
-```r
+``` r
 st_crs(sf.tracts.utm) == st_crs(break.sf.utm)
 ```
 
@@ -285,7 +333,7 @@ Units?
 
 
 
-```r
+``` r
 st_crs(sf.tracts.utm)$units
 ```
 
@@ -293,7 +341,7 @@ st_crs(sf.tracts.utm)$units
 ## [1] "m"
 ```
 
-```r
+``` r
 st_crs(break.sf.utm)$units
 ```
 
@@ -304,7 +352,7 @@ st_crs(break.sf.utm)$units
 "m" stands for meters. Great. Now, let's map the break ins.
 
 
-```r
+``` r
 tm_shape(sf.tracts.utm) +
   tm_polygons() +
 tm_shape(break.sf.utm) +  

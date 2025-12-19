@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="YOUR FULL NAME HERE" />
+
+
+<title>Assignment 2</title>
+
+<script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+      .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="styles.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">CRD 150: Spring 2025</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="syllabus.html">Syllabus</a>
+</li>
+<li>
+  <a href="hw_guidelines.html">Assignment Guidelines</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Labs/Assignments
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="lab1.html">Lab 1</a>
+    </li>
+    <li>
+      <a href="lab2.html">Lab 2</a>
+    </li>
+    <li>
+      <a href="lab3.html">Lab 3</a>
+    </li>
+    <li>
+      <a href="lab4.html">Lab 4</a>
+    </li>
+    <li>
+      <a href="lab5.html">Lab 5</a>
+    </li>
+    <li>
+      <a href="lab6.html">Lab 6</a>
+    </li>
+    <li>
+      <a href="lab7.html">Lab 7</a>
+    </li>
+    <li>
+      <a href="lab8a.html">Lab 8a</a>
+    </li>
+    <li>
+      <a href="lab8b.html">Lab 8b</a>
+    </li>
+    <li>
+      <a href="lab9.html">Lab 9</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Other
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="eligible.html">Eligible Communities</a>
+    </li>
+    <li>
+      <a href="tips.html">R tips</a>
+    </li>
+    <li>
+      <a href="ndata.html">Neighborhood Data Sources</a>
+    </li>
+    <li>
+      <a href="bigopendata.html">Big and Open Data Sources</a>
+    </li>
+    <li>
+      <a href="policymap.html">PolicyMap </a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Assignment 2</h1>
+<h3 class="subtitle">CRD 150</h3>
+<h4 class="author">YOUR FULL NAME HERE</h4>
+<h4 class="date">Due by 12:00 am, October 12th on Canvas</h4>
+
+</div>
+
+
+<ol style="list-style-type: decimal">
+<li>Identify the type (numeric or categorical) and subtype (nominal,
+ordinal, etc.) that each of the following variables represent. (5
+points).</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li><p>The number of vacant housing units</p></li>
+<li><p>Percent of persons 25 years and older with a college
+degree</p></li>
+<li><p>Crimes per population</p></li>
+<li><p><a
+href="https://www.census.gov/geo/reference/gtc/gtc_census_divreg.html">Census
+region</a></p></li>
+<li><p>A variable with the following values</p>
+<ul>
+<li>Low income tract, low percent black</li>
+<li>Low income tract, moderate percent black</li>
+<li>Low income tract, high percent black</li>
+<li>Middle income tract, low percent black</li>
+<li>Middle income tract, moderate percent black</li>
+<li>Middle income tract, high percent black</li>
+<li>High income tract, low percent black</li>
+<li>High income tract, moderate percent black</li>
+<li>High income tract, high percent black</li>
+</ul></li>
+</ol>
+<ol start="2" style="list-style-type: decimal">
+<li>How many years of median income will it take to buy a home in
+California? And how did the Great Recession affect this measure of
+housing affordability? Let’s answer these questions by examining <a
+href="https://www.citylab.com/equity/2018/05/where-the-house-price-to-income-ratio-is-most-out-of-whack/561404/">house-price-to-income
+ratios</a> in California counties pre and post recession. Do the
+following data wrangling tasks. Submit all the code you used to
+accomplish these tasks. Where possible, use the pipe operator
+<code>%&gt;%</code>. (5 points)</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>Using either the Census API or NHGIS, bring into R the following
+county-level variables from the 2005-2009 and 2012-2016 American
+Community Surveys (ACS): median housing value (variable ID “B25077_100”)
+and median household income (variable ID “B19013_100”).</li>
+<li>Calculate the ratio of median housing value to median household
+income for each years of data.</li>
+<li>Merge the files into the <em>cacounty</em> dataset from the lab
+guide.</li>
+<li>Calculate the change in the housing value-to-income ratio from
+2005-09 to 2012-16.</li>
+<li>Keep the following variables: County, GEOID, the housing
+value-to-income ratio in 2005-09, 2012-16, and the change during this
+period, pnhwhite, phasn, pnhblk, and phisp.</li>
+</ol>
+<pre class="r"><code>#Insert your code here</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>From the dataset you created in Question 2, answer the following
+questions.</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>How many years will it take for a household to pay off a house in
+Yolo County in 2012-16? What about before the recession? Don’t just
+print the entire data frame to answer these questions - use R code to
+help you find Yolo in your dataset. (2 points)</li>
+</ol>
+<pre class="r"><code>#Insert your code here</code></pre>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>Which county has the largest housing value-to-income ratio pre
+recession (2005-09)? Smallest? Which counties had the largest and
+smallest post recession (2012-16)? Which county experienced the greatest
+decrease? Which counties experienced an increase? See the function
+<code>arrange()</code> to answer these questions. (5 points)</li>
+</ol>
+<pre class="r"><code>#Insert your code here</code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li>Subset the dataset you saved in Question 2 to keep only two sets of
+counties: Bay Area counties (Alameda, Contra Costa, Marin, Napa, San
+Francisco, San Mateo, Santa Clara, Solano, and Sonoma) and counties in
+Southern California (Imperial, San Diego, Riverside, Orange, Los
+Angeles, San Bernardino, Ventura, Santa Barbara). Check <a
+href="https://www.nrcs.usda.gov/wps/portal/nrcs/detail/ca/home/?cid=nrcs143_013697">here</a>
+to find their FIPS codes. Use the <code>write_csv()</code> command to
+save this pared down dataset as a <code>.csv</code>. From this file,
+create a presentation ready table using the standards we outlined in
+lecture and in Hoffman Ch. 8-9. The final table should show racial
+composition and housing-value-to-income ratios (and their change) for
+each Bay Area and Southern California county. Copy and paste this table
+into a Microsoft Word document and submit this document along with your
+Rmd and html files. (5 points)</li>
+</ol>
+<pre class="r"><code>#Insert your code here</code></pre>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+
+</body>
+</html>

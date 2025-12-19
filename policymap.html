@@ -14,7 +14,7 @@
 
 <title>Missing Data in PolicyMap</title>
 
-<script src="site_libs/header-attrs-2.28/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
@@ -502,8 +502,7 @@ should see a webpage that looks like the figure below. Note the UC Davis
 logo on the top right. Go Aggies!</li>
 </ol>
 <center>
-<p><img
-src="pmpage.png" /></p>
+<p><img src="pmpage.png" /></p>
 </center>
 <ol start="2" style="list-style-type: decimal">
 <li>You should see a <em>Location</em> search bar somewhere near the top
@@ -511,13 +510,11 @@ of the page. Type in “Oakland, CA” in the search bar and <em>Oakland, CA
 (City)</em> should pop up below - select it.</li>
 </ol>
 <center>
-<p><img
-src="typeoakland.png" /></p>
+<p><img src="typeoakland.png" /></p>
 </center>
 <p>You should get a map that highlights Oakland’s boundaries.</p>
 <center>
-<p><img
-src="oaklandmap1.png" /></p>
+<p><img src="oaklandmap1.png" /></p>
 </center>
 <ol start="3" style="list-style-type: decimal">
 <li>The map does not show any data. Let’s add Median Housing Value.
@@ -525,31 +522,26 @@ Click on the <em>Housing</em> tab, followed by <em>Median Value</em>
 under <em>Home Values</em>.</li>
 </ol>
 <center>
-<p><img
-src="medval.png" /></p>
+<p><img src="medval.png" /></p>
 </center>
 <p>Now your map should look like the following</p>
 <center>
-<p><img
-src="medvalmap.png" /></p>
+<p><img src="medvalmap.png" /></p>
 </center>
 <ol start="4" style="list-style-type: decimal">
 <li>Notice in the legend window you can change various aspects of the
 variable, including the year</li>
 </ol>
 <center>
-<p><img
-src="pmyear.png" /></p>
+<p><img src="pmyear.png" /></p>
 </center>
 <p>the data type</p>
 <center>
-<p><img
-src="pmdata.png" /></p>
+<p><img src="pmdata.png" /></p>
 </center>
 <p>and the geographic level.</p>
 <center>
-<p><img
-src="pmgeo.png" /></p>
+<p><img src="pmgeo.png" /></p>
 </center>
 <p><strong>Be very careful about the geographic level. Users often do
 not realize that they are downloading an incorrect geographic scale. For
@@ -560,8 +552,7 @@ pull down menu, Zoom in and out of the map.</strong></p>
 Shaded by: Census Tract, 2022).</p>
 <ol start="5" style="list-style-type: decimal">
 <li><p>Let’s download these data. At the top right of the site, click on
-the download icon <img
-src="download.png" />.</p></li>
+the download icon <img src="download.png" />.</p></li>
 <li><p>A window should pop up. The first screen on the left (Select
 Data) tells you what data to download - it should be “Estimated median
 value of owner-occupied home, between 2019-2023” under Layer, with
@@ -569,8 +560,7 @@ value of owner-occupied home, between 2019-2023” under Layer, with
 selected.</p></li>
 </ol>
 <center>
-<p><img
-src="pmfirst.png" /></p>
+<p><img src="pmfirst.png" /></p>
 </center>
 <ol start="7" style="list-style-type: decimal">
 <li>The next section (Select Location) asks you to select a location. It
@@ -578,8 +568,7 @@ should be <em>City: Oakland, CA</em> and <em>Census Tract, 2022</em> for
 “Get values for geography”.</li>
 </ol>
 <center>
-<p><img
-src="pmsecond.png" /></p>
+<p><img src="pmsecond.png" /></p>
 </center>
 <ol start="8" style="list-style-type: decimal">
 <li>The last section asks you to confirm the download. Select
@@ -588,8 +577,7 @@ src="pmsecond.png" /></p>
 Method”. Then click on the Download button.</li>
 </ol>
 <center>
-<p><img
-src="pmthird.png" /></p>
+<p><img src="pmthird.png" /></p>
 </center>
 <ol start="9" style="list-style-type: decimal">
 <li>After a minute or two, a screen like below (on a Mac laptop) should
@@ -597,8 +585,7 @@ pop up at the top right corner of your screen (the file name will differ
 from yours). You can download this file again until the date given.</li>
 </ol>
 <center>
-<p><img
-src="downloadcsv.png" /></p>
+<p><img src="downloadcsv.png" /></p>
 </center>
 <ol start="10" style="list-style-type: decimal">
 <li>PolicyMap allows you to download only one variable at the time. So,
@@ -691,8 +678,7 @@ avoid them.</p>
 <p>You will notice that PolicyMap designates missing values as
 <em>N/A</em>.</p>
 <center>
-<p><img
-src="na.png" /></p>
+<p><img src="na.png" /></p>
 </center>
 <p>R designates missing as <em>NA</em>. Therefore, R reads <em>N/A</em>
 as a character. This means that R does not recognize <em>mhv</em> as a
