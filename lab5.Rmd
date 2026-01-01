@@ -1,7 +1,7 @@
 ---
 title: "Lab 5: Spatial Data in R"
 subtitle: <font size="4">CRD 150 - Quantitative Methods in Community Research</font>
-author: Professor Noli Brazil
+author: Instructor Elise Zufall
 date: April 30, 2025
 output: 
   html_document:

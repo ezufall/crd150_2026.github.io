@@ -1,7 +1,7 @@
 ---
 title: "Coordinate Reference Systems"
 subtitle: <h4 style="font-style:normal">CRD 150 - Quantitative Methods in Community Research</h4>
-author: <h4 style="font-style:normal">Professor Noli Brazil</h4>
+author: <h4 style="font-style:normal">Adapted from Professor Noli Brazil</h4>
 output: 
   html_document:
     toc: true

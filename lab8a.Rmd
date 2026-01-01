@@ -1,7 +1,7 @@
 ---
 title: "Lab 8a: Segregation"
 subtitle: <font size="4">CRD 150 - Quantitative Methods in Community Research</font>
-author: Professor Noli Brazil
+author: Instructor Elise Zufall
 date: May 19, 2025
 output: 
   html_document:
