@@ -1,7 +1,7 @@
 ---
 title: "Assignment Guidelines"
 subtitle: <font size="4">CRD 150 - Quantitative Methods in Community Research</font>
-date: Spring 2025
+date: Winter 2026
 output: 
   html_document:
     toc: true

@@ -1,7 +1,7 @@
 ---
 title: "Neighborhood Data Sources"
 subtitle: <font size="4">CRD 150 - Quantitative Methods in Community Research</font>
-author: Spring 2025
+author: Winter 2026
 output: 
   html_document:
     theme: cosmo
