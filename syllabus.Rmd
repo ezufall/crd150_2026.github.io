@@ -1,7 +1,7 @@
 ---
 title: "Syllabus"
 subtitle: <font size="4">CRD 150 - Quantitative Methods in Community Research</font>
-author: Spring 2025
+author: Winter 2026
 output: 
   html_document:
     toc: true
@@ -44,32 +44,32 @@ The following is an abridged version of the course syllabus.  A full course syll
 ## **Lecture and Lab Times**
 
 * Lecture: 
-    + Monday and Wednesday, 12:10-2:00 pm
-    + 250 Olson
+    + Monday and Wednesday, 2:10-4:30 pm
+    + 158 Olson
     + Live, in-person
     + Combination of lecture, discussion, activities and lab. See course agenda for schedule
 * Labs: 
-    + A01: Thursday, 4:10-5:00 pm
-    + A02: Thursday, 5:10-6:00 pm 
-    + 2020 Esau Hall
+    + A01: Thursday, 9:00-9:50 am
+    + A02: Thursday, 10:00-10:50 am 
+    + 1320 Walker Hall
     + Live, in-person
 
 <div style="margin-bottom:25px;">
 </div>
 ## **Instructor**
 
-* Dr. Noli Brazil  
-* *Contact*: nbrazil.at.ucdavis.edu  
-* *Office*: 2325 Hart Hall
-* *Office hours*: Wednesday from 3:00-5:00 pm or by appointment, Zoom or in-person.  Please sign up for a slot [here](https://calendly.com/nbrazil-ucdavis/professor-brazil-s-winter-2025-office-hours?month=2025-04). Out of courtesy to other students, please do not sign up for more than two 10-minute blocks.  If you do, I will keep only the first two blocks. The last 40 minutes are open drop in. Zoom link is located [here](https://ucdavis.zoom.us/j/93812826461?pwd=f2EqwGwa79XPGiOxceBOxYw9DxHAuj.1) and on Canvas home page.
+* Elise Zufall  
+* *Contact*: ezufall.at.ucdavis.edu  
+* *Office*: 2120 Wickson Hall
+* *Office hours*: Wednesdays: Zoom appointment only (with at least 1 hour notice) from 11:45 am - 1:00 pm, and Zoom drop-in from 1:00 pm - 1:45 pm.  Please sign up for a slot [here](https://calendly.com/ezufall-ucdavis/15-min-office-hour-appointment). Out of courtesy to other students, please do not sign up for more than one 15-minute block.  If you do, I will keep only the first block. Zoom link is located [here](https://ucdavis.zoom.us/j/98953095536?pwd=78nza4gem89q4cUCvYklJUbZYdBDKU.1), password 234812, and on Canvas home page.
 
 <div style="margin-bottom:25px;">
 </div>
 ## **Teaching Assistant**
 
-* Yan Yan
-* *Contact*: yayan.at.ucdavis.edu  
-* *Office*: 2420 Hart
+* Celine John Philip
+* *Contact*: cjphilip.at.ucdavis.edu  
+* *Office*: 2120 Wickson
 * *Office hours*: TBD
 
 <div style="margin-bottom:25px;">
@@ -105,6 +105,8 @@ The course is organized into two phases.
 * Most Monday lectures will be a combination of lecture and graded/ungraded in-class exercises/questions covering the week’s substantive topics.  The ungraded exercises during lecture are meant to be less about learning how to do a task in R, and more about deepening your understanding of the week’s substantive topics. Expect that many of these exercises and questions be reflective of those found in the quizzes. See the agenda for when the required in-class activities will take place. Monday lectures will not be recorded.
 
 * Most Wednesday lectures will be a combination of some lecture covering the week’s topic but mostly computer sessions covering the week’s lab guide, which will be released on the course website every Wednesday before class.  I will ask you to bring your laptops to Wednesday lectures in order to follow along.  Not all lectures are expected to go the full class period. Wednesday lectures will be recorded and posted on Canvas.
+
+* On Mondays and Wednesdays, there will also be check-in questions for attendance purposes. Please always bring a device that can either scan the QR code or enter the URL for the check-in questions. Check-in questions are the only time during which phones are acceptable to use in class.
 
 
 <div style="margin-bottom:25px;">
@@ -146,7 +148,7 @@ The textbook is free online at: https://r.geocompx.org/
 </div>
 ## **Course Software**
 
-[R](https://www.r-project.org/) is the statistical language used in this course, as it has become an increasingly popular program for data analysis in the social sciences.  R is freeware and you can download it on your personal laptop and desktop computers.  We will use [RStudio](https://www.rstudio.com/) as a user friendly interface for R.  
+[R](https://www.r-project.org/) is the statistical language used in this course, as it has become an increasingly popular program for data analysis in the social sciences.  R is freeware and you can download it on your personal laptop and desktop computers.  We will use [RStudio](https://www.rstudio.com/) as a user friendly interface for R. If you do not own a laptop, let us know at the beginning of the quarter. 
 
 We will also introduce the  program [ArcGIS Online Story Maps](https://storymaps.arcgis.com/).
 
@@ -154,7 +156,7 @@ We will also introduce the  program [ArcGIS Online Story Maps](https://storymaps
 </div>
 ## **Course Requirements** 
 
-1. Assignments (50%)
+1. Assignments (48%)
 
 Assignments will be released on the lab website each week Wednesday morning and will be due the following Wednesday morning on Canvas.  Assignment questions are located at the end of each lab guide. They will contain a combination of programming tasks and theoretical questions that you will need to answer on your own.  For each assignment, you will need to submit an R Markdown Rmd and html file on Canvas.  Complete assignment guidelines can be found here: https://ezufall.github.io/crd150_2026.github.io/hw_guidelines.html.  
 
@@ -172,11 +174,11 @@ Late submissions will be deducted 10% per 24 hours until 72 hours after the subm
 
 2. Quizzes (20%)
 
-There will be two quizzes that will test conceptual material covered in lecture and readings.  The quizzes are open book and will be taken in class on your laptop during their designated dates and will cover only the material covered since the last quiz. They will consist of short computational, multiple choice and short answer questions.  You will not be expected to write or interpret R code. Make-up quizzes will be given ONLY in the case of extreme emergencies (severe illness, death in the immediate family) and when accompanied by appropriate documentation (e.g. doctor’s note). In the case of unexcused absences (travel plans, overslept, etc.), there are no make-up quizzes.  If you have been tested or have been exposed to COVID, and cannot take the test in class but can take it at home, we will provide accommodations to take the quiz during the same time as the rest of the class.
+There will be two quizzes that will test conceptual material covered in lecture and readings.  The quizzes are open book and will be taken in class on your laptop during their designated dates and will cover only the material covered since the last quiz. They will consist of short computational, multiple choice and short answer questions.  You will not be expected to write or interpret R code. Make-up quizzes will be given ONLY in the case of extreme emergencies (severe illness, death in the immediate family) and when accompanied by appropriate documentation (e.g. doctor’s note). In the case of unexcused absences (travel plans, overslept, etc.), there are no make-up quizzes.  If you have tested positive or have been exposed to COVID, and cannot take the test in class but can take it at home, we will provide accommodations to take the quiz during the same time as the rest of the class.
 
-3. In-class activities (5%)
+3. In-class participation and attendance (7%)
 
-There will be two in-class activities that will focus on the use of Artificial Intelligence (AI) in learning how to code. We strictly prohibit the use of AI in quizzes and written portions of your assignments and final project is not permitted. You are allowed to use AI in the coding portions of your homework assignments, but only to help aid in your learning of the material. The two in-class activities will demonstrate how to view AI not as a tool to replace your learning, but to enhance it.  Attendance is required unless you provide a viable excuse ahead of the designated class. In-class activities cannot be made up. You will be required to use your laptops for the in-class activities. If you do not own one, let us know at the beginning of the quarter.
+Lecture and discussion attendance is required unless you provide a viable excuse ahead of the designated class. As part of your participation and attendance grade, you will be expected to complete in-class check-ins. In-class check-ins and activities cannot be made up. You will be required to use your laptops or smartphone for the in-class activities. 
 
 4. Final course project (25%)
 
@@ -205,8 +207,18 @@ library(tidyverse)
 dt <- read_csv("agenda.csv")
 kable(dt) %>%
   kable_styling(bootstrap_options = c("striped", "hover", "responsive")) %>%
-    column_spec(1, width = "5em") %>%
-    column_spec(4, width = "13em")
+    column_spec(2, width = "5em") %>%
+    column_spec(5, width = "13em") %>% 
+    row_spec(3, extra_css = "border-bottom: 3px solid #000;") %>% 
+  row_spec(6, extra_css = "border-bottom: 3px solid #000;") %>% 
+  row_spec(9, extra_css = "border-bottom: 3px solid #000;") %>% 
+  row_spec(12, extra_css = "border-bottom: 3px solid #000;") %>% 
+  row_spec(15, extra_css = "border-bottom: 3px solid #000;") %>% 
+  row_spec(18, extra_css = "border-bottom: 3px solid #000;") %>% 
+  row_spec(21, extra_css = "border-bottom: 3px solid #000;") %>% 
+  row_spec(24, extra_css = "border-bottom: 3px solid #000;") %>% 
+  row_spec(27, extra_css = "border-bottom: 3px solid #000;") %>% 
+  row_spec(30, extra_css = "border-bottom: 3px solid #000;") 
 ```
 
 

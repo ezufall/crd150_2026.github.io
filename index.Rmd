@@ -1,6 +1,6 @@
 ---
 title: 'CRD 150: Quantitative Methods in Community Research'
-subtitle: <font size="4">Professor Noli Brazil</font>
+subtitle: <font size="4">Instructor Elise Zufall</font>
 author: <font size="4">University of California, Davis</font>
 date: <font size="4">Department of Human Ecology, Community and Regional Development</font>
 ---
@@ -78,7 +78,7 @@ This course is an introduction to the use of statistical methods and tools to un
 
 ## Giving Credit
 
-The following websites/resources were used in the construction of this course website. My gratitude to the people who invested their time and effort in developing and offering these valuable resources to the public.
+This website was developed by Professor Noli Brazil and adapted for Winter 2026 by Elise Zufall. The following websites/resources were used in the construction of this course website. My gratitude to the people who invested their time and effort in developing and offering these valuable resources to the public.
 
 * Manuel Gimond's [Intro to GIS and Spatial Analysis](https://mgimond.github.io/Spatial/index.html)
 * Claudia Engel's [Using Spatial Data in R](https://cengel.github.io/R-spatial/)
