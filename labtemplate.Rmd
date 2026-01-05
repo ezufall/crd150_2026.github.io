@@ -1,0 +1,34 @@
+---
+title: "Insert Lab Title Here"
+subtitle: CRD 150
+author: YOUR FULL NAME HERE
+date: INSERT DATE HERE
+output: 
+  html_document:
+    theme: cosmo
+---
+
+```{r setup, include=FALSE}
+#Don't delete this chunk
+knitr::opts_chunk$set(echo = TRUE, warning=FALSE, message = FALSE)
+knitr::opts_knit$set(progress = TRUE, verbose = TRUE)
+```
+
+When going through the lab guides, rather than working directly from the R console, I recommended typing in lab code into an R Markdown and working from there. This will give you more practice and experience working in the R Markdown environment, which you will need to do for all of your assignments. Plus you can add your own comments to the code to ensure that you’re understanding what is being done.  Use this R Markdown template to type in code from the lab guide. 
+
+Type your code in the gray chunks below. R will not run any code after the # sign.  Text after # are meant to be comments you use to explain what the code is doing. For example  
+
+```{r}
+#this code adds 1 and 1
+
+1+1
+```
+
+Insert any explanatory text of the results outside of the gray chunks.  For example, the above analysis yields the answer 2.
+
+```{r}
+#Add comment explaining code
+
+```
+
+Insert any explanatory text here.

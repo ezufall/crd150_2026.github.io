@@ -1,7 +1,7 @@
 ---
 title: "R Tips and Fixes"
 subtitle: <font size="4">CRD 150 - Quantitative Methods in Community Research</font>
-author: Professor Noli Brazil
+author: Instructor Elise Zufall
 output: 
   html_document:
     toc: true

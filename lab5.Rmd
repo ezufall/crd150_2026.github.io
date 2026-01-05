@@ -2,7 +2,7 @@
 title: "Lab 5: Spatial Data in R"
 subtitle: <font size="4">CRD 150 - Quantitative Methods in Community Research</font>
 author: Instructor Elise Zufall
-date: April 30, 2025
+date: Feb 4, 2026
 output: 
   html_document:
     toc: true
@@ -69,7 +69,7 @@ This lab guide follows closely and supplements the material presented in Chapter
 
 <br>
 
-<p class="comment">**Assignment 5 is due by 12:00 pm, May 7th on Canvas.**  See [here](https://ezufall.github.io/crd150_2026.github.io/hw_guidelines.html) for assignment guidelines.  You must submit an `.Rmd` file and its associated `.html` file. Name the files: yourLastName_firstInitial_asgn05. For example: zufall_e_asgn05.</p>
+<p class="comment">**Assignment 5 is due by 12:00 pm, Feb 11th on Canvas.**  See [here](https://ezufall.github.io/crd150_2026.github.io/hw_guidelines.html) for assignment guidelines.  You must submit an `.Rmd` file and its associated `.html` file. Name the files: yourLastName_firstInitial_asgn05. For example: zufall_e_asgn05.</p>
 
 
 <div style="margin-bottom:25px;">

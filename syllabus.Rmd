@@ -60,8 +60,8 @@ The following is an abridged version of the course syllabus.  A full course syll
 
 * Elise Zufall  
 * *Contact*: ezufall.at.ucdavis.edu  
-* *Office*: 2120 Wickson Hall
-* *Office hours*: Wednesdays: Zoom appointment only (with at least 1 hour notice) from 11:45 am - 1:00 pm, and Zoom drop-in from 1:00 pm - 1:45 pm.  Please sign up for a slot [here](https://calendly.com/ezufall-ucdavis/15-min-office-hour-appointment). Out of courtesy to other students, please do not sign up for more than one 15-minute block.  If you do, I will keep only the first block. Zoom link is located [here](https://ucdavis.zoom.us/j/98953095536?pwd=78nza4gem89q4cUCvYklJUbZYdBDKU.1), password 234812, and on Canvas home page.
+* *Office*: Zoom!
+* *Office hours*: Mondays: Zoom appointment only (with at least 1 hour notice) from 11:45 am - 1:00 pm, and Zoom drop-in from 1:00 pm - 1:45 pm.  Please sign up for a slot [here](https://calendly.com/ezufall-ucdavis/15-min-office-hour-appointment). Out of courtesy to other students, please do not sign up for more than one 15-minute block.  If you do, I will keep only the first block. Zoom link is located [here](https://ucdavis.zoom.us/j/98953095536?pwd=78nza4gem89q4cUCvYklJUbZYdBDKU.1), password 234812, and on Canvas home page.
 
 <div style="margin-bottom:25px;">
 </div>
@@ -170,7 +170,7 @@ In order to get full credit for each assignment, you will need to
 
 Note that assignments will get progressively harder, so it is important that you master the material each week as assignments will build on one another. If you get stuck you can seek help from the TA, who will be available in the scheduled lab sessions and during office hours.  We also encourage you to work with other students, but **you must submit your own assignment.**  
 
-Late submissions will be deducted 10% per 24 hours until 72 hours after the submission due time.  After 72 hours your submission will not be graded.  No exception unless you provide documentation of your illness or bereavement before the due date.  If you cannot upload the assignment on Canvas due to technical issues, you must email it as an attachment to the TA by the submission due time.
+Late submissions will be deducted 10% per 24 hours until 72 hours after the submission due time.  After 72 hours your submission will not be graded.  No exception unless you provide documentation of your illness or bereavement before the due date.  If you cannot upload the assignment on Canvas due to technical issues, you must email it as an attachment to the TA by the submission due time. 
 
 2. Quizzes (20%)
 
@@ -178,7 +178,7 @@ There will be two quizzes that will test conceptual material covered in lecture 
 
 3. In-class participation and attendance (7%)
 
-Lecture and discussion attendance is required unless you provide a viable excuse ahead of the designated class. As part of your participation and attendance grade, you will be expected to complete in-class check-ins. In-class check-ins and activities cannot be made up. You will be required to use your laptops or smartphone for the in-class activities. 
+Lecture and discussion attendance is required unless you provide a viable excuse ahead of the designated class. As part of your participation and attendance grade, you will be expected to complete in-class check-ins and activities. In-class check-ins and activities cannot be made up. You will be required to use your laptops or smartphone for the in-class activities. One absence per quarter will be excused without documentation, to accommodate illness. Use of technology not related to class may result in receiving a 0 for attendance & participation for the day.
 
 4. Final course project (25%)
 

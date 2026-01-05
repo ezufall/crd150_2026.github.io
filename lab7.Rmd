@@ -1,16 +1,16 @@
 ---
-title: "Lab 7: Mapping Open Data"
+title: "Lab 7: Segregation"
 subtitle: <font size="4">CRD 150 - Quantitative Methods in Community Research</font>
 author: Instructor Elise Zufall
-date: May 14, 2025
+date: May 19, 2025
 output: 
   html_document:
     toc: true
     toc_depth: 3
     toc_float: true
+    mathjax: local
     theme: cosmo
     code_folding: show
-    self_contained: false
 ---
 
 
@@ -55,40 +55,35 @@ h2.title {
 knitr::opts_chunk$set(echo = TRUE, warning=FALSE, message = FALSE)
 ```
 
-In our journey into spatial R, we've been exclusively working with polygon data. In this guide you will learn how to handle and descriptively analyze point data.  More broadly, we will cover how to access and clean data from Open Data portals. The objectives of the guide are as follows 
+Measures of segregation and other indices of place-based inequality have been fundamental to documenting and understanding the causes and consequences of residential patterns of racial separation.  In this guide you will learn how to calculate neighborhood segregation and using R.  The objectives of the guide are as follows
 
-1. Learn how to download data from an Open Data portal
-2. Learn how to read point data into R
-3. Learn how to put latitude and longitude data on a map
-4. Learn how to put street addresses on a map
-5. Learn how to map point data
+1. Calculate the Dissimilarity index, a measure of residential evenness.
+2. Calculate the Interaction index, a measure of residential exposure.
+3. Calculate the Location Quotient for Racial Residential Segregation, a measure of neighborhood level concentration
 
-To achieve these objectives, we will examine the spatial distribution of homeless encampments in the City of Los Angeles using [311](https://lacity.gov/myla311) data downloaded from the city's [open data portal](https://data.lacity.org/).
+To accomplish these objectives, you will be working with Census tract data for four of the largest cities in California: Fresno, San Diego, San Jose, and San Francisco.
 
-This lab guide follows closely and supplements the material presented in Chapters 2.4, 2.5, 4.2 and 7 in the textbook [Geocomputation with R](https://geocompr.robinlovelace.net/) (GWR).
+This lab guide follows closely and supplements the material presented in Chapters 4.1 and 4.2 in the textbook [Geocomputation with R](https://geocompr.robinlovelace.net/) (GWR) and Handout 7. 
 
-<p class="comment">**Assignment 7 is due by 12:00 pm, May 21st on Canvas.**  See [here](https://ezufall.github.io/crd150_2026.github.io/hw_guidelines.html) for assignment guidelines.  You must submit an `.Rmd` file and its associated `.html` file. Name the files: yourLastName_firstInitial_asgn07. For example: zufall_e_asgn07.</p>
+<br>
+
+<p class="comment">**Assignment 7 is due by 12:00 pm, May 28th on Canvas.**  See [here](https://ezufall.github.io/crd150_2026.github.io/hw_guidelines.html) for assignment guidelines.  You must submit an `.Rmd` file and its associated `.html` file. Name the files: yourLastName_firstInitial_asgn07. For example: zufall_e_asgn07.</p>
+
 
 
 <div style="margin-bottom:25px;">
 </div>
-## **Open up an R Markdown file**
+## **Open up a R Markdown file**
 \
 
-Download the [Lab template](https://raw.githubusercontent.com/crd150/data/master/labtemplate.Rmd) into an appropriate folder on your hard drive (preferably, a folder named 'Lab 7'), open it in R Studio, and type and run your code there.  The template is also located on Canvas under Files.  Change the title ("Lab 7") and insert your name and date. Don't change anything else inside the YAML (the stuff at the top in between the `---`).  For a rundown on the use of R Markdown, see the [assignment guidelines](https://ezufall.github.io/crd150_2026.github.io/hw_guidelines.html).
+Download the [Lab template](https://raw.githubusercontent.com/crd150/data/master/labtemplate.Rmd) into an appropriate folder on your hard drive (preferably, a folder named 'Lab 7'), open it in R Studio, and type and run your code there.  The template is also located on Canvas under Files.  The template is also located on Canvas under Files.  Change the title ("Lab 7") and insert your name and date. Don't change anything else inside the YAML (the stuff at the top in between the `---`).  Also keep the grey chunk after the YAML. For a rundown on the use of R Markdown, see the [assignment guidelines](https://ezufall.github.io/crd150_2026.github.io/hw_guidelines.html).
 
 <div style="margin-bottom:25px;">
 </div>
 ## **Installing and loading packages**
 \
 
-You’ll need to install the following package in R. We’ll talk about what this package provides as its relevant functions come up in the guide.
-
-```{r message = FALSE, warning = FALSE, eval = FALSE}
-install.packages("tidygeocoder")
-```
-
-You’ll need to load the following packages. Unlike installing, you will always need to load packages whenever you start a new R session. You’ll also always need to use `library()` in your R Markdown file.
+We will not be using any new packages in this lab. You’ll need to load the following packages. Unlike installing, you will always need to load packages whenever you start a new R session. As such, you’ll always need to use `library()` in your R Markdown file.
 
 ```{r message = FALSE, warning=FALSE}
 library(sf)
@@ -97,339 +92,306 @@ library(tidycensus)
 library(tigris)
 library(tmap)
 library(rmapshaper)
-library(tidygeocoder)
+library(flextable)
 ```
-
 
 <div style="margin-bottom:25px;">
 </div>
-## **Read in census tract data**
+## **Read in the data**
 \
 
-We will need to bring in census tract polygon features and racial composition data from the 2015-2019 American Community Survey using the Census API and keep tracts within Los Angeles city boundaries using a clip.  The code for accomplishing these tasks is below.  We won't go through each line of code in detail because we've covered all of these operations and functions in prior labs.  I've embedded comments within the code that briefly explain what each chunk is doing, but go back to prior guides (or RDS/GWR) if you need further help.  
+The following code uses the Census API to bring in demographic tract-level data for four of the most populated cities in California: San Diego, San Jose, San Francisco, and Fresno.  We won't go through each line of code in detail because we've covered all of these operations and functions in prior labs.  We've embedded comments within the code that briefly explains what each chunk is doing. Go back to prior guides (or RDS/GWR) if you need further help. 
 
-```{r warning=FALSE, results = "hide", message=FALSE}
-# Bring in census tract data with spatial geometry 
+```{r warning=FALSE, results="hide", message=FALSE}
+# Bring in 2019-2023 census tract data using the Census API 
 ca.tracts <- get_acs(geography = "tract", 
-              year = 2019,
-              variables = c(tpop = "B01003_001", tpopr = "B03002_001", 
+              year = 2023,
+              variables = c(tpop = "B03002_001", 
                             white = "B03002_003", black = "B03002_004",
-                             asian = "B03002_006", hisp = "B03002_012"),
+                            asian = "B03002_006", hisp = "B03002_012"),
               state = "CA",
               survey = "acs5",
               output = "wide",
               geometry = TRUE)
 
-# Calculate percent race/ethnicity, rename variables, and keep essential vars.
+# Calculate, rename and keep essential vars. 
 ca.tracts <- ca.tracts %>% 
-  mutate(pwhite = whiteE/tpoprE, pasian = asianE/tpoprE, 
-              pblack = blackE/tpoprE, phisp = hispE/tpoprE) %>%
-  rename(tpop = tpopE) %>%
-  select(GEOID,tpop, pwhite, pasian, pblack, phisp)
+  mutate(pwhite = 100*(whiteE/tpopE), pasian = 100*(asianE/tpopE), 
+        pblack = 100*(blackE/tpopE), phisp = 100*(hispE/tpopE)) %>%
+  rename(white = whiteE, asian = asianE, black = blackE,
+         hisp = hispE, tpop = tpopE) %>%
+  select(GEOID,tpop, pwhite, pasian, pblack, phisp,
+           white, asian, black, hisp)  
 
-# Bring in city boundary data
-pl <- places(state = "CA", cb = TRUE)
+# Bring in city boundaries
+pl <- places(state = "CA", year = 2023, cb = TRUE)
 
-# Keep LA city
-la.city <- pl %>%
-            filter(NAME == "Los Angeles")
+# Keep four large cities in CA
+large.cities <- pl %>%
+                filter(NAME == "San Diego" |
+                         NAME == "San Jose" | NAME == "San Francisco" |
+                         NAME == "Fresno")
 
-#Clip tracts using LA boundary
-la.city.tracts <- ms_clip(target = ca.tracts, 
-                          clip = la.city, 
-                          remove_slivers = TRUE)
+#Clip tracts in large cities 
+large.tracts <- ms_clip(target = ca.tracts, 
+                        clip = large.cities, 
+                        remove_slivers = TRUE)
 ```
 
-Make sure to take a look at the final data object.
+Make sure to take a look at the final outcome.
 
 ```{r}
-glimpse(la.city.tracts)
+glimpse(large.tracts)
+```
+
+The object *large.tracts* contains the census tracts located in the four cities.  When you view the dataset, you'll notice that we don't have any variable indicating which  city each tract belongs to.  We need the city identifier to calculate segregation for each city. The city GEOID and NAME are in the object  *large.cities*, which we will need to append to each tract in the object *large.tracts*. 
+
+We do this by using the `st_join()` function, which is a part of the **sf** package.   The function will join the variables from *large.cities* to *large.tracts* based on geographic location.  That is, if a tract is located within a city, that city's values from *large.cities* will be appended to that tract.
+
+First, look at the variables already in *large.tracts*.
+
+```{r}
+names(large.tracts)
+```
+
+Then look at the variables in *large.cities*
+
+```{r}
+names(large.cities)
+```
+
+Then `st_join()`
+
+```{r}
+large.tracts <- large.tracts %>%
+                st_join(large.cities)
+```
+
+This function joins the variables from *large.cities* to the object *large.tracts*. 
+
+```{r}
+names(large.tracts)
+```
+
+Note that  when the two files have the same variable names, R attaches *.x* and *.y* to the end of the variable names such as *GEOID.x* and *GEOID.y*, which represent the tract and city GEOIDs, respectively.
+
+We don't need all of these new variables, so let's use `select()` to remove the variables we don't need.
+
+```{r}
+large.tracts <- large.tracts %>%
+                select(-rmapshaperid, -(STATEFP:GEOIDFQ), -(NAMELSAD:AWATER))
+```
+
+Make sure we've kept the variables we need
+
+```{r}
+names(large.tracts)
 ```
 
 <div style="margin-bottom:25px;">
 </div>
-## **Point data from an open data portal**
+## **Mapping**
 \
 
-We will be examining the spatial distribution of homeless encampments in Los Angeles City. We will download homeless encampment data from Los Angeles' Open Data portal. The data represent homeless encampment locations in 2019 as reported through the City's [311 system](https://www.lacity.org/myla311).  To download the data from LA's open data portal, follow these steps:
 
-1. Navigate to the  [Los Angeles City Open Data portal](https://data.lacity.org/A-Well-Run-City/MyLA311-Service-Request-Data-2019/pvft-t768). Note the record layout for the dataset further down the page.
-2. Click on *Actions* and then *Query data*.   This will bring up the  data in an excel style worksheet.
-2. You'll find that there are over one million 311 requests in 2019.  Rather than bring all of these requests into R, let's just filter for homeless encampments.  To do this, click on the bottom arrow next to the box *Select a column to filter...*.  and select *Request Type* from the  pull down menu. Then type in *Homeless Encampment* in the text box that appears (*Search...*). Hit the Apply button located at the bottom of the screen.
-4. Click on *Export* and select *CSV*.  Download the file into an appropriate folder on your hard drive (where your Lab RMarkdown resides). Name the file "homeless311_la_2019".
+Before calculating segregation, you should map neighborhood racial/ethnic composition in order to gain a visual understanding of how race/ethnic groups are spatially distributed in your study region. For example, let's map percent Hispanic in Fresno.
 
-Read the file into R using the function `read_csv()`. Make sure your current working directory is pointing to the appropriate folder (use `getwd()` to see the current directory and `setwd()` to change it).
-
-
-```{r eval = FALSE}
-homeless311.df <- read_csv("homeless311_la_2019.csv")
+```{r}
+large.tracts %>%
+  filter(NAME == "Fresno") %>%
+  tm_shape(unit = "mi") +
+    tm_polygons(fill = "phisp", 
+                fill.scale = tm_scale(style = "quantile",
+                                      values = "reds"),
+                fill.legend = tm_legend(title = ""),
+                col_alpha = 0) +
+    tm_scalebar(breaks = c(0, 1, 2), 
+                text.size = 0.75, 
+                position = tm_pos_in("right", "bottom")) + 
+   tm_compass(type = "4star", position = tm_pos_in("right", "top")) +
+   tm_title("Percent Hispanic in Fresno City Tracts, 2019-2023") +
+   tm_layout(scale = 0.6, frame = FALSE) 
 ```
 
-If you had trouble downloading the file, I uploaded it onto GitHub. Read the file into R using the following code.  
+How does this spatial distribution compare to percent non-Hispanic white?
 
+```{r}
+large.tracts %>%
+  filter(NAME == "Fresno") %>%
+  tm_shape(unit = "mi") +
+    tm_polygons(fill = "pwhite", 
+                fill.scale = tm_scale(style = "quantile",
+                                      values = "reds"),
+                fill.legend = tm_legend(title = ""),
+                col_alpha = 0) +
+    tm_scalebar(breaks = c(0, 1, 2), 
+                text.size = 0.75, 
+                position = tm_pos_in("right", "bottom")) + 
+   tm_compass(type = "4star", position = tm_pos_in("right", "top")) +
+   tm_title("Percent White in Fresno City Tracts, 2019-2023") +
+   tm_layout(scale = 0.6, frame = FALSE)
+```
+
+You can make a better visual comparison of the two maps by placing them side by side.
+
+```{r}
+large.tracts %>%
+  filter(NAME == "Fresno") %>%
+tm_shape(unit = "mi") +
+  tm_polygons(fill = c("phisp", "pwhite"), 
+              fill.scale = tm_scale(style = "quantile",
+                                    values = "reds"),
+                fill.legend = tm_legend(title = ""),
+                col_alpha = 0) +
+  tm_scalebar(breaks = c(0, 1, 2), 
+                text.size = 0.75, 
+                position = tm_pos_in("right", "bottom")) +
+  tm_compass(type = "4star", position = tm_pos_in("right", "top")) +
+  tm_layout(scale = 0.6, frame = FALSE)
+```
+
+It looks like a North/South divide.  Map the other two race/ethnic groups in Fresno and all the groups in the other three cities.
+
+<div style="margin-bottom:25px;">
+</div>
+## **Dissimilarity Index**
+\
+
+The most common measure of residential evenness is the Dissimilarity Index *D*. To calculate *D*, we'll follow the Dissimilarity index formula on page 3 of Handout 7. We will calculate Black/White, Hispanic/White, and Asian/White Dissimilarity. 
+
+We already have the values $t_{im}$, and $t_{ik}$, which is the total population of  race/ethnic group $m$ and $k$ in each census tract. But we don't have the total population of race/ethnic group $m$ and $k$ for each city. This is the value $T_m$ and $T_k$ in the formula.   To calculate these values, we use the `group_by()` and `mutate()` functions.  
 
 ```{r warning = FALSE, message = FALSE}
-homeless311.df <- read_csv("https://raw.githubusercontent.com/crd150/data/master/homeless311_la_2019.csv")
-```
+large.tracts <- large.tracts %>%
+      group_by(NAME) %>%
+      mutate(whitec = sum(white), asianc = sum(asian), 
+             blackc = sum(black), hispc = sum(hisp), 
+             tpopc = sum(tpop)) 
+```  
+  
+We already covered `group_by()` in [Lab 4](https://ezufall.github.io/crd150_2026.github.io/lab4.html#Numeric_variables), but as a reminder, the `group_by()` function tells R that all future functions on *large.tracts* will be grouped according to the variable *NAME*, which is the city name. We use the `sum()` function within the `mutate()` function to sum up, for example, the non-Hispanic white population *white* for each city. We name this variable *whitec*.  If you type in `View(large.tracts)`, you should find that the variable *whitec* provides the same value for all tracts within the same city. We do this for all the other race/ethnic groups.
 
-Whenever you bring a dataset into R, always look at it.  We examine *homeless311.df* using `glimpse()`
-
-```{r}
-glimpse(homeless311.df)
-```
-
-Let's bring in a csv file containing the street addresses of [homeless shelters and services in Los Angeles County](https://www.lahsa.org/portal/apps/find-a-shelter/adults) (as of 2019), which I also downloaded from Los Angeles' open data portal.  I uploaded the file onto Github so you don't have to download it from the portal like we did above with encampments. The file is also located on Canvas (Week 7 - Lab).
+We next calculate the tract level contributions to the index, i.e. the value $\left|\frac{t_{rm}}{T_m} - \frac{t_{rk}}{T_k}\right|$ in Equation 1 in Handout 7 for each neighborhood $i$.
 
 ```{r warning = FALSE, message = FALSE}
-shelters.df <- read_csv("https://raw.githubusercontent.com/crd150/data/master/Homeless_Shelters_and_Services.csv")
-```
-
-Take a look at the data
-
-```{r}
-glimpse(shelters.df)
+large.tracts <- large.tracts %>%
+      mutate(d.wb = abs(black/blackc-white/whitec),
+              d.wa = abs(asian/asianc-white/whitec), 
+              d.wh = abs(hisp/hispc-white/whitec))
 ```
 
 
-<div style="margin-bottom:25px;">
-</div>
-## **Putting points on a map**
-\
+Next, we turn to `summarize()` to finish the rest of the job.  Within `summarize()`, we use the function `sum()` to add the neighborhood specific values in Equation 1 in Handout 7. In other words, `sum()` is performing the $\sum\limits_{i}^{N}$ that adds up $\left|\frac{t_{rm}}{T_m} - \frac{t_{rk}}{T_k}\right|$.  Finally, multiply the summed up value by 0.5 to get the final index values.
 
-Notice that the data we brought in are not spatial. They are regular tibbles, not **sf** objects. They're class is not **sf**.
-
-```{r}
-class(homeless311.df)
-class(shelters.df)
+```{r warning = FALSE, message = FALSE}
+large.tracts %>%
+      summarize(BWD = 0.5*sum(d.wb, na.rm=TRUE), AWD = 0.5*sum(d.wa, na.rm=TRUE),
+                HWD = 0.5*sum(d.wh, na.rm=TRUE)) 
 ```
 
-And they don’t have geometry as a column.
-
-```{r}
-names(homeless311.df)
-names(shelters.df)
-```
-
-
-In order to convert these nonspatial objects into spatial objects, we need to geolocate them.  To do this, use the geographic coordinates (longitude and latitude) to place points on a map. The file *homeless311.df* has longitude and latitude coordinates, so we have all the information we need to convert it to a spatial object.  
-
-We will use the function `st_as_sf()` to create a point **sf** object out of *homeless311.df* using the  geographic coordinates.  Geographic coordinates are in the form of a longitude and latitude, where longitude is your X coordinate and spans East/West and latitude is your Y coordinate and spans North/South. The function `st_as_sf()` requires you to specify the longitude and latitude of each point using the `coords =` argument, which are conveniently stored in the variables *Longitude* and *Latitude* in *homeless311.df*. We need to take out any observations with missing values `NA` for either *Longitude* or *Latitude*.  Do this by using the function `drop_na()`
-
-```{r}
-homeless311.df <- homeless311.df %>%
-                drop_na(Longitude, Latitude)
-```
-
-You also need to establish the Coordinate Reference System (CRS) using the `crs =` argument. To establish a CRS, you will need to specify the Geographic Coordinate System (so you know where your points are on Earth), which encompasses the datum and ellipse, and a Projection (a way of putting points in 2 dimensions or on a flat map). 
-
-```{r}
-homeless311.sf <- st_as_sf(homeless311.df, 
-                           coords = c("Longitude", "Latitude"), 
-                           crs = "+proj=longlat +datum=NAD83 +ellps=WGS84")
-```
-
-For `crs =`, we establish the projection `+proj=`, datum `+datum=` and ellipse `+ellps`.  Because we have latitude and longitude, `+proj=` is established as `longlat`. We use NAD83 for datum and WGS84 ellipse. The most common datum and ellipsoid combinations are listed in Figure 1 in the Coordinate_Reference_Systems.pdf document on Canvas (Files - Other Resources).  For the purposes of this lab and assignment 7 (and in your final project if you choose to use point data), use the crs specified above.
-
-Note that the CRS should have only have one space in between `+proj=longlat`, `+datum=WGS84` and `+ellps=WGS84`.  And you should have no spaces anywhere else.  Be careful about this because if you introduce spaces elsewhere you will get an incorrect CRS (and R will not give you an error to let you know). Also note that the longitude will always go before the latitude in `coords =`.
-
-Now we can map encampments over Los Angeles City tracts using our new best friend `tm_shape()`, whom we met in [Lab 5](https://ezufall.github.io/crd150_2026.github.io/lab5.html#Mapping_in_R). Because encampments are points, we need to use `tm_dots()` to map them. We color these points in red using the `fill =` argument.
-
-```{r eval = FALSE}
-tm_shape(la.city.tracts) +  
-  tm_polygons() +
-tm_shape(homeless311.sf) +  
-  tm_dots(fill="red")
-```
-
-
-<div style="margin-bottom:25px;">
-</div>
-## **Street Addresses**
-\
-
-Often you will get point data that won’t have longitude/X and latitude/Y coordinates but instead have street addresses. The process of going from address to X/Y coordinates is known as geocoding. 
-
-To demonstrate geocoding, type in your home street address, city and state inside the quotes below.  If your home address isn't working, use the address for [Woodstock Pizza](https://woodstocksdavis.com/) (238 G St, Davis, CA). We are saving our address in an object we named *myaddress.df*.
-
-```{r eval = FALSE}
-myaddress.df  <- tibble(street = "238 G St", 
-                        city = "Davis", 
-                        state = "CA")
-```
-
-This creates a tibble with your street, city and state saved in three variables. To geocode addresses to longitude and latitude, use the function `geocode()` which is a part of the **tidygeocoder** package.  Use `geocode()` as follows
-
-```{r eval = FALSE}
-myaddress.df <- geocode(myaddress.df, 
-                        street = street, 
-                        city = city, 
-                        state = state, 
-                        method = "osm")
-```
-
-Here, we specify street, city and state variables, which are conveniently named *street*, *city*, and *state* in *myaddress.df*.  The argument `method = "osm"` specifies the geocoder used to map addresses to longitude/latitude locations. In the above case `'osm'` uses the free geocoder provided by OpenStreetMap to find the address.  Think of a geocoder as R going to the OpenStreetMap [website](https://www.openstreetmap.org/#map=4/38.01/-95.84), searching for each address,  plucking the latitude and longitude of the address, and saving it into a tibble named *myaddress.df*.  Other geocoders include Google Maps (not free) and the  [US Census](https://geocoding.geo.census.gov/) (free). If you're having trouble geocoding using "osm", try "census" for `method = `. 
-
-
-If you view this object, you'll find the latitude *lat* and longitude *long* attached as columns. 
-
-```{r eval = FALSE}
-glimpse(myaddress.df)
-```
-
-Convert this to an **sf** object using the function `st_as_sf()` like we did above with the encampments.
-
-```{r eval = FALSE}
-myaddress.sf <- st_as_sf(myaddress.df, 
-                         coords = c("long", "lat"),
-                         crs = "+proj=longlat +datum=NAD83 +ellps=WGS84")
-```
-
-Type in `tmap_mode("view")` and then [map](https://ezufall.github.io/crd150_2026.github.io/lab5.html#Interactive_maps) *myaddress.sf*.  Zoom into the point.  Did it get your home address correct?
+The resulting values provide the Dissimilarity indices for Black/White (*BWD*), Asian/White (*AWD*), and Hispanic/White (*HWD*).  In all of these cases, we calculate segregation from white residents, but you can calculate segregation for any race/ethnicity combination (e.g. Black/Hispanic).  Instead of just copying and pasting the chunk of code above into your console, make sure you understand what each line of code is doing.  Not only will it help you become a more seasoned R coder, but it will also help you better understand the underlying math behind the Dissimilarity index.
 
 <br>
 
-The file *shelters.df* contains no latitude and longitude data, so we need to convert the street addresses contained in the variables *addrln1*, *city* and *state*.  View the data to verify. 
-
-Use the function `geocode()` like we did above.  We use `method = "osm"` to indicate we want to use the OSM API to geocode the addresses for us (as opposed to other geocoders that are available). The process may take a few minutes so be patient.
-
-```{r}
-shelters.geo <- geocode(shelters.df, 
-                        street = addrln1, 
-                        city = city, 
-                        state = state, 
-                        method = "osm")
-```
-
-Look at the column names.
-
-```{r}
-names(shelters.geo)
-```
-
-And take a look at the data
-
-```{r}
-glimpse(shelters.geo)
-```
-
-We see the latitudes and longitudes are attached to the variables *lat* and *long*, respectively.  Notice that not all the addresses were successfully geocoded.
-
-```{r}
-summary(shelters.geo$lat)
-```
-
-Several shelters received an `NA`.  This is likely because the addresses are not correct, has errors, or are not fully specified.  You'll have to manually fix these issues, which becomes time consuming if you have a really large data set.  For the purposes of this lab, let's just discard these, but in practice, make sure to double check your address data (See the document Geocoding_Best_Practices.pdf in the Other Resources folder on Canvas for best practices for cleaning address data). We use the `drop_na()` function to filter out the NAs.
-
-```{r}
-shelters.geo <- shelters.geo %>%
-                drop_na(lat, long)
-```
-
-Convert latitude and longitude data into spatial points using the function `st_as_sf()` like we did above for homeless encampments.
+The results table we got above is a little messy.  Let's clean it up by doing three things: (1) Drop the geometry column using `st_drop_geometry()`, which is a part of the **sf** package, thus making the object *large.tracts* no longer spatial; (2) use the `flextable()` function to make a nicely formatted table; and (3) save the resulting table in an object we named *dis.table*. The `st_drop_geometry()` function removes the *geometry* variable, and thus makes the object *large.tracts* no longer spatial.  We save the table into an object named *dis.table*
 
 ```{r warning = FALSE, message = FALSE}
-shelters.sf <- st_as_sf(shelters.geo, 
-                        coords = c("long", "lat"), 
-                        crs = "+proj=longlat +datum=NAD83 +ellps=WGS84")
+dis.table <- large.tracts %>%
+      summarize(BWD = 0.5*sum(d.wb, na.rm=TRUE), AWD = 0.5*sum(d.wa, na.rm=TRUE),
+                HWD = 0.5*sum(d.wh, na.rm=TRUE)) %>%
+      st_drop_geometry() %>%
+      flextable() 
+
+dis.table %>%
+  colformat_double(j = c("BWD", "AWD", "HWD"), digits = 3)
 ```
 
-Now, let's map shelters (in blue) and encampments (in red) on top of the tracts.
+\
 
-```{r}
-tm_shape(la.city.tracts) +
-  tm_polygons() +
-tm_shape(homeless311.sf) +  
-  tm_dots(fill= "red") +
-tm_shape(shelters.sf) +  
-  tm_dots(fill="blue")
-```
+Looks much better. The Dissimilarity index for Black/White in Fresno is 0.468.  The interpretation of this value is that 46.8% of Black residents would need to move neighborhoods in order to achieve a uniform distribution of Black and White residents across neighborhoods in the city.  
 
 
 <div style="margin-bottom:25px;">
 </div>
-## **Mapping point patterns**
+## **Interaction Index**
 \
 
-
-Other than mapping their locations (e.g. pin or dot map), how else can we visually present point locations?  When working with neighborhoods, we can examine point distributions by summing up the number of points in each neighborhood. 
-
-To do this, we can use the function `aggregate()`, which is part of the **sf** package.
+The most common measure of exposure is the Interaction Index $P^*$.  Let's calculate the exposure of black (*BWI*), Asian (*AWI*), Hispanic (*HWI*) residents to white residents using the formula on page 6 of Handout 7. Rather than breaking the calculation chunk-by-chunk like we did for the Dissimilarity Index, we'll calculate the Interaction index values in one continuous line of code using the `%>%` operator.
 
 ```{r}
-hcamps_agg <- aggregate(x = homeless311.sf["SRNumber"], 
-                        by = la.city.tracts, 
-                        FUN = "length")
+int.table <-large.tracts %>%
+      mutate(i.wb = (black/blackc)*(white/tpop),
+              i.wa = (asian/asianc)*(white/tpop), 
+              i.wh = (hisp/hispc)*(white/tpop)) %>%
+      summarize(BWI = sum(i.wb, na.rm=TRUE), AWI = sum(i.wa, na.rm=TRUE),
+                HWI = sum(i.wh, na.rm=TRUE)) %>%
+      ungroup() %>%
+      st_drop_geometry() %>%
+      flextable()
 ```
 
-* The first argument `x =` is the **sf** points you want to count, in our case *homeless311.sf*.  
-* You then include in bracket and quotes the unique ID for each point, in our case "SRNumber". 
-* The next argument `by =` is the object you want to sum the points for, in our case Los Angeles census tracts *la.city.tracts*.  
-* Finally,`FUN = "length"` tells R to sum up the number of points in each tract (as opposed to taking the max, min, median, etc.).
+Look at the Interaction index equation in Handout 7. The `mutate()` function is creating the tract specific values $\frac{t_{im}}{T_m} * \frac{t_{ik}}{t_i}$.  We then turn to `summarize()` to perform the $\sum\limits_{i}^{N}$. 
 
-Take a look at the object we created.
+We present the results in a nice table using the function `flextable()`.
 
 ```{r}
-glimpse(hcamps_agg)
+int.table %>%
+  colformat_double(j = c("BWI", "AWI", "HWI"), digits = 3)
+```                
+
+\
+
+The probability of a Black resident "interacting" with a white person in his or her neighborhood is about 19.9% in Fresno. We can also interpret this to mean that 19 (or 20 if you round up) of every 100 people a Black person meets in his or her neighborhood will be white.  Remember that interaction is not symmetric.  Calculate the interaction of white residents with Black residents in the other cities and see if there are major differences with the values we calculated above.
+
+<div style="margin-bottom:25px;">
+</div>
+## **Location Quotient**
+\
+
+The Dissimilarity and Interaction indices are city-level indices. In the handout, we covered one neighborhood-level measure: Location Quotient for Racial Residential Segregation (LQRSS), which captures neighborhood racial/ethnic concentration.
+ 
+Let’s zoom into the City of Fresno and calculate the LQRSS for each of its tracts. First, keep Fresno tracts from *large.tracts* using the `filter()` command and calculate the LQRSS for blacks, Asians, Hispanics, and whites using equation (3) in this week's handout.
+  
+  
+```{r}
+fresno.tracts <- large.tracts %>%
+  filter(NAME == "Fresno") %>%
+  mutate(blklq = (black/tpop)/(blackc/tpopc), 
+        asnlq = (asian/tpop)/(asianc/tpopc),
+        hisplq = (hisp/tpop)/(hispc/tpopc),
+        whitelq = (white/tpop)/(whitec/tpopc))
 ```
 
-The variable *SRNumber* gives us the number of points in each of Los Angeles' tracts.  Notice that there are missing values.
+The census tract with GEOID of 06019004217 has a black LQ of 4.12. In your own words, what does this value represent?
+
+You can visualize the distribution using a histogram (or boxplot). For example, a histogram of the black LQ looks like
 
 ```{r}
-summary(hcamps_agg)
+fresno.tracts %>% 
+  ggplot() + 
+    geom_histogram(mapping = aes(x=blklq), na.rm=TRUE) +
+    xlab("Black Location Quotient") 
 ```
 
-This is because there are tracts that have no homeless encampments.  Convert these NA values to 0 using the `replace_na()` function within the `mutate()` function.
+The skewness of the distribution indicates significant concentration of the black population in Fresno. We can also map the LQRSS. Let's use the viewing feature in **tmap** so we can zoom in and out, and identify the GEOIDs with the tracts with high or low Black location quotients.
 
 ```{r}
-hcamps_agg <- hcamps_agg %>%
-  mutate(SRNumber = replace_na(SRNumber,0))
-```
-
-The function `replace_na()` tells R to replace any NAs found in the variable *SRNumber* with the number 0.  
-
-Next, we save the variable *SRNumber* from *hcamps_agg* into our main dataset *la.city.tracts* by creating a new variable *hcamps* within `mutate()`.
-
-```{r warning=FALSE, message=FALSE}
-la.city.tracts <- la.city.tracts %>%
-            mutate(hcamps = hcamps_agg$SRNumber)
-```
-
-
-We can map the count of encampments by census tract, but counts do not take into consideration exposure.  In this case, tracts that are larger in size or greater in population may have more encampments (a concept we covered in Handout 5). Instead, let's calculate the number of homeless encampments per 1,000 residents.
-
-
-```{r warning=FALSE, message=FALSE}
-la.city.tracts <- la.city.tracts %>%
-            mutate(hcamppop = (hcamps/tpop)*1000)
-```
-
-The above code creates the variable *hcamppop* in *la.city.tracts*, which represents the number of homeless encampments per 1,000 residents.  Note that there are tracts with 0 population sizes, so a division of 0 when you created the variable *hcamppop* will yield an Inf value, which we covered in [Lab 1](https://ezufall.github.io/crd150_2026.github.io/lab1.html#Numeric).  Let's convert *hcamppop* to NA for tracts with Inf values using the `na_if()` function.
-
-```{r warning=FALSE, message=FALSE}
-la.city.tracts <- la.city.tracts %>%
-            mutate(hcamppop = na_if(hcamppop, Inf))
-```
-
-Now we can create a presentable choropleth map of homeless encampments per 1,000 residents for neighborhoods in the City of Los Angeles.
-
-```{r}
-la.city.tracts %>%
-  tm_shape(unit = "mi") +
-  tm_polygons(fill = "hcamppop", col_alpha = 0,
+tmap_mode("view")
+tm_shape(fresno.tracts, unit = "mi") +
+  tm_polygons(fill = "blklq", 
               fill.scale = tm_scale(style = "quantile",
                                     values = "reds"),
-              fill.legend = tm_legend(title = "Encampments per 1k pop",
-                                      frame = FALSE))  +
-  tm_title("Homeless encampments in Los Angeles Tracts, 2019") +
-  tm_scalebar(position = tm_pos_in("center", "bottom")) +
-  tm_compass(type = "4star", 
-             position = tm_pos_in("left", "bottom")) +
-  tm_layout(scale = 0.6, 
-            frame = FALSE) 
-```  
+              fill.legend = tm_legend(title = "Black Location Quotient")) 
+```
+              
+The map indicates that there are some neighborhoods in the city that have a percent black population that is as high as 5 times the overall percent black population in the city.
 
-Create maps of racial/ethnic composition and see if there are visual associations between race/ethnicity and homeless encampments in Los Angeles neighborhoods.
+<div style="margin-bottom:25px;">
+</div>
+## **Assignment 7**
+\
 
+Assignment 7 will be located at the end of [Lab 7](https://ezufall.github.io/crd150_2026.github.io/lab7.html).
 
 ***
 
