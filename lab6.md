@@ -1,8 +1,8 @@
 ---
 title: "Lab 6: Exploratory Spatial Data Analysis"
 subtitle: <font size="4">CRD 150 - Quantitative Methods in Community Research</font>
-author: Professor Noli Brazil
-date: May 7, 2025
+author: Instructor Elise Zufall
+date: Feb 11, 2026
 output: 
   html_document:
     toc: true
@@ -66,7 +66,7 @@ To achieve these objectives,  you will be working with tract-level data on the f
 
 <br>
 
-<p class="comment">**Assignment 6 is due by 12:00 pm, May 14th on Canvas.**  See [here](https://ezufall.github.io/crd150_2026.github.io/hw_guidelines.html) for assignment guidelines. You must submit an `.Rmd` file and its associated `.html` file. Name the files: yourLastName_firstInitial_asgn06. For example: brazil_n_asgn06.</p>
+<p class="comment">**Assignment 6 is due by 12:00 pm, Feb 18th on Canvas.**  See [here](https://ezufall.github.io/crd150_2026.github.io/hw_guidelines.html) for assignment guidelines. You must submit an `.Rmd` file and its associated `.html` file. Name the files: yourLastName_firstInitial_asgn06. For example: brazil_n_asgn06.</p>
 
 
 <div style="margin-bottom:25px;">

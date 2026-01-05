@@ -2,7 +2,7 @@
 title: "Lab 8: Mapping Open Data"
 subtitle: <font size="4">CRD 150 - Quantitative Methods in Community Research</font>
 author: Instructor Elise Zufall
-date: Feb 18, 2026
+date: Feb 25, 2026
 output: 
   html_document:
     toc: true
@@ -67,7 +67,7 @@ To achieve these objectives, we will examine the spatial distribution of homeles
 
 This lab guide follows closely and supplements the material presented in Chapters 2.4, 2.5, 4.2 and 7 in the textbook [Geocomputation with R](https://geocompr.robinlovelace.net/) (GWR).
 
-<p class="comment">**Assignment 8 is due by 12:00 pm, Feb 25th on Canvas.**  See [here](https://ezufall.github.io/crd150_2026.github.io/hw_guidelines.html) for assignment guidelines.  You must submit an `.Rmd` file and its associated `.html` file. Name the files: yourLastName_firstInitial_asgn08. For example: zufall_e_asgn08.</p>
+<p class="comment">**Assignment 8 is due by 12:00 pm, March 4th on Canvas.**  See [here](https://ezufall.github.io/crd150_2026.github.io/hw_guidelines.html) for assignment guidelines.  You must submit an `.Rmd` file and its associated `.html` file. Name the files: yourLastName_firstInitial_asgn08. For example: zufall_e_asgn08.</p>
 
 
 <div style="margin-bottom:25px;">

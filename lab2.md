@@ -62,7 +62,7 @@ In this guide you will learn how to download, clean and manage data - a process 
 
 This lab guide follows and supplements the material presented in Chapters 4 and 8-13 in the textbook [R for Data Science](http://r4ds.had.co.nz/index.html) (RDS) and the class Handout 2.
 
-<p class="comment">**Assignment 2 is due by 12:00 pm, Jan 21 on Canvas.**   See [here](https://ezufall.github.io/crd150_2026.github.io/hw_guidelines.html) for assignment guidelines. You must submit an `.Rmd` file and its associated `.html` file. Name the files: yourLastName_firstInitial_asgn02. For example: brazil_n_asgn02.</p>    
+<p class="comment">**Assignment 2 is due by 12:00 pm, Jan 21 on Canvas.**   See [here](https://ezufall.github.io/crd150_2026.github.io/hw_guidelines.html) for assignment guidelines. You must submit an `.Rmd` file and its associated `.html` file. Name the files: yourLastName_firstInitial_asgn02. For example: zufall_e_asgn02.</p>    
 
 
 <div style="margin-bottom:25px;">

@@ -64,7 +64,7 @@ The goal of this lab is to acquire skills in running descriptive statistics and 
 
 This lab guide follows closely and supplements the material presented in Chapters 1,3, 7 and 28 in the textbook [R for Data Science](http://r4ds.had.co.nz/index.html) (RDS) and the class Handout 4.
 
-<p class="comment">**Assignment 4 is due by 12:00 pm, Feb 4 on Canvas.**  See [here](https://ezufall.github.io/crd150_2026.github.io/hw_guidelines.html) for assignment guidelines.  You must submit an `.Rmd` file and its associated `.html` file. Name the files: yourLastName_firstInitial_asgn04. For example: brazil_n_asgn04.</p>
+<p class="comment">**Assignment 4 is due by 12:00 pm, Feb 4 on Canvas.**  See [here](https://ezufall.github.io/crd150_2026.github.io/hw_guidelines.html) for assignment guidelines.  You must submit an `.Rmd` file and its associated `.html` file. Name the files: yourLastName_firstInitial_asgn04. For example: zufall_e_asgn04.</p>
 
 <div style="margin-bottom:25px;">
 </div>

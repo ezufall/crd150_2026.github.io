@@ -62,7 +62,7 @@ In this guide you will learn how to download, clean and manage United States Cen
 
 This lab guide follows closely and supplements the material presented in Chapters 4, 8-13 in the textbook [R for Data Science](http://r4ds.had.co.nz/index.html) (RDS) and the class Handouts 2 and 3.
 
-<p class="comment">**Assignment 3 is due by 12:00 pm, Jan 28th on Canvas.**  See [here](https://ezufall.github.io/crd150_2026.github.io/hw_guidelines.html) for assignment guidelines.  You must submit an `.Rmd` file and its associated `.html` file. Name the files: yourLastName_firstInitial_asgn03. For example: brazil_n_asgn03.</p>
+<p class="comment">**Assignment 3 is due by 12:00 pm, Jan 28th on Canvas.**  See [here](https://ezufall.github.io/crd150_2026.github.io/hw_guidelines.html) for assignment guidelines.  You must submit an `.Rmd` file and its associated `.html` file. Name the files: yourLastName_firstInitial_asgn03. For example: zufall_e_asgn03.</p>
 
 <div style="margin-bottom:25px;">
 </div>

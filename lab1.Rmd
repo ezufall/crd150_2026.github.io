@@ -62,7 +62,7 @@ In this guide you will learn the basic fundamentals of the statistical software 
 
 This lab guide follows closely and supplements the material presented in Chapters 2, 4, and 20 in the textbook [R for Data Science](http://r4ds.had.co.nz/index.html) (RDS).
 
-<p class="comment">**Assignment 1 is due by 12:00 pm, Jan 14th on Canvas.**  See [here](https://ezufall.github.io/crd150_2026.github.io/hw_guidelines.html) for assignment guidelines.  You must submit an `.Rmd` file and its associated `.html` file. Name the files: yourLastName_firstInitial_asgn01. For example: brazil_n_asgn01</p>
+<p class="comment">**Assignment 1 is due by 12:00 pm, Jan 14th on Canvas.**  See [here](https://ezufall.github.io/crd150_2026.github.io/hw_guidelines.html) for assignment guidelines.  You must submit an `.Rmd` file and its associated `.html` file. Name the files: yourLastName_firstInitial_asgn01. For example: zufall_e_asgn01</p>
 
 <div style="margin-bottom:25px;">
 </div>

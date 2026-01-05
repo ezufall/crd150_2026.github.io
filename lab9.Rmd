@@ -2,7 +2,7 @@
 title: "Lab 9: ArcGIS StoryMaps"
 subtitle: <font size="4">CRD 150 - Quantitative Methods in Community Research</font>
 author: Instructor Elise Zufall
-date: May 28, 2025
+date: March 4th, 2026
 output: 
   html_document:
     toc: true
@@ -64,7 +64,7 @@ In this guide you will learn how to create a StoryMap using Esri's ArcGIS Online
 
 For this lab, download the files from Canvas (Files - Week 9 - Lab). There should be eight files - six photos (lametro.jpg, los_angeles_photo.jpg, pblk_histogram.jpg, phisp_histogram.jpg, stater_bros.jpg, and vons.jpg) and two zip files (la_tract_groc_dist and Los_Angeles_Metro_Stations). *la_tract_groc_dist.shp* is a shapefile of census tracts and the distance to their nearest grocery store in the City of Los Angeles. *Los_Angeles_Metro_Stations.shp* is a shapefile containing Los Angeles Metro Rail stops. We’ll create a StoryMap about grocery store spatial access in the City of Los Angeles.
 
-<p class="comment">**A StoryMap of your final project is due 5:00 pm, June 11th**. You must submit the link to your StoryMap and the Rmd and knitted html producing all of the maps/charts/tables in your StoryMap on Canvas. A peer evaluation of at least two of your classmates' StoryMaps is due 5:00 pm, June 12th. See the document final_project_description.pdf on Canvas for full details.</p>
+<p class="comment">**A StoryMap of your final project is due 5:00 pm, March 18th**. You must submit the link to your StoryMap and the Rmd and knitted html producing all of the maps/charts/tables in your StoryMap on Canvas. A peer evaluation of at least two of your classmates' StoryMaps is due 5:00 pm, March 19th. See the document final_project_description.pdf on Canvas for full details.</p>
 
 
 <div style="margin-bottom:25px;">
