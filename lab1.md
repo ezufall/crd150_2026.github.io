@@ -83,7 +83,7 @@ R is a free, open source statistical programming language.  It is useful for dat
 
 R can be downloaded from one of the “CRAN” (Comprehensive R Archive Network) sites. In the US, the main site is at https://cran.r-project.org/.  Look in the “Download and Install R” area. Click on the appropriate link based on your operating system.  
 
-**If you already have R on your computer, make sure you have the most updated version of R on your personal computer (4.4.3 "Trophy Case").**
+**If you already have R on your computer and the version number is less than 4.4.3, make sure you re-download it. The most updated version of R is 4.5.2 "[Not] Part in a Rumble".**
 
 
 <div style="margin-bottom:25px;">
@@ -411,7 +411,7 @@ You should see the objects *b* and *v1* pop up in the Environment tab on the top
 
 </center>
 
-Note that the name *v1* is nothing special here. You could have named the object *x* or *crd150* or your pet's name (mine was *charlie*).  You can't, however, name objects using special characters (e.g. !, @, $) or only numbers (although you can combine numbers and letters, but a number cannot be at the beginning e.g. *2d2*).  For example, you'll get an error if you save the vector *c(4,16,9)* to an object with the following names
+Note that the name *v1* is nothing special here. You could have named the object *x* or *crd150* or your pet's name (mine was *freya*).  You can't, however, name objects using special characters (e.g. !, @, $) or only numbers (although you can combine numbers and letters, but a number cannot be at the beginning e.g. *2d2*).  For example, you'll get an error if you save the vector *c(4,16,9)* to an object with the following names
 
 
 ``` r
@@ -430,14 +430,14 @@ Also note that to distinguish a character value from a variable name, it needs t
 
 
 ``` r
-brazil
+zufall
 ```
 
 ```
-## Error: object 'brazil' not found
+## Error: object 'zufall' not found
 ```
 
-The error occurs because R tries to print the value of the object *brazil*, but there is no such object. So remember that any time you get the error message `object 'something' not found`, the most likely reason is that you forgot to quote a character value. If not, it probably means that you have misspelled, or not yet created, the object that you are referring to.  I've included the common pitfalls and R tips in this class [resource](https://ezufall.github.io/crd150_2026.github.io/tips.html).  
+The error occurs because R tries to print the value of the object *zufall*, but there is no such object. So remember that any time you get the error message `object 'something' not found`, the most likely reason is that you forgot to quote a character value. If not, it probably means that you have misspelled, or not yet created, the object that you are referring to.  I've included the common pitfalls and R tips in this class [resource](https://ezufall.github.io/crd150_2026.github.io/tips.html).  
 
 Every vector has two key properties: *type* and *length*.  The type property indicates the data type that the vector is holding. Use the command `typeof()` to determine the type 
 

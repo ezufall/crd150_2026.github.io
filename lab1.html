@@ -519,9 +519,9 @@ href="https://cran.r-project.org/"
 class="uri">https://cran.r-project.org/</a>. Look in the “Download and
 Install R” area. Click on the appropriate link based on your operating
 system.</p>
-<p><strong>If you already have R on your computer, make sure you have
-the most updated version of R on your personal computer (4.4.3 “Trophy
-Case”).</strong></p>
+<p><strong>If you already have R on your computer and the version number
+is less than 4.4.3, make sure you re-download it. The most updated
+version of R is 4.5.2 “[Not] Part in a Rumble”.</strong></p>
 <div style="margin-bottom:25px;">
 
 </div>
@@ -904,7 +904,7 @@ Environment tab on the top right window of your RStudio interface.</p>
 </center>
 <p>Note that the name <em>v1</em> is nothing special here. You could
 have named the object <em>x</em> or <em>crd150</em> or your pet’s name
-(mine was <em>charlie</em>). You can’t, however, name objects using
+(mine was <em>freya</em>). You can’t, however, name objects using
 special characters (e.g. !, @, $) or only numbers (although you can
 combine numbers and letters, but a number cannot be at the beginning
 e.g. <em>2d2</em>). For example, you’ll get an error if you save the
@@ -919,10 +919,10 @@ vector <em>c(4,16,9)</em> to an object with the following names</p>
 it needs to be quoted. “v1” is a character value whereas <em>v1</em> is
 a variable. One of the most common mistakes for beginners is to forget
 the quotes.</p>
-<pre class="r"><code>brazil</code></pre>
-<pre><code>## Error: object &#39;brazil&#39; not found</code></pre>
+<pre class="r"><code>zufall</code></pre>
+<pre><code>## Error: object &#39;zufall&#39; not found</code></pre>
 <p>The error occurs because R tries to print the value of the object
-<em>brazil</em>, but there is no such object. So remember that any time
+<em>zufall</em>, but there is no such object. So remember that any time
 you get the error message <code>object 'something' not found</code>, the
 most likely reason is that you forgot to quote a character value. If
 not, it probably means that you have misspelled, or not yet created, the
