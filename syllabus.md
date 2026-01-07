@@ -69,7 +69,7 @@ The following is an abridged version of the course syllabus.  A full course syll
 
 * Celine John Philip
 * *Contact*: cjphilip.at.ucdavis.edu  
-* *Office*: Zoom (get link from Celine)
+* *Office*: Zoom (link [here](https://ucdavis.zoom.us/j/94850873441?pwd=YFYXcYSXa1Rikc40sQIokP6SmBbHtK.1))
 * *Office hours*: Fridays, 9:00-10:30 am
 
 <div style="margin-bottom:25px;">
