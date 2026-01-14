@@ -135,7 +135,7 @@ When you load it in using `library()`, a check mark appears next to **matrixStat
 
 <br>
 
-**Note that you only need to install packages once (`install.pacakges()`), but you need to load them each time you relaunch RStudio (`library()`)**.  Repeat after me: Install once, library every time. This means your R Markdown should never have the function `install.pacakges()` but will likely always have the function `library()`.
+**Note that you only need to install packages once (`install.packages()`), but you need to load them each time you relaunch RStudio (`library()`)**.  Repeat after me: Install once, library every time. This means your R Markdown should never have the function `install.packages()` but will likely always have the function `library()`.
 
 Are you ready to enter the **tidyverse**? Yes, of course, so here is a badge!  Wear it proudly my young friends! And away we go!
 
