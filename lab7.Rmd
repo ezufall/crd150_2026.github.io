@@ -100,7 +100,12 @@ library(flextable)
 ## **Read in the data**
 \
 
-The following code uses the Census API to bring in demographic tract-level data for four of the most populated cities in California: San Diego, San Jose, San Francisco, and Fresno.  We won't go through each line of code in detail because we've covered all of these operations and functions in prior labs.  We've embedded comments within the code that briefly explains what each chunk is doing. Go back to prior guides (or RDS/GWR) if you need further help. 
+The following code uses the Census API to bring in demographic tract-level data for four of the most populated cities in California: San Diego, San Jose, San Francisco, and Fresno.  We won't go through each line of code in detail because we've covered all of these operations and functions in prior labs.  We've embedded comments within the code that briefly explains what each chunk is doing. Go back to prior guides (or RDS/GWR) if you need further help.
+
+See ACS codebook for the full list: https://api.census.gov/data/2019/acs/acs5/variables.html
+B03002_005 = American Indian and Alaska Native. 
+B03002_007 = Native Hawaiian and Other Pacific Islander
+B03002_008 = Other (Not Hispanic or Latino)
 
 ```{r warning=FALSE, results="hide", message=FALSE}
 # Bring in 2019-2023 census tract data using the Census API 
@@ -108,6 +113,7 @@ ca.tracts <- get_acs(geography = "tract",
               year = 2023,
               variables = c(tpop = "B03002_001", 
                             white = "B03002_003", black = "B03002_004",
+                            ai_an = "B03002_005", nhopi = "B03002_007",
                             asian = "B03002_006", hisp = "B03002_012"),
               state = "CA",
               survey = "acs5",
@@ -116,12 +122,18 @@ ca.tracts <- get_acs(geography = "tract",
 
 # Calculate, rename and keep essential vars. 
 ca.tracts <- ca.tracts %>% 
-  mutate(pwhite = 100*(whiteE/tpopE), pasian = 100*(asianE/tpopE), 
-        pblack = 100*(blackE/tpopE), phisp = 100*(hispE/tpopE)) %>%
-  rename(white = whiteE, asian = asianE, black = blackE,
-         hisp = hispE, tpop = tpopE) %>%
-  select(GEOID,tpop, pwhite, pasian, pblack, phisp,
-           white, asian, black, hisp)  
+  mutate(pwhite = 100*(whiteE/tpopE), 
+        pblack = 100*(blackE/tpopE), 
+        pai_an = 100*(ai_anE/tpopE),
+        pnhopi = 100*(nhopiE/tpopE),
+        pasian = 100*(asianE/tpopE), 
+        phisp = 100*(hispE/tpopE)
+        
+        ) %>%
+  rename(white = whiteE, black = blackE,
+         ai_an = ai_anE, nhopi = nhopiE, asian = asianE, hisp = hispE,  tpop = tpopE) %>%
+  select(GEOID,tpop, pwhite, pblack, pai_an, pnhopi, pasian, phisp, 
+           white, black, ai_an, nhopi, asian, hisp)  
 
 # Bring in city boundaries
 pl <- places(state = "CA", year = 2023, cb = TRUE)
@@ -179,7 +191,7 @@ We don't need all of these new variables, so let's use `select()` to remove the 
 
 ```{r}
 large.tracts <- large.tracts %>%
-                select(-rmapshaperid, -(STATEFP:GEOIDFQ), -(NAMELSAD:AWATER))
+                select(-(STATEFP:GEOIDFQ), -(NAMELSAD:AWATER))
 ```
 
 Make sure we've kept the variables we need
@@ -194,7 +206,7 @@ names(large.tracts)
 \
 
 
-Before calculating segregation, you should map neighborhood racial/ethnic composition in order to gain a visual understanding of how race/ethnic groups are spatially distributed in your study region. For example, let's map percent Hispanic in Fresno.
+Before calculating segregation, you should map neighborhood racial/ethnic composition in order to gain a visual understanding of how race/ethnic groups are spatially distributed in your study region. For example, let's map percent Hispanic population in Fresno.
 
 ```{r}
 large.tracts %>%
@@ -209,11 +221,11 @@ large.tracts %>%
                 text.size = 0.75, 
                 position = tm_pos_in("right", "bottom")) + 
    tm_compass(type = "4star", position = tm_pos_in("right", "top")) +
-   tm_title("Percent Hispanic in Fresno City Tracts, 2019-2023") +
+   tm_title("Percent Hispanic Population in Fresno City Tracts, 2019-2023") +
    tm_layout(scale = 0.6, frame = FALSE) 
 ```
 
-How does this spatial distribution compare to percent non-Hispanic white?
+How does this spatial distribution compare to percent non-Hispanic white population?
 
 ```{r}
 large.tracts %>%
@@ -228,7 +240,7 @@ large.tracts %>%
                 text.size = 0.75, 
                 position = tm_pos_in("right", "bottom")) + 
    tm_compass(type = "4star", position = tm_pos_in("right", "top")) +
-   tm_title("Percent White in Fresno City Tracts, 2019-2023") +
+   tm_title("Percent White Population in Fresno City Tracts, 2019-2023") +
    tm_layout(scale = 0.6, frame = FALSE)
 ```
 
@@ -250,7 +262,7 @@ tm_shape(unit = "mi") +
   tm_layout(scale = 0.6, frame = FALSE)
 ```
 
-It looks like a North/South divide.  Map the other two race/ethnic groups in Fresno and all the groups in the other three cities.
+It looks like a North/South divide.  Choose another racial/ethnic group and one of the other three cities to map. 
 
 <div style="margin-bottom:25px;">
 </div>
