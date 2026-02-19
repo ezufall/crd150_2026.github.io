@@ -293,7 +293,7 @@ View(v23)
 
 A window should have popped up showing you a record layout of the 2019-2023 ACS.  To search for specific data, select "Filter" located at the top left of this window and use the search boxes that pop up.  For example, type in "Hispanic" in the box under "Label".  You should see near the top of the list the first set of variables we'll want to download - race/ethnicity.  
 
-Another way of finding variable names is to search them using [Social Explorer](https://www.socialexplorer.com/data/metadata/).  Click on the appropriate survey data year and then "American Community Survey Tables", which will take you to a list of variables with their Census IDs.
+Another way of finding variable names is to search them using [the ACS codebook](https://api.census.gov/data/2019/acs/acs5/variables.html).  
 
 Let's extract race/ethnicity data and total population for California counties using the `get_acs()` command
 

@@ -753,10 +753,8 @@ example, type in “Hispanic” in the box under “Label”. You should see
 near the top of the list the first set of variables we’ll want to
 download - race/ethnicity.</p>
 <p>Another way of finding variable names is to search them using <a
-href="https://www.socialexplorer.com/data/metadata/">Social
-Explorer</a>. Click on the appropriate survey data year and then
-“American Community Survey Tables”, which will take you to a list of
-variables with their Census IDs.</p>
+href="https://api.census.gov/data/2019/acs/acs5/variables.html">the ACS
+codebook</a>.</p>
 <p>Let’s extract race/ethnicity data and total population for California
 counties using the <code>get_acs()</code> command</p>
 <pre class="r"><code>ca &lt;- get_acs(geography = &quot;county&quot;, 
