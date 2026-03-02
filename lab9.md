@@ -92,7 +92,7 @@ StoryMaps are web applications that let authors combine beautiful maps with narr
 
 Signing into your ArcGIS online account is super easy.  Just follow these steps
 
-1. Navigate to the UC Davis ArcGIS Online [splash page](https://ucdavis.maps.arcgis.com/home/index.html){target="_blank"}
+1. Navigate to the UC Davis ArcGIS Online [splash page](https://ucdavis.maps.arcgis.com/home/index.html){target="_blank"}. I highly recommend you do not use Chrome. (Use Safari or Firefox)
 
 2. Click on "Sign In" located at the top right corner of the page.
 
