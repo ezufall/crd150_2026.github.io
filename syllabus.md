@@ -286,7 +286,7 @@ The schedule is subject to revision throughout the quarter.  Please see the full
    <td style="text-align:left;"> 3 </td>
    <td style="text-align:left;width: 5em; "> 21-Jan </td>
    <td style="text-align:left;"> Lecture </td>
-   <td style="text-align:left;"> Intro to US Census. Working with U.S. Census data in R </td>
+   <td style="text-align:left;"> Guest Lecture: Sara Ludwick. Intro to US Census. Working with U.S. Census data in R </td>
    <td style="text-align:left;width: 13em; ">  </td>
    <td style="text-align:left;"> HW 2 due </td>
    <td style="text-align:left;">  </td>
