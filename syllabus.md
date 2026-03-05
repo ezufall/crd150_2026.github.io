@@ -486,7 +486,7 @@ The schedule is subject to revision throughout the quarter.  Please see the full
    <td style="text-align:left;"> 10 </td>
    <td style="text-align:left;width: 5em; "> 9-Mar </td>
    <td style="text-align:left;"> Lecture </td>
-   <td style="text-align:left;"> Guest Lecture (tentative) </td>
+   <td style="text-align:left;"> Guest Lecture: Maryam Tasnif-Abbasi from DTSC Office of Brownfields </td>
    <td style="text-align:left;width: 13em; ">  </td>
    <td style="text-align:left;">  </td>
    <td style="text-align:left;">  </td>
@@ -496,20 +496,20 @@ The schedule is subject to revision throughout the quarter.  Please see the full
    <td style="text-align:left;"> 10 </td>
    <td style="text-align:left;width: 5em; "> 11-Mar </td>
    <td style="text-align:left;"> Lecture </td>
-   <td style="text-align:left;"> Application related to guest lecture (tentative) </td>
+   <td style="text-align:left;"> Lab XC (attendance optional) </td>
    <td style="text-align:left;width: 13em; ">  </td>
    <td style="text-align:left;">  </td>
-   <td style="text-align:left;">  </td>
+   <td style="text-align:left;"> quizzes returned </td>
    <td style="text-align:left;">  </td>
   </tr>
   <tr>
    <td style="text-align:left;border-bottom: 3px solid #000;"> 10 </td>
    <td style="text-align:left;width: 5em; border-bottom: 3px solid #000;"> 12-Mar </td>
    <td style="text-align:left;border-bottom: 3px solid #000;"> Lab </td>
-   <td style="text-align:left;border-bottom: 3px solid #000;"> Lab related to guest lecture (tentative) </td>
+   <td style="text-align:left;border-bottom: 3px solid #000;"> Lab XC (attendance optional) </td>
    <td style="text-align:left;width: 13em; border-bottom: 3px solid #000;">  </td>
    <td style="text-align:left;border-bottom: 3px solid #000;">  </td>
-   <td style="text-align:left;border-bottom: 3px solid #000;">  </td>
+   <td style="text-align:left;border-bottom: 3px solid #000;"> quizzes returned </td>
    <td style="text-align:left;border-bottom: 3px solid #000;">  </td>
   </tr>
   <tr>
